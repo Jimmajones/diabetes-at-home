@@ -1,8 +1,32 @@
 @font-face {
-	font-family: OpenSans;
+	font-family: "Open Sans";
 	src: url(fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf);
 }
 
+.title {
+	/* Background */
+	width: 130px;
+	height: 76px;
+	background: #FDC500;
+	border: 2px solid;
+	filter: drop-shadow(5px 5px 0px #525252);
+	/* Alignment of content */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.title h1 {
+	/* Font styling */
+	font-style: italic;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 24px;
+}
+
 body {
-	font-family: OpenSans;
+	/* Use Open Sans unless specified otherwise. */
+	font-family: "Open Sans", Arial, sans-serif;
+	/* Light purple to yellow gradient */
+	background: linear-gradient(to bottom right, #7B61FF, #FDC500);
 }
