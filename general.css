@@ -30,3 +30,27 @@ body {
 	/* Light purple to yellow gradient */
 	background: linear-gradient(to bottom right, #7B61FF, #FDC500);
 }
+
+main {
+  padding: 5% 10%;
+}
+
+.yt-vid-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.yt-vid-container::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+
+.yt-vid-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
