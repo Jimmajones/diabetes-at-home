@@ -3,6 +3,32 @@
 	src: url(fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf);
 }
 
+body {
+	/* Use Open Sans unless specified otherwise. */
+	font-family: "Open Sans", Arial, sans-serif;
+	/* Light purple to yellow gradient */
+	background: linear-gradient(to bottom right, #7B61FF, #FDC500);
+}
+
+main {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 16%;
+	margin-right: 16%;
+	
+	border-radius: 25px;
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+h1, h2 {
+	text-align: center;
+}
+
 .title {
 	/* Background */
 	width: 130px;
@@ -24,38 +50,51 @@
 	line-height: 24px;
 }
 
-body {
-	/* Use Open Sans unless specified otherwise. */
-	font-family: "Open Sans", Arial, sans-serif;
-	/* Light purple to yellow gradient */
-	background: linear-gradient(to bottom right, #7B61FF, #FDC500);
-}
-
-main {
-	padding-top: 5%;
-	padding-bottom: 5%;
-	padding-left: 10%;
-	padding-right: 10%;
-}
-
-
-.yt-vid {
+/* YouTube embed responsive design code
+ * adapted from StackOverflow user 'bron':
+ * https://stackoverflow.com/a/59595248 */
+.yt-embed {
+	border: 2px solid;
+	/* This container will maintain a 16:9 ratio relative
+	 * to its contents. */
 	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
 	height: 0;
-	padding-bottom: 56.25%;
+	overflow: hidden;
 }
 
-.yt-vid iframe {
+.yt-embed iframe {
+	/* Scale the iframe to the page size. */
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	max-width: 100%;
 }
 
-.yt-vid-wrap {
-	width: 100%;
-	max-width: 600px;
+/* Phone layout */
+@media screen and (max-width: 900px) {
+	.yt-embed {
+		width: 100%;
+	}
+	
+	main {
+		margin-top: 3%;
+		margin-bottom: 3%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
 }
 
+/* Desktop layout */
+@media screen and (min-width: 901px) {
+	.yt-embed {
+		width: 576px;
+		padding-bottom: 324px;
+	}
+	
+	.yt-embed-container {
+		float: right;
+		padding: 14px;
+	}
+}
