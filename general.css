@@ -29,6 +29,10 @@ footer {
 	width: 100%;
 	background-color: #FDC500;
 	border-top: 2px solid;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 h1, h2 {
@@ -53,6 +57,7 @@ p {
 
 footer ul {
 	font-size: 15px;
+	line-height: 30px;
 }
 
 .title {
@@ -115,7 +120,7 @@ footer ul {
 /* Desktop layout */
 @media screen and (min-width: 901px) {
 	.yt-embed {
-		width: 576px;
-		padding-bottom: 324px;
+		width: 560px;
+		padding-bottom: 315px;
 	}
 }
