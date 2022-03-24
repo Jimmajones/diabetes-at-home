@@ -1,13 +1,13 @@
 @font-face {
-	font-family: "Open Sans";
-	src: url(fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf);
+	font-family: "Monsterrat";
+	src: url(fonts/Monsterrat/Monsterrat-VariableFont_wdth,wght.ttf);
 }
 
 body {
 	/* Use Open Sans unless specified otherwise. */
-	font-family: "Open Sans", Arial, sans-serif;
+	font-family: "Monsterrat", Arial, sans-serif;
 	/* Light purple to yellow gradient */
-	background: linear-gradient(to bottom right, #7B61FF, #FDC500);
+	background-color: #7B61FF;
 }
 
 main {
@@ -21,12 +21,38 @@ main {
 	margin-left: 16%;
 	margin-right: 16%;
 	
-	border-radius: 25px;
-	background-color: rgba(255, 255, 255, 0.12);
+	border: 2px solid;
+	background-color: rgba(255, 255, 255);
+}
+
+footer {
+	width: 100%;
+	background-color: #FDC500;
+	border-top: 2px solid;
 }
 
 h1, h2 {
 	text-align: center;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+p {
+	font-size: 16px;
+}
+
+footer ul {
+	font-size: 15px;
 }
 
 .title {
@@ -45,8 +71,8 @@ h1, h2 {
 .title h1 {
 	/* Font styling */
 	font-style: italic;
-	font-weight: 700;
-	font-size: 24px;
+	font-weight: 600;
+	font-size: 22px;
 	line-height: 24px;
 }
 
@@ -81,8 +107,8 @@ h1, h2 {
 	main {
 		margin-top: 3%;
 		margin-bottom: 3%;
-		margin-left: 5%;
-		margin-right: 5%;
+		margin-left: 7%;
+		margin-right: 7%;
 	}
 }
 
@@ -91,10 +117,5 @@ h1, h2 {
 	.yt-embed {
 		width: 576px;
 		padding-bottom: 324px;
-	}
-	
-	.yt-embed-container {
-		float: right;
-		padding: 14px;
 	}
 }
