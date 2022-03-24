@@ -6,8 +6,7 @@
 body {
 	/* Use Open Sans unless specified otherwise. */
 	font-family: "Montserrat", Arial, sans-serif;
-	/* Light purple to yellow gradient */
-	background-color: #7B61FF;
+	background-color: #7B61FF; /* purple-blue */
 }
 
 main {
@@ -22,12 +21,12 @@ main {
 	margin-right: 16%;
 	
 	border: 2px solid;
-	background-color: rgba(255, 255, 255);
+	background-color: white;
 }
 
 footer {
 	width: 100%;
-	background-color: #FDC500;
+	background-color: #FDC500; /* orange-yellow */
 	border-top: 2px solid;
 	padding-top: 20px;
 	padding-bottom: 50px;
@@ -56,21 +55,43 @@ p {
 footer ul {
 	font-size: 15px;
 	line-height: 30px;
+	/* Remove bullet point and indentation. */
+	list-style: none;
+	padding-left: 0;
 }
 
+/* Underline only when hovering over the link. */
+a:link {
+	text-decoration: none;
+}
+
+footer ul a:link {
+	color: black;
+}
+
+footer ul a:visited {
+	color: black;
+}
+
+.current {
+	color: #242424; /* very dark gray */
+}
+
+/* The <div> element for the rectangle title in the top-left corner. */
 .title {
 	/* Background */
 	width: 130px;
 	height: 76px;
-	background: #FDC500;
+	background: #FDC500; /* orange-yellow */
 	border: 2px solid;
-	filter: drop-shadow(5px 5px 0px #525252);
+	filter: drop-shadow(5px 5px 0px #525252); /* dark gray */
 	/* Alignment of content */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
+/* The text within the title <div> element. */
 .title h1 {
 	/* Font styling */
 	font-style: italic;
@@ -84,9 +105,10 @@ footer ul {
  * adapted from StackOverflow user 'bron':
  * https://stackoverflow.com/a/59595248 */
 .yt-embed {
+	border: 2px solid;
+	/* Keep the container centred. */
 	margin: auto;
 	width: 50%;
-	border: 2px solid;
 	/* This container will maintain a 16:9 ratio relative
 	 * to its contents. */
 	position: relative;
@@ -106,10 +128,13 @@ footer ul {
 
 /* Phone layout */
 @media screen and (max-width: 900px) {
+	/* Dynamic size for embedded video. */
 	.yt-embed {
 		width: 100%;
 	}
 	
+	/* Thin margin - the white main background should take up the
+	 * majority of the screen. */
 	main {
 		margin-top: 3%;
 		margin-bottom: 3%;
@@ -120,6 +145,7 @@ footer ul {
 
 /* Desktop layout */
 @media screen and (min-width: 901px) {
+	/* Fixed size for embedded video. */
 	.yt-embed {
 		width: 560px;
 		padding-bottom: 315px;
