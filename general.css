@@ -1,11 +1,11 @@
 @font-face {
-	font-family: "Monsterrat";
-	src: url(fonts/Monsterrat/Monsterrat-VariableFont_wdth,wght.ttf);
+	font-family: "Montserrat";
+	src: url(fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
 body {
 	/* Use Open Sans unless specified otherwise. */
-	font-family: "Monsterrat", Arial, sans-serif;
+	font-family: "Montserrat", Arial, sans-serif;
 	/* Light purple to yellow gradient */
 	background-color: #7B61FF;
 }
