@@ -35,16 +35,14 @@ footer {
 	padding-right: 30px;
 }
 
-h1, h2 {
-	text-align: center;
-}
-
 h1 {
 	font-size: 30px;
+	text-align: center;
 }
 
 h2 {
 	font-size: 20px;
+	text-align: center;
 }
 
 h3 {
@@ -81,10 +79,13 @@ footer ul {
 	line-height: 24px;
 }
 
+
 /* YouTube embed responsive design code
  * adapted from StackOverflow user 'bron':
  * https://stackoverflow.com/a/59595248 */
 .yt-embed {
+	margin: auto;
+	width: 50%;
 	border: 2px solid;
 	/* This container will maintain a 16:9 ratio relative
 	 * to its contents. */
