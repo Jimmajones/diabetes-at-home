@@ -24,6 +24,12 @@ main {
 	background-color: white;
 }
 
+header {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
 footer {
 	width: 100%;
 	background-color: #FDC500; /* orange-yellow */
@@ -103,7 +109,6 @@ footer ul a:visited {
 	font-size: 22px;
 	line-height: 24px;
 }
-
 
 /* YouTube embed responsive design code
  * adapted from StackOverflow user 'bron':
