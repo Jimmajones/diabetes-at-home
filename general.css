@@ -65,6 +65,10 @@ a:link {
 	text-decoration: none;
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
 footer ul a:link {
 	color: black;
 }
