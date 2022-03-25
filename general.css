@@ -16,18 +16,15 @@ h2 {
 	font-size: 20px;
 }
 
-h3,
+h3 {
+	font-size: 16px;
+}
 p {
 	font-size: 16px;
 }
 
-/* reset all the default padding and margin */
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
+	margin: 0;
 	font-family: "Montserrat", Arial, sans-serif;
 	background-color: var(--primary-bg);
 }
@@ -39,10 +36,12 @@ header {
 }
 
 main {
-  padding: 5vh 8vw;
-  margin: 5vh 5vh 0; /* top | right & left | bot */
+	padding: 5vh 8vw;
+	margin: 3vh 5vh 0; /* top | right & left | bot */
 	
-	border: 2px solid black;
+	border-top: 2px solid;
+	border-right: 2px solid;
+	border-left: 2px solid;
 	background-color: white;
 }
 
@@ -50,7 +49,7 @@ footer {
 	/* width: 100%; */ /* for some reason this is making the footer wider than the screen */
 	background-color: var(--secondary-bg);
 	border-top: 2px solid;
-  padding: 30px;
+	padding: 30px;
 }
 
 /* adding spacings between text elements */
@@ -92,6 +91,7 @@ a:hover {
 	text-decoration: underline;
 }
 
+/* Footer links should be a bit more 'subtle'. */
 footer ul a:link {
 	color: black;
 }
@@ -162,7 +162,7 @@ footer ul a:visited {
 	/* Thin margin - the white main background should take up the
 	 * majority of the screen. */
 	main {
-    margin: 3% 7%;
+		margin: 3% 7%; /* top/bottom - left/right */
 	}
 }
 
