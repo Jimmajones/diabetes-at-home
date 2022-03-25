@@ -66,10 +66,26 @@ p {
 }
 
 .section {
-  /* border: solid red 2px; */
   margin-bottom: 2em;
 }
 /******************************************/
+.drawkit-health {
+  display: block;
+  max-width: 50%;
+  max-height: 50%;
+  margin: 2em auto;
+  border: solid black 2px;
+}
+
+.avatar {
+  display: flex;
+}
+
+.avatar img {
+  max-width: 20%;
+  max-height: 20%;
+}
+
 .section ul {
   padding-left: 30px;
   list-style-type: circle;
