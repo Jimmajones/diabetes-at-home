@@ -76,21 +76,24 @@ p {
 .drawkit-health {
 	/* Center the image. */
 	display: block;
-	margin: auto;
 	width: 50%;
+  margin: 2em auto;
 	/* Ensure it doesn't get too big. */
 	max-width: 300px;
-	margin: 2em auto;
 	border: solid black 2px;
+}
+
+/* make the image in about-diabetes round */
+#drawkit-health-2 {
+  border-radius: 50%;
 }
 
 /* We want five avatars on a single row, centered on the page. */
 .avatar {
-	display: block;
+	display: flex;
 	margin: auto;
 	width: 80%;
 	max-width: 1000px;
-	display: flex;
 }
 
 .avatar img {
