@@ -53,22 +53,24 @@ footer {
   padding: 30px;
 }
 
+/* adding spacings between text elements */
+.about-title {
+  margin-bottom: 1em;
+}
+
 h1,
 h2,
 h3,
 p {
-  margin-bottom: 1em;
+  margin-bottom: .8em;
 }
 
-.diabetes-title,
-.diabetes-intro,
-.diabetes-types,
-.diabetes-outro {
+.section {
   /* border: solid red 2px; */
   margin-bottom: 2em;
 }
-
-.diabetes-outro ul {
+/******************************************/
+.section ul {
   padding-left: 30px;
   list-style-type: circle;
 }
