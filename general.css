@@ -9,7 +9,7 @@
 }
 
 h1 {
-	font-size: 30px;
+	font-size: 32px;
 }
 
 h2 {
@@ -34,7 +34,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	padding: 10px;
+	padding: 2% 2% 0; /* top | right & left | bot */
 }
 
 /* Main content should have a white background, take up the majority
@@ -69,7 +69,6 @@ p {
 }
 
 .section {
-
 	margin-bottom: 2em;
 }
 
@@ -90,7 +89,7 @@ p {
 	display: block;
 	margin: auto;
 	width: 80%;
-	max-width: 1200px;
+	max-width: 1000px;
 	display: flex;
 }
 
@@ -204,5 +203,8 @@ footer ul a:visited {
 	.yt-embed {
 		width: 560px;
 		padding-bottom: 315px;
+		float: right;
+		margin-left: 14px;
+		margin-bottom: 8px;
 	}
 }
