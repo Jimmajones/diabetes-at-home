@@ -31,6 +31,7 @@ h3 {
 p {
 	font-size: 16px;
 	margin-bottom: 0.8em;
+  line-height: 30px;
 }
 
 /* Add some glamour to text-content lists. */
@@ -120,11 +121,6 @@ img.drawkit-health {
 	/* A bit of space around them and border. */
 	margin: 2em auto;
 	border: solid black 2px;
-}
-
-/* make the image in about-diabetes round */
-#drawkit-health-2 {
-	border-radius: 50%;
 }
 
 /* We want five avatars on a single row, centered on the page. */
