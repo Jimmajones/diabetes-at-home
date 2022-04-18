@@ -1,0 +1,22 @@
+{
+  "name": "group-project-info30005",
+  "version": "1.0.0",
+  "description": "This is the group project for Web Information Technologies.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jimmajones/Group-Project-INFO30005.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jimmajones/Group-Project-INFO30005/issues"
+  },
+  "homepage": "https://github.com/Jimmajones/Group-Project-INFO30005#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
