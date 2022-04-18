@@ -1,11 +1,33 @@
-// Import express
+// Import external packages.
 const express = require('express')
+const exphbs = require("express-handlebars")
+
 // Set your app up as an express app
 const app = express()
-// Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.
+
+// Configure Handlebars.
+app.engine("hbs", exphbs.engine({
+	defaultlayout: "main",
+	extname: "hbs"
+}))
+
+app.set("view engine", "hbs")
+app.use(express.static("public"))
+
+// Our "home page" - currently the About Diabetes page.
 app.get('/', (req, res) => {
-    res.send('Our demo app is working!')
+    res.render("about_diabetes.hbs")
 })
+
+// Serve up static pages.
+app.get('/about_diabetes.html', (req, res) => {
+    res.render("about_diabetes.hbs")
+})
+
+app.get('/about_website.html', (req, res) => {
+	res.render("about_website.hbs")
+})
+
 // Tells the app to listen on port 3000 and logs that information to the console.
 app.listen(process.env.PORT || 3000, () => { 
     console.log('The library app is running!') 

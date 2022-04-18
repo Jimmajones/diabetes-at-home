@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/Jimmajones/Group-Project-INFO30005#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.5"
   },
   "devDependencies": {
     "prettier": "^2.6.2"
