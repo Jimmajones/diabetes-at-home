@@ -15,7 +15,7 @@ app.use(express.static("public"))
 
 // Our "home page" - currently the About Diabetes page.
 app.get('/', (req, res) => {
-  res.render("about_diabetes.hbs", {layout: 'clinician.hbs'})
+  res.render("about_diabetes.hbs", {layout: 'patient.hbs'})
 })
 
 // Serve up static pages.

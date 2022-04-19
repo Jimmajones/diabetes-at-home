@@ -1,3 +1,8 @@
+/***************** general styles ********************/
+* {
+  box-sizing: border-box;
+}
+
 html {
 	/* Variables for convenience. */
 	--primary-bg: #7b61ff; /* purple-blue */ 
@@ -7,6 +12,14 @@ html {
 @font-face {
 	font-family: "Montserrat";
 	src: url(fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+body {
+	/* Apply Montserrat font unless specified otherwise. */
+	font-family: "Montserrat", Arial, sans-serif;
+	background-color: var(--primary-bg);
+	margin: 0; /* We want the footer to fill the entire screen. */
+  padding: 0;
 }
 
 h1 {
@@ -34,23 +47,108 @@ p {
   line-height: 30px;
 }
 
-/* Add some glamour to text-content lists. */
-.section ul {
-  padding-left: 30px;
-  list-style-type: circle;
+
+/******************* logo *******************/
+/* The <div> element for the website logo/title in the top-left corner. */
+.logo {
+	/* Background */
+	width: 130px;
+	height: 76px;
+	background: var(--secondary-bg); /* orange-yellow */
+	border: 2px solid;
+	filter: drop-shadow(5px 5px 0px #000000);
+	/* Alignment of content */
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-/* Underline only when hovering over the link. */
-a:link {
-	text-decoration: none;
+/* The text within the title <div> element. */
+.logo h1 {
+	/* Font styling */
+	font-style: italic;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 24px;
 }
 
-a:hover {
-	text-decoration: underline;
+
+/******************* navbar *******************/
+/* Title in the top-left corner, menu icon in the top-right corner. */
+/* logo | search bar |            content */
+.navbar {
+	display: flex;
+  position: relative;
+	justify-content: space-between;
+  align-items: center;
+	padding: 2% 2% 0; /* top | right & left | bottom */
 }
 
-/* Footer links are structurally a list, but we
- * don't want them to appear like (a typical) one. */
+.nav-content-container ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-content-container li {
+  list-style: none;
+}
+
+.nav-content-container li a {
+  text-decoration: none;
+  color: black;
+  padding: 1rem;
+  display: block;
+}
+
+/* a hamburger menu that appears in smaller screen */
+.navbar-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20px;
+  height: 20px;
+}
+
+.navbar-toggle .bar {
+  height: 2.5px;
+  width: 100%;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.divider {
+  height: 30px;
+  width: 2px;
+  background-color: black;
+}
+
+
+/* Main content should have a white background, take up the majority
+ * of the screen and have a border that "meshes" with the footer. */
+main {
+	padding: 2% 3%; /* top & bottom | right & left */
+	margin: 3% 7% 0; /* top | right & left | bottom */
+	
+	border-top: 2px solid;
+	border-right: 2px solid;
+	border-left: 2px solid;
+	background-color: white;
+}
+
+
+/************ footer *******************/
+/* Footer should take up the entire bottom of the screen. */
+footer {
+	background-color: var(--secondary-bg);
+	border-top: 2px solid;
+	padding: 20px 6% 40px; /* top | right & left | bottom */
+}
+
 footer ul {
 	font-size: 15px;
 	line-height: 30px;
@@ -73,61 +171,26 @@ footer ul li.current {
 	color: #242424; /* very dark gray */
 }
 
-body {
-	/* Apply Montserrat font unless specified otherwise. */
-	font-family: "Montserrat", Arial, sans-serif;
-	background-color: var(--primary-bg);
-	margin: 0; /* We want the footer to fill the entire screen. */
-}
 
-/* Title in the top-left corner, menu icon in the top-right corner. */
-/* logo | search bar |            content */
-.navbar {
-	display: flex;
-	justify-content: space-between;
-  align-items: center;
-	padding: 2% 2% 0; /* top | right & left | bottom */
-}
-
-.nav-content-container ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.nav-content-container li {
-  list-style: none;
-}
-
-.nav-content-container li a {
-  text-decoration: none;
-  color: black;
-  padding: 1rem;
-  display: block;
-}
-
-/* Main content should have a white background, take up the majority
- * of the screen and have a border that "meshes" with the footer. */
-main {
-	padding: 2% 3%; /* top & bottom | right & left */
-	margin: 3% 7% 0; /* top | right & left | bottom */
-	
-	border-top: 2px solid;
-	border-right: 2px solid;
-	border-left: 2px solid;
-	background-color: white;
-}
-
-/* Footer should take up the entire bottom of the screen. */
-footer {
-	background-color: var(--secondary-bg);
-	border-top: 2px solid;
-	padding: 20px 6% 40px; /* top | right & left | bottom */
-}
-
+/************ utilities *************/
 /* Adding spacings between groups of elements. */
 .section {
 	margin-bottom: 2em;
+}
+
+/* Add some glamour to text-content lists. */
+.section ul {
+  padding-left: 30px;
+  list-style-type: circle;
+}
+
+/* Underline only when hovering over the link. */
+a:link {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 /* Images should scale with the screen. */
@@ -154,29 +217,8 @@ img.drawkit-health {
 	width: 20%;
 }
 
-/* The <div> element for the website logo/title in the top-left corner. */
-.title-container {
-	/* Background */
-	width: 130px;
-	height: 76px;
-	background: var(--secondary-bg); /* orange-yellow */
-	border: 2px solid;
-	filter: drop-shadow(5px 5px 0px #000000);
-	/* Alignment of content */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
 
-/* The text within the title <div> element. */
-.title-container h1 {
-	/* Font styling */
-	font-style: italic;
-	font-weight: 600;
-	font-size: 22px;
-	line-height: 24px;
-}
-
+/************ embeded vid ***************/
 /* YouTube embed responsive design code
  * adapted from StackOverflow user 'bron':
  * https://stackoverflow.com/a/59595248 */
@@ -201,7 +243,10 @@ img.drawkit-health {
 	width: 100%;
 	height: 100%;
 }
+/**************************************************/
 
+
+/************** responsive design ******************/
 /* Phone layout */
 @media screen and (max-width: 900px) {
 	/* Dynamic size for embedded video. */
@@ -217,6 +262,40 @@ img.drawkit-health {
 	.avatar {
 		width: 100%;
 	}
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .nav-content-container {
+    display: none;
+    width: 100%;
+  }
+
+  /* to create a drop down menu */
+  /* .navbar { */
+  /*   flex-direction: column; */
+  /*   align-items: flex-start; */
+  /* } */
+  /**/
+  /* .nav-content-container ul { */
+  /*   width: 100%; */
+  /*   flex-direction: column; */
+  /* } */
+  /**/
+  /* .nav-content-container li { */
+  /*   text-align: center; */
+  /* } */
+  /**/
+  /* .nav-content-container li a { */
+  /*   padding: .5rem 1rem; */
+  /* } */
+  /**/
+  /* .nav-content-container.active { */
+  /*   display: flex; */
+  /* } */
+  /********************************/
+
 }
 
 /* Desktop layout */
@@ -230,3 +309,4 @@ img.drawkit-health {
 		margin-bottom: 8px;
 	}
 }
+/**************************************************/
