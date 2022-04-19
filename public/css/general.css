@@ -81,10 +81,29 @@ body {
 }
 
 /* Title in the top-left corner, menu icon in the top-right corner. */
-header {
+/* logo | search bar |            content */
+.navbar {
 	display: flex;
 	justify-content: space-between;
+  align-items: center;
 	padding: 2% 2% 0; /* top | right & left | bottom */
+}
+
+.nav-content-container ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-content-container li {
+  list-style: none;
+}
+
+.nav-content-container li a {
+  text-decoration: none;
+  color: black;
+  padding: 1rem;
+  display: block;
 }
 
 /* Main content should have a white background, take up the majority
@@ -136,7 +155,7 @@ img.drawkit-health {
 }
 
 /* The <div> element for the website logo/title in the top-left corner. */
-.title {
+.title-container {
 	/* Background */
 	width: 130px;
 	height: 76px;
@@ -150,7 +169,7 @@ img.drawkit-health {
 }
 
 /* The text within the title <div> element. */
-.title h1 {
+.title-container h1 {
 	/* Font styling */
 	font-style: italic;
 	font-weight: 600;
