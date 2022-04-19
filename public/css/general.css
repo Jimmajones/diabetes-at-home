@@ -1,4 +1,3 @@
-/***************** general styles ********************/
 * {
   box-sizing: border-box;
 }
@@ -7,6 +6,7 @@ html {
 	/* Variables for convenience. */
 	--primary-bg: #7b61ff; /* purple-blue */ 
 	--secondary-bg: #fdc500; /* orange-yellow */
+  --cream: #ffece5;
 }
 
 @font-face {
@@ -131,6 +131,7 @@ p {
 /* Main content should have a white background, take up the majority
  * of the screen and have a border that "meshes" with the footer. */
 main {
+  min-height: 85vh;
 	padding: 2% 3%; /* top & bottom | right & left */
 	margin: 3% 7% 0; /* top | right & left | bottom */
 	
@@ -215,6 +216,26 @@ img.drawkit-health {
 
 .avatar img {
 	width: 20%;
+}
+
+/* styles related to patient dashboard */
+.support-message {
+  /* keep to footer fixed at the bottom */
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /* some styling */
+  height: 50px;
+  border: solid black 2px;
+  background-color: var(--cream);
+
+  /* keep the message inside centered */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
