@@ -238,6 +238,60 @@ img.drawkit-health {
   align-items: center;
 }
 
+.sub-heading {
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+
+.patient-db-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* medical data input form */
+.input-container {
+  background: var(--cream);
+  border: solid black 2px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* center align and sizings */
+  margin: auto;
+  padding: 20px;
+  min-width: 300px;
+  max-width: 50vw;
+}
+
+/* each input section: label, input box, and textarea */
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-box input {
+  border: solid black 2px;
+}
+
+.input-box textarea {
+  border: solid black 2px;
+  padding: 5px;
+  resize: none;
+}
+
+.submit-btn {
+  background-color: var(--secondary-bg);
+  border: solid black 2px;
+  font-size: 16px;
+
+  margin: 20px auto 0;
+  width: 200px;
+  height: 40px;
+}
+
 
 /************ embeded vid ***************/
 /* YouTube embed responsive design code

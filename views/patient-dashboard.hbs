@@ -8,9 +8,37 @@
 <div class="patient-db-content">
 
   <div class="record-data-container">
-    <h2 class="sub-heading">Record daily data</h2>
+    <h2 class="sub-heading">Record today's data</h2>
 
-    <!-- data entry box here -->
+    <form class="input-container">
+
+      <div class="input-box">
+        <label for="glucose" class="placeholder">Blood Glucose Level (nmo/L)</label>
+        <input id="glucose" type="number"> 
+        <textarea placeholder="additional comments here..."></textarea>
+      </div>
+
+      <div class="input-box">
+        <label for="weight" class="placeholder">Weight (kg)</label>
+        <input id="weight" type="number"> 
+        <textarea placeholder="additional comments here..."></textarea>
+      </div>
+
+      <div class="input-box">
+        <label for="insulin" class="placeholder">Insulin (doses)</label>
+        <input id="insulin" type="number"> 
+        <textarea placeholder="additional comments here..."></textarea>
+      </div>
+
+      <div class="input-box">
+        <label for="exercise" class="placeholder">Exercise (steps)</label>
+        <input id="exercise" type="number"> 
+        <textarea placeholder="additional comments here..."></textarea>
+      </div>
+
+      <button class="submit-btn">Update</button>
+
+    </form>
 
   </div>
 
