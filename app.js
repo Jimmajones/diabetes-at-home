@@ -20,15 +20,15 @@ app.get('/', (req, res) => {
 
 // Serve up static pages.
 app.get('/about-diabetes.html', (req, res) => {
-  res.render("about-diabetes.hbs", {layout: 'patient.hbs', title: 'About Diabetes'})
+  res.render("about-diabetes", {layout: 'patient.hbs', title: 'About Diabetes'})
 })
 
 app.get('/about-website.html', (req, res) => {
-	res.render("about-website.hbs", {layout: 'patient.hbs', title: 'About Website'})
+	res.render("about-website", {layout: 'patient.hbs', title: 'About Website'})
 })
 
 // other pages
-app.get('/patient-dashboard.html', (req, res) => {
+app.get('/patient-dashboard', (req, res) => {
   res.render("patient-dashboard.hbs", {
     layout: 'patient.hbs', 
     title: 'Dashboard',
