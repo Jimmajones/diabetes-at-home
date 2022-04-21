@@ -13,6 +13,16 @@ module.exports = [
         last_name: 'Maguire',
         blood_threshold_lower: 2,
         blood_threshold_upper: 10,
+        data: [
+            {
+                blood_level: 5.5,
+                date: '2016-05-18T16:00:00Z',
+            },
+            {
+                blood_level: 4.9,
+                date: '2016-05-17T16:00:00Z',
+            },
+        ],
     },
 
     {
