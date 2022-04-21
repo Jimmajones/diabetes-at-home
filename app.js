@@ -9,12 +9,15 @@ const app = express()
 app.engine(
     'hbs',
     exphbs.engine({
-        defaultlayout: 'patient', // it doesn't work???
         extname: 'hbs',
     })
 )
 app.set('view engine', 'hbs')
 app.use(express.static('public'))
+
+// Link to our router.
+const appRouter = require('./routes/appRouter')
+app.use('/app', appRouter)
 
 // Our "home page" - currently the About Diabetes page.
 app.get('/', (req, res) => {
