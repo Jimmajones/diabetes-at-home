@@ -2,7 +2,7 @@
 const express = require('express')
 const exphbs = require("express-handlebars")
 
-// Set your app up as an express app
+// Set up the application as an Express app.
 const app = express()
 
 // Configure Handlebars.
@@ -19,11 +19,11 @@ app.get('/', (req, res) => {
 })
 
 // Serve up static pages.
-app.get('/about-diabetes.html', (req, res) => {
+app.get('/about-diabetes', (req, res) => {
   res.render("about-diabetes", {layout: 'patient.hbs', title: 'About Diabetes'})
 })
 
-app.get('/about-website.html', (req, res) => {
+app.get('/about-website', (req, res) => {
 	res.render("about-website", {layout: 'patient.hbs', title: 'About Website'})
 })
 
