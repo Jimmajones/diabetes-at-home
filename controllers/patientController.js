@@ -1,13 +1,5 @@
 const Patient = require('../models/patients')
-
-const getAllPatients = async (req, res, next) => {
-    try {
-        const patients = await Patient.find().lean()
-        return res.send(patients)
-    } catch (err) {
-        return next(err)
-    }
-}
+const Clinician = require('../models/clinicians')
 
 const getPatientById = async(req, res, next) => {
     try {
@@ -22,7 +14,17 @@ const getPatientById = async(req, res, next) => {
     }
 }
 
+const getClinician = async(req, res, next) => {
+    try {
+        const patient = await Patient.findById(req.params.patient_id).lean()
+        const clinician = await Clinician.findById(patient.clinician_id).lean()
+        return res.send(clinician)
+    } catch (err) {
+        return next(err)
+    }
+}
+
 module.exports = {
-    getAllPatients,
-    getPatientById
+    getPatientById,
+    getClinician
 }
