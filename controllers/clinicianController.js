@@ -38,6 +38,26 @@ const getAllPatientsOf = async (req, res, next) => {
     }
 }
 
+// Get the most recent health records of all patients.
+const getRecentPatientData = async (req, res, next) => {
+    try {
+        const clinician = await Clinician.findById(
+            req.params.clinician_id
+        ).lean()
+        for (patient_id in clinician.patient_list) {
+            const patient = await Patient.findById(patient_id).lean()
+            // Get the most recent health data entry.
+            const health_record = patient.daily_data
+                .find()
+                .limit(1)
+                .sort({ $natural: -1 })
+            res.send(health_record)
+        }
+    } catch (err) {
+        return next(err)
+    }
+}
+
 module.exports = {
     getAllClinicians,
     getClinicianById,
