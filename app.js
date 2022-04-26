@@ -72,6 +72,13 @@ app.get('/patient-dashboard', (req, res) => {
     })
 })
 
+app.get('/clinician-dashboard', (req, res) => {
+    res.render('patient-dashboard.hbs', {
+        layout: 'clinican.hbs',
+        
+    })
+})
+
 // Tells the app to listen on port 3000 and logs that information to the console.
 app.listen(process.env.PORT || 3000, () => {
     console.log('Diabetes@Home app is running!')
