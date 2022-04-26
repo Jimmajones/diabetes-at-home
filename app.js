@@ -42,6 +42,7 @@ app.get('/about-website', (req, res) => {
     })
 })
 
+/* TODO: data for testing only. delete later */
 // tmp data: things patient need to record
 const data = [
   {
@@ -62,6 +63,37 @@ const data = [
   },
 ]
 
+const daily_data = [
+    {
+        blood_glucose_level: {
+            value: Number,
+            comment: String,
+            time: { type: Date, default: Date.now },
+            within_threshold: Boolean,
+        },
+        weight: {
+            value: Number,
+            comment: String,
+            time: { type: Date, default: Date.now },
+            within_threshold: Boolean,
+        },
+        insulin_doses: {
+            value: Number,
+            comment: String,
+            time: { type: Date, default: Date.now },
+            within_threshold: Boolean,
+        },
+        exercise_steps: {
+            value: Number,
+            comment: String,
+            time: { type: Date, default: Date.now },
+            within_threshold: Boolean,
+        },
+        date_recorded: Date,
+    }
+]
+/**********************************************/
+
 // other pages
 app.get('/patient-dashboard', (req, res) => {
     res.render('patient-dashboard.hbs', {
@@ -69,6 +101,7 @@ app.get('/patient-dashboard', (req, res) => {
         title: 'Dashboard',
         username: 'Alice',
         health_data: data,
+        daily_data: daily_data,
     })
 })
 
