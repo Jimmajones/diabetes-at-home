@@ -203,7 +203,7 @@ img.drawkit-health {
 	max-width: 320px;
 	/* A bit of space around them and border. */
 	margin: 2em auto;
-	border: solid black 2px;
+	border: solid 2px;
 }
 
 /* We want five avatars on a single row, centered on the page. */
@@ -229,7 +229,7 @@ img.drawkit-health {
 
   /* some styling */
   height: 50px;
-  border: solid black 2px;
+  border: solid 2px;
   background-color: var(--cream);
 
   /* keep the message inside centered */
@@ -252,7 +252,7 @@ img.drawkit-health {
 /* medical data input form */
 .input-container {
   background: var(--cream);
-  border: solid black 2px;
+  border: solid 2px;
 
   display: flex;
   flex-direction: column;
@@ -273,25 +273,28 @@ img.drawkit-health {
 }
 
 .input-box input {
-  border: solid black 2px;
+  border: solid 2px;
 }
 
 .input-box textarea {
-  border: solid black 2px;
+  border: solid 2px;
   padding: 5px;
   resize: none;
 }
 
 .submit-btn {
-  background-color: var(--secondary-bg);
-  border: solid black 2px;
   font-size: 16px;
+
+  background-color: var(--secondary-bg);
+  border: solid 2px;
+  border-radius: 5px;
 
   margin: 20px auto 0;
   width: 200px;
   height: 40px;
 }
 
+/* search bar */
 .searchbar-container form {
     background-color: white;
     width: 300px;
@@ -300,7 +303,7 @@ img.drawkit-health {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 3px solid black;
+    border: solid 3px;
 }
 .searchbar-container input {
     all: unset;
@@ -321,7 +324,7 @@ img.drawkit-health {
     cursor: pointer;
     width: 44px;
     height: 44px;
-    border-left: 2px solid black;
+    border-left: solid 2px;
 
 }
 
@@ -333,6 +336,32 @@ svg {
   padding: 10px;
 }
 
+/* make the table scrollable when it overflows */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* actual table */
+table {
+  border: solid 2px;
+  width: 80%;
+  padding: 0;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: solid 2px;
+}
+
+/* styling each table cells */
+th, td {
+  vertical-align: center;
+  text-align: center;
+  padding: 10px 0;
+  min-width: 160px;
+}
 
 /************ embeded vid ***************/
 /* YouTube embed responsive design code
@@ -359,7 +388,6 @@ svg {
 	width: 100%;
 	height: 100%;
 }
-/**************************************************/
 
 
 /************** responsive design ******************/

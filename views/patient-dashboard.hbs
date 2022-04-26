@@ -30,24 +30,27 @@
     <h2 class="sub-heading">Recent History</h2>
 
     <!-- kinda hard-coded. extract only the required data? -->
-    <table class="medical-history-table">
-      <tr>
-        <th>Date</th>
-        <th>Blood Glucose Level</th>
-        <th>Weight</th>
-        <th>Insulin</th>
-        <th>Exercise</th>
-      </tr>
-      <tr>
-        {{#each daily_data}}
-        <td>{{this.data_recorded.value}}</td>
-        <td>{{this.blood_glucose_level.value}}</td>
-        <td>{{this.weight.value}}</td>
-        <td>{{this.insulin_doses.value}}</td>
-        <td>{{this.exercise_steps.value}}</td>
-        {{/each}}
-      </tr>
-    </table>
+    <div class="table-container">
+      <table class="medical-history-table">
+        <tr>
+          <th>Date</th>
+          <th>Blood Glucose Level</th>
+          <th>Weight</th>
+          <th>Insulin</th>
+          <th>Exercise</th>
+        </tr>
+        <tr>
+          <!-- either .value or other ways to actually get the value -->
+          {{#each daily_data}}
+          <td>{{this.data_recorded}}</td>
+          <td>{{this.blood_glucose_level.value}}</td>
+          <td>{{this.weight.value}}</td>
+          <td>{{this.insulin_doses.value}}</td>
+          <td>{{this.exercise_steps.value}}</td>
+          {{/each}}
+        </tr>
+      </table>
+    </div>
 
   </div>
 
