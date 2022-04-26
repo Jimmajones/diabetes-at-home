@@ -99,9 +99,10 @@ app.get('/patient-dashboard', (req, res) => {
   res.render('patient-dashboard.hbs', {
     layout: 'patient.hbs',
     title: 'Dashboard',
-    username: 'Alice',
+    username: 'Pat', // replace with screen name
     health_data: data,
     daily_data: daily_data,
+    message: 'Hi Pat - good job for reaching 50,000 steps this week! 😃', // replace with support message
   })
 })
 
