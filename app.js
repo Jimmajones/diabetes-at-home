@@ -42,12 +42,33 @@ app.get('/about-website', (req, res) => {
     })
 })
 
+// tmp data: things patient need to record
+const data = [
+  {
+    id: "glucose",
+    name: "Blood glucose levels (nmo/L)",
+  },
+  {
+    id: "weight",
+    name: "Weight (kg)",
+  },
+  {
+    id: "insulin",
+    name: "Insulin (doses)",
+  },
+  {
+    id: "exercise",
+    name: "Exercise (steps)",
+  },
+]
+
 // other pages
 app.get('/patient-dashboard', (req, res) => {
     res.render('patient-dashboard.hbs', {
         layout: 'patient.hbs',
         title: 'Dashboard',
         username: 'Alice',
+        health_data: data,
     })
 })
 

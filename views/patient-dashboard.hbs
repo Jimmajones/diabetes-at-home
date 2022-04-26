@@ -10,33 +10,16 @@
   <div class="record-data-container">
     <h2 class="sub-heading">Record today's data</h2>
 
-    <form class="input-container">
-
+    <form class="input-container" action="" method="get">
+      {{#each health_data}}
       <div class="input-box">
-        <label for="glucose" class="placeholder">Blood Glucose Level (nmo/L)</label>
-        <input id="glucose" type="number"> 
+        <label for="{{this.id}}">{{this.name}}</label>
+        <input id="{{this.id}}" type="number"> 
         <textarea placeholder="additional comments here..."></textarea>
       </div>
+      {{/each}}
 
-      <div class="input-box">
-        <label for="weight" class="placeholder">Weight (kg)</label>
-        <input id="weight" type="number"> 
-        <textarea placeholder="additional comments here..."></textarea>
-      </div>
-
-      <div class="input-box">
-        <label for="insulin" class="placeholder">Insulin (doses)</label>
-        <input id="insulin" type="number"> 
-        <textarea placeholder="additional comments here..."></textarea>
-      </div>
-
-      <div class="input-box">
-        <label for="exercise" class="placeholder">Exercise (steps)</label>
-        <input id="exercise" type="number"> 
-        <textarea placeholder="additional comments here..."></textarea>
-      </div>
-
-      <button class="submit-btn">Update</button>
+      <input type="submit" value="Update" class="submit-btn" />
 
     </form>
 
