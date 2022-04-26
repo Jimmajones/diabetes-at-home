@@ -1,6 +1,17 @@
 const Patient = require('../models/patients')
 const Clinician = require('../models/clinicians')
 
+// Get all clinicians.
+const getAllClinicians = async (req, res, next) => {
+    try {
+        const clinicians = await Clinician.find().lean()
+        return res.send(clinicians)
+    } catch (err) {
+        return next(err)
+    }
+}
+
+// Get a clinician.
 const getClinicianById = async (req, res, next) => {
     try {
         const clinician = await Clinician.findById(
@@ -12,7 +23,8 @@ const getClinicianById = async (req, res, next) => {
     }
 }
 
-const getAllPatients = async (req, res, next) => {
+// Get all the patients of a clinician.
+const getAllPatientsOf = async (req, res, next) => {
     try {
         const clinician = await Clinician.findById(
             req.params.clinician_id
@@ -27,6 +39,7 @@ const getAllPatients = async (req, res, next) => {
 }
 
 module.exports = {
+    getAllClinicians,
     getClinicianById,
-    getAllPatients,
+    getAllPatientsOf,
 }
