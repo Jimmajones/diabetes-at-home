@@ -9,12 +9,12 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'diabetes-at-home'
+    dbName: 'diabetes-at-home',
 })
 
 // Exit on error
-const db = mongoose.connection.on('error', err => {
-    console.error(err);
+const db = mongoose.connection.on('error', (err) => {
+    console.error(err)
     process.exit(1)
 })
 
