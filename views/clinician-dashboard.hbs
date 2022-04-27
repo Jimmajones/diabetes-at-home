@@ -3,28 +3,37 @@
 </div>
 
 <div class="clinician-db-content">
-    <table>
+    <table class="patient-list">
         <tr>
-            <th>NAME</th>
-            <th>LABEL</th>
-            <th>BLOOD GLUCOSE LEVEL (NMO/L)</th>
-            <th>WEIGHT (KG)</th>
-            <th>INSULIN (DOSES)</th>
-            <th>EXERCISE (STEPS)</th>
+            <th class="td-left">NAME</th>
+            <th class="td-left">LABEL</th>
+            <th class="td-right">BLOOD GLUCOSE LEVEL (NMO/L)</th>
+            <th class="td-right">WEIGHT (KG)</th>
+            <th class="td-right">INSULIN (DOSES)</th>
+            <th class="td-right">EXERCISE (STEPS)</th>
         </tr>
         <!-- replace with required data? -->
         {{#each patient_data}}
         <tr class="patient-data-content-row">
-            <td class="profile-data">
+            <td class="td-left profile-data">
                 <div class="patient-overview-toggle"></div>
                 <img class="patient-overview-profile-image" src="...">
                 <p class="patient-values">{{this.first_name}} {{this.last_name}}</p>
             </td>
-            <td><div class="label">...</div></td>
-            <td class="{{this.data.blood_glucose_level.warning}}">{{this.data.blood_glucose_level.value}}</td>
-            <td class="{{this.data.weight.warning}}">{{this.data.weight.value}}</td>
-            <td class="{{this.data.insulin.warning}}">{{this.data.insulin.value}}</td>
-            <td class="{{this.data.exercise.warning}}">{{this.data.exercise.value}}</td>
+            <td><div class="td-left label">...</div></td>
+            <td class="td-right {{this.data.blood_glucose_level.warning}}">{{this.data.blood_glucose_level.value}}</td>
+            <td class="td-right {{this.data.weight.warning}}">{{this.data.weight.value}}</td>
+            <td class="td-right {{this.data.insulin.warning}}">{{this.data.insulin.value}}</td>
+            <td class="td-right {{this.data.exercise.warning}}">{{this.data.exercise.value}}</td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <div class="warning-box">
+                    <h3>High glucose level</h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nostrum numquam quaerat dicta adipisci non nemo cumque. Tempore corporis, quae rem unde amet quia quis maiores iusto eaque repellendus voluptate.
+                </div>
+            </td>
+        </tr>
             <!-- <div class="patient-warning">
                 {{#each this.data}}
                     {{#if this.warning}}
