@@ -345,12 +345,12 @@ table {
   border-collapse: collapse;
 }
 
-th {
+.medical-history-table th {
   border-bottom: solid 2px;
 }
 
 /* styling each table cells */
-th,
+ th,
 td {
   vertical-align: center;
   text-align: center;
@@ -383,6 +383,78 @@ td {
   width: 100%;
   height: 100%;
 }
+
+.patient-overview-container {
+  
+  border: solid 2px;
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  position: relative;
+
+  list-style: none;
+  
+  margin: auto;
+  padding: 0;
+  width: 80vw;
+}
+
+.patient-overview-container th {
+  
+}
+
+.patient-overview-container td {
+  border: 1px solid;
+  
+}
+
+.patient-values {
+  text-allign: left;
+}
+
+.patient-data-content-row {
+  border-top: 2px solid;
+  position: relative;
+  width: 75vw;
+
+}
+
+.profile-data {
+  display: flex;
+}
+/*
+.seperator {
+  
+  min-height: 60px;
+  position: relative;
+  border-top: solid 2px;
+}
+.patient-overview-row-header {
+  
+  min-height: 60px;
+  position: relative;
+  border-top: none;
+}
+
+.patient-data-row{
+  
+  display: flex;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.patient-data-row li {
+  width: 13vw;
+  font-size: 14px;
+}
+
+.patient-values {
+  font-size: 10px;
+} */
 
 /************** responsive design ******************/
 /* Phone layout */

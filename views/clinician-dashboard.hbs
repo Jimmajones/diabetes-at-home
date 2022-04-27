@@ -3,46 +3,42 @@
 </div>
 
 <div class="clinician-db-content">
-    <div class="patient-overview-container">
-        <ul class="patient-overview-row">
-            <li>
-                <ul class="patient-data-row">
-                    <li>NAME</li>
-                    <li>LABEL</li>
-                    <li>BLOOD GLUCOSE LEVEL (NMO/L)</li>
-                    <li>WEIGHT (KG)</li>
-                    <li>INSULIN (DOSES)</li>
-                    <li>EXERCISE (STEPS)</li>
-                </ul>
-            </li>
-            <!-- replace with required data? -->
-            {{#each patient_data}}
-            <li>
-                <ul class="patient-data-row">
-                    <li><div class="patient-overview-toggle"></div></li>
-                    <li><img class="patient-overview-profile-image" src="..."></li>
-                    <li class="patient-values">{{this.first_name}} {{this.last_name}}</li>
-                    <li><div class="label">...</div></li>
-                    <li class="patient-values">{{this.data.blood_glucose_level.value}}</li>
-                    <li class="patient-values">{{this.data.weight.value}}</li>
-                    <li class="patient-values">{{this.data.insulin.value}}</li>
-                    <li class="patient-values">{{this.data.exercise.value}}</li>
-                </ul>
-                <div class="patient-warning">
-                    {{#each this.data}}
-                        {{#if this.warning}}
-                            <div class="patient-data-warning">
-                                <img class="patient-overview-profile-image" src="...">
-                                <div class="text-container">
-                                    <h4 class="over-threshold variable">{{this.name}}</h4>
-                                    <p>{{this.text}}</p>
-                                </div>
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>LABEL</th>
+            <th>BLOOD GLUCOSE LEVEL (NMO/L)</th>
+            <th>WEIGHT (KG)</th>
+            <th>INSULIN (DOSES)</th>
+            <th>EXERCISE (STEPS)</th>
+        </tr>
+        <!-- replace with required data? -->
+        {{#each patient_data}}
+        <tr class="patient-data-content-row">
+            <td class="profile-data">
+                <div class="patient-overview-toggle"></div>
+                <img class="patient-overview-profile-image" src="...">
+                <p class="patient-values">{{this.first_name}} {{this.last_name}}</p>
+            </td>
+            <td><div class="label">...</div></td>
+            <td class="{{this.data.blood_glucose_level.warning}}">{{this.data.blood_glucose_level.value}}</td>
+            <td class="{{this.data.weight.warning}}">{{this.data.weight.value}}</td>
+            <td class="{{this.data.insulin.warning}}">{{this.data.insulin.value}}</td>
+            <td class="{{this.data.exercise.warning}}">{{this.data.exercise.value}}</td>
+            <!-- <div class="patient-warning">
+                {{#each this.data}}
+                    {{#if this.warning}}
+                        <div class="patient-data-warning">
+                            <img class="patient-overview-profile-image" src="...">
+                            <div class="text-container">
+                                <h4 class="over-threshold variable">{{this.name}}</h4>
+                                <p>{{this.text}}</p>
                             </div>
-                        {{/if}}
-                    {{/each}}
-                </div>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            </div> -->
+        </tr>
+        {{/each}}
+    </table>
 </div>
