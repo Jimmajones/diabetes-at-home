@@ -112,6 +112,7 @@ const patient_data = [
         first_name: 'Gerald',
         last_name: 'Helman',
         profile_image: '...',
+        status: 'good',
         data: {
             blood_glucose_level: {
                 name: 'blood_glucose_level',
@@ -144,6 +145,7 @@ const patient_data = [
         first_name: 'Ivan',
         last_name: 'Adinata',
         profile_image: '...',
+        status: 'both',
         data: {
             blood_glucose_level: {
                 name: 'blood_glucose_level',
