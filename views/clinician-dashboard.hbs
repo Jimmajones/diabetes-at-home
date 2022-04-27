@@ -1,0 +1,48 @@
+<div class="heading">
+    <h1 class="page-title">Dashboard</h1>
+</div>
+
+<div class="clinician-db-content">
+    <div class="patient-overview-container">
+        <ul class="patient-overview-row">
+            <li>
+                <ul class="patient-data-row">
+                    <li>NAME</li>
+                    <li>LABEL</li>
+                    <li>BLOOD GLUCOSE LEVEL (NMO/L)</li>
+                    <li>WEIGHT (KG)</li>
+                    <li>INSULIN (DOSES)</li>
+                    <li>EXERCISE (STEPS)</li>
+                </ul>
+            </li>
+            <!-- replace with required data? -->
+            {{#each patient_data}}
+            <li>
+                <ul class="patient-data-row">
+                    <li><div class="patient-overview-toggle"></div></li>
+                    <li><img class="patient-overview-profile-image" src="..."></li>
+                    <li class="patient-values">{{this.first_name}} {{this.last_name}}</li>
+                    <li><div class="label">...</div></li>
+                    <li class="patient-values">{{this.data.blood_glucose_level.value}}</li>
+                    <li class="patient-values">{{this.data.weight.value}}</li>
+                    <li class="patient-values">{{this.data.insulin.value}}</li>
+                    <li class="patient-values">{{this.data.exercise.value}}</li>
+                </ul>
+                <div class="patient-warning">
+                    {{#each this.data}}
+                        {{#if this.warning}}
+                            <div class="patient-data-warning">
+                                <img class="patient-overview-profile-image" src="...">
+                                <div class="text-container">
+                                    <h4 class="over-threshold variable">{{this.name}}</h4>
+                                    <p>{{this.text}}</p>
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
