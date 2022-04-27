@@ -54,7 +54,17 @@ const schema = new mongoose.Schema({
         time: { type: Date, default: Date.now },
         within_threshold: Boolean,
       },
-      date_recorded: Date,
+      status: {
+        type: String,
+        enum: [
+          'GOOD',
+          'INCOMPLETE',
+          'OUTSIDE THRESHOLD',
+          'INCOMPLETE & OUTSIDE THRESHOLD'
+        ]
+      },
+      warning_text: String,
+      date_recorded: Date
     },
   ],
 })
