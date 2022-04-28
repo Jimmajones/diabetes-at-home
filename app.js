@@ -2,6 +2,9 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 
+// Set up Mongo.
+require('./models')
+
 // Set up the application as an Express app.
 const app = express()
 
