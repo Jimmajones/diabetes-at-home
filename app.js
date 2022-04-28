@@ -109,7 +109,7 @@ const patient_warning = {
 const patient_data = [
     {
         id: 1,
-        first_name: 'Gerald',
+        first_name: 'gerald',
         last_name: 'Helman',
         profile_image: '...',
         status: 'good',
@@ -142,7 +142,7 @@ const patient_data = [
     },
     {
         id: 2,
-        first_name: 'Ivan',
+        first_name: 'brian',
         last_name: 'Adinata',
         profile_image: '...',
         status: 'both',

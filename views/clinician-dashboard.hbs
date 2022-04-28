@@ -17,7 +17,7 @@
         <tr class="patient-data-content-row">
             <td class="td-left profile-data">
                 <div class="patient-overview-toggle"></div>
-                <img class="patient-overview-profile-image" src="...">
+                <img class="patient-overview-profile-image" src="assets/{{this.first_name}}.svg">
                 <p class="patient-values">{{this.first_name}} {{this.last_name}}</p>
             </td>
             <td><div class="td-left label {{this.status}}"></div></td>
@@ -27,10 +27,19 @@
             <td class="td-right {{this.data.exercise.warning}}">{{this.data.exercise.value}}</td>
         </tr>
         <tr>
-            <td colspan="6">
+            <td colspan="6" class="warning-container" >
                 <div class="warning-box">
-                    <h3>High glucose level</h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nostrum numquam quaerat dicta adipisci non nemo cumque. Tempore corporis, quae rem unde amet quia quis maiores iusto eaque repellendus voluptate.
+                    {{#each this.data}}
+                        {{#if this.warning}}
+                            <div class="patient-data-warning">
+                                <img class="warning-image" src="assets/drawkit_2.svg">
+                                <div class="text-container">
+                                    <h3 class="warning-header">{{this.name}}</h3>
+                                    {{this.text}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/each}}
                 </div>
             </td>
         </tr>

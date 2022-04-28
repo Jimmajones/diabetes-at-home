@@ -400,9 +400,6 @@ td {
   width: 80vw;
 }
 
-.patient-overview-container th {
-  
-}
 
 .patient-overview-container td {
   border: 1px solid;
@@ -419,16 +416,48 @@ td {
 }
 
 .patient-data-content-row {
-  border-top: 1px solid;
+  border-top: 2px solid;
   position: relative;
 }
 
+/*warning box format and styling*/
+.warning-container {
+  padding: 0 0 10px 0;
+}
 .warning-box {
-  padding: 1em;
   margin: 0 1em;
   text-align: left;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 5px;
+}
+
+.patient-data-warning {
+  position: relative;
+  height: 82px;
+  display: block;
+  padding: 1em;
+}
+
+.text-container {
+  display: inline-block;
+  position: static;
+  margin-left: 1em;
+}
+
+.warning-image {
+  top: 0;
+  position: static;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 100px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.warning-header {
+  margin: 0 0 16px 0;
 }
 
 /* .warning td {
@@ -443,7 +472,7 @@ td {
 
 .td-left {
   text-align: left;
-  padding: 1em 0 1em 2em;
+  padding: .2em 0 .2em 2em;
 }
 
 .td-right {
@@ -521,6 +550,21 @@ td {
   content: "-";
   font-size: 20px;
 }
+
+/*profile image formatting*/
+
+.patient-overview-profile-image {
+  position: relative;
+  top: 2px;
+  border-radius: 100px;
+  height: 50px;
+  width: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-right: 0.5em;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+
 /*
 .seperator {
   
