@@ -511,7 +511,7 @@ td {
 
 .td-right.over-threshold {
   color: #bf616a;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 
 .td-right.incomplete::after {
