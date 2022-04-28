@@ -12,9 +12,9 @@
     <form class='input-container' action='' method='get'>
       {{#each data.required_data}}
         <div class='input-box'>
-          <label for='{{this}}'>{{this}}</label>
-          <input id='{{this}}' type='number' />
-          <textarea placeholder='additional comments here...'></textarea>
+          <label for='{{this.data_type}}'>{{this.display_text}}</label>
+          <input name='{{this.data_type}}' type='number' />
+          <textarea name='{{this.data_type}}' placeholder='additional comments here...'></textarea>
         </div>
       {{/each}}
       <input type='submit' value='Update' class='submit-btn' />
@@ -28,7 +28,7 @@
         <tr>
           <th>Date</th>
           {{#each data.required_data}}
-            <th>{{this}}</th>
+            <th>{{this.display_text}}</th>
           {{/each}}
         </tr>
         {{#each data.daily_data}}

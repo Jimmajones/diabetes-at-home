@@ -71,10 +71,22 @@ const individual_patient_data = {
   profile_image: '...',
   status: 'good',
   required_data: [
-    'Blood Glucose Level (nmo/L)',
-    'Weight (kg)',
-    'Insulin (doses)',
-    'Exercise (steps)',
+    {
+      data_type: 'blood_glucose_level',
+      display_text: 'Blood Glucose Level (nmo/L)',
+    },
+    {
+      data_type: 'weight',
+      display_text: 'Weight (kg)',
+    },
+    {
+      data_type: 'insulin_doses',
+      display_text: 'Insulin (doses)',
+    },
+    {
+      data_type: 'exercise_steps',
+      display_text: 'Exercise (steps)',
+    },
   ],
   daily_data: [
     {
