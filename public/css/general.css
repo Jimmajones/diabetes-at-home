@@ -377,12 +377,7 @@ td {
   border: 1px solid;
 }
 
-.patient-values {
-  text-align: left;
-}
-
 .patient-list {
-  font-size: 0.8em;
   width: 80vw;
 }
 
