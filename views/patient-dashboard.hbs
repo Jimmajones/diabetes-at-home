@@ -9,12 +9,18 @@
 
   <div class='record-data-container'>
     <h2 class='sub-heading'>Record today's data</h2>
-    <form class='input-container' action='' method='get'>
+    <form class='input-container' action='/patient/{{data._id}}' method='POST'>
       {{#each data.required_data}}
         <div class='input-box'>
-          <label for='{{this.data_type}}'>{{this.display_text}}</label>
-          <input name='{{this.data_type}}' type='number' />
-          <textarea name='{{this.data_type}}' placeholder='additional comments here...'></textarea>
+          {{#if !this.completed}}
+            <label for='{{this.data_type}}'>{{this.display_text}}</label>
+            <input name='{{this.data_type}}' type='number' />
+            <textarea name='{{this.data_type}}' placeholder='additional comments here...'></textarea>
+          {{#else}}
+            <h3>{{this.display_text}}</h3>
+            <p>{{data.daily_data.{{data.daily_data.length-1}}.{{this.data_type}}.value}}</p>
+            {{!-- <p>{{#each data.daily_data}}{{#if @last}}{{this}}{{/if}}{{/each}}</p> --}}
+          {{/if}}
         </div>
       {{/each}}
       <input type='submit' value='Update' class='submit-btn' />

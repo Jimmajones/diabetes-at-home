@@ -25,7 +25,7 @@ const schema = new mongoose.Schema({
         ],
       },
       display_text: String,
-      completed: Boolean,
+      completed: {type: Boolean, default: false},
       lower_bound: Number,
       upper_bound: Number
     },
@@ -35,25 +35,25 @@ const schema = new mongoose.Schema({
       blood_glucose_level: {
         value: Number,
         comment: String,
-        time: { type: Date, default: Date.now },
+        time_recorded: { type: Date, default: Date.now },
         within_threshold: Boolean,
       },
       weight: {
         value: Number,
         comment: String,
-        time: { type: Date, default: Date.now },
+        time_recorded: { type: Date, default: Date.now },
         within_threshold: Boolean,
       },
       insulin_doses: {
         value: Number,
         comment: String,
-        time: { type: Date, default: Date.now },
+        time_recorded: { type: Date, default: Date.now },
         within_threshold: Boolean,
       },
       exercise_steps: {
         value: Number,
         comment: String,
-        time: { type: Date, default: Date.now },
+        time_recorded: { type: Date, default: Date.now },
         within_threshold: Boolean,
       },
       status: {
@@ -67,7 +67,7 @@ const schema = new mongoose.Schema({
       },
       warning_text: String,
       completion_rate: {type: Number, default: 0},
-      date_recorded: Date
+      date_recorded: String
     },
   ],
 })

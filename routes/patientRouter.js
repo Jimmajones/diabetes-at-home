@@ -10,13 +10,10 @@ const patientController = require('../controllers/patientController')
 // Useful for debugging.
 patientRouter.get('/', patientController.getAllPatients)
 
-patientRouter.get('/dashboard/:patient_id', patientController.viewDashboard)
+patientRouter.get('/:patient_id', patientController.viewDashboard)
 
-patientRouter.post(
-  '/dashboard/:patient_id/add',
-  patientController.addHealthRecord
-)
+patientRouter.post('/:patient_id', patientController.addHealthRecord)
 
-peopleRouter.post('/:patient_id', patientController.recordData)
+// peopleRouter.post('/:patient_id', patientController.recordData)
 
 module.exports = patientRouter
