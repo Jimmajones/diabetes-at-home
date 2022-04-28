@@ -4,11 +4,12 @@ const clinicianRouter = express.Router()
 
 const clinicianController = require('../controllers/clinicianController')
 
-clinicianRouter.get('/', clinicianController.getAllClinicians)
+// Useful for debugging.
+//clinicianRouter.get('/', clinicianController.getAllClinicians)
 
 clinicianRouter.get(
   '/patientOverview/:clinician_id',
-  clinicianController.getAllPatientsOf
+  clinicianController.viewAllPatients
 )
 
 module.exports = clinicianRouter

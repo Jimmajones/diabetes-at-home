@@ -11,18 +11,8 @@ const getAllClinicians = async (req, res, next) => {
   }
 }
 
-// Get a clinician.
-const getClinicianById = async (req, res, next) => {
-  try {
-    const clinician = await Clinician.findById(req.params.clinician_id)
-    return res.send(clinician)
-  } catch (err) {
-    return next(err)
-  }
-}
-
 // Get all the patients of a clinician.
-const getAllPatientsOf = async (req, res, next) => {
+const viewAllPatients = async (req, res, next) => {
   try {
     const clinician = await Clinician.findById(req.params.clinician_id)
     // Find all Patient document IDs listed for this Clinician.
@@ -33,22 +23,7 @@ const getAllPatientsOf = async (req, res, next) => {
   }
 }
 
-// get a patient
-const getPatientById = async (req, res, next) => {
-  try {
-    const patient = await Patient.findById(req.params.patient_id).lean()
-    if (!patient) {
-      return res.sendStatus(404)
-    }
-    res.send(patient)
-  } catch (err) {
-    return next(err)
-  }
-}
-
 module.exports = {
-  getAllClinicians,
-  getClinicianById,
-  getAllPatientsOf,
-  getPatientById,
+  //getAllClinicians,
+  viewAllPatients,
 }
