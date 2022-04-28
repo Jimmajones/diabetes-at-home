@@ -52,9 +52,13 @@ const getRecentPatientData = async (req, res, next) => {
   }
 }
 
-const getOnePatient = async (req, res, next) => {
+// get a patient 
+const getPatientById = async (req, res, next) => {
   try {
     const patient = await Patient.findById(req.params.patient_id).lean()
+    if (!patient) { 
+      return res.sendStatus(404)
+    }
     res.send(patient)
   } catch (err) {
     return next(err)
@@ -66,5 +70,5 @@ module.exports = {
   getClinicianById,
   getAllPatientsOf,
   getRecentPatientData,
-  getOnePatient,
+  getPatientById,
 }
