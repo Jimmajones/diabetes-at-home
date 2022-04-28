@@ -4,7 +4,7 @@ const Clinician = require('../models/clinicians')
 // Get all clinicians.
 const getAllClinicians = async (req, res, next) => {
   try {
-    const clinicians = await Clinician.find().lean()
+    const clinicians = await Clinician.find()
     return res.send(clinicians)
   } catch (err) {
     return next(err)
@@ -14,7 +14,7 @@ const getAllClinicians = async (req, res, next) => {
 // Get a clinician.
 const getClinicianById = async (req, res, next) => {
   try {
-    const clinician = await Clinician.findById(req.params.clinician_id).lean()
+    const clinician = await Clinician.findById(req.params.clinician_id)
     return res.send(clinician)
   } catch (err) {
     return next(err)
@@ -24,39 +24,20 @@ const getClinicianById = async (req, res, next) => {
 // Get all the patients of a clinician.
 const getAllPatientsOf = async (req, res, next) => {
   try {
-    const clinician = await Clinician.findById(req.params.clinician_id).lean()
-    for (patient_id in clinician.patient_list) {
-      const patient = await Patient.findById(patient_id).lean()
-      res.send(patient)
-    }
+    const clinician = await Clinician.findById(req.params.clinician_id)
+    // Find all Patient document IDs listed for this Clinician.
+    const data = await Patient.find({ _id: { $in: clinician.patient_list } })
+    res.send(data)
   } catch (err) {
     return next(err)
   }
 }
 
-// Get the most recent health records of all patients.
-const getRecentPatientData = async (req, res, next) => {
-  try {
-    const clinician = await Clinician.findById(req.params.clinician_id).lean()
-    for (patient_id in clinician.patient_list) {
-      const patient = await Patient.findById(patient_id).lean()
-      // Get the most recent health data entry.
-      const health_record = patient.daily_data
-        .find()
-        .limit(1)
-        .sort({ $natural: -1 })
-      res.send(health_record)
-    }
-  } catch (err) {
-    return next(err)
-  }
-}
-
-// get a patient 
+// get a patient
 const getPatientById = async (req, res, next) => {
   try {
     const patient = await Patient.findById(req.params.patient_id).lean()
-    if (!patient) { 
+    if (!patient) {
       return res.sendStatus(404)
     }
     res.send(patient)
@@ -69,6 +50,5 @@ module.exports = {
   getAllClinicians,
   getClinicianById,
   getAllPatientsOf,
-  getRecentPatientData,
   getPatientById,
 }

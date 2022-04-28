@@ -6,13 +6,14 @@ if (process.env.NODE_ENV !== 'production') {
 const mongoose = require('mongoose')
 
 // Connect to MongoDB using MONGO_URL env variable
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: 'diabetes-at-home',
-})
-.then(() => console.log("connected to Mongo"))
-.catch((err) => console.log(err, "\nfailed to connect to Mongo"))
+mongoose
+  .connect(process.env.MONGO_URL || 'mongodb://localhost', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: 'diabetes-at-home',
+  })
+  .then(() => console.log('Connected to Mongo!'))
+  .catch((err) => console.log(err, '\nfailed to connect to Mongo'))
 
 // Exit on error
 const db = mongoose.connection.on('error', (err) => {

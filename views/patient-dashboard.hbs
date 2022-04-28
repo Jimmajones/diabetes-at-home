@@ -30,17 +30,17 @@
         <tr>
           <th>Date</th>
           {{#each data.0.required_data}}
-          <th>{{this}}</th>
+            <th>{{this}}</th>
           {{/each}}
         </tr>
         {{#each data}}
-        <tr>
-          <td>{{this.daily_data.date_recorded}}</td>
-          <td>{{this.daily_data.blood_glucose_level.value}}</td>
-          <td>{{this.daily_data.weight.value}}</td>
-          <td>{{this.daily_data.insulin.value}}</td>
-          <td>{{this.daily_data.exercise.value}}</td>
-        </tr>
+          <tr>
+            <td>{{this.daily_data.date_recorded}}</td>
+            <td>{{this.daily_data.blood_glucose_level.value}}</td>
+            <td>{{this.daily_data.weight.value}}</td>
+            <td>{{this.daily_data.insulin.value}}</td>
+            <td>{{this.daily_data.exercise.value}}</td>
+          </tr>
         {{/each}}
       </table>
     </div>
