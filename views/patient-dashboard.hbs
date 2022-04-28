@@ -10,7 +10,7 @@
   <div class='record-data-container'>
     <h2 class='sub-heading'>Record today's data</h2>
     <form class='input-container' action='' method='get'>
-      {{#each data.[0].required_data}}
+      {{#each data.0.required_data}}
         <div class='input-box'>
           <label for='{{this}}'>{{this}}</label>
           <input id='{{this}}' type='number' />
@@ -28,22 +28,20 @@
     <div class='table-container'>
       <table class='medical-history-table'>
         <tr>
-          <th>DATE</th>
-          <th>BLOOD GLUCOSE LEVEL</th>
-          <th>WEIGHT</th>
-          <th>INSULIN</th>
-          <th>EXERCISE</th>
-        </tr>
-        <tr>
-          <!-- either .value or other ways to actually get the value -->
-          {{#each daily_data}}
-            <td>{{this.data_recorded}}</td>
-            <td>{{this.blood_glucose_level.value}}</td>
-            <td>{{this.weight.value}}</td>
-            <td>{{this.insulin_doses.value}}</td>
-            <td>{{this.exercise_steps.value}}</td>
+          <th>Date</th>
+          {{#each data.0.required_data}}
+          <th>{{this}}</th>
           {{/each}}
         </tr>
+        {{#each data}}
+        <tr>
+          <td>{{this.daily_data.date_recorded}}</td>
+          <td>{{this.daily_data.blood_glucose_level.value}}</td>
+          <td>{{this.daily_data.weight.value}}</td>
+          <td>{{this.daily_data.insulin.value}}</td>
+          <td>{{this.daily_data.exercise.value}}</td>
+        </tr>
+        {{/each}}
       </table>
     </div>
 
