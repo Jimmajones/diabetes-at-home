@@ -11,6 +11,8 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost', {
   useUnifiedTopology: true,
   dbName: 'diabetes-at-home',
 })
+.then(() => console.log("connected to Mongo"))
+.catch((err) => console.log(err, "\nfailed to connect to Mongo"))
 
 // Exit on error
 const db = mongoose.connection.on('error', (err) => {
