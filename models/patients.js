@@ -24,8 +24,10 @@ const schema = new mongoose.Schema({
           'exercise_steps',
         ],
       },
+      display_text: String,
+      completed: Boolean,
       lower_bound: Number,
-      upper_bound: Number,
+      upper_bound: Number
     },
   ],
   daily_data: [
@@ -64,7 +66,8 @@ const schema = new mongoose.Schema({
         ],
       },
       warning_text: String,
-      date_recorded: Date,
+      completion_rate: {type: Number, default: 0},
+      date_recorded: Date
     },
   ],
 })

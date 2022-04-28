@@ -31,6 +31,18 @@ const addHealthRecord = async (req, res, next) => {
   }
 }
 
+const recordData = async (req, res, next) => {
+  try {
+    const patient = await Patient.findById(req.params.patient_id).lean()
+    if (!patient) {
+      return res.sendStatus(404)
+    }
+    for (data in patient.daily_data) {
+      if (data.daily_data.date_recorded )
+    }
+  }
+}
+
 module.exports = {
   getAllPatients,
   viewDashboard,
