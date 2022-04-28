@@ -25,16 +25,16 @@
         </td>
         <td><div class='td-left label {{this.status}}'></div></td>
         <td
-          class='td-right {{this.data.blood_glucose_level.warning}}'
+          class='td-right content {{this.data.blood_glucose_level.warning}}'
         >{{this.data.blood_glucose_level.value}}</td>
         <td
-          class='td-right {{this.data.weight.warning}}'
+          class='td-right content {{this.data.weight.warning}}'
         >{{this.data.weight.value}}</td>
         <td
-          class='td-right {{this.data.insulin.warning}}'
+          class='td-right content {{this.data.insulin.warning}}'
         >{{this.data.insulin.value}}</td>
         <td
-          class='td-right {{this.data.exercise.warning}}'
+          class='td-right content {{this.data.exercise.warning}}'
         >{{this.data.exercise.value}}</td>
       </tr>
       <tr>
@@ -46,7 +46,7 @@
                   <img class='warning-image' src='assets/drawkit_2.svg' />
                   <div class='text-container'>
                     <h3 class='warning-header'>{{this.name}}</h3>
-                    {{this.text}}
+                    <span class="content">{{this.text}}</span>
                   </div>
                 </div>
               {{/if}}

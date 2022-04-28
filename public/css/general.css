@@ -14,9 +14,14 @@ html {
   src: url(fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: 'Mlight';
+  src: url(fonts/Mlight/Mlight.ttf);
+}
+
 body {
   /* Apply Montserrat font unless specified otherwise. */
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif, 'Mlight';
   background-color: var(--primary-bg);
   margin: 0; /* We want the footer to fill the entire screen. */
   padding: 0;
@@ -450,9 +455,15 @@ td {
   padding: 1em 2em 1em 0;
 }
 
+body .content {
+  font-family: Mlight;
+}
+
 .profile-data {
   display: flex;
 }
+
+
 
 /* stylying for label */
 .td-left.over-threshold {
