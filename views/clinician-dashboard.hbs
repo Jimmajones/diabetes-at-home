@@ -1,49 +1,61 @@
-<div class="heading">
-    <h1 class="page-title">Dashboard</h1>
+<div class='heading'>
+  <h1 class='page-title'>Dashboard</h1>
 </div>
 
-<div class="clinician-db-content">
-    <table class="patient-list">
-        <tr>
-            <th class="td-left">NAME</th>
-            <th class="td-left">LABEL</th>
-            <th class="td-right">BLOOD GLUCOSE LEVEL (NMO/L)</th>
-            <th class="td-right">WEIGHT (KG)</th>
-            <th class="td-right">INSULIN (DOSES)</th>
-            <th class="td-right">EXERCISE (STEPS)</th>
-        </tr>
-        <!-- replace with required data? -->
-        {{#each patient_data}}
-        <tr class="patient-data-content-row">
-            <td class="td-left profile-data">
-                <div class="patient-overview-toggle"></div>
-                <img class="patient-overview-profile-image" src="assets/{{this.first_name}}.svg">
-                <p class="patient-values">{{this.first_name}} {{this.last_name}}</p>
-            </td>
-            <td><div class="td-left label {{this.status}}"></div></td>
-            <td class="td-right {{this.data.blood_glucose_level.warning}}">{{this.data.blood_glucose_level.value}}</td>
-            <td class="td-right {{this.data.weight.warning}}">{{this.data.weight.value}}</td>
-            <td class="td-right {{this.data.insulin.warning}}">{{this.data.insulin.value}}</td>
-            <td class="td-right {{this.data.exercise.warning}}">{{this.data.exercise.value}}</td>
-        </tr>
-        <tr>
-            <td colspan="6" class="warning-container" >
-                <div class="warning-box">
-                    {{#each this.data}}
-                        {{#if this.warning}}
-                            <div class="patient-data-warning">
-                                <img class="warning-image" src="assets/drawkit_2.svg">
-                                <div class="text-container">
-                                    <h3 class="warning-header">{{this.name}}</h3>
-                                    {{this.text}}
-                                </div>
-                            </div>
-                        {{/if}}
-                    {{/each}}
+<div class='clinician-db-content'>
+  <table class='patient-list'>
+    <tr>
+      <th class='td-left'>NAME</th>
+      <th class='td-left'>LABEL</th>
+      <th class='td-right'>BLOOD GLUCOSE LEVEL (NMO/L)</th>
+      <th class='td-right'>WEIGHT (KG)</th>
+      <th class='td-right'>INSULIN (DOSES)</th>
+      <th class='td-right'>EXERCISE (STEPS)</th>
+    </tr>
+    <!-- replace with required data? -->
+    {{#each patient_data}}
+      <tr class='patient-data-content-row'>
+        <td class='td-left profile-data'>
+          <div class='patient-overview-toggle'></div>
+          <img
+            class='patient-overview-profile-image'
+            src='assets/{{this.first_name}}.svg'
+          />
+          <p class='patient-values'>{{this.first_name}} {{this.last_name}}</p>
+        </td>
+        <td><div class='td-left label {{this.status}}'></div></td>
+        <td
+          class='td-right {{this.data.blood_glucose_level.warning}}'
+        >{{this.data.blood_glucose_level.value}}</td>
+        <td
+          class='td-right {{this.data.weight.warning}}'
+        >{{this.data.weight.value}}</td>
+        <td
+          class='td-right {{this.data.insulin.warning}}'
+        >{{this.data.insulin.value}}</td>
+        <td
+          class='td-right {{this.data.exercise.warning}}'
+        >{{this.data.exercise.value}}</td>
+      </tr>
+      <tr>
+        <td colspan='6' class='warning-container'>
+          <div class='warning-box'>
+            {{#each this.data}}
+              {{#if this.warning}}
+                <div class='patient-data-warning'>
+                  <img class='warning-image' src='assets/drawkit_2.svg' />
+                  <div class='text-container'>
+                    <h3 class='warning-header'>{{this.name}}</h3>
+                    {{this.text}}
+                  </div>
                 </div>
-            </td>
-        </tr>
-            <!-- <div class="patient-warning">
+              {{/if}}
+            {{/each}}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <!-- <div class="patient-warning">
                 {{#each this.data}}
                     {{#if this.warning}}
                         <div class="patient-data-warning">
@@ -56,7 +68,7 @@
                     {{/if}}
                 {{/each}}
             </div> -->
-        </tr>
-        {{/each}}
-    </table>
+      </tr>
+    {{/each}}
+  </table>
 </div>

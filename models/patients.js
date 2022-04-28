@@ -60,11 +60,11 @@ const schema = new mongoose.Schema({
           'GOOD',
           'INCOMPLETE',
           'OUTSIDE THRESHOLD',
-          'INCOMPLETE & OUTSIDE THRESHOLD'
-        ]
+          'INCOMPLETE & OUTSIDE THRESHOLD',
+        ],
       },
       warning_text: String,
-      date_recorded: Date
+      date_recorded: Date,
     },
   ],
 })
