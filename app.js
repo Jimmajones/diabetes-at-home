@@ -2,9 +2,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 
-// Set up Mongo.
-require('./models')
-
 // Set up the application as an Express app.
 const app = express()
 
@@ -47,56 +44,6 @@ app.get('/about-website', (req, res) => {
 
 /* TODO: data for testing only. delete later */
 // tmp data: things patient need to record
-// const data = [
-//   {
-//     id: 'glucose',
-//     name: 'Blood glucose levels (nmo/L)',
-//   },
-//   {
-//     id: 'weight',
-//     name: 'Weight (kg)',
-//   },
-//   {
-//     id: 'insulin',
-//     name: 'Insulin (doses)',
-//   },
-//   {
-//     id: 'exercise',
-//     name: 'Exercise (steps)',
-//   },
-// ]
-
-// const daily_data = [
-//   {
-//     blood_glucose_level: {
-//       value: 3.5,
-//       comment: null,
-//       time: { type: Date, default: Date.now },
-//       within_threshold: true,
-//     },
-//     weight: {
-//       value: Number,
-//       comment: String,
-//       time: { type: Date, default: Date.now },
-//       within_threshold: true,
-//     },
-//     insulin_doses: {
-//       value: Number,
-//       comment: String,
-//       time: { type: Date, default: Date.now },
-//       within_threshold: false,
-//     },
-//     exercise_steps: {
-//       value: Number,
-//       comment: String,
-//       time: { type: Date, default: Date.now },
-//       within_threshold: false,
-//     },
-//     date_recorded: Date,
-//   },
-// ]
-
-//sample tester data for clinician
 
 const patient_warning = {
   high_glucose_level_over:
@@ -116,20 +63,21 @@ const patient_warning = {
   exercise_missing:
     'The patient has not filled in their exercise steps, please check again.',
 }
-const individual_patient_data = [
-  {
-    id: 1,
-    first_name: 'gerald',
-    last_name: 'Helman',
-    profile_image: '...',
-    status: 'good',
-    required_data: [
-      'Blood Glucose Level (nmo/L)',
-      'Weight (kg)',
-      'Insulin (doses)',
-      'Exercise (steps)',
-    ],
-    daily_data: {
+
+const individual_patient_data = {
+  id: 1,
+  first_name: 'gerald',
+  last_name: 'Helman',
+  profile_image: '...',
+  status: 'good',
+  required_data: [
+    'Blood Glucose Level (nmo/L)',
+    'Weight (kg)',
+    'Insulin (doses)',
+    'Exercise (steps)',
+  ],
+  daily_data: [
+    {
       blood_glucose_level: {
         name: 'blood_glucose_level',
         warning: null,
@@ -156,14 +104,7 @@ const individual_patient_data = [
       },
       date_recorded: '10/1/2022',
     },
-  },
-  {
-    id: 1,
-    first_name: 'gerald',
-    last_name: 'Helman',
-    profile_image: '...',
-    status: 'good',
-    daily_data: {
+    {
       blood_glucose_level: {
         name: 'blood_glucose_level',
         warning: null,
@@ -190,8 +131,8 @@ const individual_patient_data = [
       },
       date_recorded: '11/1/2022',
     },
-  },
-]
+  ],
+}
 
 const patient_data = [
   {
