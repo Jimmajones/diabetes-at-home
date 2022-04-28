@@ -44,54 +44,54 @@ app.get('/about-website', (req, res) => {
 
 /* TODO: data for testing only. delete later */
 // tmp data: things patient need to record
-const data = [
-  {
-    id: 'glucose',
-    name: 'Blood glucose levels (nmo/L)',
-  },
-  {
-    id: 'weight',
-    name: 'Weight (kg)',
-  },
-  {
-    id: 'insulin',
-    name: 'Insulin (doses)',
-  },
-  {
-    id: 'exercise',
-    name: 'Exercise (steps)',
-  },
-]
+// const data = [
+//   {
+//     id: 'glucose',
+//     name: 'Blood glucose levels (nmo/L)',
+//   },
+//   {
+//     id: 'weight',
+//     name: 'Weight (kg)',
+//   },
+//   {
+//     id: 'insulin',
+//     name: 'Insulin (doses)',
+//   },
+//   {
+//     id: 'exercise',
+//     name: 'Exercise (steps)',
+//   },
+// ]
 
-const daily_data = [
-  {
-    blood_glucose_level: {
-      value: Number,
-      comment: String,
-      time: { type: Date, default: Date.now },
-      within_threshold: Boolean,
-    },
-    weight: {
-      value: Number,
-      comment: String,
-      time: { type: Date, default: Date.now },
-      within_threshold: Boolean,
-    },
-    insulin_doses: {
-      value: Number,
-      comment: String,
-      time: { type: Date, default: Date.now },
-      within_threshold: Boolean,
-    },
-    exercise_steps: {
-      value: Number,
-      comment: String,
-      time: { type: Date, default: Date.now },
-      within_threshold: Boolean,
-    },
-    date_recorded: Date,
-  },
-]
+// const daily_data = [
+//   {
+//     blood_glucose_level: {
+//       value: 3.5,
+//       comment: null,
+//       time: { type: Date, default: Date.now },
+//       within_threshold: true,
+//     },
+//     weight: {
+//       value: Number,
+//       comment: String,
+//       time: { type: Date, default: Date.now },
+//       within_threshold: true,
+//     },
+//     insulin_doses: {
+//       value: Number,
+//       comment: String,
+//       time: { type: Date, default: Date.now },
+//       within_threshold: false,
+//     },
+//     exercise_steps: {
+//       value: Number,
+//       comment: String,
+//       time: { type: Date, default: Date.now },
+//       within_threshold: false,
+//     },
+//     date_recorded: Date,
+//   },
+// ]
 
 //sample tester data for clinician
 
@@ -113,6 +113,82 @@ const patient_warning = {
   exercise_missing:
     'The patient has not filled in their exercise steps, please check again.',
 }
+const individual_patient_data = [
+  {
+    id: 1,
+    first_name: 'gerald',
+    last_name: 'Helman',
+    profile_image: '...',
+    status: 'good',
+    required_data: [
+      'Blood Glucose Level (nmo/L)',
+      'Weight (kg)',
+      'Insulin (doses)',
+      'Exercise (steps)',
+    ],
+    daily_data: {
+      blood_glucose_level: {
+        name: 'blood_glucose_level',
+        warning: null,
+        value: 4.8,
+        text: null,
+      },
+      weight: {
+        name: 'weight',
+        warning: null,
+        value: 68,
+        text: null,
+      },
+      insulin: {
+        name: 'insulin',
+        warning: null,
+        value: 2,
+        text: null,
+      },
+      exercise: {
+        name: 'exercise',
+        warning: null,
+        value: 4359,
+        text: null,
+      },
+      date_recorded: '10/1/2022',
+    },
+  },
+  {
+    id: 1,
+    first_name: 'gerald',
+    last_name: 'Helman',
+    profile_image: '...',
+    status: 'good',
+    daily_data: {
+      blood_glucose_level: {
+        name: 'blood_glucose_level',
+        warning: null,
+        value: 5.0,
+        text: null,
+      },
+      weight: {
+        name: 'weight',
+        warning: null,
+        value: 68,
+        text: null,
+      },
+      insulin: {
+        name: 'insulin',
+        warning: null,
+        value: 5,
+        text: null,
+      },
+      exercise: {
+        name: 'exercise',
+        warning: null,
+        value: 10000,
+        text: null,
+      },
+      date_recorded: '11/1/2022',
+    },
+  },
+]
 
 const patient_data = [
   {
@@ -146,6 +222,7 @@ const patient_data = [
         value: 4359,
         text: null,
       },
+      date_recorded: '10/1/2022',
     },
   },
   {
@@ -179,6 +256,7 @@ const patient_data = [
         value: 4359,
         text: null,
       },
+      date_recorded: '15/4/2022',
     },
   },
 ]
@@ -190,9 +268,8 @@ app.get('/patient-dashboard', (req, res) => {
   res.render('patient-dashboard.hbs', {
     layout: 'patient.hbs',
     title: 'Dashboard',
-    username: 'Pat', // replace with screen name
-    health_data: data,
-    daily_data: daily_data,
+    // pass in the individual patient's data (get patient by id?)
+    data: individual_patient_data,
     message: 'Hi Pat - good job for reaching 50,000 steps this week! 😃', // replace with support message
   })
 })

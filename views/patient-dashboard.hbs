@@ -9,21 +9,16 @@
 
   <div class='record-data-container'>
     <h2 class='sub-heading'>Record today's data</h2>
-
     <form class='input-container' action='' method='get'>
-      <!-- replace with required data? -->
-      {{#each health_data}}
+      {{#each data.[0].required_data}}
         <div class='input-box'>
-          <label for='{{this.id}}'>{{this.name}}</label>
-          <input id='{{this.id}}' type='number' />
+          <label for='{{this}}'>{{this}}</label>
+          <input id='{{this}}' type='number' />
           <textarea placeholder='additional comments here...'></textarea>
         </div>
       {{/each}}
-
       <input type='submit' value='Update' class='submit-btn' />
-
     </form>
-
   </div>
 
   <div class='history-container'>
@@ -33,11 +28,11 @@
     <div class='table-container'>
       <table class='medical-history-table'>
         <tr>
-          <th>Date</th>
-          <th>Blood Glucose Level</th>
-          <th>Weight</th>
-          <th>Insulin</th>
-          <th>Exercise</th>
+          <th>DATE</th>
+          <th>BLOOD GLUCOSE LEVEL</th>
+          <th>WEIGHT</th>
+          <th>INSULIN</th>
+          <th>EXERCISE</th>
         </tr>
         <tr>
           <!-- either .value or other ways to actually get the value -->
