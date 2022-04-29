@@ -15,7 +15,7 @@
     {{#each patient_data}}
       <tr class='patient-data-content-row'>
         <td class='td-left profile-data'>
-            <button onclick="myFunction({{this.id}})" class="toggle-overlay"> 
+            <button onclick="toggle({{this.id}})" class="toggle-overlay"> 
               <img id='button-{{this.id}}' class="warning-image" src="assets/toggle.svg"/>
             </button>
           <img
@@ -56,21 +56,6 @@
             {{/each}}
           </div>
         </td>
-      </tr>
-      <tr>
-        <!-- <div class="patient-warning">
-                {{#each this.data}}
-                    {{#if this.warning}}
-                        <div class="patient-data-warning">
-                            <img class="patient-overview-profile-image" src="...">
-                            <div class="text-container">
-                                <h4 class="over-threshold variable">{{this.name}}</h4>
-                                <p>{{this.text}}</p>
-                            </div>
-                        </div>
-                    {{/if}}
-                {{/each}}
-            </div> -->
       </tr>
     {{/each}}
   </table>

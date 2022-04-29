@@ -461,6 +461,7 @@ td {
   text-align: left;
   border: 2px solid;
   border-radius: 5px;
+  display: none;
 }
 
 .warning-box.good {
