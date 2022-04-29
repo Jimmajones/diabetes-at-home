@@ -35,15 +35,16 @@ const addHealthRecord = async (req, res, next) => {
       res.send(result)
     }
     const patient = await Patient.findOne({ first_name: 'Pat' })
-    const test_data = {
+    console.log(req.body);
+    const data = {
       values: [
-        { type: 'blood', value: 4.4 },
-        { type: 'weight', value: 69 },
+        { type: 'blood', value: req.body.blood },
+        { type: 'weight', value: req.body.weight },
       ],
     }
     Patient.updateOne(
       { _id: patient._id },
-      { $push: { daily_data: test_data } },
+      { $push: { daily_data: data } },
       done
     )
   } catch (err) {
