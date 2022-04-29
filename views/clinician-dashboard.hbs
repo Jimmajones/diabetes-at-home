@@ -13,7 +13,6 @@
       <th class='td-right'>EXERCISE (STEPS)</th>
     </tr>
     {{#each patients}}
-		{{log this}}
       <tr class='patient-data-content-row'>
         <td class='td-left profile-data'>
           <button onclick='toggle({{this._id}})' class='toggle-overlay'>
@@ -23,21 +22,17 @@
               src='assets/toggle.svg'
             />
           </button>
-          <img
-            class='patient-overview-profile-image'
-            src='assets/brian.svg'
-          />
+          <img class='patient-overview-profile-image' src='assets/brian.svg' />
           <p class='names'>{{this.first_name}} {{this.last_name}}</p>
         </td>
         <td><div class='td-left label {{this.status}}'></div></td>
         {{#each this.daily_data}}
-			{{#each this.values}}
-				{{log this}}
-				<td
-				  class='td-right content {{this.data.blood_glucose_level.warning}}'
-				>{{this.value}}</td>
-			{{/each}}
-		{{/each}}
+          {{#each this.values}}
+            <td
+              class='td-right content {{this.data.blood_glucose_level.warning}}'
+            >{{this.value}}</td>
+          {{/each}}
+        {{/each}}
       </tr>
       <tr>
         <td colspan='7' class='warning-container'>

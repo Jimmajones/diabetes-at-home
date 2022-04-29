@@ -18,7 +18,7 @@ const viewDashboard = async (req, res, next) => {
       { first_name: 'Pat' },
       {
         first_name: true,
-        daily_data: true,
+        daily_data: { $slice: -3 },
       }
     ).lean()
     res.render('patient-dashboard', {
