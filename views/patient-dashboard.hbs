@@ -1,7 +1,11 @@
 <div class='heading'>
-  <h1 class='page-title'>G'day {{username}}</h1>
+  <h1 class='page-title'>G'day {{data.first_name}}</h1>
 
   <!-- achievement/badge here -->
+  <div class='achievement-badge'>
+    <img src='assets/badge.svg' />
+    <h2 class='completion-rate'>82%</h2>
+  </div>
 
 </div>
 
@@ -13,18 +17,15 @@
     <form class='input-container' action='/patient/{{data._id}}' method='POST'>
       {{#each data.required_data}}
         <div class='input-box'>
+          <label for='{{this.data_type}}'>{{this.display_text}}</label>
           {{#unless this.completed}}
-            <label for='{{this.data_type}}'>{{this.display_text}}</label>
             <input name='{{this.data_type}}' type='number' />
             <textarea
               name='{{this.data_type}}'
-              placeholder='additional comments here...'
+              placeholder='additional comment here...'
             ></textarea>
           {{else}}
-            <h3>{{this.display_text}}</h3>
-            <!-- TODO: -->
-            <!-- have yet to implement logic here -->
-            <!-- the previous code does not work -->
+
           {{/unless}}
         </div>
       {{/each}}
