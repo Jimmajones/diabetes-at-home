@@ -21,17 +21,18 @@ const viewDashboard = async (req, res, next) => {
         daily_data: { $slice: -3 },
       }
     ).lean()
-
+    /*
     var notNull = 0
     for (obj in patient.daily_data[0].values) {
       if (obj.value != undefined) {
         notNull++
       }
     }
+    */
 
     await Patient.updateOne(
       { _id: patient._id },
-      { $set: { completion_rate: notNull / 4 } }
+      { $set: { completion_rate: 0.5 } }
     )
 
     res.render('patient-dashboard', {
@@ -58,42 +59,49 @@ const addHealthRecord = async (req, res, next) => {
     console.log(patient)
     // Find out if the latest health record was made today.
     const today = new Date()
-    const record_date = patient.daily_data[0].when
+    const record = patient.daily_data[0]
+
     let is_same_day
-    if (
-      record_date.getDay() == today.getDay() &&
-      record_date.getMonth() == today.getMonth() &&
-      record_date.getYear() == today.getYear()
-    ) {
-      is_same_day = true
-    } else {
+    if (!record) {
       is_same_day = false
+    } else {
+      record_date = record.when
+      if (
+        record_date.getDate() == today.getDate() &&
+        record_date.getMonth() == today.getMonth() &&
+        record_date.getFullYear() == today.getFullYear()
+      ) {
+        is_same_day = true
+      } else {
+        is_same_day = false
+      }
     }
 
-    const data = {
-      values: [
-        {
-          type: 'blood',
-          value: req.body.blood,
-          comment: req.body.blood_comment,
-        },
-        {
-          type: 'weight',
-          value: req.body.weight,
-          comment: req.body.weight_comment,
-        },
-        {
-          type: 'insulin',
-          value: req.body.insulin,
-          comment: req.body.insulin_comment,
-        },
-        {
-          type: 'steps',
-          value: req.body.steps,
-          comment: req.body.steps_comment,
-        },
-      ],
+    const blood_data = {
+      type: 'blood',
+      value: req.body.blood,
+      comment: req.body.blood_comment,
     }
+
+    const weight_data = {
+      type: 'weight',
+      value: req.body.weight,
+      comment: req.body.weight_comment,
+    }
+
+    const insulin_data = {
+      type: 'insulin',
+      value: req.body.insulin,
+      comment: req.body.insulin_comment,
+    }
+
+    const steps_data = {
+      type: 'steps',
+      value: req.body.steps,
+      comment: req.body.steps_comment,
+    }
+
+    const data = { values: [blood_data, weight_data, insulin_data, steps_data] }
 
     // var notNull = 0
     // for (obj in data.values) {
@@ -102,11 +110,7 @@ const addHealthRecord = async (req, res, next) => {
     //   }
     // }
     if (is_same_day) {
-      Patient.updateOne(
-        { _id: patient._id },
-        { $set: { $last: { daily_data: data } } },
-        done
-      )
+      res.redirect('back')
     } else {
       Patient.updateOne(
         { _id: patient._id },

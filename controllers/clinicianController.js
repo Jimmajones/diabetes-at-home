@@ -24,13 +24,14 @@ const viewAllPatients = async (req, res, next) => {
       { daily_data: { $slice: -1 } }
     ).lean()
 
-    for (patient in patients) {
+    for (let i = 0; i < patients.length; i++) {
+      var patient = patients[i]
       var isComplete = false
       var isWithinThreshold = false
-      const statusString = ''
+      var statusString = ''
 
       // Check completion
-      if (patient.daily_data.values.length == patient.thresholds.length) {
+      if (patient.daily_data[0].values.length == patient.thresholds.length) {
         isComplete = true
       }
       // Check thresholds

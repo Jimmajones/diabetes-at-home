@@ -5,4 +5,22 @@ module.exports = {
     let yy = date.getFullYear()
     return dd + '/' + mm + '/' + yy
   },
+
+  today_data: function (daily_data) {
+    let record = daily_data[daily_data.length - 1]
+    if (!record) {
+      return true
+    }
+    let record_date = record.when
+    let today = new Date()
+    if (
+      record_date.getDate() == today.getDate() &&
+      record_date.getMonth() == today.getMonth() &&
+      record_date.getFullYear() == today.getFullYear()
+    ) {
+      return false
+    } else {
+      return true
+    }
+  },
 }
