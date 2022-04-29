@@ -31,14 +31,28 @@ const viewDashboard = async (req, res, next) => {
 
 const addHealthRecord = async (req, res, next) => {
   try {
-    res.send('Not implemented yet. Sorry!')
+    let done = function (err, result) {
+      res.send(result)
+    }
+    const patient = await Patient.findOne({ first_name: 'Pat' })
+    const test_data = {
+      values: [
+        { type: 'blood', value: 4.4 },
+        { type: 'weight', value: 69 },
+      ],
+    }
+    Patient.updateOne(
+      { _id: patient._id },
+      { $push: { daily_data: test_data } },
+      done
+    )
   } catch (err) {
     return next(err)
   }
 }
 
 module.exports = {
-  //getAllPatients,
+  getAllPatients,
   viewDashboard,
   addHealthRecord,
 }
