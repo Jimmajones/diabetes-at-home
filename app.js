@@ -149,9 +149,9 @@ const individual_patient_data = {
 const patient_data = [
   {
     id: 1,
-    first_name: 'gerald',
+    first_name: 'Gerald',
     last_name: 'Helman',
-    profile_image: '...',
+    profile_image: 'gerald.svg',
     status: 'good',
     data: {
       blood_glucose_level: {
@@ -183,9 +183,9 @@ const patient_data = [
   },
   {
     id: 2,
-    first_name: 'brian',
+    first_name: 'Brian',
     last_name: 'Adinata',
-    profile_image: '...',
+    profile_image: 'brian.svg',
     status: 'both',
     data: {
       blood_glucose_level: {

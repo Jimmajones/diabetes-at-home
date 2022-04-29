@@ -426,10 +426,9 @@ td {
   text-align: left;
   border: 2px solid;
   border-radius: 5px;
-  display: block;
 }
 
-.good {
+.warning-box.good {
   display: none !important;
 }
 
@@ -455,7 +454,7 @@ td {
   border-radius: 100px;
   height: 30px;
   width: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+
 }
 
 .warning-header {
@@ -499,8 +498,12 @@ body .content {
 }
 
 .toggle-overlay {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
+  border: none;
+  outline: none;
+  background: none;
+  margin-bottom: 20px;
 }
 
 /* stylying for label */
