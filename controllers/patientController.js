@@ -32,7 +32,7 @@ const addHealthRecord = async (req, res, next) => {
 }
 
 module.exports = {
-  getAllPatients,
+  //getAllPatients,
   viewDashboard,
   addHealthRecord,
 }
