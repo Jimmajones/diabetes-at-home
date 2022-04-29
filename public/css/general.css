@@ -11,16 +11,6 @@ html {
   --peach-red: #FF7768;
 }
 
-/* @font-face { */
-/*   font-family: 'Montserrat'; */
-/*   src: url(fonts/Montserrat/static/Montserrat-Regular.ttf); */
-/* } */
-/**/
-/* @font-face { */
-/*   font-family: 'Mlight'; */
-/*   src: url(fonts/Mlight/Mlight.ttf); */
-/* } */
-
 body {
   /* Apply Montserrat font unless specified otherwise. */
   font-family: 'Montserrat', Arial, sans-serif, 'Mlight';
