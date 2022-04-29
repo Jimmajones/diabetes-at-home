@@ -39,6 +39,22 @@ const addHealthRecord = async (req, res, next) => {
   }
 }
 
+// Allow patients to update their records
+const updateRecord = async (req, res, next) => { 
+  try { 
+    const patient = await Patient.findById(req.params.patient_id)
+    if (!patient) { 
+      return res.sendStatus(404)
+    }
+    const data = patient.daily_data[req.body.key]
+    
+
+    patient.save()
+  } catch (err) { 
+    return next(err)
+  }
+}
+
 // const recordData = async (req, res, next) => {
 //   try {
 //     const patient = await Patient.findById(req.params.patient_id).lean()
@@ -55,4 +71,5 @@ module.exports = {
   getAllPatients,
   viewDashboard,
   addHealthRecord,
+  UpdateRecord,
 }
