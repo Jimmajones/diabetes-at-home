@@ -26,6 +26,14 @@ const patientSchema = new mongoose.Schema({
   last_name: String,
   //thresholds: [thresholdSchema],
   daily_data: [recordSchema],
+  screen_name: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  date_of_birth: { type: Date, required: true },
+  post_code: Number,
+  bio: { type: String, required: true },
+  engagement_score: Number,
+  leaderboard_rank: Number,
 })
 
 const Patient = mongoose.model('Patient', patientSchema)
