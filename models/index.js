@@ -12,8 +12,8 @@ mongoose
     useUnifiedTopology: true,
     dbName: 'diabetes-at-home',
   })
-  .then(() => console.log('Connected to Mongo!'))
-  .catch((err) => console.log(err, '\nfailed to connect to Mongo'))
+  .then(() => console.log('Connected to MongoDB!'))
+  .catch((err) => console.log(err, '\nFailed to connect to MongoDB...'))
 
 // Exit on error
 const db = mongoose.connection.on('error', (err) => {
@@ -23,7 +23,7 @@ const db = mongoose.connection.on('error', (err) => {
 
 // Log to console once the database is open
 db.once('open', async () => {
-  console.log(`Mongo connection started on ${db.host}:${db.port}`)
+  console.log(`MongoDB connection started on ${db.host}:${db.port}!`)
 })
 
 require('./patients')

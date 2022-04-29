@@ -13,15 +13,18 @@ const getAllPatients = async (req, res, next) => {
 
 const viewDashboard = async (req, res, next) => {
   try {
-    const patient = await Patient.findById(req.params.patient_id, {
-      first_name: true,
-      required_data: true,
-      daily_data: true,
+    // Hardcode the user (for now).
+    const patient = await Patient.findOne(
+      { first_name: 'Pat' },
+      {
+        first_name: true,
+        daily_data: true,
+      }
+    ).lean()
+    res.render('patient-dashboard', {
+      layout: 'patient',
+      patient: patient,
     })
-    if (!patient) {
-      return res.sendStatus(404)
-    }
-    res.render('patient-dashboard', { data: patient })
   } catch (err) {
     return next(err)
   }
@@ -29,10 +32,23 @@ const viewDashboard = async (req, res, next) => {
 
 const addHealthRecord = async (req, res, next) => {
   try {
-    const patient = await Patient.findById(req.params.patient_id).lean()
-    if (!patient) {
-      return res.sendStatus(404)
+    let done = function (err, result) {
+      res.send(result)
     }
+    const patient = await Patient.findOne({ first_name: 'Pat' })
+    const data = {
+      values: [
+        { type: 'blood', value: req.body.blood },
+        { type: 'weight', value: req.body.weight },
+        { type: 'insulin', value: req.body.insulin },
+        { type: 'steps', value: req.body.steps },
+      ],
+    }
+    Patient.updateOne(
+      { _id: patient._id },
+      { $push: { daily_data: data } },
+      done
+    )
   } catch (err) {
     return next(err)
   }

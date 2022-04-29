@@ -1,0 +1,17 @@
+<h1>Hello {{patient.first_name}}!</h1>
+
+<h2>History:</h2>
+<ul>
+  {{#each patient.daily_data}}
+    <li>
+      Record
+      <ul>
+        {{#each values}}
+          <li>
+            <p>{{this.type}}: {{this.value}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>

@@ -1,5 +1,9 @@
 <div class='heading'>
+<<<<<<< HEAD
   <h1 class='page-title'>G'day {{data.first_name}}</h1>
+=======
+  <h1 class='page-title'>G'day {{patient.first_name}}!</h1>
+>>>>>>> james
 
   <!-- achievement/badge here -->
   <div class='achievement-badge'>
@@ -14,23 +18,27 @@
   <div class='record-data-container'>
     <h2 class='sub-heading'>Record today's data</h2>
     <div class='progress-bar'></div>
-    <form class='input-container' action='/patient/{{data._id}}' method='POST'>
-      {{#each data.required_data}}
-        <div class='input-box'>
-          <label for='{{this.data_type}}'>{{this.display_text}}</label>
-          {{#unless this.completed}}
-            <input name='{{this.data_type}}' type='number' />
-            <textarea
-              name='{{this.data_type}}'
-              placeholder='additional comment here...'
-            ></textarea>
-          {{else}}
-            <!-- get the content from data.daily_data.0.value/comment? -->
-            <div class='input-value-after'></div>
-            <div class='input-comment-after'></div>
-          {{/unless}}
-        </div>
-      {{/each}}
+    <form class='input-container' method='post'>
+      <div class='input-box'>
+        <label for='blood'>Blood glucose level</label>
+        <input name='blood' id='blood' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
+      <div class='input-box'>
+        <label for='weight'>Weight (kg)</label>
+        <input name='weight' id='weight' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
+      <div class='input-box'>
+        <label for='insulin'>Insulin doses (#)</label>
+        <input name='insulin' id='insulin' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
+      <div class='input-box'>
+        <label for='steps'>Exercise (steps)</label>
+        <input name='steps' id='steps' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
       <input type='submit' value='Update' class='submit-btn' />
     </form>
   </div>
@@ -41,17 +49,17 @@
       <table class='medical-history-table'>
         <tr>
           <th>Date</th>
-          {{#each data.required_data}}
-            <th>{{this.display_text}}</th>
-          {{/each}}
+          <th>Blood glucose level</th>
+          <th>Weight</th>
+          <th>Insulin</th>
+          <th>Steps</th>
         </tr>
-        {{#each data.daily_data}}
+        {{#each patient.daily_data}}
           <tr>
-            <td>{{this.date_recorded}}</td>
-            <td>{{this.blood_glucose_level.value}}</td>
-            <td>{{this.weight.value}}</td>
-            <td>{{this.insulin.value}}</td>
-            <td>{{this.exercise.value}}</td>
+            <td>{{this.when}}</td>
+            {{#each values}}
+              <td>{{this.value}}</td>
+            {{/each}}
           </tr>
         {{/each}}
       </table>
