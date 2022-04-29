@@ -1,4 +1,4 @@
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -8,6 +8,7 @@ html {
   --secondary-bg: #fdc500; /* orange-yellow */
   --cream: #ffece5;
   --green: #00bea7;
+  --peach-red: #FF7768;
 }
 
 /* @font-face { */
@@ -270,7 +271,7 @@ img.drawkit-health {
 
 .progress-bar {
   position: relative;
-  margin: 15px auto;
+  margin: 15px auto; /* center align */
   max-width: 50vw;
   min-width: 300px;
   height: 1em;
@@ -279,9 +280,19 @@ img.drawkit-health {
 }
 
 .progress-bar::before {
+  content: '';
   position: absolute;
+  align-items: center;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: .8em;
+
+  /* set this according to the completion rate */
+  width: 75%;
+
   background-color: var(--green);
-  width: 10%;
+  border-radius: 1.5em;
 }
 
 /* medical data input form */
@@ -651,6 +662,7 @@ body .content {
 .patient-values {
   font-size: 10px;
 } */
+
 /************ embeded vid ***************/
 /* YouTube embed responsive design code
  * adapted from StackOverflow user 'bron':
@@ -725,7 +737,6 @@ body .content {
   /* .nav-content-container.active { */
   /*   display: flex; */
   /* } */
-  /********************************/
 }
 
 /* Desktop layout */
@@ -739,4 +750,3 @@ body .content {
     margin-bottom: 8px;
   }
 }
-/**************************************************/
