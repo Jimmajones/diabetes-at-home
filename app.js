@@ -74,18 +74,22 @@ const individual_patient_data = {
     {
       data_type: 'blood_glucose_level',
       display_text: 'Blood Glucose Level (nmo/L)',
+      completed: true,
     },
     {
       data_type: 'weight',
       display_text: 'Weight (kg)',
+      completed: true,
     },
     {
       data_type: 'insulin_doses',
       display_text: 'Insulin (doses)',
+      completed: false,
     },
     {
       data_type: 'exercise_steps',
       display_text: 'Exercise (steps)',
+      completed: true,
     },
   ],
   daily_data: [
@@ -94,25 +98,25 @@ const individual_patient_data = {
         name: 'blood_glucose_level',
         warning: null,
         value: 4.8,
-        text: null,
+        comment: 'lorem ipsum foo bar',
       },
       weight: {
         name: 'weight',
         warning: null,
         value: 68,
-        text: null,
+        comment: 'lorem ipsum foo bar',
       },
       insulin: {
         name: 'insulin',
         warning: null,
         value: 2,
-        text: null,
+        comment: 'lorem ipsum foo bar',
       },
       exercise: {
         name: 'exercise',
         warning: null,
         value: 4359,
-        text: null,
+        comment: 'lorem ipsum foo bar',
       },
       date_recorded: '10/1/2022',
     },
