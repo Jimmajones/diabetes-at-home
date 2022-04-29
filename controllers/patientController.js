@@ -13,14 +13,18 @@ const getAllPatients = async (req, res, next) => {
 const viewDashboard = async (req, res, next) => {
   try {
     // Hardcode the user (for now).
-    const result = await patientModel.Patient.findOne(
+    const patient = await patientModel.Patient.findOne(
       { first_name: 'Pat' },
       {
         first_name: true,
         daily_data: true,
       }
-    )
-    res.send(result)
+    ).lean()
+    res.render('patient-dashboard-simple', {
+      layout: 'patient',
+      name: patient.first_name,
+      records: patient.daily_data,
+    })
   } catch (err) {
     return next(err)
   }

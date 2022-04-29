@@ -15,9 +15,11 @@ const getAllClinicians = async (req, res, next) => {
 const viewAllPatients = async (req, res, next) => {
   try {
     // Hardcode the user (for now).
-    let clinician = await Clinician.findOne({ first_name: 'Chris' })
+    const clinician = await Clinician.findOne({ first_name: 'Chris' })
     // Find all Patient document IDs listed for this Clinician.
-    const data = await patientModel.Patient.find({ _id: { $in: clinician.patient_list } })
+    const data = await patientModel.Patient.find({
+      _id: { $in: clinician.patient_list },
+    })
     res.send(data)
   } catch (err) {
     return next(err)

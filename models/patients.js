@@ -1,13 +1,15 @@
 const mongoose = require('mongoose')
 
-const bloodSchema = new mongoose.Schema({
+const valueSchema = new mongoose.Schema({
+  type: String,
+  enum: ['blood', 'weight', 'insulin', 'steps'],
   value: Number,
   comment: String,
   when: { type: Date, default: Date.now },
 })
 
 const recordSchema = new mongoose.Schema({
-  blood: bloodSchema,
+  values: [valueSchema],
 })
 
 const patientSchema = new mongoose.Schema({
@@ -16,7 +18,7 @@ const patientSchema = new mongoose.Schema({
   daily_data: [recordSchema],
 })
 
-const Blood = mongoose.model('Blood', bloodSchema)
+const Value = mongoose.model('Value', valueSchema)
 const Record = mongoose.model('Record', recordSchema)
 const Patient = mongoose.model('Patient', patientSchema)
-module.exports = { Blood, Record, Patient }
+module.exports = { Value, Record, Patient }

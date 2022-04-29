@@ -1,0 +1,17 @@
+<h1>Hello {{name}}!</h1>
+
+<h2>History:</h2>
+<ul>
+  {{#each records}}
+    <li>
+      Record
+      <ul>
+      {{#each this}}
+		<li>
+			<p>{{this.type}}: {{this.value}}</p>
+		</li>
+	  {{/each}}
+	  </ul>
+    </li>
+  {{/each}}
+</ul>
