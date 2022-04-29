@@ -40,9 +40,10 @@
       <table class='medical-history-table'>
         <tr>
           <th>Date</th>
-          {{#each required_data}}
-            <th>{{this}}</th>
-          {{/each}}
+          <th>Blood glucose level</th>
+          <th>Weight</th>
+          <th>Insulin</th>
+          <th>Steps</th>
         </tr>
         {{#each patient.daily_data}}
           <tr>
