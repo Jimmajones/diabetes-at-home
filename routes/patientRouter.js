@@ -5,7 +5,7 @@ const patientRouter = express.Router()
 const patientController = require('../controllers/patientController')
 
 // Useful for debugging.
-patientRouter.get('/', patientController.getAllPatients)
+//patientRouter.get('/', patientController.getAllPatients)
 
 patientRouter.get('/dashboard/:patient_id', patientController.viewDashboard)
 
