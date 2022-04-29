@@ -18,6 +18,7 @@ const valueSchema = new mongoose.Schema({
 
 const recordSchema = new mongoose.Schema({
   values: [valueSchema],
+  when: { type: Date, default: Date.now },
 })
 
 const patientSchema = new mongoose.Schema({

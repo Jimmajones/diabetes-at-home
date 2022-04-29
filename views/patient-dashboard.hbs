@@ -1,5 +1,5 @@
 <div class='heading'>
-  <h1 class='page-title'>G'day {{username}}</h1>
+  <h1 class='page-title'>G'day {{patient.first_name}}!</h1>
 
   <!-- achievement/badge here -->
 
@@ -9,14 +9,27 @@
 
   <div class='record-data-container'>
     <h2 class='sub-heading'>Record today's data</h2>
-    <form class='input-container' action='' method='get'>
-      {{#each data.0.required_data}}
-        <div class='input-box'>
-          <label for='{{this}}'>{{this}}</label>
-          <input id='{{this}}' type='number' />
-          <textarea placeholder='additional comments here...'></textarea>
-        </div>
-      {{/each}}
+    <form class='input-container' method='post'>
+      <div class='input-box'>
+        <label for='blood'>Blood glucose level</label>
+        <input id='blood' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
+      <div class='input-box'>
+        <label for='weight'>Weight (kg)</label>
+        <input id='weight' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
+      <div class='input-box'>
+        <label for='insulin'>Insulin doses (#)</label>
+        <input id='insulin' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
+      <div class='input-box'>
+        <label for='steps'>Exercise (steps)</label>
+        <input id='steps' type='number' />
+        <textarea placeholder='additional comments here...'></textarea>
+      </div>
       <input type='submit' value='Update' class='submit-btn' />
     </form>
   </div>
@@ -27,17 +40,16 @@
       <table class='medical-history-table'>
         <tr>
           <th>Date</th>
-          {{#each data.0.required_data}}
+          {{#each required_data}}
             <th>{{this}}</th>
           {{/each}}
         </tr>
-        {{#each data}}
+        {{#each patient.daily_data}}
           <tr>
-            <td>{{this.daily_data.date_recorded}}</td>
-            <td>{{this.daily_data.blood_glucose_level.value}}</td>
-            <td>{{this.daily_data.weight.value}}</td>
-            <td>{{this.daily_data.insulin.value}}</td>
-            <td>{{this.daily_data.exercise.value}}</td>
+            <td>{{this.when}}</td>
+            {{#each values}}
+              <td>{{this.value}}</td>
+            {{/each}}
           </tr>
         {{/each}}
       </table>

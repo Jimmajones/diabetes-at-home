@@ -9,6 +9,6 @@ patientRouter.get('/', patientController.getAllPatients)
 
 patientRouter.get('/dashboard', patientController.viewDashboard)
 
-patientRouter.get('/dashboard/uploadRecord', patientController.addHealthRecord)
+patientRouter.post('/dashboard', patientController.addHealthRecord)
 
 module.exports = patientRouter

@@ -20,7 +20,7 @@ const viewDashboard = async (req, res, next) => {
         daily_data: true,
       }
     ).lean()
-    res.render('patient-dashboard-simple', {
+    res.render('patient-dashboard', {
       layout: 'patient',
       patient: patient,
     })
