@@ -64,6 +64,9 @@ app.get('/clinician-dashboard', (req, res) => {
 })
 
 // Tells the app to listen on port 3000 and logs that information to the console.
-app.listen(process.env.PORT || 3000, () => {
-  console.log('Diabetes@Home app is running!')
+let server = app.listen(process.env.PORT || 3000, () => {
+  console.log(
+    'Express app "Diabetes@Home" listening on port %d.',
+    server.address().port
+  )
 })
