@@ -60,9 +60,18 @@ const addHealthRecord = async (req, res, next) => {
         },
       ],
     }
+    
+    var notNull = 0;
+    for (obj in data.values) {
+      if (obj.value != null) {
+        notNull++;
+      }
+    }
+
     Patient.updateOne(
       { _id: patient._id },
       { $push: { daily_data: data } },
+      { $set: { completion_rate: (notNull / 4)}},
       done
     )
   } catch (err) {
