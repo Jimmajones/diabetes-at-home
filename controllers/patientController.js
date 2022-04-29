@@ -35,11 +35,12 @@ const addHealthRecord = async (req, res, next) => {
       res.send(result)
     }
     const patient = await Patient.findOne({ first_name: 'Pat' })
-    console.log(req.body);
     const data = {
       values: [
         { type: 'blood', value: req.body.blood },
         { type: 'weight', value: req.body.weight },
+        { type: 'insulin', value: req.body.insulin },
+        { type: 'steps', value: req.body.steps },
       ],
     }
     Patient.updateOne(
