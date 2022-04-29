@@ -73,7 +73,7 @@
         </tr>
         {{#each patient.daily_data}}
           <tr>
-            <td>{{this.when}}</td>
+            <td>{{format_date this.when}}</td>
             {{#each values}}
               <td>{{this.value}}</td>
             {{/each}}

@@ -22,16 +22,16 @@ const viewDashboard = async (req, res, next) => {
       }
     ).lean()
 
-    var notNull = 0;
+    var notNull = 0
     for (obj in patient.daily_data[0].values) {
       if (obj.value != undefined) {
-        notNull++;
+        notNull++
       }
     }
 
     await Patient.updateOne(
       { _id: patient._id },
-      { $set: { completion_rate: (notNull / 4)}},
+      { $set: { completion_rate: notNull / 4 } }
     )
 
     res.render('patient-dashboard', {
@@ -48,7 +48,28 @@ const addHealthRecord = async (req, res, next) => {
     let done = function (err, result) {
       res.redirect('back')
     }
-    const patient = await Patient.findOne({ first_name: 'Pat' })
+    const patient = await Patient.findOne(
+      { first_name: 'Pat' },
+      {
+        first_name: true,
+        daily_data: { $slice: -1 },
+      }
+    )
+    console.log(patient)
+    // Find out if the latest health record was made today.
+    const today = new Date()
+    const record_date = patient.daily_data[0].when
+    let is_same_day
+    if (
+      record_date.getDay() == today.getDay() &&
+      record_date.getMonth() == today.getMonth() &&
+      record_date.getYear() == today.getYear()
+    ) {
+      is_same_day = true
+    } else {
+      is_same_day = false
+    }
+
     const data = {
       values: [
         {
@@ -80,12 +101,19 @@ const addHealthRecord = async (req, res, next) => {
     //     notNull++
     //   }
     // }
-
-    Patient.updateOne(
-      { _id: patient._id },
-      { $push: { daily_data: data } },
-      done
-    )
+    if (is_same_day) {
+      Patient.updateOne(
+        { _id: patient._id },
+        { $set: { $last: { daily_data: data } } },
+        done
+      )
+    } else {
+      Patient.updateOne(
+        { _id: patient._id },
+        { $push: { daily_data: data } },
+        done
+      )
+    }
   } catch (err) {
     return next(err)
   }

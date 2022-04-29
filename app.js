@@ -12,6 +12,7 @@ app.engine(
   'hbs',
   exphbs.engine({
     extname: 'hbs',
+    helpers: require('./hbs-helpers'),
   })
 )
 app.set('view engine', 'hbs')

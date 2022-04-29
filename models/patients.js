@@ -35,7 +35,7 @@ const patientSchema = new mongoose.Schema({
   engagement_score: Number,
   leaderboard_rank: Number,
   completion_rate: Number,
-  status: String
+  status: String,
 })
 
 const Patient = mongoose.model('Patient', patientSchema)
