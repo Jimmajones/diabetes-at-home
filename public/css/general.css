@@ -7,6 +7,7 @@ html {
   --primary-bg: #7b61ff; /* purple-blue */
   --secondary-bg: #fdc500; /* orange-yellow */
   --cream: #ffece5;
+  --green: #00bea7;
 }
 
 @font-face {
@@ -249,6 +250,22 @@ img.drawkit-health {
   gap: 50px;
 }
 
+.progress-bar {
+  position: relative;
+  margin: 15px auto;
+  max-width: 50vw;
+  min-width: 300px;
+  height: 1em;
+  border: solid 2px;
+  border-radius: 1.5em;
+}
+
+.progress-bar::before {
+  position: absolute;
+  background-color: var(--green);
+  width: 10%;
+}
+
 /* medical data input form */
 .input-container {
   background: var(--cream);
@@ -485,7 +502,6 @@ body .content {
   height: 25px;
   width: 25px;
 }
-
 
 /* stylying for label */
 .td-left.over-threshold {
