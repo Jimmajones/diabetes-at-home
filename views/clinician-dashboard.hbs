@@ -2,10 +2,9 @@
   <h1 class='page-title'>Dashboard</h1>
 </div>
 
-<div class='clinician-db-content'>
+<div class='table-container'>
   <table class='patient-list'>
     <tr>
-      <th class='td-button'>B</th>
       <th class='td-left'>NAME</th>
       <th class='td-left'>LABEL</th>
       <th class='td-right'>BLOOD GLUCOSE LEVEL (NMO/L)</th>
@@ -16,11 +15,10 @@
     <!-- replace with required data? -->
     {{#each patient_data}}
       <tr class='patient-data-content-row'>
-        <td class='td-button'>
-            <button onclick="myFunction({{this.id}})" class="toggle-overlay"> <img id='button-{{this.id}}' class="warning-image" src="assets/toggle.svg"/>
-            </button>
-        </td>
         <td class='td-left profile-data'>
+            <button onclick="myFunction({{this.id}})" class="toggle-overlay"> 
+              <img id='button-{{this.id}}' class="warning-image" src="assets/toggle.svg"/>
+            </button>
           <img
             class='patient-overview-profile-image'
             src='assets/{{this.profile_image}}'

@@ -447,7 +447,7 @@ td {
 }
 
 .patient-list {
-  width: 80vw;
+  width: 80%;
   font-size: 14px;
 }
 
@@ -459,6 +459,8 @@ td {
 .names {
   font-size: 14px;
   color: #303651;
+  width: 1%;
+  white-space: nowrap;
 }
 /*warning box format and styling*/
 .warning-container {
@@ -519,7 +521,7 @@ td {
 } */
 
 .td-left {
-  text-align: left;
+  text-align: center;
   padding: 0.2em 0 0.2em 2em;
 }
 
@@ -528,25 +530,15 @@ td {
   padding: 1em 2em 1em 0;
 }
 
-body .content {
-  font-family: Mlight;
-}
-
 .profile-data {
   display: flex;
-}
-
-.td-button {
-  max-width: 0px;
+  align-items: center;
 }
 
 .toggle-overlay {
-  height: 30px;
-  width: 30px;
   border: none;
   outline: none;
   background: none;
-  margin-bottom: 20px;
 }
 
 /* stylying for label */
