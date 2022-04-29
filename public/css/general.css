@@ -388,6 +388,7 @@ td {
 
 .patient-list {
   width: 80vw;
+  font-size: 14px;
 }
 
 .patient-data-content-row {
@@ -395,6 +396,10 @@ td {
   position: relative;
 }
 
+.names {
+  font-size: 14px;
+  color: #303651;
+}
 /*warning box format and styling*/
 .warning-container {
   padding: 0 0 10px 0;
@@ -440,6 +445,10 @@ td {
   margin: 0 0 16px 0;
 }
 
+.warning-explanation {
+  color: #697089;
+}
+
 /* .warning td {
   column-span: 3;
 } */
@@ -468,6 +477,14 @@ body .content {
   display: flex;
 }
 
+.td-button {
+  max-width: 0px;
+}
+
+.toggle-overlay {
+  height: 25px;
+  width: 25px;
+}
 
 
 /* stylying for label */

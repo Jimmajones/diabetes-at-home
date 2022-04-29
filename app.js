@@ -155,25 +155,25 @@ const patient_data = [
     status: 'good',
     data: {
       blood_glucose_level: {
-        name: 'blood_glucose_level',
+        name: 'Blood glucose level',
         warning: null,
         value: 4.8,
         text: null,
       },
       weight: {
-        name: 'weight',
+        name: 'Weight',
         warning: null,
         value: 68,
         text: null,
       },
       insulin: {
-        name: 'insulin',
+        name: 'Insulin',
         warning: null,
         value: 2,
         text: null,
       },
       exercise: {
-        name: 'exercise',
+        name: 'Exercise',
         warning: null,
         value: 4359,
         text: null,
@@ -189,25 +189,25 @@ const patient_data = [
     status: 'both',
     data: {
       blood_glucose_level: {
-        name: 'blood_glucose_level',
+        name: 'Blood glucose level',
         warning: null,
         value: 5.8,
         text: null,
       },
       weight: {
-        name: 'weight',
+        name: 'Weight',
         warning: 'incomplete',
         value: null,
         text: patient_warning.weight_missing,
       },
       insulin: {
-        name: 'insulin',
+        name: 'Insulin',
         warning: 'over-threshold',
         value: 10,
         text: patient_warning.insulin_over,
       },
       exercise: {
-        name: 'exercise',
+        name: 'Exercise',
         warning: null,
         value: 4359,
         text: null,
