@@ -3,7 +3,7 @@
   <!-- achievement/badge here -->
   <div class='achievement-badge'>
     <img src='assets/badge.svg' />
-    <h2 class='completion-rate'>{{patient.engagement_score}}%</h2>
+    <h2 class='engagement_score'>{{patient.engagement_score}}%</h2>
   </div>
 
 </div>
@@ -16,7 +16,7 @@
     <!-- make the progress bar respond to the completion rate -->
     <div
       class='progress-bar'
-      style='--completion-rate: calc({{this.completion_rate}} * 100%)'
+      style='--completion-rate: calc({{patient.completion_rate}} * 100%)'
     ></div>
 
     <form class='input-container' method='post'>
@@ -105,5 +105,5 @@
 </div>
 
 <div class='support-message'>
-  <h3>{{message}}</h3>
+  <h3>{{patient.clinicians_message}}</h3>
 </div>

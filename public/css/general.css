@@ -255,7 +255,7 @@ img.drawkit-health {
   align-items: center;
 }
 
-.completion-rate {
+.engagement-score {
   color: var(--green);
   -webkit-text-stroke: 1px black;
   margin: 2px;
