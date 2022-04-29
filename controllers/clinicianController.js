@@ -27,7 +27,7 @@ const viewAllPatients = async (req, res, next) => {
 }
 
 // Get one specific patinet 
-const getOnePatient = (req, res, next) => { 
+const getOnePatient = async (req, res, next) => { 
   try { 
     const patient = await Patient.findById(req.params.patient_id).lean()
     if (patient) { 
@@ -42,7 +42,7 @@ const getOnePatient = (req, res, next) => {
 }
 
 // Add a new patient 
-const addOnePatient = (req, res, next) => { 
+const addOnePatient = async (req, res, next) => { 
   try { 
     const newPatient = req.body
     if (!Patient.find((d) => d.patient_id == newPatient.id)) { 
