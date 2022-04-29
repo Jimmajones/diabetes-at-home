@@ -44,7 +44,6 @@ app.get('/about-website', (req, res) => {
   })
 })
 
-
 const patient_warning = {
   high_glucose_level_over:
     "The patient's blood flucose level is currently over the safety threshold, please check again.",

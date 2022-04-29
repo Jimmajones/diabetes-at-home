@@ -15,9 +15,13 @@
     {{#each patient_data}}
       <tr class='patient-data-content-row'>
         <td class='td-left profile-data'>
-            <button onclick="toggle({{this.id}})" class="toggle-overlay"> 
-              <img id='button-{{this.id}}' class="warning-image" src="assets/toggle.svg"/>
-            </button>
+          <button onclick='toggle({{this.id}})' class='toggle-overlay'>
+            <img
+              id='button-{{this.id}}'
+              class='warning-image'
+              src='assets/toggle.svg'
+            />
+          </button>
           <img
             class='patient-overview-profile-image'
             src='assets/{{this.profile_image}}'
@@ -44,7 +48,10 @@
             {{#each this.data}}
               {{#if this.warning}}
                 <div class='patient-data-warning'>
-                  <img class='warning-image' src='assets/{{this.warning}}.svg' />
+                  <img
+                    class='warning-image'
+                    src='assets/{{this.warning}}.svg'
+                  />
                   <div class='text-container'>
                     <h3 class='warning-header'>{{this.name}}</h3>
                     <span
@@ -60,5 +67,3 @@
     {{/each}}
   </table>
 </div>
-
-

@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -8,7 +10,7 @@ html {
   --secondary-bg: #fdc500; /* orange-yellow */
   --cream: #ffece5;
   --green: #00bea7;
-  --peach-red: #FF7768;
+  --peach-red: #ff7768;
 }
 
 body {
@@ -276,7 +278,7 @@ img.drawkit-health {
   left: 0;
   top: 0;
   bottom: 0;
-  height: .8em;
+  height: 0.8em;
 
   /* set this according to the completion rate */
   width: 75%;
@@ -490,7 +492,6 @@ td {
   border-radius: 100px;
   height: 30px;
   width: 30px;
-
 }
 
 .warning-header {

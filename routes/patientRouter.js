@@ -1,7 +1,7 @@
 const express = require('express')
 
 const bodyParser = require('body-parser')
-const urlencodedParser = bodyParser.urlencoded({ extended: false})
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const patientRouter = express.Router()
 
@@ -12,6 +12,10 @@ patientRouter.get('/', patientController.getAllPatients)
 
 patientRouter.get('/dashboard', patientController.viewDashboard)
 
-patientRouter.post('/dashboard', urlencodedParser, patientController.addHealthRecord)
+patientRouter.post(
+  '/dashboard',
+  urlencodedParser,
+  patientController.addHealthRecord
+)
 
 module.exports = patientRouter
