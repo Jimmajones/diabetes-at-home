@@ -16,7 +16,7 @@ const viewDashboard = async (req, res, next) => {
     const patient = await Patient.findById(req.params.patient_id, {
       first_name: true,
       required_data: true,
-      daily_data: true
+      daily_data: true,
     })
     if (!patient) {
       return res.sendStatus(404)
@@ -33,24 +33,22 @@ const addHealthRecord = async (req, res, next) => {
     if (!patient) {
       return res.sendStatus(404)
     }
-    
   } catch (err) {
     return next(err)
   }
 }
 
 // Allow patients to update their records
-const updateRecord = async (req, res, next) => { 
-  try { 
+const updateRecord = async (req, res, next) => {
+  try {
     const patient = await Patient.findById(req.params.patient_id)
-    if (!patient) { 
+    if (!patient) {
       return res.sendStatus(404)
     }
     const data = patient.daily_data[req.body.key]
-    
 
     patient.save()
-  } catch (err) { 
+  } catch (err) {
     return next(err)
   }
 }

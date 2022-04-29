@@ -23,31 +23,30 @@ const viewAllPatients = async (req, res, next) => {
   }
 }
 
-// Get one specific patinet 
-const getOnePatient = (req, res, next) => { 
-  try { 
+// Get one specific patinet
+const getOnePatient = async (req, res, next) => {
+  try {
     const patient = await Patient.findById(req.params.patient_id).lean()
-    if (patient) { 
+    if (patient) {
       res.send(patient)
+    } else {
+      res.send('patient not found')
     }
-    else { 
-      res.send("patient not found")
-    }
-  } catch (err) { 
+  } catch (err) {
     return next(err)
   }
 }
 
-// Add a new patient 
-const addOnePatient = (req, res, next) => { 
-  try { 
+// Add a new patient
+const addOnePatient = (req, res, next) => {
+  try {
     const newPatient = req.body
-    if (!Patient.find((d) => d.patient_id == newPatient.id)) { 
-      Patient.push(newPatient) 
+    if (!Patient.find((d) => d.patient_id == newPatient.id)) {
+      Patient.push(newPatient)
     }
-  } catch (err) { 
+  } catch (err) {
     return next(err)
-  } 
+  }
 }
 
 module.exports = {

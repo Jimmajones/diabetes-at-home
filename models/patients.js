@@ -25,9 +25,9 @@ const schema = new mongoose.Schema({
         ],
       },
       display_text: String,
-      completed: {type: Boolean, default: false},
+      completed: { type: Boolean, default: false },
       lower_bound: Number,
-      upper_bound: Number
+      upper_bound: Number,
     },
   ],
   daily_data: [
@@ -66,8 +66,8 @@ const schema = new mongoose.Schema({
         ],
       },
       warning_text: String,
-      completion_rate: {type: Number, default: 0},
-      date_recorded: String
+      completion_rate: { type: Number, default: 0 },
+      date_recorded: String,
     },
   ],
 })
