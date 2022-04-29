@@ -21,6 +21,19 @@ const viewDashboard = async (req, res, next) => {
         daily_data: { $slice: -3 },
       }
     ).lean()
+
+    var notNull = 0;
+    for (obj in patient.daily_data[0].values) {
+      if (obj.value != undefined) {
+        notNull++;
+      }
+    }
+
+    await Patient.updateOne(
+      { _id: patient._id },
+      { $set: { completion_rate: (notNull / 4)}},
+    )
+
     res.render('patient-dashboard', {
       layout: 'patient',
       patient: patient,
@@ -61,16 +74,16 @@ const addHealthRecord = async (req, res, next) => {
       ],
     }
 
-    var notNull = 0
-    for (obj in data.values) {
-      if (obj.value != null) {
-        notNull++
-      }
-    }
+    // var notNull = 0
+    // for (obj in data.values) {
+    //   if (obj.value != null) {
+    //     notNull++
+    //   }
+    // }
 
     Patient.updateOne(
       { _id: patient._id },
-      { $push: { daily_data: data }, $set: { completion_rate: notNull / 4 } },
+      { $push: { daily_data: data } },
       done
     )
   } catch (err) {
