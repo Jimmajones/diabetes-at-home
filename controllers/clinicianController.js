@@ -23,7 +23,7 @@ const viewAllPatients = async (req, res, next) => {
       },
       { daily_data: { $slice: -1 } }
     ).lean()
-
+	/*
     for (let i = 0; i < patients.length; i++) {
       var patient = patients[i]
       var isComplete = false
@@ -63,6 +63,7 @@ const viewAllPatients = async (req, res, next) => {
         { $set: { status: statusString } }
       )
     }
+    */
 
     res.render('clinician-dashboard', {
       layout: 'clinician',
