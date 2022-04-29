@@ -1,5 +1,13 @@
 const mongoose = require('mongoose')
 
+const thresholdSchema = new mongoose.Schema({
+	type: String,
+	enum: ['blood', 'weight', 'insulin', 'steps'],
+	lower: Number,
+	upper: Number,
+	
+})
+
 const valueSchema = new mongoose.Schema({
   type: String,
   enum: ['blood', 'weight', 'insulin', 'steps'],
@@ -15,10 +23,10 @@ const recordSchema = new mongoose.Schema({
 const patientSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
+  thresholds: [thresholdSchema],
   daily_data: [recordSchema],
 })
 
-const Value = mongoose.model('Value', valueSchema)
-const Record = mongoose.model('Record', recordSchema)
+
 const Patient = mongoose.model('Patient', patientSchema)
-module.exports = { Value, Record, Patient }
+module.exports = Patient

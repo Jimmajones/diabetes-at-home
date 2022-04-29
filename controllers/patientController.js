@@ -1,4 +1,4 @@
-const patientModel = require('../models/patients')
+const Patient = require('../models/patients')
 
 // Get all patients.
 const getAllPatients = async (req, res, next) => {
@@ -13,7 +13,7 @@ const getAllPatients = async (req, res, next) => {
 const viewDashboard = async (req, res, next) => {
   try {
     // Hardcode the user (for now).
-    const patient = await patientModel.Patient.findOne(
+    const patient = await Patient.findOne(
       { first_name: 'Pat' },
       {
         first_name: true,
