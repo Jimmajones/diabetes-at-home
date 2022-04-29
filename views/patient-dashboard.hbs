@@ -3,7 +3,7 @@
   <!-- achievement/badge here -->
   <div class='achievement-badge'>
     <img src='/assets/badge.svg' />
-    <h2 class='engagement_score'>5%</h2>
+    <h2 class='engagement-score'>82%</h2>
   </div>
 
 </div>
@@ -11,11 +11,16 @@
 <div class='patient-db-content'>
 
   <div class='record-data-container'>
-    <h2 class='sub-heading'>Record today's data</h2>
 
     <!-- make the progress bar respond to the completion rate -->
 
     {{#if (today_data patient.daily_data)}}
+      <!-- hard coded for now -->
+      <div
+        class='progress-bar'
+        style='--completion-rate: 0%'
+      ></div>
+      <h2 class='sub-heading'>Record today's data</h2>
       <form class='input-container' method='post'>
         <div class='input-box'>
           <label for='blood'>Blood glucose level (nmo/L)</label>
@@ -56,7 +61,12 @@
         <input type='submit' value='Update' class='submit-btn' />
       </form>
     {{else}}
-      <p>All done for the day!</p>
+      <!-- hard coded for now -->
+      <div
+        class='progress-bar'
+        style='--completion-rate: 100%'
+      ></div>
+      <h3 style='text-align: center'>All done for the day!</h3>
     {{/if}}
   </div>
 
