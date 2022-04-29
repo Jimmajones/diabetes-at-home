@@ -33,15 +33,15 @@ const viewDashboard = async (req, res, next) => {
 const addHealthRecord = async (req, res, next) => {
   try {
     let done = function (err, result) {
-      res.send(result)
+      res.redirect('back')
     }
     const patient = await Patient.findOne({ first_name: 'Pat' })
     const data = {
       values: [
-        { type: 'blood', value: req.body.blood },
-        { type: 'weight', value: req.body.weight },
-        { type: 'insulin', value: req.body.insulin },
-        { type: 'steps', value: req.body.steps },
+        { type: 'blood', value: req.body.blood, comment: req.body.blood_comment },
+        { type: 'weight', value: req.body.weight, comment: req.body.weight_comment },
+        { type: 'insulin', value: req.body.insulin, comment: req.body.insulin_comment },
+        { type: 'steps', value: req.body.steps, comment: req.body.steps_comment },
       ],
     }
     Patient.updateOne(
