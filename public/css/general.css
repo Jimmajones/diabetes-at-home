@@ -281,7 +281,7 @@ img.drawkit-health {
   height: 0.8em;
 
   /* set this according to the completion rate */
-  width: 75%;
+  width: var(--completion-rate);
 
   background-color: var(--green);
   border-radius: 1.5em;
