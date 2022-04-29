@@ -17,15 +17,15 @@ const viewAllPatients = async (req, res, next) => {
     // Hardcode the user (for now).
     const clinician = await Clinician.findOne({ first_name: 'Chris' })
     // Find all Patient document IDs listed for this Clinician.
-    const data = await Patient.find(
+    const patients = await Patient.find(
       {
         _id: { $in: clinician.patient_list },
       },
       { daily_data: { $slice: -1 } }
-    )
+    ).lean()
     res.render('clinician-dashboard', {
       layout: 'clinician',
-      patient_data: data,
+      patients: patients,
     })
   } catch (err) {
     return next(err)

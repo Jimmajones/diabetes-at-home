@@ -12,35 +12,32 @@
       <th class='td-right'>INSULIN (DOSES)</th>
       <th class='td-right'>EXERCISE (STEPS)</th>
     </tr>
-    {{#each patient_data}}
+    {{#each patients}}
+		{{log this}}
       <tr class='patient-data-content-row'>
         <td class='td-left profile-data'>
-          <button onclick='toggle({{this.id}})' class='toggle-overlay'>
+          <button onclick='toggle({{this._id}})' class='toggle-overlay'>
             <img
-              id='button-{{this.id}}'
+              id='button-{{this._id}}'
               class='warning-image'
               src='assets/toggle.svg'
             />
           </button>
           <img
             class='patient-overview-profile-image'
-            src='assets/{{this.profile_image}}'
+            src='assets/brian.svg'
           />
           <p class='names'>{{this.first_name}} {{this.last_name}}</p>
         </td>
         <td><div class='td-left label {{this.status}}'></div></td>
-        <td
-          class='td-right content {{this.data.blood_glucose_level.warning}}'
-        >{{this.data.blood_glucose_level.value}}</td>
-        <td
-          class='td-right content {{this.data.weight.warning}}'
-        >{{this.data.weight.value}}</td>
-        <td
-          class='td-right content {{this.data.insulin.warning}}'
-        >{{this.data.insulin.value}}</td>
-        <td
-          class='td-right content {{this.data.exercise.warning}}'
-        >{{this.data.exercise.value}}</td>
+        {{#each this.daily_data}}
+			{{#each this.values}}
+				{{log this}}
+				<td
+				  class='td-right content {{this.data.blood_glucose_level.warning}}'
+				>{{this.value}}</td>
+			{{/each}}
+		{{/each}}
       </tr>
       <tr>
         <td colspan='7' class='warning-container'>
