@@ -45,6 +45,7 @@ app.get('/about-website', (req, res) => {
   })
 })
 
+/*
 const patient_warning = {
   high_glucose_level_over:
     "The patient's blood flucose level is currently over the safety threshold, please check again.",
@@ -220,8 +221,9 @@ const patient_data = [
     },
   },
 ]
+*/
 
-/**********************************************/
+/*
 
 // other pages
 app.get('/patient-dashboard', (req, res) => {
@@ -240,6 +242,7 @@ app.get('/clinician-dashboard', (req, res) => {
     patient_data: patient_data,
   })
 })
+*/
 
 // Tells the app to listen on port 3000 and logs that information to the console.
 let server = app.listen(process.env.PORT || 3000, () => {
