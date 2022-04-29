@@ -13,6 +13,8 @@ const schema = new mongoose.Schema({
   engagement_score: Number,
   leaderboard_rank: Number,
   clinician_id: { type: mongoose.Types.ObjectId, required: true },
+
+  // Array of all data required by patient
   required_data: [
     {
       data_type: {
@@ -30,7 +32,49 @@ const schema = new mongoose.Schema({
       upper_bound: Number,
     },
   ],
-  daily_data: [
+
+  // Record of today's data, starts off empty and null
+  daily_data: {
+    blood_glucose_level: {
+      value: Number,
+      comment: String,
+      time_recorded: { type: Date, default: Date.now },
+      within_threshold: Boolean,
+    },
+    weight: {
+      value: Number,
+      comment: String,
+      time_recorded: { type: Date, default: Date.now },
+      within_threshold: Boolean,
+    },
+    insulin_doses: {
+      value: Number,
+      comment: String,
+      time_recorded: { type: Date, default: Date.now },
+      within_threshold: Boolean,
+    },
+    exercise_steps: {
+      value: Number,
+      comment: String,
+      time_recorded: { type: Date, default: Date.now },
+      within_threshold: Boolean,
+    },
+    status: {
+      type: String,
+      enum: [
+        'GOOD',
+        'INCOMPLETE',
+        'OUTSIDE THRESHOLD',
+        'INCOMPLETE & OUTSIDE THRESHOLD',
+      ],
+    },
+    warning_text: String,
+    completion_rate: { type: Number, default: 0 },
+    date_recorded: String,
+  },
+
+  // Daily record of data before daily_data
+  daily_data_history: [[
     {
       blood_glucose_level: {
         value: Number,
@@ -69,7 +113,7 @@ const schema = new mongoose.Schema({
       completion_rate: { type: Number, default: 0 },
       date_recorded: String,
     },
-  ],
+  ]],
 })
 
 const Patient = mongoose.model('Patient', schema)
