@@ -22,8 +22,7 @@ const viewDashboard = async (req, res, next) => {
     ).lean()
     res.render('patient-dashboard-simple', {
       layout: 'patient',
-      name: patient.first_name,
-      records: patient.daily_data,
+      patient: patient,
     })
   } catch (err) {
     return next(err)
