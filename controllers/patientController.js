@@ -71,5 +71,5 @@ module.exports = {
   getAllPatients,
   viewDashboard,
   addHealthRecord,
-  UpdateRecord,
+  updateRecord,
 }
