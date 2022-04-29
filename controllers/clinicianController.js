@@ -23,6 +23,44 @@ const viewAllPatients = async (req, res, next) => {
       },
       { daily_data: { $slice: -1 } }
     ).lean()
+    
+
+    for (patient in data) {
+      var isComplete = false;
+      var isWithinThreshold = false;
+      const statusString = '';
+
+      // Check completion
+      if (patient.daily_data.values.length == patient.thresholds.length) {
+        isComplete = true;
+      }
+      // Check thresholds
+      for (data in patient.daily_data.values) {
+        for (threshold in patient.thresholds) {
+          if (data.type == data.type) {
+            if ((data.value >= threshold.lower) && (data.value <= threshold.upper)) {
+              isWithinThreshold = true;
+            }
+          }
+        }
+      }
+
+      if (isComplete && isWithinThreshold) {
+        statusString = 'GOOD';
+      } else if (isComplete && !isWithinThreshold) {
+        statusString = 'OUTSIDE THRESHOLD';
+      } else if (!isComplete && isWithinThreshold) {
+        statusString = 'INCOMPLETE'
+      } else {
+        statusString = 'INCOMPLETE & OUTSIDE THRESHOLD';
+      }
+
+      Patient.updateOne(
+        { _id: patient._id },
+        { $set: { status: statusString} },
+      )
+    }
+
     res.render('clinician-dashboard', {
       layout: 'clinician',
       patients: patients,
