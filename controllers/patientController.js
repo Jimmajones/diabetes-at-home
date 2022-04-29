@@ -56,7 +56,6 @@ const addHealthRecord = async (req, res, next) => {
         daily_data: { $slice: -1 },
       }
     )
-    console.log(patient)
     // Find out if the latest health record was made today.
     const today = new Date()
     const record = patient.daily_data[0]
