@@ -463,7 +463,7 @@ td {
   text-align: left;
   border: 2px solid;
   border-radius: 5px;
-  display: none;
+  /*display: none;*/
 }
 
 .warning-box.good {
@@ -533,7 +533,7 @@ td {
   background: none;
 }
 
-/* stylying for label */
+/* styling for label */
 .td-left.over-threshold {
   visibility: hidden;
 }
