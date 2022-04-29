@@ -23,7 +23,7 @@ const viewAllPatients = async (req, res, next) => {
       },
       { daily_data: { $slice: -1 } }
     )
-    res.render("clinician-dashboard", { 
+    res.render('clinician-dashboard', {
       layout: 'clinician',
       patient_data: data,
     })

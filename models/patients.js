@@ -34,7 +34,7 @@ const patientSchema = new mongoose.Schema({
   bio: { type: String, required: true },
   engagement_score: Number,
   leaderboard_rank: Number,
-  completion_rate: Number
+  completion_rate: Number,
 })
 
 const Patient = mongoose.model('Patient', patientSchema)
