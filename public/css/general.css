@@ -4,46 +4,59 @@
   box-sizing: border-box;
 }
 
-html {
-  /* Variables for convenience. */
+:root {
   --primary-bg: #7b61ff; /* purple-blue */
   --secondary-bg: #fdc500; /* orange-yellow */
   --cream: #ffece5;
   --green: #00bea7;
   --peach-red: #ff7768;
+  --dark-grey: #242424;
+
+  /* font sizes */
+  --h1: 44px;
+  --h2: 28px;
+  --h3: 22px;
+  --h4: 18px;
+  --t1: 22px;
+  --t2: 18px;
+  --t3: 16px;
+}
+
+html {
+  font-family: 'Montserrat', Arial, sans-serif, 'Mlight';
+  font-style: normal;
+  font-size: var(--base-font-size);
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 body {
-  /* Apply Montserrat font unless specified otherwise. */
-  font-family: 'Montserrat', Arial, sans-serif, 'Mlight';
   background-color: var(--primary-bg);
   margin: 0; /* We want the footer to fill the entire screen. */
   padding: 0;
 }
 
-h1 {
-  font-size: 32px;
+h1,
+h2,
+h3,
+p {
   margin-bottom: 0.8em;
 }
 
-.page-title {
-  margin-bottom: 1em;
+h1 {
+  font-size: var(--h1);
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 0.8em;
+  font-size: var(--h2);
 }
 
 h3 {
-  font-size: 16px;
-  margin-bottom: 0.8em;
+  font-size: var(--h3);
 }
 
 p {
-  font-size: 16px;
-  margin-bottom: 0.8em;
-  line-height: 30px;
+  font-size: var(--t2);
 }
 
 /* Main content should have a white background, take up the majority
@@ -53,10 +66,10 @@ main {
   padding: 2% 3%; /* top & bottom | right & left */
   margin: 3% 7% 0; /* top | right & left | bottom */
 
+  background-color: white;
   border-top: 2px solid;
   border-right: 2px solid;
   border-left: 2px solid;
-  background-color: white;
 }
 
 /* we don't want white background for home page. need to be seamless */
@@ -65,61 +78,72 @@ main {
   border: none;
 }
 
-/************ footer *******************/
 /* Footer should take up the entire bottom of the screen. */
 footer {
   background-color: var(--secondary-bg);
   border-top: 2px solid;
   padding: 20px 6% 40px; /* top | right & left | bottom */
 }
-
 footer ul {
-  font-size: 15px;
+  font-size: var(--t3);
   line-height: 30px;
   /* Remove bullet point and indentation. */
   list-style: none;
   padding-left: 0;
 }
-
 /* Footer links should be a bit more 'subtle'. */
 footer ul a:link {
   color: black;
 }
-
 footer ul a:visited {
   color: black;
 }
-
 /* Slightly highlight the page we're currently on. */
 footer ul li.current {
-  color: #242424; /* very dark gray */
+  color: var(--dark-grey);
+}
+/* Underline only when hovering over the link. */
+footer a:link {
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
 }
 
-/******************* logo *******************/
+/* Adding spacings between groups of elements in about pages. */
+.section {
+  margin-bottom: 2em;
+}
+/* Add some glamour to text-content lists. */
+.section ul {
+  padding-left: 30px;
+  list-style-type: circle;
+}
+
+/* logo component */
 /* The <div> element for the website logo/title in the top-left corner. */
 .logo {
-  /* Background */
   width: 130px;
   height: 76px;
-  background: var(--secondary-bg); /* orange-yellow */
+
+  background: var(--secondary-bg);
   border: 2px solid;
   filter: drop-shadow(5px 5px 0px #000000);
+
   /* Alignment of content */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 /* The text within the title <div> element. */
 .logo h1 {
-  /* Font styling */
   font-style: italic;
   font-weight: 600;
-  font-size: 22px;
+  font-size: var(--t1);
   line-height: 24px;
 }
 
-/******************* navbar *******************/
+/* navbar component */
 /* Title in the top-left corner, menu icon in the top-right corner. */
 /* logo | search bar |            content */
 .navbar {
@@ -129,25 +153,21 @@ footer ul li.current {
   align-items: center;
   padding: 2% 2% 0; /* top | right & left | bottom */
 }
-
 .nav-content-container ul {
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
 }
-
 .nav-content-container li {
   list-style: none;
 }
-
 .nav-content-container li a {
   text-decoration: none;
   color: black;
   padding: 1rem;
   display: block;
 }
-
 /* a hamburger menu that appears in smaller screen */
 .navbar-toggle {
   position: absolute;
@@ -159,39 +179,16 @@ footer ul li.current {
   width: 20px;
   height: 20px;
 }
-
 .navbar-toggle .bar {
   height: 2.5px;
   width: 100%;
   background-color: black;
   border-radius: 5px;
 }
-
 .divider {
   height: 30px;
   width: 2px;
   background-color: black;
-}
-
-/************ utilities *************/
-/* Adding spacings between groups of elements in about pages. */
-.section {
-  margin-bottom: 2em;
-}
-
-/* Add some glamour to text-content lists. */
-.section ul {
-  padding-left: 30px;
-  list-style-type: circle;
-}
-
-/* Underline only when hovering over the link. */
-footer a:link {
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
 }
 
 /* style images */
@@ -200,21 +197,16 @@ footer a:hover {
   width: 50%;
   border: solid 2px;
   max-width: 400px;
-}
-
-/* img used in home screen */
-#drawkit-health-5 {
   flex-shrink: 0;
 }
 
+/* image properties */
 .img-center {
   margin: 2em auto;
 }
-
 .img-circle {
   border-radius: 50%;
 }
-
 .img-right {
   margin: 2em 0 2em auto;
 }
@@ -226,7 +218,6 @@ footer a:hover {
   width: 80%;
   max-width: 1000px;
 }
-
 .avatar img {
   width: 20%;
 }
@@ -365,7 +356,7 @@ footer a:hover {
   width: 150px;
   padding: 10px 20px;
 
-  font-size: 16px;
+  font-size: var(--t2);
   font-weight: 500;
   line-height: 1;
   text-align: center;
@@ -380,13 +371,6 @@ footer a:hover {
   text-decoration: none;
 }
 
-.welcome-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5vw;
-}
-
 .submit-btn {
   background-color: var(--secondary-bg);
   margin: auto;
@@ -396,9 +380,11 @@ footer a:hover {
   background-color: var(--secondary-bg);
 }
 
-.btn-container {
+.welcome-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 5vw;
 }
 
 /* search bar */
@@ -495,7 +481,7 @@ td {
 
 .patient-list {
   width: 80%;
-  font-size: 14px;
+  font-size: var(--t3);
 }
 
 .patient-data-content-row {
@@ -504,7 +490,7 @@ td {
 }
 
 .names {
-  font-size: 14px;
+  font-size: var(--t3);
   color: #303651;
   width: 1%;
   white-space: nowrap;
@@ -652,7 +638,7 @@ td {
   visibility: visible;
   display: inline-block;
   content: '-';
-  font-size: 20px;
+  font-size: var(--t1);
 }
 
 /*profile image formatting*/
@@ -702,7 +688,6 @@ td {
   font-size: 10px;
 } */
 
-/************ embeded vid ***************/
 /* YouTube embed responsive design code
  * adapted from StackOverflow user 'bron':
  * https://stackoverflow.com/a/59595248 */
@@ -731,19 +716,19 @@ td {
 /************** responsive design ******************/
 /* Phone layout */
 @media screen and (max-width: 950px) {
+  :root {
+    --h1: 34px;
+    --h2: 22px;
+    --h3: 18px;
+    --h4: 16px;
+    --t1: 18px;
+    --t2: 16px;
+    --t3: 14px;
+  }
+
   /* Dynamic size for embedded video. */
   .yt-embed {
     width: 100%;
-  }
-
-  .welcome-container {
-    flex-direction: column;
-    gap: 0px;
-  }
-
-  .btn-container {
-    justify-content: center;
-    margin: 20px;
   }
 
   /* Bigger (relative to the screen) images */
@@ -755,13 +740,23 @@ td {
     width: 100%;
   }
 
+  /* use hamburger menu in navbar */
   .navbar-toggle {
     display: flex;
   }
-
   .nav-content-container {
     display: none;
     width: 100%;
+  }
+
+  .welcome-container {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .btn-container {
+    justify-content: center;
+    margin: 20px;
   }
 }
 
