@@ -26,7 +26,7 @@ h1 {
   margin-bottom: 0.8em;
 }
 
-h1.page-title {
+.page-title {
   margin-bottom: 1em;
 }
 
@@ -44,6 +44,55 @@ p {
   font-size: 16px;
   margin-bottom: 0.8em;
   line-height: 30px;
+}
+
+/* Main content should have a white background, take up the majority
+ * of the screen and have a border that "meshes" with the footer. */
+main {
+  min-height: 85vh;
+  padding: 2% 3%; /* top & bottom | right & left */
+  margin: 3% 7% 0; /* top | right & left | bottom */
+
+  border-top: 2px solid;
+  border-right: 2px solid;
+  border-left: 2px solid;
+  background-color: white;
+}
+
+/* we don't want white background for home page. need to be seamless */
+.home-main {
+  background-color: var(--primary-bg);
+  border: none;
+}
+
+/************ footer *******************/
+/* Footer should take up the entire bottom of the screen. */
+footer {
+  background-color: var(--secondary-bg);
+  border-top: 2px solid;
+  padding: 20px 6% 40px; /* top | right & left | bottom */
+}
+
+footer ul {
+  font-size: 15px;
+  line-height: 30px;
+  /* Remove bullet point and indentation. */
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Footer links should be a bit more 'subtle'. */
+footer ul a:link {
+  color: black;
+}
+
+footer ul a:visited {
+  color: black;
+}
+
+/* Slightly highlight the page we're currently on. */
+footer ul li.current {
+  color: #242424; /* very dark gray */
 }
 
 /******************* logo *******************/
@@ -124,51 +173,8 @@ p {
   background-color: black;
 }
 
-/* Main content should have a white background, take up the majority
- * of the screen and have a border that "meshes" with the footer. */
-main {
-  min-height: 85vh;
-  padding: 2% 3%; /* top & bottom | right & left */
-  margin: 3% 7% 0; /* top | right & left | bottom */
-
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-left: 2px solid;
-  background-color: white;
-}
-
-/************ footer *******************/
-/* Footer should take up the entire bottom of the screen. */
-footer {
-  background-color: var(--secondary-bg);
-  border-top: 2px solid;
-  padding: 20px 6% 40px; /* top | right & left | bottom */
-}
-
-footer ul {
-  font-size: 15px;
-  line-height: 30px;
-  /* Remove bullet point and indentation. */
-  list-style: none;
-  padding-left: 0;
-}
-
-/* Footer links should be a bit more 'subtle'. */
-footer ul a:link {
-  color: black;
-}
-
-footer ul a:visited {
-  color: black;
-}
-
-/* Slightly highlight the page we're currently on. */
-footer ul li.current {
-  color: #242424; /* very dark gray */
-}
-
 /************ utilities *************/
-/* Adding spacings between groups of elements. */
+/* Adding spacings between groups of elements in about pages. */
 .section {
   margin-bottom: 2em;
 }
@@ -188,17 +194,31 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Images should scale with the screen. */
-img.drawkit-health {
-  /* Center the image. */
+/* style images */
+.drawkit-health {
   display: block;
   width: 50%;
-  /* Ensure it doesn't get too big. */
-  max-width: 320px;
-  /* A bit of space around them and border. */
-  margin: 2em auto;
   border: solid 2px;
+  max-width: 400px;
 }
+
+/* img used in home screen */
+#drawkit-health-5 {
+  flex-shrink: 0;
+}
+
+.img-center {
+  margin: 2em auto;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.img-right {
+  margin: 2em 0 2em auto;
+}
+
 
 /* We want five avatars on a single row, centered on the page. */
 .avatar {
@@ -334,16 +354,36 @@ img.drawkit-health {
   background-color: var(--green);
 }
 
-.submit-btn {
+.btn {
   font-size: 16px;
 
-  background-color: var(--secondary-bg);
   border: solid 2px;
   border-radius: 5px;
 
-  margin: 20px auto 0;
-  width: 200px;
+  /* initial width and height */
   height: 40px;
+  width: 150px;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5vw;
+}
+
+.submit-btn {
+  background-color: var(--secondary-bg);
+  margin: auto;
+}
+
+.login-btn {
+  background-color: var(--secondary-bg);
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
 }
 
 /* search bar */
@@ -675,14 +715,24 @@ td {
 
 /************** responsive design ******************/
 /* Phone layout */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   /* Dynamic size for embedded video. */
   .yt-embed {
     width: 100%;
   }
 
+  .welcome-container {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .btn-container {
+    justify-content: center;
+    margin: 20px;
+  }
+
   /* Bigger (relative to the screen) images */
-  img.drawkit-health {
+  .drawkit-health {
     width: 80%;
   }
 
@@ -698,33 +748,10 @@ td {
     display: none;
     width: 100%;
   }
-
-  /* to create a drop down menu */
-  /* .navbar { */
-  /*   flex-direction: column; */
-  /*   align-items: flex-start; */
-  /* } */
-  /**/
-  /* .nav-content-container ul { */
-  /*   width: 100%; */
-  /*   flex-direction: column; */
-  /* } */
-  /**/
-  /* .nav-content-container li { */
-  /*   text-align: center; */
-  /* } */
-  /**/
-  /* .nav-content-container li a { */
-  /*   padding: .5rem 1rem; */
-  /* } */
-  /**/
-  /* .nav-content-container.active { */
-  /*   display: flex; */
-  /* } */
 }
 
 /* Desktop layout */
-@media screen and (min-width: 901px) {
+@media screen and (min-width: 951px) {
   /* Fixed size for embedded video. */
   .yt-embed {
     width: 560px;
