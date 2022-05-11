@@ -3,12 +3,11 @@
   <head>
 
     <title>Diabetes@Home | {{title}}</title>
-
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial_scale=1.0' />
     <meta name='author' content='Gerald, Brian, Ivan, Steven, James' />
-
     <link rel='stylesheet' href='/css/general.css' />
+    <link rel='stylesheet' href='/css/fontawesome/css/all.min.css' />
 
   </head>
 
@@ -16,30 +15,36 @@
 
     <header>
       <nav class='navbar'>
-        <div class='logo'>
-          <h1>Diabetes<br />@Home</h1>
-        </div>
-
-        <a href='#' class='navbar-toggle'>
-          <span class='bar'></span>
-          <span class='bar'></span>
-          <span class='bar'></span>
+        <a href='/home' class='logo'>
+          <h3>Diabetes<br />@Home</h3>
         </a>
 
+        <!-- a hambuger menu icon that shows up in mobile screen -->
+        <a href='#' class='navbar-toggle'>
+          <i class='fa-solid fa-bars'></i>
+        </a>
+
+        <!-- a sub navbar container that house the links -->
         <div class='nav-content-container'>
           <ul>
-            <li><a href='/patient/dashboard'>Dashboard</a></li>
-            <li><a href='#'>Leaderboard</a></li>
-            <li><a href='#'>Medical History</a></li>
-            <!-- <li> -->
-            <!--     <div class="divider"></div> -->
-            <!-- </li> -->
-            <!-- <li> -->
-            <!--     <a href="#"><button class="button-icon"></button></a> -->
-            <!-- </li> -->
+            <li><a class='nav-options' href='#'>Dashboard</a></li>
+            <li><a class='nav-options' href='#'>Leaderboard</a></li>
+            <li><a class='nav-options' href='#'>History</a></li>
+
+            <!-- add a dropdown option for learn more button -->
+            <div class='dropdown'>
+              <li><a class='nav-options dropdown-btn' href='#'>Learn More
+                  <i class='fa-solid fa-caret-down'></i>
+                </a></li>
+              <div class='dropdown-content'>
+                <a href='/about-diabetes'>About Diabetes</a>
+                <a href='/about-website'>About Website</a>
+              </div>
+            </div>
           </ul>
         </div>
       </nav>
+
     </header>
 
     <main>

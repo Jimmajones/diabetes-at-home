@@ -3,11 +3,11 @@
   <head>
 
     <title>Diabetes@Home | {{title}}</title>
-
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial_scale=1.0' />
     <meta name='author' content='Gerald, Brian, Ivan, Steven, James' />
     <link rel='stylesheet' href='/css/general.css' />
+    <link rel='stylesheet' href='/css/fontawesome/css/all.min.css' />
 
   </head>
 
@@ -15,9 +15,9 @@
 
     <header>
       <nav class='navbar'>
-        <div class='logo'>
-          <h1>Diabetes<br />@Home</h1>
-        </div>
+        <a href='/home' class='logo'>
+          <h3>Diabetes<br />@Home</h3>
+        </a>
 
         <div class='searchbar-container'>
           <form>
@@ -46,13 +46,15 @@
 
         <div class='nav-content-container'>
           <ul>
-            <li><a href='#'>Register Patients</a></li>
-            <li><a href='#'>Patient's Comments</a></li>
+            <li><a class='nav-options' href='#'>Register Patients</a></li>
+            <li><a class='nav-options' href='#'>Patient's Comments</a></li>
             <li>
               <div class='divider'></div>
             </li>
             <li>
-              <a href='#'><button class='button-icon'></button></a>
+              <a class='nav-options' href='#'><button
+                  class='button-icon'
+                ></button></a>
             </li>
           </ul>
         </div>

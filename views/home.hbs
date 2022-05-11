@@ -3,23 +3,51 @@
   <head>
 
     <title>Diabetes@Home | Home</title>
-
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial_scale=1.0' />
     <meta name='author' content='Gerald, Brian, Ivan, Steven, James' />
-
     <link rel='stylesheet' href='/css/general.css' />
+    <link rel='stylesheet' href='/css/fontawesome/css/all.min.css' />
 
   </head>
 
   <body>
 
     <header>
+
       <nav class='navbar'>
-        <div class='logo'>
-          <h1>Diabetes<br />@Home</h1>
+        <a href='/home' class='logo'>
+          <h3>Diabetes<br />@Home</h3>
+        </a>
+
+        <!-- a hambuger menu icon that shows up in mobile screen -->
+        <a href='#' class='navbar-toggle'>
+          <i class='fa-solid fa-bars'></i>
+        </a>
+
+        <!-- a sub navbar container that house the links -->
+        <div class='nav-content-container'>
+          <ul>
+            <li><a class='nav-options' href='#'>Dashboard</a></li>
+            <li><a class='nav-options' href='#'>Leaderboard</a></li>
+            <li><a class='nav-options' href='#'>History</a></li>
+
+            <!-- add a dropdown option for learn more button -->
+            <div class='dropdown'>
+              <li><a class='nav-options dropdown-btn' href='#'>Learn More
+                  <i class='fa-solid fa-caret-down'></i>
+                </a></li>
+              <div class='dropdown-content'>
+                <a href='/about-diabetes'>About Diabetes</a>
+                <a href='/about-website'>About Website</a>
+              </div>
+            </div>
+
+            <a class='btn' href='#'>Login</a>
+          </ul>
         </div>
       </nav>
+
     </header>
 
     <main class='home-main'>
@@ -36,7 +64,6 @@
             aliquip ex ea commodo consequat.
           </p>
         </div>
-
         <img
           id='drawkit-health-5'
           class='drawkit-health img-center img-circle'
@@ -44,19 +71,19 @@
         />
       </div>
 
+      <!-- a login and learn more button on the main page -->
       <div class='btn-container'>
         <div class='btn-wrapper'>
-          <a class='btn login-btn' href='#'>Login</a>
-          <a class='btn learnmore-btn' href='/about-website'>Learn More</a>
+          <a class='btn yellow-btn' href='#'>Login</a>
+          <div class='dropdown'>
+            <div class='dropdown-content'>
+              <a href='/about-diabetes'>About Diabetes</a>
+              <a href='/about-website'>About Website</a>
+            </div>
+            <div class='btn'>Learn More</div>
+          </div>
         </div>
       </div>
-
-      <!-- <div class='btn-container'> -->
-      <!--   <div class='btn-wrapper'> -->
-      <!--     <button class='btn login-btn'>Login</button> -->
-      <!--     <button class='btn learnmore-btn'>Learn More</button> -->
-      <!--   </div> -->
-      <!-- </div> -->
 
     </main>
 
