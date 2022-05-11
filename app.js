@@ -243,6 +243,9 @@ app.get('/clinician-dashboard', (req, res) => {
   })
 })
 */
+app.get('/home', (req, res) => {
+  res.render('home.hbs', { layout: false })
+})
 
 // Tells the app to listen on port 3000 and logs that information to the console.
 let server = app.listen(process.env.PORT || 3000, () => {
