@@ -25,9 +25,10 @@ app.use('/patient', patientRouter)
 const clinicianRouter = require('./routes/clinicianRouter')
 app.use('/clinician', clinicianRouter)
 
-// Our "home page" - currently the About Diabetes page.
+// Our "home page" 
+// TODO: fix it to only go here when not logged in
 app.get('/', (req, res) => {
-  res.render('about-diabetes.hbs', { layout: 'patient.hbs' })
+  res.render('home.hbs', { layout: false })
 })
 
 // Serve up static pages.
@@ -243,9 +244,6 @@ app.get('/clinician-dashboard', (req, res) => {
   })
 })
 */
-app.get('/home', (req, res) => {
-  res.render('home.hbs', { layout: false })
-})
 
 // Tells the app to listen on port 3000 and logs that information to the console.
 let server = app.listen(process.env.PORT || 3000, () => {
