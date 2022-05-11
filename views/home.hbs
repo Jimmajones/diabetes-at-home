@@ -16,14 +16,23 @@
     <header>
 
       <nav class='navbar'>
-        <a href='/home' class='logo'>
+        <a href='/' class='logo'>
           <h3>Diabetes<br />@Home</h3>
         </a>
 
         <!-- a hambuger menu icon that shows up in mobile screen -->
-        <a href='#' class='navbar-toggle'>
-          <i class='fa fa-bars'></i>
-        </a>
+        <!-- its dropdown should float right -->
+        <div class='dropdown'>
+          <button><i class='fa fa-bars toggle'></i></button>
+          <div class='click-dropdown-content dropdown-right'>
+            <a href='#'>Dashboard</a>
+            <a href='#'>Leaderboard</a>
+            <a href='#'>History</a>
+            <a href='#'>About Diabetes</a>
+            <a href='#'>About Website</a>
+            <a class='btn' href='#'>Login</a>
+          </div>
+        </div>
 
         <!-- a sub navbar container that house the links -->
         <div class='nav-content-container'>
@@ -75,13 +84,7 @@
       <div class='btn-container'>
         <div class='btn-wrapper'>
           <a class='btn yellow-btn' href='#'>Login</a>
-          <div class='dropdown'>
-            <div class='dropdown-content'>
-              <a href='/about-diabetes'>About Diabetes</a>
-              <a href='/about-website'>About Website</a>
-            </div>
-            <div class='btn dropdown-btn'>Learn More</div>
-          </div>
+          <a class='btn' href='/about-diabetes'>About Diabetes</a>
         </div>
       </div>
 
