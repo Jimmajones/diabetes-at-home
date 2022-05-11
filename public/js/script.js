@@ -27,15 +27,14 @@ const toggle = (id) => {
 // });
 
 const toggleDropdown = (event) => {
-  let dropdown = document.querySelector('.dropdown');
+  let dropdown = document.querySelector('.dropdown')
 
   if (event.target.classList.contains('toggle')) {
-    dropdown.classList.toggle('show');
+    dropdown.classList.toggle('show')
   } else {
-    dropdown.classList.remove('show');
+    dropdown.classList.remove('show')
   }
 }
 
 // let dropBtn = document.querySelector(".navbar-toggle");
-document.addEventListener('click', toggleDropdown);
-
+document.addEventListener('click', toggleDropdown)

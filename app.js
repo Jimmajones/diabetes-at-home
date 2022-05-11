@@ -25,7 +25,7 @@ app.use('/patient', patientRouter)
 const clinicianRouter = require('./routes/clinicianRouter')
 app.use('/clinician', clinicianRouter)
 
-// Our "home page" 
+// Our "home page"
 // TODO: fix it to only go here when not logged in
 app.get('/', (req, res) => {
   res.render('home.hbs', { layout: false })
