@@ -186,11 +186,11 @@ footer ul li.current {
 }
 
 /* Underline only when hovering over the link. */
-a:link {
+footer a:link {
   text-decoration: none;
 }
 
-a:hover {
+footer a:hover {
   text-decoration: underline;
 }
 
@@ -353,15 +353,31 @@ a:hover {
   background-color: var(--green);
 }
 
+/* button component */
 .btn {
-  font-size: 16px;
+  display: inline-block;
 
+  background-color: white;
+  color: black;
   border: solid 2px;
-  border-radius: 5px;
-
-  /* initial width and height */
+  border-radius: 10px;
   height: 40px;
   width: 150px;
+  padding: 10px 20px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition: transform 200ms ease 0s, background 200ms ease 0s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
 }
 
 .welcome-container {
