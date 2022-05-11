@@ -17,10 +17,7 @@
 
     {{#if (today_data patient.daily_data)}}
       <!-- hard coded for now -->
-      <div
-        class='progress-bar'
-        style='--completion-rate: 0%'
-      ></div>
+      <div class='progress-bar' style='--completion-rate: 0%'></div>
       <form class='input-container' method='post'>
         <div class='input-box'>
           <label for='blood'>Blood glucose level (nmo/L)</label>
@@ -58,14 +55,11 @@
             placeholder='additional comments here...'
           ></textarea>
         </div>
-        <input type='submit' value='Update' class='submit-btn' />
+        <input type='submit' value='Update' class='submit-btn btn' />
       </form>
     {{else}}
       <!-- hard coded for now -->
-      <div
-        class='progress-bar'
-        style='--completion-rate: 100%'
-      ></div>
+      <div class='progress-bar' style='--completion-rate: 100%'></div>
       <h3 style='text-align: center'>All done for the day!</h3>
     {{/if}}
   </div>
