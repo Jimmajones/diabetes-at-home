@@ -229,8 +229,7 @@ footer a:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-/* for mobile touch? havent tested */
-.dropdown:active .dropdown-content {
+.show {
   display: block;
 }
 
@@ -417,6 +416,10 @@ footer a:hover {
 .btn:hover {
   transform: translateY(-2px);
   text-decoration: none;
+}
+
+.btn-container {
+  display: flex;
 }
 
 .btn-wrapper {
@@ -809,7 +812,7 @@ td {
 
   .btn-container {
     justify-content: center;
-    margin: 20px;
+    align-items: center;
   }
 
   .logo {
