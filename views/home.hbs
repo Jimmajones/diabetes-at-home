@@ -2,7 +2,7 @@
 
   <head>
 
-    <title>Diabetes@Home | Home</title>
+    <title>Diabetes@Home</title>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial_scale=1.0' />
     <meta name='author' content='Gerald, Brian, Ivan, Steven, James' />
@@ -28,9 +28,8 @@
         <div class='dropdown'>
           <button><i class='fa fa-bars toggle'></i></button>
           <div class='click-dropdown-content dropdown-right'>
-            <a href='#'>Dashboard</a>
-            <a href='#'>Leaderboard</a>
-            <a href='#'>History</a>
+            <a href='#'>Patient</a>
+            <a href='#'>Clinician</a>
             <a href='#'>About Diabetes</a>
             <a href='#'>About Website</a>
             <a class='btn' href='/patient/dashboard'>Login</a>
@@ -40,9 +39,28 @@
         <!-- a sub navbar container that house the links -->
         <div class='nav-content-container'>
           <ul>
-            <li><a class='nav-options' href='#'>Dashboard</a></li>
-            <li><a class='nav-options' href='#'>Leaderboard</a></li>
-            <li><a class='nav-options' href='#'>History</a></li>
+
+            <!-- these links will all direct to login page -->
+            <div class='dropdown'>
+              <li><a class='nav-options dropdown-btn' href='#'>Patient
+                  <i class='fa fa-caret-down'></i>
+                </a></li>
+              <div class='dropdown-content'>
+                <a href='#'>Dashboard</a>
+                <a href='#'>Leaderboard</a>
+                <a href='#'>History</a>
+              </div>
+            </div>
+            <div class='dropdown'>
+              <li><a class='nav-options dropdown-btn' href='#'>Clinician
+                  <i class='fa fa-caret-down'></i>
+                </a></li>
+              <div class='dropdown-content'>
+                <a href='#'>Dashboard</a>
+                <a href='#'>Register Patient</a>
+                <a href='#'>Comments</a>
+              </div>
+            </div>
 
             <!-- add a dropdown option for learn more button -->
             <div class='dropdown'>
