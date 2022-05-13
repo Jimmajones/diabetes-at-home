@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
 // Needed for recording required_data.displayText
 const displayText = {
@@ -9,11 +10,15 @@ const displayText = {
 }
 
 // Define schema with data types
-const schema = new mongoose.Schema({
+const clinicianSchema = new mongoose.Schema({
+  role: { type: String },
   first_name: String,
   last_name: String,
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
   patient_list: [{ type: mongoose.Types.ObjectId, ref: 'Patient' }],
 })
 
-const Clinician = mongoose.model('Clinician', schema)
+const Clinician = mongoose.model('Clinician', clinicianSchema)
 module.exports = Clinician

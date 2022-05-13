@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+{{#each flash}}
+  <p class='alert'>{{this}}</p>
+{{/each}}
+
+<form action='login' method='POST'>
+  <label for='role'>Patient</label>
+  <input type='radio' name='role' value='patient' />
+
+  <label for='role'>Clinician</label>
+  <input type='radio' name='role' value='clinician' />
+
+  <label for='email'>Username:</label>
+  <input type='text' name='email' />
+  <label for='password'>Password:</label>
+  <input type='password' name='password' />
+  <input type='submit' class='btn' value='Submit' />
+</form>

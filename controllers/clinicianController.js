@@ -122,5 +122,3 @@ module.exports = {
   viewRegister,
   viewProfile,
 }
-
-
