@@ -100,9 +100,19 @@ const addOnePatient = async (req, res, next) => {
   }
 }
 
+const viewRegister = async (req, res) => {
+  res.render('register-patient', {
+    layout: 'clinician.hbs',
+    title: 'Register Patient',
+  })
+}
+
 module.exports = {
   //getAllClinicians,
   viewAllPatients,
   getOnePatient,
   addOnePatient,
+  viewRegister,
 }
+
+

@@ -9,4 +9,6 @@ const clinicianController = require('../controllers/clinicianController')
 
 clinicianRouter.get('/dashboard', clinicianController.viewAllPatients)
 
+clinicianRouter.get('/register-patient', clinicianController.viewRegister)
+
 module.exports = clinicianRouter

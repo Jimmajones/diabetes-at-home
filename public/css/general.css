@@ -376,6 +376,14 @@ footer a:hover {
 }
 
 /* each input section: label, input box, and textarea */
+
+.input-row {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap:wrap;
+}
+
 .input-box {
   display: flex;
   flex-direction: column;
@@ -611,6 +619,73 @@ td {
 
 .warning-explanation {
   color: #697089;
+}
+
+.register-container {
+  position: relative;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap:wrap;
+}
+
+.left-register-box {
+  width: 1020px;
+}
+
+.left-register-box .input-border {
+  width: 300px;
+  margin: 20px
+}
+
+.left-register-box .textarea-border {
+  width: 1620px;
+  margin: 20px
+}
+
+.left-register-box .textarea-border textarea {
+  height: 100px
+}
+
+.left-register-box .input-box input {
+  font-family: monospace;
+  font-size: var(--t3);
+  font-weight: 500;
+  height: 40px;
+  width: 300px;
+}
+
+.right-register-box {
+  position: absolute;
+  width: 400px;
+  height: 550px;
+  right: 0;
+}
+.profile-circle {
+  position: relative;
+  top: 0;
+  left: 80px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.right-register-box .input-file {
+  font-family: monospace;
+  position: relative;
+  left: 80px;
+  margin-top: 5px;
+  width: 240px;
+}
+
+.register-button {
+  position: absolute;
+  bottom: 0px;
+  left: 20%;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 
 /* .warning td {

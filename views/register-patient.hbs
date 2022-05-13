@@ -1,0 +1,82 @@
+<div class='heading'>
+  <h1 class='page-title'>Register Patient</h1>
+</div>
+<form class = 'register-container' method="post">
+    <div class = 'left-register-box'>
+        <div class="input-row">
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-id'>User ID (Email)</label>
+                    <input name='email' id='email' type='email' placeholder="Type email here..."/>
+                </div>
+            </div>
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-screenName'>Screen Name</label>
+                    <input name='screenName' id='screenName' type='text' placeholder="Type screen name here..."/>
+                </div>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-firstName'>First Name</label>
+                    <input name='firstName' id='firstName' type='text' placeholder="Type first name here..."/>
+                </div>
+            </div>
+
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-screenName'>Screen Name</label>
+                    <input name='lastName' id='lastName' type='text' placeholder="Type last name here..."/>
+                </div>
+            </div>
+
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-dateOfBirth'>Date of Birth</label>
+                    <input name='dateOfBirth' id='dateOfBirth' type='date' placeholder="DD/MM/YYYY"/>
+                </div>
+            </div>
+        </div>
+        <div class = "input-row">
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-postcode'>Postcode</label>
+                    <input name='postcode' id='postcode' type='number' min="1" max="9999" placeholder="input postcode here..."/>
+                </div>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-password'>Password</label>
+                    <input name='password' id='password' type='password' placeholder="Type password here..."/>
+                </div>
+            </div>
+            <div class = 'input-border'>
+                <div class='input-box'>
+                    <label for='user-repassword'>Confirm Password</label>
+                    <input name='repassword' id='repassword' type='password' placeholder="Retype same password here..."/>
+                </div>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class = 'textarea-border'>
+                <div class='input-box'>
+                    <label for='user-bio'>Bio</label>
+                    <textarea name='bio' id='bio' cols="4" placeholder="Type bio here..." ></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-register-box">
+        <div class="profile-circle">
+        </div>
+        <input class="input-file" name='profilePhoto' id-'profilePhoto' type="file">
+        <input type='submit' value='Register' class='register-button btn yellow-btn' />
+    </div>
+</form>
+    
+
+
