@@ -28,6 +28,7 @@ html {
   font-size: var(--base-font-size);
   line-height: 1.4;
   word-break: break-word;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -39,6 +40,7 @@ body {
 h1,
 h2,
 h3,
+h4,
 p {
   margin-bottom: 0.8em;
 }
@@ -53,6 +55,10 @@ h2 {
 
 h3 {
   font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4)
 }
 
 p {
@@ -621,6 +627,7 @@ td {
   color: #697089;
 }
 
+/*Register Patient*/
 .register-container {
   position: relative;
   display:flex;
@@ -686,6 +693,86 @@ td {
   margin: auto;
   width: 60%;
   padding: 10px;
+}
+
+/*profile page for patients that clinicican can view */
+
+.profile-container {
+  position: relative;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap:wrap;
+}
+
+.left-profile-box {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 39px;
+  width: 400px;
+  height: 750px;
+  border: 2px solid black;
+  margin-right: 50px;
+}
+
+.left-profile-box .profile-name-row {
+  display:flex;       
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 400px;
+}
+
+.profile-name-row h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.left-profile-box .profile-screenName {
+  position: absolute;
+  right:10px;
+}
+
+.scroll-box {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+p.filter {
+  font-size: var(--t3);
+}
+
+.scroll-link {
+  margin-top: 20px;
+}
+
+a h3 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: gray
+}
+
+a h3:hover {
+  text-decoration: underline;
+  color: var(--dark-grey);
+}
+
+#view-patient-comment{
+  text-decoration: underline;
+  text-align: center;
+}
+
+.right-profile-box {
+  position: relative;
+  width: 1000px;
+  height:200vh;
+  background-color: #7b61ff;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 /* .warning td {

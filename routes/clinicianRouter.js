@@ -11,4 +11,6 @@ clinicianRouter.get('/dashboard', clinicianController.viewAllPatients)
 
 clinicianRouter.get('/register-patient', clinicianController.viewRegister)
 
+clinicianRouter.get('/patient-profile', clinicianController.viewProfile)
+
 module.exports = clinicianRouter
