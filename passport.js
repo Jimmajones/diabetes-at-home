@@ -12,7 +12,6 @@ passport.serializeUser((user, done) => {
 // When a request comes in, deserialize/expand the serialized information
 // back to what it was (expand from id to full user)
 passport.deserializeUser((obj, done) => {
-
   // find user based on their roles
   switch (obj.role) {
     case 'patient':
@@ -22,8 +21,8 @@ passport.deserializeUser((obj, done) => {
         }
         return done(undefined, user)
       })
-      break;
-    
+      break
+
     case 'clinician':
       Clinician.findById(obj.id, { password: 0 }, (err, user) => {
         if (err) {
@@ -31,90 +30,97 @@ passport.deserializeUser((obj, done) => {
         }
         return done(undefined, user)
       })
-      break;
+      break
 
-    default: 
-      break;
+    default:
+      break
   }
-
 })
 
 // local strategy for patient role
-passport.use('patient', new LocalStrategy({
-    usernameField: 'email', // we wanna use email as the username
-    // passwordField: 'password',
-  },
+passport.use(
+  'patient',
+  new LocalStrategy(
+    {
+      usernameField: 'email', // we wanna use email as the username
+      // passwordField: 'password',
+    },
 
-  (username, password, done) => {
-    Patient.findOne({ email: username }, {}, {}, (err, user) => {
-      if (err) {
-        return done(undefined, false, {
-          message: 'Unknown error has occurred',
-        })
-      }
-      if (!user) {
-        return done(undefined, false, {
-          message: 'Incorrect username or password',
-        })
-      }
-
-      // Check password
-      user.verifyPassword(password, (err, valid) => {
+    (username, password, done) => {
+      Patient.findOne({ email: username }, {}, {}, (err, user) => {
         if (err) {
           return done(undefined, false, {
             message: 'Unknown error has occurred',
           })
         }
-        if (!valid) {
+        if (!user) {
           return done(undefined, false, {
             message: 'Incorrect username or password',
           })
         }
 
-        // If user exists and password matches the hash in the database
-        return done(undefined, user)
+        // Check password
+        user.verifyPassword(password, (err, valid) => {
+          if (err) {
+            return done(undefined, false, {
+              message: 'Unknown error has occurred',
+            })
+          }
+          if (!valid) {
+            return done(undefined, false, {
+              message: 'Incorrect username or password',
+            })
+          }
+
+          // If user exists and password matches the hash in the database
+          return done(undefined, user)
+        })
       })
-    })
-  })
+    }
+  )
 )
 
 // local strategy for clinician role
-passport.use('clinician', new LocalStrategy({
-    usernameField: 'email',  // we wanna use email as a username
-    // passwordField: 'password',
-  },
+passport.use(
+  'clinician',
+  new LocalStrategy(
+    {
+      usernameField: 'email', // we wanna use email as a username
+      // passwordField: 'password',
+    },
 
-  (username, password, done) => {
-    Clinician.findOne({ email: username }, {}, {}, (err, user) => {
-      if (err) {
-        return done(undefined, false, {
-          message: 'Unknown error has occurred',
-        })
-      }
-      if (!user) {
-        return done(undefined, false, {
-          message: 'Incorrect username or password',
-        })
-      }
-
-      // Check password
-      user.verifyPassword(password, (err, valid) => {
+    (username, password, done) => {
+      Clinician.findOne({ email: username }, {}, {}, (err, user) => {
         if (err) {
           return done(undefined, false, {
             message: 'Unknown error has occurred',
           })
         }
-        if (!valid) {
+        if (!user) {
           return done(undefined, false, {
             message: 'Incorrect username or password',
           })
         }
 
-        // If user exists and password matches the hash in the database
-        return done(undefined, user)
+        // Check password
+        user.verifyPassword(password, (err, valid) => {
+          if (err) {
+            return done(undefined, false, {
+              message: 'Unknown error has occurred',
+            })
+          }
+          if (!valid) {
+            return done(undefined, false, {
+              message: 'Incorrect username or password',
+            })
+          }
+
+          // If user exists and password matches the hash in the database
+          return done(undefined, user)
+        })
       })
-    })
-  })
+    }
+  )
 )
 
 module.exports = passport

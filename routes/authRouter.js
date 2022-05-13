@@ -33,7 +33,7 @@ const clinicianRouter = require('./clinicianRouter')
 authRouter.use('/clinician', authController.isClinician, clinicianRouter)
 
 // Handle login
-authRouter.post( '/login', (req, res, next) => {
+authRouter.post('/login', (req, res, next) => {
   switch (req.body.role) {
     // if the user is patient, redirect to patient dashboard
     case 'patient':
@@ -41,16 +41,16 @@ authRouter.post( '/login', (req, res, next) => {
         successRedirect: '/patient',
         failureRedirect: '/login',
         failureFlash: true,
-      })(req, res, next);
-      break;
+      })(req, res, next)
+      break
     // if the user is clinician, redirect to clinician dashboard
     case 'clinician':
       passport.authenticate('clinician', {
         successRedirect: '/clinician',
         failureRedirect: '/login',
         failureFlash: true,
-      })(req, res, next);
-      break;
+      })(req, res, next)
+      break
   }
 })
 

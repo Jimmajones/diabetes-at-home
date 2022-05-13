@@ -378,10 +378,10 @@ footer a:hover {
 /* each input section: label, input box, and textarea */
 
 .input-row {
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  -ms-flex-wrap:wrap;
+  -ms-flex-wrap: wrap;
 }
 
 .input-box {
@@ -623,10 +623,10 @@ td {
 
 .register-container {
   position: relative;
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  -ms-flex-wrap:wrap;
+  -ms-flex-wrap: wrap;
 }
 
 .left-register-box {
@@ -635,16 +635,16 @@ td {
 
 .left-register-box .input-border {
   width: 300px;
-  margin: 20px
+  margin: 20px;
 }
 
 .left-register-box .textarea-border {
   width: 1620px;
-  margin: 20px
+  margin: 20px;
 }
 
 .left-register-box .textarea-border textarea {
-  height: 100px
+  height: 100px;
 }
 
 .left-register-box .input-box input {
