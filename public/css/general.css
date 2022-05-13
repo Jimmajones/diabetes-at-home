@@ -429,7 +429,8 @@ footer a:hover {
   border: solid 2px;
   border-radius: 10px;
   height: 40px;
-  min-width: 100px;
+  min-width: 20%;
+  margin: auto;
   padding: 10px 20px;
 
   font-size: var(--t2);
@@ -749,14 +750,14 @@ p.filter {
   margin-top: 20px;
 }
 
-a h3 {
+.scroll-links a h3 {
   margin-top: 8px;
   margin-bottom: 8px;
   text-decoration: none;
   color: gray
 }
 
-a h3:hover {
+.scroll-links a h3:hover {
   text-decoration: underline;
   color: var(--dark-grey);
 }
