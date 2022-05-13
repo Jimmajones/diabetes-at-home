@@ -4,13 +4,17 @@ const express = require('express')
 const authRouter = express.Router()
 const authController = require('../controllers/authController')
 
+// only unauthorized user can access home page and login page
 // Login page (with failure message displayed upon login failure)
-authRouter.get('/login', (req, res) => {
+authRouter.get('/login', authController.isNotAuthenticated, (req, res) => {
   res.render('login', { flash: req.flash('error'), layout: 'patient.hbs' })
 })
+authRouter.get('/', authController.isNotAuthenticated, (req, res) => {
+  res.render('home', { layout: false })
+})
 
-// redirect authorized user to either patient or clinician dashboard
-authRouter.get('/home', authController.isAuthenticated, (req, res) => {
+// if authorized, redirect to either patient or clinician dashboard
+authRouter.get('/home', (req, res) => {
   if (req.user) {
     if (req.user.role === 'patient') {
       return res.redirect('/patient')
@@ -22,11 +26,6 @@ authRouter.get('/home', authController.isAuthenticated, (req, res) => {
   return res.redirect('/login')
 })
 
-// only unauthorized user can access home page
-authRouter.get('/', authController.isNotAuthenticated, (req, res) => {
-  res.render('home', { layout: false })
-})
-
 // ensure that only the user with authorized role can access relevant page
 const patientRouter = require('./patientRouter')
 authRouter.use('/patient', authController.isPatient, patientRouter)
@@ -34,14 +33,26 @@ const clinicianRouter = require('./clinicianRouter')
 authRouter.use('/clinician', authController.isClinician, clinicianRouter)
 
 // Handle login
-authRouter.post(
-  '/login',
-  passport.authenticate('local', {
-    successRedirect: '/home',
-    failureRedirect: '/login',
-    failureFlash: true,
-  })
-)
+authRouter.post( '/login', (req, res, next) => {
+  switch (req.body.role) {
+    // if the user is patient, redirect to patient dashboard
+    case 'patient':
+      passport.authenticate('patient', {
+        successRedirect: '/patient',
+        failureRedirect: '/login',
+        failureFlash: true,
+      })(req, res, next);
+      break;
+    // if the user is clinician, redirect to clinician dashboard
+    case 'clinician':
+      passport.authenticate('clinician', {
+        successRedirect: '/clinician',
+        failureRedirect: '/login',
+        failureFlash: true,
+      })(req, res, next);
+      break;
+  }
+})
 
 // Handle logout
 authRouter.post('/logout', (req, res) => {

@@ -1,10 +1,3 @@
-const isAuthenticated = (req, res, next) => {
-  if (!req.isAuthenticated()) {
-    return res.redirect('/login')
-  }
-  return next()
-}
-
 const isNotAuthenticated = (req, res, next) => {
   if (!req.isAuthenticated()) {
     return next()
@@ -36,7 +29,6 @@ const isClinician = (req, res, next) => {
 }
 
 module.exports = {
-  isAuthenticated,
   isNotAuthenticated,
   isPatient,
   isClinician,
