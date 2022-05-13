@@ -28,11 +28,11 @@
         <div class='dropdown'>
           <button><i class='fa fa-bars toggle'></i></button>
           <div class='click-dropdown-content dropdown-right'>
-            <a href='#'>Patient</a>
-            <a href='#'>Clinician</a>
-            <a href='#'>About Diabetes</a>
-            <a href='#'>About Website</a>
-            <a class='btn' href='/patient/dashboard'>Login</a>
+            <a href='/patient'>Patient</a>
+            <a href='/clinician'>Clinician</a>
+            <a href='/about-diabetes'>About Diabetes</a>
+            <a href='/about-website'>About Website</a>
+            <a class='btn' href='/login'>Login</a>
           </div>
         </div>
 
@@ -41,26 +41,10 @@
           <ul>
 
             <!-- these links will all direct to login page -->
-            <div class='dropdown'>
-              <li><a class='nav-options dropdown-btn' href='#'>Patient
-                  <i class='fa fa-caret-down'></i>
-                </a></li>
-              <div class='dropdown-content'>
-                <a href='#'>Dashboard</a>
-                <a href='#'>Leaderboard</a>
-                <a href='#'>History</a>
-              </div>
-            </div>
-            <div class='dropdown'>
-              <li><a class='nav-options dropdown-btn' href='#'>Clinician
-                  <i class='fa fa-caret-down'></i>
-                </a></li>
-              <div class='dropdown-content'>
-                <a href='#'>Dashboard</a>
-                <a href='#'>Register Patient</a>
-                <a href='#'>Comments</a>
-              </div>
-            </div>
+            <li><a class='nav-options dropdown-btn' href='/patient'>Patient
+              </a></li>
+            <li><a class='nav-options dropdown-btn' href='/clinician'>Clinician
+              </a></li>
 
             <!-- add a dropdown option for learn more button -->
             <div class='dropdown'>
@@ -73,7 +57,7 @@
               </div>
             </div>
 
-            <a class='btn' href='/patient/dashboard'>Login</a>
+            <a class='btn' href='/login'>Login</a>
           </ul>
         </div>
       </nav>
@@ -104,7 +88,7 @@
       <!-- a login and learn more button on the main page -->
       <div class='btn-container'>
         <div class='btn-wrapper'>
-          <a class='btn yellow-btn' href='patient/dashboard'>Login</a>
+          <a class='btn yellow-btn' href='/login'>Login</a>
           <a class='btn' href='/about-diabetes'>About Diabetes</a>
         </div>
       </div>

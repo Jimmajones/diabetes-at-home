@@ -1,11 +1,15 @@
-// Import external packages.
-const express = require('express')
-const exphbs = require('express-handlebars')
-
 require('./models')
 
-// Set up the application as an Express app.
+const express = require('express')
+const exphbs = require('express-handlebars')
+const flash = require('express-flash')
+const session = require('express-session')
+
 const app = express()
+
+// Set up to handle POST requests
+app.use(express.json()) // needed if POST data is in JSON format
+app.use(express.urlencoded({ extended: false })) // only needed for URL-encoded input
 
 // Configure Handlebars.
 app.engine(
@@ -18,18 +22,36 @@ app.engine(
 app.set('view engine', 'hbs')
 app.use(express.static('public'))
 
-// Link to our routers.
-const patientRouter = require('./routes/patientRouter')
-app.use('/patient', patientRouter)
+// flash messages for failed login
+app.use(flash())
 
-const clinicianRouter = require('./routes/clinicianRouter')
-app.use('/clinician', clinicianRouter)
+// Track authenticated users through login sessions
+app.use(
+  session({
+    // The secret used to sign session cookies (ADD ENV VAR)
+    secret: process.env.SESSION_SECRET || 'keyboard cat',
+    name: 'demo', // The cookie name (CHANGE THIS)
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+      sameSite: 'strict',
+      httpOnly: true,
+      secure: app.get('env') === 'production',
+    },
+  })
+)
 
-// Our "home page"
-// TODO: fix it to only go here when not logged in
-app.get('/', (req, res) => {
-  res.render('home.hbs', { layout: false })
-})
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1) // Trust first proxy
+}
+
+// Initialise Passport.js
+const passport = require('./passport')
+app.use(passport.authenticate('session'))
+
+// Load authentication router
+const authRouter = require('./routes/authRouter')
+app.use(authRouter)
 
 // Serve up static pages.
 app.get('/about-diabetes', (req, res) => {
@@ -222,27 +244,6 @@ const patient_data = [
     },
   },
 ]
-*/
-
-/*
-
-// other pages
-app.get('/patient-dashboard', (req, res) => {
-  res.render('patient-dashboard.hbs', {
-    layout: 'patient.hbs',
-    title: 'Dashboard',
-    // pass in the individual patient's data (get patient by id?)
-    data: individual_patient_data,
-    message: 'Hi Pat - good job for reaching 50,000 steps this week! 😃', // replace with support message
-  })
-})
-
-app.get('/clinician-dashboard', (req, res) => {
-  res.render('clinician-dashboard.hbs', {
-    layout: 'clinician.hbs',
-    patient_data: patient_data,
-  })
-})
 */
 
 // Tells the app to listen on port 3000 and logs that information to the console.
