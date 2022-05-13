@@ -28,4 +28,3 @@ db.once('open', async () => {
 
 require('./patients')
 require('./clinicians')
-require('./user')
