@@ -820,6 +820,11 @@ p.filter {
   left: 240;
 }
 
+/* patient comments page */ 
+.left-patient-container { 
+  width: 450px;
+}
+
 /* .warning td {
   column-span: 3;
 } */
