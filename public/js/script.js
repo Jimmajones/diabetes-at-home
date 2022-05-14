@@ -10,6 +10,21 @@ const toggle = (id) => {
   }
 }
 
+function stepper(btnType){
+  let myInput = document.getElementById("bloodGlucoseLeveltime")
+  let btn = get.getElementById(btnType)
+  let id = btn.getAttribute("id");
+  let min = btn.getAttribute("min");
+  let max = btn.getAttribute("max");
+  let step = btn.getAttribute("step");
+  let val = btn.getAttribute("value");
+  let calcStep = (id == 'incrment') ? (step*1) : (step * -1);
+  let newValue = parseInt(val) * calcStep;
+  if(newValue >= min && newValue <= max) {
+    myInput.setAttribute("value", newValue)
+  }
+}
+
 // const dropdown = document.querySelector('.dropdown');
 // const dropdownBtn = document.querySelector('.dropdown .dropdown-btn');
 // const dropdownMenu = document.querySelector('.dropdown .dropdown-content');

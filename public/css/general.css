@@ -711,7 +711,6 @@ td {
   top: 39px;
   width: 400px;
   height: 750px;
-  border: 2px solid black;
   margin-right: 50px;
 }
 
@@ -768,11 +767,115 @@ a h3:hover {
 
 .right-profile-box {
   position: relative;
-  width: 1000px;
-  height:200vh;
+  width: 65%;
   background-color: #7b61ff;
   margin-right: 30px;
   margin-left: 30px;
+}
+
+.patient-bio {
+  padding: 5%;
+}
+
+#today-health-date {
+  padding: 5%;
+}
+
+.title-profile {
+  text-align: center;
+}
+
+.health-data-row {
+  display:flex;       
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  margin: 5% 0%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.item-health-data {
+  padding: 0;
+  margin: 0% 2%;
+}
+
+.item-health-data p{
+  text-align: center;
+  width: 270px;
+}
+
+.item-health-data div{
+  width: 150px;
+  height: 150px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background: var(--secondary-bg);
+  border: 2px solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: black;
+  transition: filter 500ms ease 0s;
+}
+
+.item-health-data div:hover {
+  filter: drop-shadow(5px 5px 0px #000000);
+}
+
+#set-time-series {
+  padding: 5%;
+}
+
+#set-threshold {
+  padding: 5%;
+}
+
+.set-row {
+  display:flex;       
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  margin: 2.5% 0%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 780px;
+}
+
+.set-data {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 380px;
+}
+
+.set-input {
+  display:flex;       
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 68%;
+}
+
+
+.set-input input {
+  margin-top: 18px;
+  margin-bottom: 14px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* .warning td {

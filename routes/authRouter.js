@@ -30,8 +30,9 @@ authRouter.get('/home', (req, res) => {
 const patientRouter = require('./patientRouter')
 authRouter.use('/patient', authController.isPatient, patientRouter)
 const clinicianRouter = require('./clinicianRouter')
-authRouter.use('/clinician', authController.isClinician, clinicianRouter)
+authRouter.use('/clinician', clinicianRouter)
 
+// add: authController.isClinician
 // Handle login
 authRouter.post('/login', (req, res, next) => {
   switch (req.body.role) {
