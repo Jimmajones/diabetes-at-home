@@ -28,13 +28,14 @@ $ npm install
 to install all dependencies.
 
 ## Dependencies
+- [node](https://nodejs.org/en/)
+- [express](https://expressjs.com)
+- [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+- [mongoose](https://www.npmjs.com/package/mongoose)
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 - [body-parser](https://www.npmjs.com/package/body-parser)
-- [express](https://expressjs.com)
 - [express-flash](https://www.npmjs.com/package/express-flash)
-- [express-handlebars](https://www.npmjs.com/package/express-handlebars)
 - [express-session](https://www.npmjs.com/package/express-session)
-- [mongoose](https://www.npmjs.com/package/mongoose)
 - [passport](https://www.passportjs.org)
 - [passport-local](https://www.passportjs.org/packages/passport-local)
 
