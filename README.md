@@ -1,10 +1,23 @@
-# Group-Project-INFO30005
+# Diabetes@Home
 
+Diabetes@Home is a Web App which is created as part of a semester long project for Web Information Technologies INFO30005. The goal of this Web App is to help people manage their diabetes in the convenience of their home, by recording data that can be monitored remotely by their clinician.
 
-This Web App is created as part of a semester long project for Web Information Technologies INFO30005.
+Learn more about diabetes [here](https://diabetes-at-home-tue1615.herokuapp.com/about-diabetes).
 
-The web app is called Diabetes@Home, which allows patients to record data and interact with their clinicians. It will contain features such as leaderboards and support messages to encourage engagement.
+Our [Story](https://diabetes-at-home-tue1615.herokuapp.com/about-website).
 
+## Features
+
+### Patient
+- record daily health data
+- view past medical history
+- view leaderboard
+- receive medical advice and support messages from clinicians
+
+### Clinician
+- view patient medical data
+- set thresholds for patients
+- send messages to patients
 
 ## Install Dependencies: 
 
@@ -40,7 +53,7 @@ and view it locally [here](https://localhost:3000)
 
 View the Web App live on [Heroku](https://diabetes-at-home-tue1615.herokuapp.com/)
 
-## Environment Variables and Default Data Info: 
+## Environment Variables and Default Data Info
 
 >MONGO_URL="mongodb+srv://tue1615:grLQWC2eJsvxnQ3U@cluster0.8uyce.mongodb.net/diabetes-at-home?retryWrites=true&w=majority"
 
