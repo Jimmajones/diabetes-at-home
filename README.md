@@ -2,9 +2,7 @@
 
 Diabetes@Home is a Web App which is created as part of a semester long project for Web Information Technologies INFO30005. The goal of this Web App is to help people manage their diabetes in the convenience of their home, by recording data that can be monitored remotely by their clinician.
 
-Learn more about diabetes [here](https://diabetes-at-home-tue1615.herokuapp.com/about-diabetes).
-
-Our [Story](https://diabetes-at-home-tue1615.herokuapp.com/about-website).
+Learn more about [diabetes](https://diabetes-at-home-tue1615.herokuapp.com/about-diabetes) and see our [story](https://diabetes-at-home-tue1615.herokuapp.com/about-website).
 
 ## Features
 
