@@ -4,13 +4,95 @@
 
 <form class='setting-container' method='post'>
     <div class= 'left-setting-box'>
-    <div class='profile-circle'>
+        <div class='profile-circle'>
+        </div>
+        <input
+          class='input-file'
+          name='profilePhoto'
+          id='profilePhoto'
+          type='file'
+        />
+        </div>
+
+    <div class='right-setting-box'> 
+        <div class='input-row'> 
+            <div class='input-border'> 
+                <div class='input-box'> 
+                    <label for='clinician-id'>Email</label>
+                    <input
+                      name='email'
+                      id='email'
+                      type='email'
+                      placeholder='Type email here...'
+                    />
+                </div>
+            </div>
+            <div class='input-border'>
+                <div class='input-box'> 
+                    <label for='clinician-screenName'>Screen Name</label>
+                    <input
+                      name='screenName'
+                      id='screenName'
+                      type='text'
+                      placeholder='Type screen name here...'
+                    />
+            </div> 
+        </div>
+
+        <div class='input-row'> 
+            <div class='input-border'> 
+                <div class='input-box'> 
+                    <label for='clinician-firstName'>First Name</label>
+                    <input
+                      name='firstName'
+                      id='firstName'
+                      type='text'
+                      placeholder='Type first name here...'
+                    />
+                </div>
+            </div>
+            <div class='input-border'>
+                <div class='input-box'> 
+                    <label for='clinician-lastName'>Last Name</label>
+                    <input
+                      name='lastname'
+                      id='lastname'
+                      type='text'
+                      placeholder='Type last name here...'
+                    />
+            </div> 
+        </div>
+
+        <div class='input-row'> 
+            <div class='input-border'> 
+                <div class='input-box'> 
+                    <label for='clinician-password'>Password</label>
+                    <input
+                      name='password'
+                      id='password'
+                      type='password'
+                      placeholder='Type password here...'
+                    />
+                </div>
+            </div>
+            <div class='input-border'>
+                <div class='input-box'> 
+                    <label for='clinician-bio'>Bio</label>
+                    <input
+                      name='bio'
+                      id='bio'
+                      type='text'
+                      placeholder='Type bio here...'
+                    />
+            </div> 
+        </div>
     </div>
-    <input
-      class='input-file'
-      name='profilePhoto'
-      id='profilePhoto'
-      type='file'
+
+    <div class='update-box'> 
+        <input
+          type='submit'
+          value='Update'
+          class='update-button btn yellow-btn'
     />
     </div>
 </form>

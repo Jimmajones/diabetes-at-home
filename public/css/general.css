@@ -781,7 +781,43 @@ p.filter {
   position: absolute;
   width: 400px;
   height: 550px;
-  left: 20;
+  left: 60;
+}
+
+.left-setting-box .input-file {
+  font-family: monospace;
+  position: relative;
+  left: 100px;
+  margin-top: 5px;
+  width: 240px;
+}
+
+.right-setting-box {
+  position: absolute;
+  width: 1020px;
+  height: 500px;
+  right: -220;
+}
+
+.right-setting-box .input-border {
+  width: 300px;
+  margin: 20px;
+}
+
+.right-setting-box .input-box input {
+  font-family: monospace;
+  font-size: var(--t3);
+  font-weight: 500;
+  height: 40px;
+  width: 250px;
+}
+
+.update-box { 
+  position: absolute; 
+  width: 100px;
+  margin: 20px;
+  top: 350;
+  left: 240;
 }
 
 /* .warning td {
