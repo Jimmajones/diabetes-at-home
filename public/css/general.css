@@ -207,6 +207,7 @@ footer a:hover {
 /*   width: 2px; */
 /*   background-color: black; */
 /* } */
+.dropdown-btn,
 .nav-options {
   font-size: var(--t2);
   text-decoration: none;
@@ -215,7 +216,7 @@ footer a:hover {
   display: block;
 }
 /* underline the nav options when it has no dropdown */
-.nav-options:hover:not(.dropdown *) {
+.nav-options:hover:not(.dropdown-btn) {
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
