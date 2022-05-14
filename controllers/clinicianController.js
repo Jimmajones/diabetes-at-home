@@ -43,19 +43,49 @@ const viewAllPatients = async (req, res, next) => {
               data.value <= threshold.upper
             ) {
               isWithinThreshold = true
+    
+    for (var i = 0; i < patients.length; i++) {
+      const patient = patients[i];
+      var isComplete = true;
+      var isWithinThreshold = true;
+      var statusString = '';
+      var data = patients[i].daily_data;
+
+      // Check completion and thresholds
+      for (var i = 0; i < data.values.length; i++) {
+        if (data.values[i].value == null) {
+          data.values[i].warning = 'incomplete';
+          isComplete = false;
+        } else {
+          for (var j = 0; j < patient.thresholds.length; j++) {
+            if (data.values[i].type == patient.thresholds[j].type) {
+              if ((data.values[i].value < patient.thresholds[j].lower) || (data.values[i].value > patient.thresholds[j].upper)) {
+                warning = 'over-threshold';
+                isWithinThreshold = false;
+              }
             }
           }
         }
       }
 
       if (isComplete && isWithinThreshold) {
+<<<<<<< HEAD
         statusString = 'GOOD'
       } else if (isComplete && !isWithinThreshold) {
         statusString = 'OUTSIDE THRESHOLD'
+=======
+        statusString = 'good';
+      } else if (isComplete && !isWithinThreshold) {
+        statusString = 'over-threshold';
+>>>>>>> c21dcc8 (Old changes)
       } else if (!isComplete && isWithinThreshold) {
-        statusString = 'INCOMPLETE'
+        statusString = 'incomplete'
       } else {
+<<<<<<< HEAD
         statusString = 'INCOMPLETE & OUTSIDE THRESHOLD'
+=======
+        statusString = 'both';
+>>>>>>> c21dcc8 (Old changes)
       }
 
       Patient.updateOne(
