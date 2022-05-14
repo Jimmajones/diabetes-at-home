@@ -10,4 +10,6 @@ clinicianRouter.get('/patient-profile', clinicianController.viewProfile)
 
 clinicianRouter.get('/profile-setting', clinicianController.profileSetting)
 
+clinicianRouter.get('/patient-comments', clinicianController.viewPatientComments)
+
 module.exports = clinicianRouter
