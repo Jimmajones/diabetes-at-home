@@ -48,6 +48,6 @@ View the Web App live on [Heroku](https://diabetes-at-home-tue1615.herokuapp.com
 
 * Ivan ADINATA
 * James AMANATIDIS
-* Brian AUNG
+* Brian SOE KHANT AUNG
 * Gerald HELMAN
 * Yijun ZHOU
