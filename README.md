@@ -34,7 +34,7 @@ run:
 $ npm start
 ```
 
-and view it locally [here](localhost:3000)
+and view it locally [here](https://localhost:3000)
 
 ## Live Demo
 
