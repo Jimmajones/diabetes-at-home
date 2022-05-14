@@ -114,6 +114,13 @@ const viewProfile = async (req, res) => {
   })
 }
 
+const profileSetting = async (req, res) => { 
+  res.render('profile-setting', {
+    layout: 'clinician.hbs',
+    title: 'Profile Setting',
+  })
+}
+
 module.exports = {
   //getAllClinicians,
   viewAllPatients,
@@ -121,4 +128,5 @@ module.exports = {
   addOnePatient,
   viewRegister,
   viewProfile,
+  profileSetting,
 }
