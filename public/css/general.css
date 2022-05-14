@@ -429,7 +429,8 @@ footer a:hover {
   border: solid 2px;
   border-radius: 10px;
   height: 40px;
-  min-width: 100px;
+  min-width: 20%;
+  margin: auto;
   padding: 10px 20px;
 
   font-size: var(--t2);
@@ -748,14 +749,14 @@ p.filter {
   margin-top: 20px;
 }
 
-a h3 {
+.scroll-links a h3 {
   margin-top: 8px;
   margin-bottom: 8px;
   text-decoration: none;
   color: gray
 }
 
-a h3:hover {
+.scroll-links a h3:hover {
   text-decoration: underline;
   color: var(--dark-grey);
 }
@@ -876,6 +877,55 @@ a h3:hover {
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Profile setting page for clinician */
+.left-setting-box { 
+  position: absolute;
+  width: 400px;
+  height: 550px;
+  left: 60;
+}
+
+.left-setting-box .input-file {
+  font-family: monospace;
+  position: relative;
+  left: 100px;
+  margin-top: 5px;
+  width: 240px;
+}
+
+.right-setting-box {
+  position: absolute;
+  width: 1020px;
+  height: 500px;
+  right: -220;
+}
+
+.right-setting-box .input-border {
+  width: 300px;
+  margin: 20px;
+}
+
+.right-setting-box .input-box input {
+  font-family: monospace;
+  font-size: var(--t3);
+  font-weight: 500;
+  height: 40px;
+  width: 250px;
+}
+
+.update-box { 
+  position: absolute; 
+  width: 100px;
+  margin: 20px;
+  top: 350;
+  left: 240;
+}
+
+/* patient comments page */ 
+.left-patient-container { 
+  width: 450px;
 }
 
 /* .warning td {
