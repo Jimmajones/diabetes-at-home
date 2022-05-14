@@ -14,6 +14,7 @@ const valueSchema = new mongoose.Schema({
   type: String,
   value: Number,
   comment: String,
+  warning: String,
   when: { type: Date, default: Date.now },
 })
 
@@ -26,7 +27,7 @@ const patientSchema = new mongoose.Schema({
   role: { type: String, required: true },
   first_name: String,
   last_name: String,
-  //thresholds: [thresholdSchema],
+  thresholds: [thresholdSchema],
   daily_data: [recordSchema],
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
