@@ -18,17 +18,10 @@ const viewDashboard = async (req, res, next) => {
       { first_name: 'Pat' },
       {
         first_name: true,
+        thresholds: true,
         daily_data: { $slice: -3 },
       }
     ).lean()
-    /*
-    var notNull = 0
-    for (obj in patient.daily_data[0].values) {
-      if (obj.value != undefined) {
-        notNull++
-      }
-    }
-    */
 
     await Patient.updateOne(
       { _id: patient._id },
@@ -76,38 +69,40 @@ const addHealthRecord = async (req, res, next) => {
       }
     }
 
+    // for (let requiredData of patient.thresholds) {
+      
+    // }
+
     const blood_data = {
       type: 'blood',
       value: req.body.blood,
       comment: req.body.blood_comment,
+      status: updateStatus(blood_data.value, patient.thresholds)
     }
 
     const weight_data = {
       type: 'weight',
       value: req.body.weight,
       comment: req.body.weight_comment,
+      status: updateStatus(weight_data.value, patient.thresholds)
     }
 
     const insulin_data = {
       type: 'insulin',
       value: req.body.insulin,
       comment: req.body.insulin_comment,
+      status: updateStatus(insulin_data.value, patient.thresholds)
     }
 
     const steps_data = {
       type: 'steps',
       value: req.body.steps,
       comment: req.body.steps_comment,
+      status: updateStatus(steps_data.value, patient.thresholds)
     }
 
     const data = { values: [blood_data, weight_data, insulin_data, steps_data] }
 
-    // var notNull = 0
-    // for (obj in data.values) {
-    //   if (obj.value != null) {
-    //     notNull++
-    //   }
-    // }
     if (is_same_day) {
       res.redirect('back')
     } else {
@@ -117,8 +112,17 @@ const addHealthRecord = async (req, res, next) => {
         done
       )
     }
+
+
   } catch (err) {
     return next(err)
+  }
+}
+
+// Returns a string representing the daily status of patient
+const updateStatus = (value, thresholds) => {
+  for (let required_data of thresholds) {
+    
   }
 }
 
