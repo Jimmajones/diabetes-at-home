@@ -964,7 +964,59 @@ td {
 
 /* patient comments page */ 
 .left-patient-container { 
+  position: absolute;
   width: 450px;
+  height: 550px;
+  left: 100;
+}
+
+.patient-list tbody {
+  display: block;
+  height: 420px;
+  overflow-y: scroll;
+}
+
+.patient-list thead, tbody .patient-name { 
+  display: table; 
+  width: 100%; 
+  table-layout: fixed;
+}
+
+.select{
+   background-color: black !important;
+}
+
+.patient-name:hover { 
+  background-color: pink;
+}
+
+.td-button{ 
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.right-comments-container { 
+  position: absolute;
+  width: 650px;
+  height: 550px;
+  right: 120;
+}
+
+.patient-comments { 
+  width: 620px; 
+  background-color: pink;
+}
+
+.patient-comments tbody {
+  display: block;
+  height: 420px;
+  overflow-y: scroll;
+}
+
+.patient-comments thead, tbody  { 
+  display: table; 
+  width: 100%; 
+  table-layout: fixed;
 }
 
 /* .warning td {
