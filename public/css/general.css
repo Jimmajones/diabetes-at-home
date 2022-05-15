@@ -961,12 +961,11 @@ p.filter {
   position: absolute;
   width: 650px;
   height: 550px;
-  right: 100;
+  right: 120;
 }
 
 .patient-comments { 
-  width: 650px; 
-  right: 10;
+  width: 620px; 
   background-color: pink;
 }
 
