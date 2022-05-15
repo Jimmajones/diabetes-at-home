@@ -69,23 +69,13 @@ const viewAllPatients = async (req, res, next) => {
       }
 
       if (isComplete && isWithinThreshold) {
-<<<<<<< HEAD
-        statusString = 'GOOD'
-      } else if (isComplete && !isWithinThreshold) {
-        statusString = 'OUTSIDE THRESHOLD'
-=======
         statusString = 'good';
       } else if (isComplete && !isWithinThreshold) {
         statusString = 'over-threshold';
->>>>>>> c21dcc8 (Old changes)
       } else if (!isComplete && isWithinThreshold) {
         statusString = 'incomplete'
       } else {
-<<<<<<< HEAD
-        statusString = 'INCOMPLETE & OUTSIDE THRESHOLD'
-=======
         statusString = 'both';
->>>>>>> c21dcc8 (Old changes)
       }
 
       Patient.updateOne(
