@@ -23,68 +23,6 @@ const viewAllPatients = async (req, res, next) => {
       },
       { daily_data: { $slice: -1 } }
     ).lean()
-    /*
-    for (let i = 0; i < patients.length; i++) {
-      var patient = patients[i]
-      var isComplete = false
-      var isWithinThreshold = false
-      var statusString = ''
-
-      // Check completion
-      if (patient.daily_data[0].values.length == patient.thresholds.length) {
-        isComplete = true
-      }
-      // Check thresholds
-      for (data in patient.daily_data.values) {
-        for (threshold in patient.thresholds) {
-          if (data.type == data.type) {
-            if (
-              data.value >= threshold.lower &&
-              data.value <= threshold.upper
-            ) {
-              isWithinThreshold = true
-    
-    for (var i = 0; i < patients.length; i++) {
-      const patient = patients[i];
-      var isComplete = true;
-      var isWithinThreshold = true;
-      var statusString = '';
-      var data = patients[i].daily_data;
-
-      // Check completion and thresholds
-      for (var i = 0; i < data.values.length; i++) {
-        if (data.values[i].value == null) {
-          data.values[i].warning = 'incomplete';
-          isComplete = false;
-        } else {
-          for (var j = 0; j < patient.thresholds.length; j++) {
-            if (data.values[i].type == patient.thresholds[j].type) {
-              if ((data.values[i].value < patient.thresholds[j].lower) || (data.values[i].value > patient.thresholds[j].upper)) {
-                warning = 'over-threshold';
-                isWithinThreshold = false;
-              }
-            }
-          }
-        }
-      }
-
-      if (isComplete && isWithinThreshold) {
-        statusString = 'good';
-      } else if (isComplete && !isWithinThreshold) {
-        statusString = 'over-threshold';
-      } else if (!isComplete && isWithinThreshold) {
-        statusString = 'incomplete'
-      } else {
-        statusString = 'both';
-      }
-
-      Patient.updateOne(
-        { _id: patient._id },
-        { $set: { status: statusString } }
-      )
-    }
-    */
-
     res.render('clinician-dashboard', {
       layout: 'clinician',
       patients: patients,

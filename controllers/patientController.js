@@ -70,34 +70,58 @@ const addHealthRecord = async (req, res, next) => {
 
     console.log(req.body)
     const blood_data = {
-      type: 'blood',
+      type: 'blood_glucose',
       value: req.body.blood,
       comment: req.body.blood_comment,
-      //status: updateStatus(blood_data.value, patient.thresholds),
+      // status: null
+      // status: updateStatus(blood_data.value, patient.thresholds),
     }
 
     const weight_data = {
       type: 'weight',
       value: req.body.weight,
       comment: req.body.weight_comment,
-      //status: updateStatus(weight_data.value, patient.thresholds),
+      // status: null
+      // status: updateStatus(weight_data.value, patient.thresholds),
     }
 
     const insulin_data = {
       type: 'insulin',
       value: req.body.insulin,
       comment: req.body.insulin_comment,
-      //status: updateStatus(insulin_data.value, patient.thresholds),
+      // status: null
+      // status: updateStatus(insulin_data.value, patient.thresholds),
     }
 
     const steps_data = {
       type: 'steps',
       value: req.body.steps,
       comment: req.body.steps_comment,
-      //status: updateStatus(steps_data.value, patient.thresholds),
+      // status: null
+      // status: updateStatus(steps_data.value, patient.thresholds),
     }
 
-    const data = { values: [blood_data, weight_data, insulin_data, steps_data] }
+    const list = { values: [blood_data, weight_data, insulin_data, steps_data] }
+
+    for (let data of list.values) {
+      // Find the matching threshold
+      // If not found, status remains null because not required
+      for (let threshold of patient.thresholds) {
+        if (data.type == threshold.type) {
+          if (!data.value) {
+            data.status = 'incomplete'
+          } else if (
+            data.value < threshold.lower ||
+            data.value > threshold.upper
+          ) {
+            data.status = 'outside-threshold'
+          } else {
+            data.status = 'good'
+          }
+          break
+        }
+      }
+    }
 
     if (is_same_day) {
       // Hard-coding like this is probably a bad practice. And also
@@ -132,7 +156,7 @@ const addHealthRecord = async (req, res, next) => {
     } else {
       Patient.updateOne(
         { _id: patient._id },
-        { $push: { daily_data: data } },
+        { $push: { daily_data: list } },
         done
       )
     }
@@ -142,10 +166,10 @@ const addHealthRecord = async (req, res, next) => {
 }
 
 // Returns a string representing the daily status of patient
-const updateStatus = (value, thresholds) => {
-  for (let required_data of thresholds) {
-  }
-}
+// const updateStatus = (value, thresholds) => {
+//   for (let required_data of thresholds) {
+//   }
+// }
 
 // Allow patients to update their records
 const updateRecord = async (req, res, next) => {

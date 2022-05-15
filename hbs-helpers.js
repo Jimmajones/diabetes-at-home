@@ -36,5 +36,27 @@ module.exports = {
     let record = daily_data[daily_data.length - 1]
   },
 
-  showStatus: function (daily_data) {},
+  showStatus: function (daily_data) {
+    let isComplete = true
+    let isWithinThreshold = true
+    let record = daily_data[daily_data.length - 1]
+
+    for (let data of record.values) {
+      if (data.status == 'incomplete') {
+        isComplete = false
+      } else if (data.status == 'outside-threshold') {
+        isWithinThreshold = false
+      }
+    }
+
+    if (isComplete && isWithinThreshold) {
+      return 'good'
+    } else if (!isComplete && isWithinThreshold) {
+      return 'incomplete'
+    } else if (isComplete && !isWithinThreshold) {
+      return 'outside-threshold'
+    } else {
+      return 'both'
+    }
+  },
 }

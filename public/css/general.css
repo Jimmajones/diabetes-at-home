@@ -1065,10 +1065,10 @@ tbody {
 }
 
 /* styling for label */
-.td-left.over-threshold {
+.td-left.outside-threshold {
   visibility: hidden;
 }
-.td-left.over-threshold::after {
+.td-left.outside-threshold::after {
   visibility: visible;
   display: inline-block;
   padding: 5px 7px;
@@ -1119,7 +1119,7 @@ tbody {
 
 /*different styling for data input*/
 
-.td-right.over-threshold {
+.td-right.outside-threshold {
   color: #bf616a;
   /* font-weight: bolder; */
 }

@@ -14,7 +14,7 @@ const valueSchema = new mongoose.Schema({
   type: String,
   value: Number,
   comment: String,
-  warning: String,
+  status: String,
   when: { type: Date, default: Date.now },
 })
 
@@ -38,7 +38,7 @@ const patientSchema = new mongoose.Schema({
   engagement_score: Number,
   leaderboard_rank: Number,
   completion_rate: Number,
-  status: String,
+  // status: String,
   clinicians_message: String,
 })
 

@@ -26,23 +26,28 @@
           <img class='patient-overview-profile-image' src='/assets/brian.svg' />
           <p class='names'>{{this.first_name}} {{this.last_name}}</p>
         </td>
-        <td><div class='td-left label {{this.status}}'></div></td>
+        <td><div
+            class='td-left label {{showStatus this.daily_data}}'
+          ></div></td>
         {{#each this.daily_data}}
           {{#each this.values}}
-            <td class='td-right content {{this.warning}}'>{{this.value}}</td>
+            <td class='td-right content {{this.status}}'>{{this.value}}</td>
           {{/each}}
         {{/each}}
       </tr>
       <tr>
         <td colspan='7' class='warning-container'>
-          <div class='warning-box {{this.status}}' id='{{this.first_name}}'>
+          <div
+            class='warning-box {{showStatus this.daily_data}}'
+            id='{{this.first_name}}'
+          >
             {{#each this.daily_data}}
-              {{#each this.data}}
+              {{#each this.values}}
                 {{#if this.values}}
                   <div class='patient-data-warning'>
                     <img
                       class='warning-image'
-                      src='/assets/{{this.warning}}.svg'
+                      src='/assets/{{this.status}}.svg'
                     />
                     <div class='text-container'>
                       <h3 class='warning-header'>{{this.type}}</h3>
