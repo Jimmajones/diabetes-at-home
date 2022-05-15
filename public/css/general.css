@@ -58,7 +58,7 @@ h3 {
 }
 
 h4 {
-  font-size: var(--h4)
+  font-size: var(--h4);
 }
 
 p {
@@ -701,10 +701,10 @@ td {
 
 .profile-container {
   position: relative;
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  -ms-flex-wrap:wrap;
+  -ms-flex-wrap: wrap;
 }
 
 .left-profile-box {
@@ -717,7 +717,7 @@ td {
 }
 
 .left-profile-box .profile-name-row {
-  display:flex;       
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -731,10 +731,9 @@ td {
   margin-bottom: 10px;
 }
 
-
 .left-profile-box .profile-screenName {
   position: absolute;
-  right:10px;
+  right: 10px;
 }
 
 .scroll-box {
@@ -754,7 +753,7 @@ p.filter {
   margin-top: 8px;
   margin-bottom: 8px;
   text-decoration: none;
-  color: gray
+  color: gray;
 }
 
 .scroll-links a h3:hover {
@@ -762,7 +761,7 @@ p.filter {
   color: var(--dark-grey);
 }
 
-#view-patient-comment{
+#view-patient-comment {
   text-decoration: underline;
   text-align: center;
 }
@@ -778,13 +777,12 @@ p.filter {
   padding: 5%;
 }
 
-
 .title-profile {
   text-align: center;
 }
 
 .health-data-row {
-  display:flex;       
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -799,12 +797,12 @@ p.filter {
   margin: 0% 2%;
 }
 
-.item-health-data p{
+.item-health-data p {
   text-align: center;
   width: 270px;
 }
 
-.item-health-data div{
+.item-health-data div {
   width: 150px;
   height: 150px;
 
@@ -849,7 +847,7 @@ td {
 }
 
 .set-row {
-  display:flex;       
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -867,7 +865,7 @@ td {
 }
 
 .set-input {
-  display:flex;       
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -875,7 +873,6 @@ td {
   margin-right: auto;
   width: 75%;
 }
-
 
 .set-input input {
   margin-top: 18px;
@@ -903,7 +900,7 @@ td {
 
 .text-border div {
   position: static;
-  display:flex;       
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -919,7 +916,7 @@ td {
 }
 
 /* Profile setting page for clinician */
-.left-setting-box { 
+.left-setting-box {
   position: absolute;
   width: 400px;
   height: 550px;
@@ -954,16 +951,16 @@ td {
   width: 250px;
 }
 
-.update-box { 
-  position: absolute; 
+.update-box {
+  position: absolute;
   width: 100px;
   margin: 20px;
   top: 350;
   left: 240;
 }
 
-/* patient comments page */ 
-.left-patient-container { 
+/* patient comments page */
+.left-patient-container {
   position: absolute;
   width: 450px;
   height: 550px;
@@ -976,34 +973,35 @@ td {
   overflow-y: scroll;
 }
 
-.patient-list thead, tbody .patient-name { 
-  display: table; 
-  width: 100%; 
+.patient-list thead,
+tbody .patient-name {
+  display: table;
+  width: 100%;
   table-layout: fixed;
 }
 
-.select{
-   background-color: black !important;
+.select {
+  background-color: black !important;
 }
 
-.patient-name:hover { 
+.patient-name:hover {
   background-color: pink;
 }
 
-.td-button{ 
+.td-button {
   border: 1px solid black;
   padding: 10px;
 }
 
-.right-comments-container { 
+.right-comments-container {
   position: absolute;
   width: 650px;
   height: 550px;
   right: 120;
 }
 
-.patient-comments { 
-  width: 620px; 
+.patient-comments {
+  width: 620px;
   background-color: pink;
 }
 
@@ -1013,9 +1011,10 @@ td {
   overflow-y: scroll;
 }
 
-.patient-comments thead, tbody  { 
-  display: table; 
-  width: 100%; 
+.patient-comments thead,
+tbody {
+  display: table;
+  width: 100%;
   table-layout: fixed;
 }
 

@@ -14,13 +14,7 @@ const getAllPatients = async (req, res, next) => {
 const viewDashboard = async (req, res, next) => {
   try {
     // Hardcode the user (for now).
-    const patient = await Patient.findOne(
-      { first_name: 'Pat' },
-      {
-        first_name: true,
-        daily_data: { $slice: -3 },
-      }
-    ).lean()
+    const patient = req.user.toJSON()
     /*
     var notNull = 0
     for (obj in patient.daily_data[0].values) {
@@ -49,13 +43,7 @@ const addHealthRecord = async (req, res, next) => {
     let done = function (err, result) {
       res.redirect('back')
     }
-    const patient = await Patient.findOne(
-      { first_name: 'Pat' },
-      {
-        first_name: true,
-        daily_data: { $slice: -1 },
-      }
-    )
+    const patient = req.user
     // Find out if the latest health record was made today.
     const today = new Date()
     const record = patient.daily_data[0]

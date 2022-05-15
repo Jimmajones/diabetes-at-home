@@ -7,10 +7,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 patientRouter.get('/', patientController.viewDashboard)
 
-patientRouter.post(
-  '/dashboard',
-  urlencodedParser,
-  patientController.addHealthRecord
-)
+patientRouter.post('/', urlencodedParser, patientController.addHealthRecord)
 
 module.exports = patientRouter

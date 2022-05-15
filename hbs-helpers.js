@@ -7,6 +7,7 @@ module.exports = {
   },
 
   today_data: function (daily_data) {
+    /*
     let record = daily_data[daily_data.length - 1]
     if (!record) {
       return true
@@ -22,5 +23,7 @@ module.exports = {
     } else {
       return true
     }
+    */
+    return true
   },
 }
