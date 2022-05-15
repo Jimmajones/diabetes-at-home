@@ -68,37 +68,66 @@ const addHealthRecord = async (req, res, next) => {
 
     // }
 
+    console.log(req.body)
     const blood_data = {
       type: 'blood',
       value: req.body.blood,
       comment: req.body.blood_comment,
-      status: updateStatus(blood_data.value, patient.thresholds),
+      //status: updateStatus(blood_data.value, patient.thresholds),
     }
 
     const weight_data = {
       type: 'weight',
       value: req.body.weight,
       comment: req.body.weight_comment,
-      status: updateStatus(weight_data.value, patient.thresholds),
+      //status: updateStatus(weight_data.value, patient.thresholds),
     }
 
     const insulin_data = {
       type: 'insulin',
       value: req.body.insulin,
       comment: req.body.insulin_comment,
-      status: updateStatus(insulin_data.value, patient.thresholds),
+      //status: updateStatus(insulin_data.value, patient.thresholds),
     }
 
     const steps_data = {
       type: 'steps',
       value: req.body.steps,
       comment: req.body.steps_comment,
-      status: updateStatus(steps_data.value, patient.thresholds),
+      //status: updateStatus(steps_data.value, patient.thresholds),
     }
 
     const data = { values: [blood_data, weight_data, insulin_data, steps_data] }
 
     if (is_same_day) {
+      // Hard-coding like this is probably a bad practice. And also
+      // probably indicative of how terrible of an idea it was for
+      // me to make this an array of arrays. But whatever it works
+      // holy moly this took forever.
+      if (blood_data.value && !record.values[0].value) {
+        await Patient.updateOne(
+          { 'daily_data._id': record._id },
+          { $set: { 'daily_data.$.values.0': blood_data } }
+        )
+      }
+      if (weight_data.value && !record.values[0].value) {
+        await Patient.updateOne(
+          { 'daily_data._id': record._id },
+          { $set: { 'daily_data.$.values.1': weight_data } }
+        )
+      }
+      if (insulin_data.value && !record.values[0].value) {
+        await Patient.updateOne(
+          { 'daily_data._id': record._id },
+          { $set: { 'daily_data.$.values.2': insulin_data } }
+        )
+      }
+      if (steps_data.value && !record.values[0].value) {
+        await Patient.updateOne(
+          { 'daily_data._id': record._id },
+          { $set: { 'daily_data.$.values.3': steps_data } }
+        )
+      }
       res.redirect('back')
     } else {
       Patient.updateOne(
