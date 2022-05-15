@@ -770,7 +770,6 @@ p.filter {
 .right-profile-box {
   position: relative;
   width: 65%;
-  background-color: #7b61ff;
   margin-right: 30px;
   margin-left: 30px;
 }
@@ -779,9 +778,6 @@ p.filter {
   padding: 5%;
 }
 
-#today-health-date {
-  padding: 5%;
-}
 
 .title-profile {
   text-align: center;
@@ -831,11 +827,24 @@ p.filter {
   filter: drop-shadow(5px 5px 0px #000000);
 }
 
-#set-time-series {
-  padding: 5%;
+#profile-table {
+  border: solid 2px;
+  width: 80%;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
 }
 
-#set-threshold {
+#profile-table th,
+td {
+  vertical-align: center;
+  text-align: center;
+  padding: 10px 0;
+  min-width: 160px;
+}
+
+.profile-divider {
   padding: 5%;
 }
 
@@ -847,12 +856,12 @@ p.filter {
   margin: 2.5% 0%;
   margin-left: auto;
   margin-right: auto;
-  width: 780px;
+  width: 798px;
 }
 
 .set-data {
   border: 2px solid black;
-  margin: 5px;
+  margin: 9px;
   padding: 5px;
   width: 380px;
 }
@@ -864,7 +873,7 @@ p.filter {
   -ms-flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
-  width: 68%;
+  width: 75%;
 }
 
 
@@ -878,6 +887,35 @@ p.filter {
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+.text-border {
+  position: relative;
+  border: 2px solid black;
+  padding: 5px;
+  width: 89%;
+}
+
+.text-border textarea {
+  width: 100%;
+  border: none;
+}
+
+.text-border div {
+  position: static;
+  display:flex;       
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 100%;
+  height: 20px;
+}
+
+.text-border div button {
+  right: 0px;
+  background: none;
+  border: none;
 }
 
 /* Profile setting page for clinician */

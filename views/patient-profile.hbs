@@ -37,7 +37,7 @@
             <h4>I'm a computer Science student in the university of melbourne, just looking to live healthier.</h4>
         </div>
 
-        <div id="today-health-date">
+        <div id="today-health-date" class="profile-divider">
             <h3 class="title-profile">Today's Health Data</h3>
             <div class="health-data-row">
                 <div class="item-health-data">
@@ -71,11 +71,31 @@
             </div>
         </div>
 
-        <div id="health-history">
+        <div id="health-history" class="profile-divider">
             <h3 class="title-profile">Health History</h3>
+            <table class='medical-history-table' id="profile-table">
+                <tr>
+                <th>Date</th>
+                <th>Blood glucose level</th>
+                <th>Weight</th>
+                <th>Insulin</th>
+                <th>Steps</th>
+                </tr>
+                {{#each patient.daily_data}}
+                <tr>
+                    <td>{{format_date this.when}}</td>
+                    {{#each values}}
+                    <td>{{this.value}}</td>
+                    {{/each}}
+                </tr>
+                {{/each}}
+            </table>
+            <div class="text-border center">
+                
+            </div>
         </div>
 
-        <div id="set-time-series">
+        <div id="set-time-series" class="profile-divider">
             <h3 class="title-profile">Set Time-Series</h3>
             <form method="post">
                 <div class="set-row">
@@ -119,7 +139,7 @@
             </form>
         </div>
 
-        <div id="set-threshold">
+        <div id="set-threshold" class="profile-divider">
             <h3 class="title-profile">Set Threshold</h3>
             <form method="post">
                 <div class="set-row">
@@ -171,12 +191,42 @@
             </form>
         </div>
 
-        <div id="clinical-notes">
+        <div id="clinical-notes" class="profile-divider">
             <h3 class="title-profile">Clinical Notes</h3>
+            <form method="post">
+                <div class="text-border center">
+                    <textarea
+                    name='clinicalNotes'
+                    id='clinicalNotes'
+                    rows='4'
+                    placeholder='write clinical notes here...'
+                    ></textarea>
+                    <div>
+                        <button>
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </form> 
         </div>
 
-        <div id="support-messages">
+        <div id="support-messages" class="profile-divider">
             <h3 class="title-profile">Support Messages</h3>
+            <form method="post">
+                <div class="text-border center">
+                    <textarea
+                    name='supportMessage'
+                    id='supportMessage'
+                    rows='4'
+                    placeholder='write your personalise support message here...'
+                    ></textarea>
+                    <div>
+                        <button>
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </form> 
         </div>
     </div>
 </div>
