@@ -28,7 +28,7 @@ module.exports = {
   },
 
   strEqual: function (string1, string2) {
-    return (string1 == string2)
+    return string1 == string2
   },
 
   // to-do
@@ -36,7 +36,5 @@ module.exports = {
     let record = daily_data[daily_data.length - 1]
   },
 
-  showStatus: function (daily_data) {
-    
-  }
+  showStatus: function (daily_data) {},
 }

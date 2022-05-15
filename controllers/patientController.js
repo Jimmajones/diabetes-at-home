@@ -65,35 +65,35 @@ const addHealthRecord = async (req, res, next) => {
     }
 
     // for (let requiredData of patient.thresholds) {
-      
+
     // }
 
     const blood_data = {
       type: 'blood',
       value: req.body.blood,
       comment: req.body.blood_comment,
-      status: updateStatus(blood_data.value, patient.thresholds)
+      status: updateStatus(blood_data.value, patient.thresholds),
     }
 
     const weight_data = {
       type: 'weight',
       value: req.body.weight,
       comment: req.body.weight_comment,
-      status: updateStatus(weight_data.value, patient.thresholds)
+      status: updateStatus(weight_data.value, patient.thresholds),
     }
 
     const insulin_data = {
       type: 'insulin',
       value: req.body.insulin,
       comment: req.body.insulin_comment,
-      status: updateStatus(insulin_data.value, patient.thresholds)
+      status: updateStatus(insulin_data.value, patient.thresholds),
     }
 
     const steps_data = {
       type: 'steps',
       value: req.body.steps,
       comment: req.body.steps_comment,
-      status: updateStatus(steps_data.value, patient.thresholds)
+      status: updateStatus(steps_data.value, patient.thresholds),
     }
 
     const data = { values: [blood_data, weight_data, insulin_data, steps_data] }
@@ -107,8 +107,6 @@ const addHealthRecord = async (req, res, next) => {
         done
       )
     }
-
-
   } catch (err) {
     return next(err)
   }
@@ -117,7 +115,6 @@ const addHealthRecord = async (req, res, next) => {
 // Returns a string representing the daily status of patient
 const updateStatus = (value, thresholds) => {
   for (let required_data of thresholds) {
-    
   }
 }
 
