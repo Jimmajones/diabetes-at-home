@@ -165,12 +165,6 @@ const addHealthRecord = async (req, res, next) => {
   }
 }
 
-// Returns a string representing the daily status of patient
-// const updateStatus = (value, thresholds) => {
-//   for (let required_data of thresholds) {
-//   }
-// }
-
 // Allow patients to update their records
 const updateRecord = async (req, res, next) => {
   try {
@@ -185,18 +179,6 @@ const updateRecord = async (req, res, next) => {
     return next(err)
   }
 }
-
-// const recordData = async (req, res, next) => {
-//   try {
-//     const patient = await Patient.findById(req.params.patient_id).lean()
-//     if (!patient) {
-//       return res.sendStatus(404)
-//     }
-//     for (data in patient.daily_data) {
-//       if (data.daily_data.date_recorded )
-//     }
-//   }
-// }
 
 module.exports = {
   getAllPatients,
