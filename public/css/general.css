@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -25,9 +25,9 @@
 }
 
 html {
-  font-family: 'Montserrat', Arial, sans-serif, 'Mlight';
+  font-family: 'Montserrat', Arial, sans-serif;
   font-style: normal;
-  font-size: var(--base-font-size);
+  font-size: 16px;
   line-height: 1.4;
   word-break: break-word;
   scroll-behavior: smooth;
@@ -999,7 +999,7 @@ tbody .patient-name {
 .button-name {
   border: none;
   background-color: transparent;
-  font-size: 20px;
+  font-size: var(--t1);
   font-weight: bolder;
 }
 
