@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap%27');
+
 *,
 *::before,
 *::after {
@@ -926,9 +928,10 @@ td {
 .left-setting-box .input-file {
   font-family: monospace;
   position: relative;
-  left: 100px;
+  left: 20px;
   margin-top: 5px;
   width: 240px;
+  top: 250px;
 }
 
 .right-setting-box {
@@ -969,7 +972,7 @@ td {
 
 .patient-list tbody {
   display: block;
-  /* height: 420px; */
+  height: 420px; 
   overflow-y: scroll;
 }
 
