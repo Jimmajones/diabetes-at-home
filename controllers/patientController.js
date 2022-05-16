@@ -46,7 +46,7 @@ const addHealthRecord = async (req, res, next) => {
     const patient = req.user
     // Find out if the latest health record was made today.
     const today = new Date()
-    const record = patient.daily_data[0]
+    const record = patient.daily_data[patient.daily_data.length - 1]
 
     let is_same_day
     if (!record) {
@@ -68,37 +68,32 @@ const addHealthRecord = async (req, res, next) => {
 
     // }
 
-    console.log(req.body)
     const blood_data = {
       type: 'blood_glucose',
       value: req.body.blood,
       comment: req.body.blood_comment,
-      // status: null
-      // status: updateStatus(blood_data.value, patient.thresholds),
+      status: null,
     }
 
     const weight_data = {
       type: 'weight',
       value: req.body.weight,
       comment: req.body.weight_comment,
-      // status: null
-      // status: updateStatus(weight_data.value, patient.thresholds),
+      status: null,
     }
 
     const insulin_data = {
       type: 'insulin',
       value: req.body.insulin,
       comment: req.body.insulin_comment,
-      // status: null
-      // status: updateStatus(insulin_data.value, patient.thresholds),
+      status: null,
     }
 
     const steps_data = {
       type: 'steps',
       value: req.body.steps,
       comment: req.body.steps_comment,
-      // status: null
-      // status: updateStatus(steps_data.value, patient.thresholds),
+      status: null,
     }
 
     const list = { values: [blood_data, weight_data, insulin_data, steps_data] }
@@ -134,19 +129,19 @@ const addHealthRecord = async (req, res, next) => {
           { $set: { 'daily_data.$.values.0': blood_data } }
         )
       }
-      if (weight_data.value && !record.values[0].value) {
+      if (weight_data.value && !record.values[1].value) {
         await Patient.updateOne(
           { 'daily_data._id': record._id },
           { $set: { 'daily_data.$.values.1': weight_data } }
         )
       }
-      if (insulin_data.value && !record.values[0].value) {
+      if (insulin_data.value && !record.values[2].value) {
         await Patient.updateOne(
           { 'daily_data._id': record._id },
           { $set: { 'daily_data.$.values.2': insulin_data } }
         )
       }
-      if (steps_data.value && !record.values[0].value) {
+      if (steps_data.value && !record.values[3].value) {
         await Patient.updateOne(
           { 'daily_data._id': record._id },
           { $set: { 'daily_data.$.values.3': steps_data } }

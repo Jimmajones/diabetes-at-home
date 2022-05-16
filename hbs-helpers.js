@@ -31,9 +31,33 @@ module.exports = {
     return string1 == string2
   },
 
-  // to-do
-  completionRate: function (daily_data) {
-    let record = daily_data[daily_data.length - 1]
+  // Get the percent of data values filled in for this patient.
+  completionRate: function (patient) {
+    let numOverall = patient.thresholds.length
+    let numDone = patient.thresholds.length
+    let latest_record = patient.daily_data[patient.daily_data.length - 1]
+    let today = new Date()
+    if (!latest_record) {
+      // This patient has no daily data at all.
+      numDone = 0
+    } else if (
+      latest_record.when.getDate() == today.getDate() &&
+      latest_record.when.getMonth() == today.getMonth() &&
+      latest_record.when.getFullYear() == today.getFullYear()
+    ) {
+      // This patient has submitted some data for today.
+      // Check each value for its status.
+      for (let data of latest_record.values) {
+        if (data.status == 'incomplete') {
+          numDone = numDone - 1
+        }
+      }
+    } else {
+      // This patient hasn't entered any data for today.
+      numDone = 0
+    }
+
+    return (numDone / numOverall) * 100
   },
 
   showStatus: function (daily_data) {
