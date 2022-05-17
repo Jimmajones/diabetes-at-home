@@ -66,7 +66,7 @@ module.exports = {
 
   showTypeName: function (type) {
     if (type == 'blood_glucose') {
-      return 'Blood Glucose Level'
+      return 'Blood glucose level'
     } else if (type == 'weight') {
       return 'Weight'
     } else if (type == 'insulin') {

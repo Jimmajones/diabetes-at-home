@@ -685,10 +685,11 @@ td {
   /* show only when button is clicked */
   display: none;
 }
-/* no box should be shown at any time if state is good */
-.warning-box .good {
-  display: none !important;
-}
+
+/* .warning-box.good { */
+  /* display: none !important; */
+/* } */
+
 .patient-data-warning {
   padding: 1em;
 }

@@ -41,8 +41,7 @@
           >
             {{#each this.daily_data}}
               {{#each this.values}}
-
-                {{#if (needWarning this.status)}}
+                {{#if this.status}}
                   <div class='patient-data-warning'>
                     <img
                       class='warning-image'
@@ -50,10 +49,16 @@
                     />
 
                     <div class='text-container'>
-                      <h4 class='warning-header'>{{showTypeName this.type}}</h4>
-                      <span
-                        class='content warning-explanation'
-                      >{{showWarningText this.status}}</span>
+                      <h3 class='warning-header'>{{showTypeName this.type}}</h3>
+                      <span class='content warning-explanation'>
+                        {{showWarningText this.status}}
+                      </span>
+                      {{#if this.comment}}
+                        <br>
+                        <span class='content warning-explanation'>
+                          Comment: {{this.comment}}
+                        </span>
+                      {{/if}}
                     </div>
                   </div>
                 {{/if}}
