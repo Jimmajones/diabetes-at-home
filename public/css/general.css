@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap%27');
 
 *,
 *::before,
@@ -25,9 +25,9 @@
 }
 
 html {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif, 'Mlight';
   font-style: normal;
-  font-size: 16px;
+  font-size: var(--base-font-size);
   line-height: 1.4;
   word-break: break-word;
   scroll-behavior: smooth;
@@ -936,14 +936,19 @@ td {
 
 .right-setting-box {
   position: absolute;
-  width: 1020px;
-  height: 500px;
-  right: -220;
+  width: 700px;
+  height: 430px;
+  right: 140;
+  border: 2px solid black;
 }
 
 .right-setting-box .input-border {
   width: 300px;
-  margin: 20px;
+  margin: 10px;
+  font-size :var(--t2);
+  margin-left: 38px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .right-setting-box .input-box input {
@@ -952,6 +957,7 @@ td {
   font-weight: 500;
   height: 40px;
   width: 250px;
+  
 }
 
 .update-box {
@@ -959,7 +965,7 @@ td {
   width: 100px;
   margin: 20px;
   top: 350;
-  left: 240;
+  right: 290;
 }
 
 /* patient comments page */
@@ -999,7 +1005,7 @@ tbody .patient-name {
 .button-name {
   border: none;
   background-color: transparent;
-  font-size: var(--t1);
+  font-size: 20px;
   font-weight: bolder;
 }
 
