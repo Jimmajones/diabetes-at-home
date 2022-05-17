@@ -92,4 +92,21 @@ module.exports = {
   getCurrentData: function (daily_data, index) {
     return daily_data[daily_data.length - 1].values[index].value
   },
+
+  isDataRequired: function (threshold, typeData, isRequired) {
+    for (let  i = 0; i < threshold.length; i++) {
+      if ((threshold[i].type).localeCompare(typeData) == 0) {
+        if (isRequired) {
+          return 'checked'
+        }
+        else {
+          return ''
+        }
+      }
+    }
+    if (isRequired) {
+      return ''
+    }
+    return 'checked'
+  }
 }

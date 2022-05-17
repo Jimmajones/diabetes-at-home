@@ -99,30 +99,23 @@
           <div class='set-data'>
             <p class='title-profile'>Blood Glucose Level</p>
             <div class='set-input'>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='1'
-                id='bloodGlucoseLeveltime'
-              />
-              <span><p> Hours</p></span>
+              <label for='role'>Enable</label>
+              <input type='radio' name='bloodGlucose-timeSeries' {{isDataRequired patient.thresholds 'blood_glucose' true}} value='patient' />
+
+              <label for='role'>Disable</label>
+              <input type='radio' name='bloodGlucose-timeSeries' {{isDataRequired patient.thresholds 'blood_glucose' false}} value='clinician' />
+
             </div>
           </div>
 
           <div class='set-data'>
             <p class='title-profile'>Weight</p>
             <div class='set-input'>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='1'
-                id='weighttime'
-              />
-              <span><p> Hours</p></span>
+              <label for='role'>Enable</label>
+              <input type='radio' name='weight-timeSeries' {{isDataRequired patient.thresholds 'weight' true}} value='patient' />
+
+              <label for='role'>Disable</label>
+              <input type='radio' name='weight-timeSeries' {{isDataRequired patient.thresholds 'weight' false}} value='clinician' />
             </div>
           </div>
         </div>
@@ -131,30 +124,22 @@
           <div class='set-data'>
             <p class='title-profile'>Insulin</p>
             <div class='set-input'>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='1'
-                id='insulintime'
-              />
-              <span><p> Hours</p></span>
+              <label for='role'>Enable</label>
+              <input type='radio' name='insulin-timeSeries' {{isDataRequired patient.thresholds 'insulin' true}} value='patient' />
+
+              <label for='role'>Disable</label>
+              <input type='radio' name='insulin-timeSeries' {{isDataRequired patient.thresholds 'insulin' false}} value='clinician' />
             </div>
           </div>
 
           <div class='set-data'>
             <p class='title-profile'>Exercise</p>
             <div class='set-input'>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='1'
-                id='exercisetime'
-              />
-              <span><p> Hours</p></span>
+              <label for='role'>Enable</label>
+              <input type='radio' name='exercise-timeSeries' {{isDataRequired patient.thresholds 'exercise' true}} value='patient' />
+
+              <label for='role'>Disable</label>
+              <input type='radio' name='exercise-timeSeries' {{isDataRequired patient.thresholds 'exercise' false}} value='clinician' />
             </div>
           </div>
         </div>
