@@ -9,25 +9,44 @@
 :root {
   --primary-bg: #7b61ff; /* purple-blue */
   --secondary-bg: #fdc500; /* orange-yellow */
+  --content-bg: #ffffff;
   --cream: #ffece5;
   --green: #00bea7;
   --peach-red: #ff7768;
   --dark-grey: #242424;
+  --light-grey: #697089;
+
+  --success-green-dark: #8aa573;
+  --success-green: #a3be8c; /* good */
+  --success-green-light: #f0ffd9;
+
+  --warning-orange-dark: #b76e57;
+  --warning-orange: #d08770; /* overthreshold */
+  --warning-orange-light: #ffedd6; /* overthreshold */
+
+  --warning-purple-dark: #9b7594;
+  --warning-purple: #b48ead; /* missing data */
+  --warning-purple-light: #ffdbfa; /* overthreshold */
+
+  --error-red-dark: #a64851;
+  --error-red: #bf616a; /* both overthreshold and missing */
+  --error-red-light: #ffc7d0; /* both overthreshold and missing */
 
   /* font sizes */
-  --h1: 44px;
+  --h1: 40px;
   --h2: 28px;
   --h3: 22px;
   --h4: 18px;
-  --t1: 22px;
+  --t1: 20px;
   --t2: 18px;
   --t3: 16px;
+  --t4: 14px;
 }
 
 html {
   font-family: 'Montserrat', Arial, sans-serif, 'Mlight';
   font-style: normal;
-  font-size: var(--base-font-size);
+  font-size: var(--t3);
   line-height: 1.4;
   word-break: break-word;
   scroll-behavior: smooth;
@@ -35,7 +54,7 @@ html {
 
 body {
   background-color: var(--primary-bg);
-  margin: 0; /* We want the footer to fill the entire screen. */
+  margin: 0;
   padding: 0;
 }
 
@@ -64,7 +83,7 @@ h4 {
 }
 
 p {
-  font-size: var(--t2);
+  font-size: var(--t3);
 }
 
 a {
@@ -79,7 +98,7 @@ main {
   padding: 2% 3%; /* top & bottom | right & left */
   margin: 3% 7% 0; /* top | right & left | bottom */
 
-  background-color: white;
+  background-color: var(--content-bg);
   border-top: 2px solid;
   border-right: 2px solid;
   border-left: 2px solid;
@@ -158,7 +177,6 @@ footer a:hover {
 }
 /* The text within the title <div> element. */
 .logo h1 {
-  font-style: italic;
   font-weight: 600;
   font-size: var(--t1);
   line-height: 24px;
@@ -204,11 +222,6 @@ footer a:hover {
   right: 2rem;
   display: none;
 }
-/* .divider { */
-/*   height: 30px; */
-/*   width: 2px; */
-/*   background-color: black; */
-/* } */
 .dropdown-btn,
 .nav-options {
   font-size: var(--t2);
@@ -451,23 +464,22 @@ footer a:hover {
   text-decoration: none;
 }
 
+/* grouping the login and learn more button in home page */
 .btn-container {
   display: flex;
   margin-bottom: 20px;
 }
-
 .btn-wrapper {
   display: inline-flex;
   gap: 5px;
+}
+.yellow-btn {
+  background-color: var(--secondary-bg);
 }
 
 .submit-btn {
   background-color: var(--secondary-bg);
   margin: auto;
-}
-
-.yellow-btn {
-  background-color: var(--secondary-bg);
 }
 
 .welcome-container {
@@ -516,13 +528,7 @@ footer a:hover {
   margin: auto;
 }
 
-/* make the table scrollable when it overflows */
-.table-container {
-  width: 100%;
-  overflow-x: auto;
-}
-
-/* actual table */
+/* general table style */
 table {
   border: solid 2px;
   width: 80%;
@@ -530,88 +536,167 @@ table {
   margin: auto;
   border-collapse: collapse;
 }
-
-.medical-history-table th {
-  border-bottom: solid 2px;
+/* make the table scrollable when it overflows horizontally */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
 }
-
 th {
   background-color: var(--secondary-bg);
+  border-bottom: solid 2px;
 }
-
 /* styling each table cells */
 th,
 td {
   vertical-align: center;
   text-align: center;
-  padding: 10px 0;
-  min-width: 160px;
-}
-
-.patient-overview-container {
-  border: solid 1px;
-  border-collapse: collapse;
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  position: relative;
-
-  list-style: none;
-
-  margin: auto;
-  padding: 0;
-  width: 80vw;
-}
-
-.patient-overview-container td {
-  border: 1px solid;
-}
-
-.patient-list {
-  width: 80%;
-  font-size: var(--t3);
+  padding: 10px 10px;
+  /* make the cells the width of content */
+  width: 1%;
+  white-space: nowrap;
 }
 
 .patient-data-content-row {
   border-top: 2px solid;
-  position: relative;
 }
 
-.names {
-  font-size: var(--t3);
-  color: #303651;
-  width: 1%;
-  white-space: nowrap;
+/* TODO: this class is not used */
+/* .patient-overview-container { */
+/*   border: solid 1px; */
+/*   border-collapse: collapse; */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   gap: 0px; */
+/*   position: relative; */
+/**/
+/*   list-style: none; */
+/**/
+/*   margin: auto; */
+/*   padding: 0; */
+/*   width: 80vw; */
+/* } */
+/**/
+/* .patient-overview-container td { */
+/*   border: 1px solid; */
+/* } */
+
+/* .patient-list { */
+/*   width: 80%; */
+/*   font-size: var(--t3); */
+/* } */
+
+/* .names { */
+/*   font-size: var(--t3); */
+/*   color: #303651; */
+/*   width: 1%; */
+/*   white-space: nowrap; */
+/* } */
+
+/* user name and image section */
+.profile-data {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
+.toggle-overlay {
+  border: none;
+  outline: none;
+  background: none;
+  margin-right: 10px;
+}
+
+/* styling for label */
+.label::after,
+.label.both::before {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 25px;
+}
+.label.good::after {
+  background-color: var(--success-green);
+  color: var(--success-green-light);
+  border: solid 0.5px var(--success-green-dark);
+  content: 'good';
+}
+.label.outside-threshold::after {
+  background-color: var(--error-red);
+  color: var(--error-red-light);
+  border: solid 0.5px var(--error-red-dark);
+  content: 'overthreshold';
+}
+.label.incomplete::after {
+  background-color: var(--warning-purple);
+  color: var(--warning-purple-light);
+  border: solid 0.5px var(--warning-purple-dark);
+  content: 'incomplete';
+}
+/* for both errors: we wanna add 2 labels (one before, one after) */
+.label.both::before {
+  background-color: var(--error-red);
+  color: var(--error-red-light);
+  border: solid 0.5px var(--error-red-dark);
+  content: 'overthreshold';
+  /* add some space before next label */
+  margin-right: 5px;
+}
+.label.both::after {
+  background-color: var(--warning-purple);
+  color: var(--warning-purple-light);
+  border: solid 0.5px var(--warning-purple-dark);
+  content: 'incomplete';
+}
+
+/* different styling for data input*/
+/* for data outside threshold */
+.content.outside-threshold {
+  color: var(--error-red);
+  font-weight: 600;
+}
+/* missing data */
+.content.incomplete::after {
+  display: inline-block;
+  content: '-';
+  font-size: var(--t1);
+}
+
+/*profile image formatting*/
+.patient-overview-profile-image {
+  position: relative;
+  top: 2px;
+  margin-right: 0.5em;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 50px;
+  width: 50px;
+  border: 1px solid var(--light-grey);
+  border-radius: 100px;
+}
+
 /*warning box format and styling*/
 .warning-container {
-  padding: 0 0 10px 0;
+  margin: 0;
+  padding: 0;
 }
 .warning-box {
-  margin: 0 1em;
+  margin: 1em;
   text-align: left;
   border: 2px solid;
   border-radius: 5px;
-  /*display: none;*/
+  /* show only when button is clicked */
+  display: none;
 }
-
-.warning-box.good {
+/* no box should be shown at any time if state is good */
+.warning-box .good {
   display: none !important;
 }
-
 .patient-data-warning {
-  position: relative;
-  height: 82px;
-  display: block;
   padding: 1em;
 }
-
 .text-container {
   display: inline-block;
   position: static;
   margin-left: 1em;
 }
-
 .warning-image {
   top: 0;
   position: static;
@@ -622,85 +707,67 @@ td {
   height: 30px;
   width: 30px;
 }
-
 .warning-header {
   margin: 0 0 16px 0;
 }
-
 .warning-explanation {
-  color: #697089;
+  color: var(--light-grey);
 }
 
 /*Register Patient*/
 .register-container {
-  position: relative;
+  /* make the form fill the body */
+  height: 100%;
+  width: 100%;
+
+  /* split 2 columns */
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
 }
-
 .left-register-box {
-  width: 1020px;
-}
-
-.left-register-box .input-border {
-  width: 300px;
+  width: 70%;
   margin: 20px;
 }
-
-.left-register-box .textarea-border {
-  width: 1620px;
-  margin: 20px;
-}
-
-.left-register-box .textarea-border textarea {
-  height: 100px;
-}
-
-.left-register-box .input-box input {
-  font-family: monospace;
-  font-size: var(--t3);
-  font-weight: 500;
-  height: 40px;
-  width: 300px;
-}
-
 .right-register-box {
-  position: absolute;
-  width: 400px;
-  height: 550px;
-  right: 0;
+  width: 30%;
+  margin: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-box {
+  width: 30%;
+  height: auto;
+  margin: 10px 10px;
+}
+.input-box input {
+  font-family: monospace;
+  font-size: var(--t4);
+  height: 40px;
+  width: 100%;
+}
+.input-box.bio {
+  width: 100%;
+}
+.input-box textarea {
+  height: 120px;
 }
 .profile-circle {
-  position: relative;
-  top: 0;
-  left: 80px;
-  width: 240px;
-  height: 240px;
+  width: 80%;
+  height: 40%;
   border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid;
 }
-
-.right-register-box .input-file {
+.input-file {
   font-family: monospace;
-  position: relative;
-  left: 80px;
-  margin-top: 5px;
-  width: 240px;
+  margin: 10px;
+  text-align: center;
 }
-
-.register-button {
-  position: absolute;
-  bottom: 0px;
-  left: 20%;
-  margin: auto;
-  width: 60%;
-  padding: 10px;
+.register-btn {
+  width: 50%;
 }
 
 /*profile page for patients that clinicican can view */
-
 .profile-container {
   position: relative;
   display: flex;
@@ -836,13 +903,13 @@ p.filter {
   border-collapse: collapse;
 }
 
-#profile-table th,
-td {
-  vertical-align: center;
-  text-align: center;
-  padding: 10px 0;
-  min-width: 160px;
-}
+/* #profile-table th, */
+/* td { */
+/*   vertical-align: center; */
+/*   text-align: center; */
+/*   padding: 10px 0; */
+/*   min-width: 160px; */
+/* } */
 
 .profile-divider {
   padding: 5%;
@@ -945,7 +1012,7 @@ td {
 .right-setting-box .input-border {
   width: 300px;
   margin: 10px;
-  font-size :var(--t2);
+  font-size: var(--t2);
   margin-left: 38px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -957,7 +1024,6 @@ td {
   font-weight: 500;
   height: 40px;
   width: 250px;
-  
 }
 
 .update-box {
@@ -976,18 +1042,18 @@ td {
   left: 100;
 }
 
-.patient-list tbody {
-  display: block;
-  height: 420px; 
-  overflow-y: scroll;
-}
+/* .patient-list tbody { */
+/*   display: block; */
+/*   height: 420px;  */
+/*   overflow-y: scroll; */
+/* } */
 
-.patient-list thead,
-tbody .patient-name {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
+/* .patient-list thead, */
+/* tbody .patient-name { */
+/*   display: table; */
+/*   width: 100%; */
+/*   table-layout: fixed; */
+/* } */
 
 .select {
   background-color: black !important;
@@ -1021,18 +1087,18 @@ tbody .patient-name {
   background-color: pink;
 }
 
-.patient-comments tbody {
-  display: block;
-  height: 420px;
-  overflow-y: scroll;
-}
+/* .patient-comments tbody { */
+/*   display: block; */
+/*   height: 420px; */
+/*   overflow-y: scroll; */
+/* } */
 
-.patient-comments thead,
-tbody {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
+/* .patient-comments thead, */
+/* tbody { */
+/*   display: table; */
+/*   width: 100%; */
+/*   table-layout: fixed; */
+/* } */
 
 .all-comments {
   border: 1px;
@@ -1052,107 +1118,15 @@ tbody {
   font-size: 0.75em;
 } */
 
-.td-left {
-  text-align: center;
-  padding: 0.2em 0 0.2em 2em;
-}
-
-.td-right {
-  text-align: right;
-  padding: 1em 2em 1em 0;
-}
-
-.profile-data {
-  display: flex;
-  align-items: center;
-}
-
-.toggle-overlay {
-  border: none;
-  outline: none;
-  background: none;
-}
-
-/* styling for label */
-.td-left.outside-threshold {
-  visibility: hidden;
-}
-.td-left.outside-threshold::after {
-  visibility: visible;
-  display: inline-block;
-  padding: 5px 7px;
-  border-radius: 25px;
-  background-color: rgba(191, 97, 108, 0.3);
-  color: #bf616a;
-  content: 'OUTSIDE THRESHOLD';
-}
-
-.td-left.incomplete {
-  visibility: hidden;
-}
-.td-left.incomplete::after {
-  visibility: visible;
-  display: inline-block;
-  background-color: rgba(208, 135, 112, 0.3);
-  color: #d08770;
-  padding: 5px 7px;
-  border-radius: 25px;
-  content: 'INCOMPLETE';
-}
-
-.td-left.good {
-  visibility: hidden;
-}
-.td-left.good::after {
-  visibility: visible;
-  display: inline-block;
-  background-color: rgba(163, 190, 140, 0.3);
-  color: #a3be8c;
-  padding: 5px 7px;
-  border-radius: 25px;
-  content: 'GOOD';
-}
-
-.td-left.both {
-  visibility: hidden;
-}
-.td-left.both::after {
-  visibility: visible;
-  display: inline-block;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: #000000;
-  padding: 5px 7px;
-  border-radius: 25px;
-  content: 'OUTSIDE THRESHOLD & INCOMPLETE';
-}
-
-/*different styling for data input*/
-
-.td-right.outside-threshold {
-  color: #bf616a;
-  /* font-weight: bolder; */
-}
-
-.td-right.incomplete::after {
-  visibility: visible;
-  display: inline-block;
-  content: '-';
-  font-size: var(--t1);
-}
-
-/*profile image formatting*/
-
-.patient-overview-profile-image {
-  position: relative;
-  top: 2px;
-  border-radius: 100px;
-  height: 50px;
-  width: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  margin-right: 0.5em;
-  margin-top: auto;
-  margin-bottom: auto;
-}
+/* .td-left { */
+/*   text-align: center; */
+/*   padding: 0.2em 0 0.2em 2em; */
+/* } */
+/**/
+/* .td-right { */
+/*   text-align: right; */
+/*   padding: 1em 2em 1em 0; */
+/* } */
 
 /*
 .seperator {
@@ -1223,6 +1197,7 @@ tbody {
     --t1: 18px;
     --t2: 16px;
     --t3: 14px;
+    --t4: 12px;
   }
 
   /* Dynamic size for embedded video. */

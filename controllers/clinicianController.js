@@ -15,7 +15,7 @@ const getAllClinicians = async (req, res, next) => {
 const viewAllPatients = async (req, res, next) => {
   try {
     // Hardcode the user (for now).
-    const clinician = await Clinician.findOne({ first_name: 'Chris' })
+    const clinician = await Clinician.findOne({ first_name: 'Chris' }).lean()
     // Find all Patient document IDs listed for this Clinician.
     const patients = await Patient.find(
       {
@@ -26,6 +26,7 @@ const viewAllPatients = async (req, res, next) => {
     res.render('clinician-dashboard', {
       layout: 'clinician',
       patients: patients,
+      clinician: clinician,
     })
   } catch (err) {
     return next(err)
