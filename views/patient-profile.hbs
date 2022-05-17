@@ -168,111 +168,111 @@
       <h3 class='title-profile'>Set Threshold</h3>
       <form method='post'>
         {{#each patient.thresholds}}
-        <div class='set-row'>
-          {{#if (strEqual this.type 'blood_glucose')}}
-          <div class='set-data'>
-            <p class='title-profile'>Blood Glucose Level</p>
-            <div class='set-input'>
-              <span><p>Min:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.lower}}'
-                id='bloodGlucoseLevelmin'
-              />
-              <span><p>Max:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.upper}}'
-                id='bloodGlucoseLevelmax'
-              />
-            </div>
+          <div class='set-row'>
+            {{#if (strEqual this.type 'blood_glucose')}}
+              <div class='set-data'>
+                <p class='title-profile'>Blood Glucose Level</p>
+                <div class='set-input'>
+                  <span><p>Min:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.lower}}'
+                    id='bloodGlucoseLevelmin'
+                  />
+                  <span><p>Max:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.upper}}'
+                    id='bloodGlucoseLevelmax'
+                  />
+                </div>
+              </div>
+            {{/if}}
+            {{#if (strEqual this.type 'weight')}}
+              <div class='set-data'>
+                <p class='title-profile'>Weight</p>
+                <div class='set-input'>
+                  <span><p>Min:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.lower}}'
+                    id='weightmin'
+                  />
+                  <span><p>Max:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.upper}}'
+                    id='weightmax'
+                  />
+                </div>
+              </div>
+            {{/if}}
           </div>
-          {{/if}}
-          {{#if (strEqual this.type 'weight')}}
-          <div class='set-data'>
-            <p class='title-profile'>Weight</p>
-            <div class='set-input'>
-              <span><p>Min:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.lower}}'
-                id='weightmin'
-              />
-              <span><p>Max:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.upper}}'
-                id='weightmax'
-              />
-            </div>
-          </div>
-          {{/if}}
-        </div>
 
-        <div class='set-row'>
-          {{#if (strEqual this.type 'insulin')}}
-          <div class='set-data'>
-            <p class='title-profile'>Insulin</p>
-            <div class='set-input'>
-              <span><p>Min:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.lower}}'
-                id='insulinmin'
-              />
-              <span><p>Max:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.upper}}'
-                id='insulinmax'
-              />
-            </div>
+          <div class='set-row'>
+            {{#if (strEqual this.type 'insulin')}}
+              <div class='set-data'>
+                <p class='title-profile'>Insulin</p>
+                <div class='set-input'>
+                  <span><p>Min:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.lower}}'
+                    id='insulinmin'
+                  />
+                  <span><p>Max:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.upper}}'
+                    id='insulinmax'
+                  />
+                </div>
+              </div>
+            {{/if}}
+            {{#if (strEqual this.type 'exercise')}}
+              <div class='set-data'>
+                <p class='title-profile'>Exercise</p>
+                <div class='set-input'>
+                  <span><p>Min:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.lower}}'
+                    id='exercisemin'
+                  />
+                  <span><p>Max:</p></span>
+                  <input
+                    type='number'
+                    min='1'
+                    max='100'
+                    step='1'
+                    value='{{this.upper}}'
+                    id='exercisemax'
+                  />
+                </div>
+              </div>
+            {{/if}}
           </div>
-          {{/if}}
-          {{#if (strEqual this.type 'exercise')}}
-          <div class='set-data'>
-            <p class='title-profile'>Exercise</p>
-            <div class='set-input'>
-              <span><p>Min:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.lower}}'
-                id='exercisemin'
-              />
-              <span><p>Max:</p></span>
-              <input
-                type='number'
-                min='1'
-                max='100'
-                step='1'
-                value='{{this.upper}}'
-                id='exercisemax'
-              />
-            </div>
-          </div>
-          {{/if}}
-        </div>
         {{/each}}
         <div class='set-row'>
           <input type='submit' value='Update' class='btn yellow-btn center' />

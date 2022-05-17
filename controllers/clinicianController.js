@@ -67,7 +67,7 @@ const viewProfile = async (req, res, next) => {
     if (!patient) {
       res.send('error')
     }
-    
+
     res.render('patient-profile', {
       layout: 'clinician.hbs',
       title: 'Patient Profile',

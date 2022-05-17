@@ -90,6 +90,6 @@ module.exports = {
   },
 
   getCurrentData: function (daily_data, index) {
-    return (daily_data[(daily_data.length - 1)].values)[index].value
-  }
+    return daily_data[daily_data.length - 1].values[index].value
+  },
 }
