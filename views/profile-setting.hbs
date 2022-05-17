@@ -5,7 +5,11 @@
 <form class='setting-container' method='post'>
 
   <div class='left-setting-box'>
-    <div class='profile-circle'>
+
+    <div class='profile-container'>
+      <div class='profile-circle'>
+      </div>
+
       <input
         class='input-file'
         name='profilePhoto'
@@ -13,94 +17,75 @@
         type='file'
       />
     </div>
+
+    <button type='submit' class='update-btn btn yellow-btn'>Update</button>
+
   </div>
 
   <div class='right-setting-box'>
 
     <div class='input-row'>
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-id'>Email</label>
-          <input
-            name='email'
-            id='email'
-            type='email'
-            value='{{patient.email}}'
-          />
-        </div>
+
+      <div class='input-box'>
+        <label for='clinician-id'>Email</label>
+        <input name='email' id='email' type='email' value='{{patient.email}}' />
       </div>
 
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-screenName'>Screen Name</label>
-          <input
-            name='screenName'
-            id='screenName'
-            type='text'
-            value='{{patient.username}}'
-          />
-        </div>
+      <div class='input-box'>
+        <label for='clinician-screenName'>Username</label>
+        <input
+          name='screenName'
+          id='screenName'
+          type='text'
+          value='{{patient.username}}'
+        />
       </div>
 
     </div>
 
     <div class='input-row'>
 
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-firstName'>First Name</label>
-          <input
-            name='firstName'
-            id='firstName'
-            type='text'
-            value='{{patient.first_name}}'
-          />
-        </div>
+      <div class='input-box'>
+        <label for='clinician-firstName'>First Name</label>
+        <input
+          name='firstName'
+          id='firstName'
+          type='text'
+          value='{{patient.first_name}}'
+        />
       </div>
 
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-lastName'>Last Name</label>
-          <input
-            name='lastname'
-            id='lastname'
-            type='text'
-            value='{{patient.last_name}}'
-          />
-        </div>
+      <div class='input-box'>
+        <label for='clinician-lastName'>Last Name</label>
+        <input
+          name='lastname'
+          id='lastname'
+          type='text'
+          value='{{patient.last_name}}'
+        />
       </div>
 
     </div>
 
     <div class='input-row'>
 
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-password'>Password</label>
-          <input
-            name='password'
-            id='password'
-            type='password'
-            value='{{patient.password}}'
-          />
-        </div>
-      </div>
-
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-bio'>Bio</label>
-          <input name='bio' id='bio' type='text' value='{{patient.bio}}' />
-        </div>
+      <div class='input-box'>
+        <label for='clinician-password'>Password</label>
+        <input
+          name='password'
+          id='password'
+          type='password'
+          value='{{patient.password}}'
+        />
       </div>
 
     </div>
 
-    <div class='update-box'>
-      <input
-        type='submit'
-        value='Update'
-        class='update-button btn yellow-btn'
-      />
+    <div class='input-row'>
+      <div class='input-box bio'>
+        <label for='clinician-bio'>Bio</label>
+        <textarea name='bio' id='bio' cols='4'>{{patient.bio}}</textarea>
+      </div>
     </div>
 
   </div>

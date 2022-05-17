@@ -397,45 +397,6 @@ footer a:hover {
   max-width: 50vw;
 }
 
-/* each input section: label, input box, and textarea */
-
-.input-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-}
-
-.input-box {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.input-box input,
-.input-value-after {
-  border: solid 2px;
-  width: 100%;
-  height: 20px;
-}
-
-.input-value-after {
-  background-color: var(--green);
-}
-
-.input-box textarea,
-.input-comment-after {
-  border: solid 2px;
-  padding: 5px;
-  resize: none;
-  width: 100%;
-  height: 60px;
-}
-
-.input-comment-after {
-  background-color: var(--green);
-}
-
 /* button component */
 .btn {
   display: inline-block;
@@ -446,7 +407,7 @@ footer a:hover {
   border-radius: 10px;
   height: 40px;
   min-width: 20%;
-  margin: auto;
+  margin: 0 auto;
   padding: 10px 20px;
 
   font-size: var(--t2);
@@ -715,57 +676,90 @@ td {
   color: var(--light-grey);
 }
 
-/*Register Patient*/
-.register-container {
-  /* make the form fill the body */
-  height: 100%;
+/*Register Patient and Edit profile setting page*/
+.register-container,
+.setting-container {
   width: 100%;
-
   /* split 2 columns */
   display: flex;
 }
-.left-register-box {
+.left-register-box,
+.right-setting-box {
   width: 70%;
   margin: 20px;
 }
-.right-register-box {
+.right-setting-box {
+  border: solid 2px;
+}
+.right-register-box,
+.left-setting-box {
   width: 30%;
   margin: 20px;
-
+  /* profile image and submit btn section */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
+.input-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+/* register patient input box */
 .input-box {
-  width: 30%;
+  width: 40%;
   height: auto;
-  margin: 10px 10px;
+  margin: 10px 30px;
 }
 .input-box input {
-  font-family: monospace;
-  font-size: var(--t4);
   height: 40px;
   width: 100%;
+
+  border: solid 2px;
 }
 .input-box.bio {
   width: 100%;
 }
 .input-box textarea {
+  width: 100%;
   height: 120px;
+  border: solid 2px;
+  padding: 5px;
+  resize: none;
 }
+/* placeholder text has different style */
+.input-box input,
+.input-box textarea {
+  font-size: var(--t2);
+}
+.input-box input::placeholder {
+  font-family: monospace;
+  font-size: var(--t3);
+  color: var(--dark-grey);
+}
+/* slightly different input box style in profile settings page */
+.setting-container input,
+.setting-container textarea {
+  border: none;
+}
+/* profile image upload section */
+/* make the profile image round */
 .profile-circle {
-  width: 80%;
-  height: 40%;
+  position: relative;
   border-radius: 50%;
+  width: 80%;
+  height: auto;
+  padding-top: 80%;
   border: 2px solid;
+  margin: 0 auto;
 }
 .input-file {
   font-family: monospace;
   margin: 10px;
   text-align: center;
-}
-.register-btn {
-  width: 50%;
 }
 
 /*profile page for patients that clinicican can view */
@@ -983,56 +977,6 @@ p.filter {
   right: 0px;
   background: none;
   border: none;
-}
-
-/* Profile setting page for clinician */
-.left-setting-box {
-  position: absolute;
-  width: 400px;
-  height: 550px;
-  left: 60;
-}
-
-.left-setting-box .input-file {
-  font-family: monospace;
-  position: relative;
-  left: 20px;
-  margin-top: 5px;
-  width: 240px;
-  top: 250px;
-}
-
-.right-setting-box {
-  position: absolute;
-  width: 700px;
-  height: 430px;
-  right: 140;
-  border: 2px solid black;
-}
-
-.right-setting-box .input-border {
-  width: 300px;
-  margin: 10px;
-  font-size: var(--t2);
-  margin-left: 38px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.right-setting-box .input-box input {
-  font-family: monospace;
-  font-size: var(--t3);
-  font-weight: 500;
-  height: 40px;
-  width: 250px;
-}
-
-.update-box {
-  position: absolute;
-  width: 100px;
-  margin: 20px;
-  top: 350;
-  right: 290;
 }
 
 /* patient comments page */
