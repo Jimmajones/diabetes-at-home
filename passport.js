@@ -55,7 +55,7 @@ passport.use(
         }
         if (!user) {
           return done(undefined, false, {
-            message: 'Incorrect username or password',
+            message: 'Incorrect email or password',
           })
         }
 
@@ -68,7 +68,7 @@ passport.use(
           }
           if (!valid) {
             return done(undefined, false, {
-              message: 'Incorrect username or password',
+              message: 'Incorrect email or password',
             })
           }
 
@@ -98,7 +98,7 @@ passport.use(
         }
         if (!user) {
           return done(undefined, false, {
-            message: 'Incorrect username or password',
+            message: 'Incorrect email or password',
           })
         }
 
@@ -111,7 +111,7 @@ passport.use(
           }
           if (!valid) {
             return done(undefined, false, {
-              message: 'Incorrect username or password',
+              message: 'Incorrect email or password',
             })
           }
 
