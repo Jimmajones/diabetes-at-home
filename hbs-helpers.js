@@ -86,5 +86,9 @@ module.exports = {
       text += 'has either exceeded or not met the safety threshold for this data, please advise.'
     }
     return text
+  },
+
+  getCurrentData: function (daily_data, index) {
+    return (daily_data[(daily_data.length - 1)].values)[index].value
   }
 }

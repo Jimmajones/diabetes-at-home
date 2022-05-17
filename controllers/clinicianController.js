@@ -58,6 +58,25 @@ const addOnePatient = async (req, res, next) => {
   }
 }
 
+const viewProfile = async (req, res, next) => {
+  try {
+    // Hardcode the user (for now).
+    const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
+
+    if (!patient) {
+      res.send('error')
+    }
+    
+    res.render('patient-profile', {
+      layout: 'clinician.hbs',
+      title: 'Patient Profile',
+      patient: patient,
+    })
+  } catch (err) {
+    return next(err)
+  }
+}
+
 const viewRegister = async (req, res) => {
   res.render('register-patient', {
     layout: 'clinician.hbs',
@@ -65,25 +84,35 @@ const viewRegister = async (req, res) => {
   })
 }
 
-const viewProfile = async (req, res) => {
-  res.render('patient-profile', {
-    layout: 'clinician.hbs',
-    title: 'Patient Profile',
-  })
-}
-
 const profileSetting = async (req, res) => {
+  // Hardcode the user (for now).
+  const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
   res.render('profile-setting', {
     layout: 'clinician.hbs',
     title: 'Profile Setting',
+    patient: patient,
   })
 }
 
 const viewPatientComments = async (req, res) => {
-  res.render('patient-comments', {
-    layout: 'clinician.hbs',
-    title: 'Patient Comments',
-  })
+  try {
+    // Hardcode the user (for now).
+    const clinician = await Clinician.findOne({ first_name: 'Chris' })
+    // Find all Patient document IDs listed for this Clinician.
+    const patients = await Patient.find(
+      {
+        _id: { $in: clinician.patient_list },
+      },
+      { daily_data: { $slice: -1 } }
+    ).lean()
+    res.render('patient-comments', {
+      layout: 'clinician.hbs',
+      title: 'Patient Comments',
+      patients: patients,
+    })
+  } catch (err) {
+    return next(err)
+  }
 }
 
 module.exports = {

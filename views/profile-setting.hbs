@@ -23,7 +23,7 @@
             name='email'
             id='email'
             type='email'
-            placeholder='Type email here...'
+            value="{{patient.email}}"
           />
         </div>
       </div>
@@ -34,7 +34,7 @@
             name='screenName'
             id='screenName'
             type='text'
-            placeholder='Type screen name here...'
+            value="{{patient.username}}"
           />
         </div>
       </div>
@@ -48,7 +48,7 @@
             name='firstName'
             id='firstName'
             type='text'
-            placeholder='Type first name here...'
+            value="{{patient.first_name}}"
           />
         </div>
       </div>
@@ -59,7 +59,7 @@
             name='lastname'
             id='lastname'
             type='text'
-            placeholder='Type last name here...'
+            value="{{patient.last_name}}"
           />
         </div>
       </div>
@@ -73,14 +73,14 @@
             name='password'
             id='password'
             type='password'
-            placeholder='Type password here...'
+            value="{{patient.password}}"
           />
         </div>
       </div>
       <div class='input-border'>
         <div class='input-box'>
           <label for='clinician-bio'>Bio</label>
-          <input name='bio' id='bio' type='text' placeholder='Type bio here...' />
+          <input name='bio' id='bio' type='text' value="{{patient.bio}}" />
         </div>
       </div>
     </div>
