@@ -1,34 +1,32 @@
 <div class='heading'>
-  <h1 class='page-title'>Dashboard</h1>
+  <h1 class='page-title'>G'day {{clinician.first_name}}!</h1>
 </div>
+<p class='sub-heading'>Here is your patient list.</p>
 
 <div class='table-container'>
   <table class='patient-list'>
     <tr>
-      <th class='td-left'>NAME</th>
-      <th class='td-left'>LABEL</th>
-      <th class='td-right'>BLOOD GLUCOSE LEVEL (NMO/L)</th>
-      <th class='td-right'>WEIGHT (KG)</th>
-      <th class='td-right'>INSULIN (DOSES)</th>
-      <th class='td-right'>EXERCISE (STEPS)</th>
+      <th class='td-left'>Name</th>
+      <th class='td-left'>Label</th>
+      <th class='td-right'>Blood glucose level (nmo/L)</th>
+      <th class='td-right'>Weight (kg)</th>
+      <th class='td-right'>Insulin (doses)</th>
+      <th class='td-right'>Steps<th>
     </tr>
     {{#each patients}}
       <tr class='patient-data-content-row'>
         <td class='td-left profile-data'>
           <button onclick="toggle('{{this._id}}')" class='toggle-overlay'>
-            <img
-              id='button-{{this._id}}'
-              class='warning-image'
-              src='/assets/toggle.svg'
-            />
+            <i id='button-{{this._id}}' class='fa fa-chevron-right'></i>
           </button>
 
           <img class='patient-overview-profile-image' src='/assets/brian.svg' />
           <p class='names'>{{this.first_name}} {{this.last_name}}</p>
         </td>
-        <td><div
-            class='td-left label {{showStatus this.daily_data}}'
-          ></div></td>
+
+        <td>
+          <div class='label {{showStatus this.daily_data}}'></div>
+        </td>
         {{#each this.daily_data}}
           {{#each this.values}}
             <td class='td-right content {{this.status}}'>{{this.value}}</td>
@@ -37,29 +35,30 @@
       </tr>
       <tr>
         <td colspan='7' class='warning-container'>
-          <div
-            class='warning-box {{showStatus this.daily_data}}'
-            id='{{this._id}}'
-          >
+          <div class='warning-box {{showStatus this.daily_data}}' id='{{this._id}}'>
             {{#each this.daily_data}}
               {{#each this.values}}
+
                 {{#if (needWarning this.status)}}
                   <div class='patient-data-warning'>
                     <img
                       class='warning-image'
                       src='/assets/{{this.status}}.svg'
                     />
+
                     <div class='text-container'>
-                      <h3 class='warning-header'>{{showTypeName this.type}}</h3>
+                      <h4 class='warning-header'>{{showTypeName this.type}}</h4>
                       <span
                         class='content warning-explanation'
                       >{{showWarningText this.status}}</span>
                     </div>
                   </div>
                 {{/if}}
+
               {{/each}}
             {{/each}}
-          </div>
+
+          </div> <!-- end of warning box -->
         </td>
       </tr>
     {{/each}}

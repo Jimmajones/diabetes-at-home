@@ -1,10 +1,13 @@
 <div class='heading'>
   <h1 class='page-title'>Register Patient</h1>
 </div>
+
 <form class='register-container' method='post'>
+
   <div class='left-register-box'>
+
     <div class='input-row'>
-      <div class='input-border'>
+
         <div class='input-box'>
           <label for='user-id'>User ID (Email)</label>
           <input
@@ -14,8 +17,7 @@
             placeholder='Type email here...'
           />
         </div>
-      </div>
-      <div class='input-border'>
+
         <div class='input-box'>
           <label for='user-screenName'>Screen Name</label>
           <input
@@ -25,10 +27,11 @@
             placeholder='Type screen name here...'
           />
         </div>
-      </div>
+
     </div>
+
     <div class='input-row'>
-      <div class='input-border'>
+
         <div class='input-box'>
           <label for='user-firstName'>First Name</label>
           <input
@@ -38,9 +41,7 @@
             placeholder='Type first name here...'
           />
         </div>
-      </div>
 
-      <div class='input-border'>
         <div class='input-box'>
           <label for='user-screenName'>Screen Name</label>
           <input
@@ -50,9 +51,7 @@
             placeholder='Type last name here...'
           />
         </div>
-      </div>
 
-      <div class='input-border'>
         <div class='input-box'>
           <label for='user-dateOfBirth'>Date of Birth</label>
           <input
@@ -62,10 +61,11 @@
             placeholder='DD/MM/YYYY'
           />
         </div>
-      </div>
+
     </div>
+
     <div class='input-row'>
-      <div class='input-border'>
+
         <div class='input-box'>
           <label for='user-postcode'>Postcode</label>
           <input
@@ -77,10 +77,11 @@
             placeholder='input postcode here...'
           />
         </div>
-      </div>
+
     </div>
+
     <div class='input-row'>
-      <div class='input-border'>
+
         <div class='input-box'>
           <label for='user-password'>Password</label>
           <input
@@ -90,8 +91,7 @@
             placeholder='Type password here...'
           />
         </div>
-      </div>
-      <div class='input-border'>
+
         <div class='input-box'>
           <label for='user-repassword'>Confirm Password</label>
           <input
@@ -101,11 +101,11 @@
             placeholder='Retype same password here...'
           />
         </div>
-      </div>
     </div>
+
     <div class='input-row'>
-      <div class='textarea-border'>
-        <div class='input-box'>
+
+        <div class='input-box bio'>
           <label for='user-bio'>Bio</label>
           <textarea
             name='bio'
@@ -114,22 +114,31 @@
             placeholder='Type bio here...'
           ></textarea>
         </div>
-      </div>
+
     </div>
+
   </div>
+
   <div class='right-register-box'>
+
     <div class='profile-circle'>
+      <!-- TODO: insert profile image here -->
     </div>
+
+    <!-- upload image -->
     <input
       class='input-file'
       name='profilePhoto'
       id='profilePhoto'
       type='file'
     />
+
     <input
       type='submit'
       value='Register'
-      class='register-button btn yellow-btn'
+      class='register-btn btn yellow-btn'
     />
+
   </div>
+
 </form>
