@@ -6,16 +6,16 @@
 <div class='table-container'>
   <table class='patient-list'>
     <tr>
-      <th class='td-left'>Name</th>
-      <th class='td-left'>Label</th>
-      <th class='td-right'>Blood glucose level (nmo/L)</th>
-      <th class='td-right'>Weight (kg)</th>
-      <th class='td-right'>Insulin (doses)</th>
-      <th class='td-right'>Steps<th>
+      <th>Name</th>
+      <th>Label</th>
+      <th>Blood glucose level (nmo/L)</th>
+      <th>Weight (kg)</th>
+      <th>Insulin (doses)</th>
+      <th>Steps</th>
     </tr>
     {{#each patients}}
       <tr class='patient-data-content-row'>
-        <td class='td-left profile-data'>
+        <td class='profile-data'>
           <button onclick="toggle('{{this._id}}')" class='toggle-overlay'>
             <i id='button-{{this._id}}' class='fa fa-chevron-right'></i>
           </button>
@@ -29,13 +29,16 @@
         </td>
         {{#each this.daily_data}}
           {{#each this.values}}
-            <td class='td-right content {{this.status}}'>{{this.value}}</td>
+            <td class='content {{this.status}}'>{{this.value}}</td>
           {{/each}}
         {{/each}}
       </tr>
       <tr>
         <td colspan='7' class='warning-container'>
-          <div class='warning-box {{showStatus this.daily_data}}' id='{{this._id}}'>
+          <div
+            class='warning-box {{showStatus this.daily_data}}'
+            id='{{this._id}}'
+          >
             {{#each this.daily_data}}
               {{#each this.values}}
 
@@ -58,7 +61,8 @@
               {{/each}}
             {{/each}}
 
-          </div> <!-- end of warning box -->
+          </div>
+          <!-- end of warning box -->
         </td>
       </tr>
     {{/each}}

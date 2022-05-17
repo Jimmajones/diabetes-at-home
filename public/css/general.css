@@ -16,12 +16,11 @@
   --dark-grey: #242424;
   --light-grey: #697089;
 
-
   --success-green-dark: #8aa573;
   --success-green: #a3be8c; /* good */
   --success-green-light: #f0ffd9;
 
-  --warning-orange-dark: #b76e57; 
+  --warning-orange-dark: #b76e57;
   --warning-orange: #d08770; /* overthreshold */
   --warning-orange-light: #ffedd6; /* overthreshold */
 
@@ -32,7 +31,6 @@
   --error-red-dark: #a64851;
   --error-red: #bf616a; /* both overthreshold and missing */
   --error-red-light: #ffc7d0; /* both overthreshold and missing */
-
 
   /* font sizes */
   --h1: 40px;
@@ -530,7 +528,6 @@ footer a:hover {
   margin: auto;
 }
 
-
 /* general table style */
 table {
   border: solid 2px;
@@ -557,6 +554,10 @@ td {
   /* make the cells the width of content */
   width: 1%;
   white-space: nowrap;
+}
+
+.patient-data-content-row {
+  border-top: 2px solid;
 }
 
 /* TODO: this class is not used */
@@ -614,26 +615,26 @@ td {
 .label.good::after {
   background-color: var(--success-green);
   color: var(--success-green-light);
-  border: solid .5px var(--success-green-dark);
+  border: solid 0.5px var(--success-green-dark);
   content: 'good';
 }
 .label.outside-threshold::after {
   background-color: var(--error-red);
   color: var(--error-red-light);
-  border: solid .5px var(--error-red-dark);
+  border: solid 0.5px var(--error-red-dark);
   content: 'overthreshold';
 }
 .label.incomplete::after {
   background-color: var(--warning-purple);
   color: var(--warning-purple-light);
-  border: solid .5px var(--warning-purple-dark);
+  border: solid 0.5px var(--warning-purple-dark);
   content: 'incomplete';
 }
 /* for both errors: we wanna add 2 labels (one before, one after) */
 .label.both::before {
   background-color: var(--error-red);
   color: var(--error-red-light);
-  border: solid .5px var(--error-red-dark);
+  border: solid 0.5px var(--error-red-dark);
   content: 'overthreshold';
   /* add some space before next label */
   margin-right: 5px;
@@ -641,7 +642,7 @@ td {
 .label.both::after {
   background-color: var(--warning-purple);
   color: var(--warning-purple-light);
-  border: solid .5px var(--warning-purple-dark);
+  border: solid 0.5px var(--warning-purple-dark);
   content: 'incomplete';
 }
 
@@ -653,7 +654,6 @@ td {
 }
 /* missing data */
 .content.incomplete::after {
-  visibility: visible;
   display: inline-block;
   content: '-';
   font-size: var(--t1);
@@ -674,10 +674,11 @@ td {
 
 /*warning box format and styling*/
 .warning-container {
-  padding: 10px 0 20px;
+  margin: 0;
+  padding: 0;
 }
 .warning-box {
-  margin: 0 1em;
+  margin: 1em;
   text-align: left;
   border: 2px solid;
   border-radius: 5px;
@@ -685,15 +686,11 @@ td {
   display: none;
 }
 /* no box should be shown at any time if state is good */
-.warning-box.good {
+.warning-box .good {
   display: none !important;
 }
 .patient-data-warning {
-  /* position: relative; */
-  /* height: 82px; */
-  /* display: block; */
   padding: 1em;
-  /* border: solid 2px; */
 }
 .text-container {
   display: inline-block;
@@ -757,7 +754,7 @@ td {
 }
 .profile-circle {
   width: 80%;
-  height: 40%;;
+  height: 40%;
   border-radius: 50%;
   border: 2px solid;
 }
@@ -1015,7 +1012,7 @@ p.filter {
 .right-setting-box .input-border {
   width: 300px;
   margin: 10px;
-  font-size :var(--t2);
+  font-size: var(--t2);
   margin-left: 38px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -1027,7 +1024,6 @@ p.filter {
   font-weight: 500;
   height: 40px;
   width: 250px;
-  
 }
 
 .update-box {
@@ -1131,7 +1127,6 @@ p.filter {
 /*   text-align: right; */
 /*   padding: 1em 2em 1em 0; */
 /* } */
-
 
 /*
 .seperator {

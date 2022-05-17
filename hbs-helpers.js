@@ -83,8 +83,9 @@ module.exports = {
     } else if (status == 'incomplete') {
       text += 'has not filled in this data for today.'
     } else if (status == 'outside-threshold') {
-      text += 'has either exceeded or not met the safety threshold for this data, please advise.'
+      text +=
+        'has either exceeded or not met the safety threshold for this data, please advise.'
     }
     return text
-  }
+  },
 }
