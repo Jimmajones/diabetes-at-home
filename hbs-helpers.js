@@ -63,7 +63,7 @@ module.exports = {
   showStatus: function (daily_data) {
     let isComplete = true
     let isWithinThreshold = true
-    let record = daily_data[daily_data.length - 1]
+    const record = daily_data[daily_data.length - 1]
 
     for (let data of record.values) {
       if (data.status == 'incomplete') {
@@ -82,5 +82,54 @@ module.exports = {
     } else {
       return 'both'
     }
+  },
+
+  needWarning: function (status) {
+    return status == 'incomplete' || status == 'outside-threshold'
+  },
+
+  showTypeName: function (type) {
+    if (type == 'blood_glucose') {
+      return 'Blood glucose level'
+    } else if (type == 'weight') {
+      return 'Weight'
+    } else if (type == 'insulin') {
+      return 'Insulin doses'
+    } else {
+      return 'Exercise steps'
+    }
+  },
+
+  showWarningText: function (status) {
+    let text = 'The patient '
+    if (status == 'good') {
+      text += 'has filled in this data for today.'
+    } else if (status == 'incomplete') {
+      text += 'has not filled in this data for today.'
+    } else if (status == 'outside-threshold') {
+      text +=
+        'has either exceeded or not met the safety threshold for this data, please advise.'
+    }
+    return text
+  },
+
+  getCurrentData: function (daily_data, index) {
+    return daily_data[daily_data.length - 1].values[index].value
+  },
+
+  isDataRequired: function (threshold, typeData, isRequired) {
+    for (let i = 0; i < threshold.length; i++) {
+      if (threshold[i].type.localeCompare(typeData) == 0) {
+        if (isRequired) {
+          return 'checked'
+        } else {
+          return ''
+        }
+      }
+    }
+    if (isRequired) {
+      return ''
+    }
+    return 'checked'
   },
 }

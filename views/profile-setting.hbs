@@ -3,90 +3,94 @@
 </div>
 
 <form class='setting-container' method='post'>
+
   <div class='left-setting-box'>
-    <div class='profile-circle'>
-      <input
-        class='input-file'
-        name='profilePhoto'
-        id='profilePhoto'
-        type='file'
-      />
+
+    <div class='profile-container'>
+      <div class='profile-circle'>
+      </div>
+
+      <p>Select your avatar</p>
+      <div class='choosing-area'>
+        <img class='icon-choices' src='/assets/brian.svg' />
+        <img class='icon-choices' src='/assets/steven.svg' />
+        <img class='icon-choices' src='/assets/ivan.svg' />
+        <img class='icon-choices' src='/assets/james.svg' />
+        <img class='icon-choices' src='/assets/gerald.svg' />
+      </div>
+
     </div>
+
+    <button type='submit' class='update-btn btn yellow-btn'>Update</button>
+
   </div>
 
   <div class='right-setting-box'>
-    <div class='input-row'>
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-id'>Email</label>
-          <input
-            name='email'
-            id='email'
-            type='email'
-            placeholder='Type email here...'
-          />
-        </div>
-      </div>
-      <div class='input-border'>
-        <div class='input-box'>
-          <label for='clinician-screenName'>Screen Name</label>
-          <input
-            name='screenName'
-            id='screenName'
-            type='text'
-            placeholder='Type screen name here...'
-          />
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class='input-row'>
-    <div class='input-border'>
+    <div class='input-row'>
+
+      <div class='input-box'>
+        <label for='clinician-id'>Email</label>
+        <input name='email' id='email' type='email' value='{{patient.email}}' />
+      </div>
+
+      <div class='input-box'>
+        <label for='clinician-screenName'>Username</label>
+        <input
+          name='screenName'
+          id='screenName'
+          type='text'
+          value='{{patient.username}}'
+        />
+      </div>
+
+    </div>
+
+    <div class='input-row'>
+
       <div class='input-box'>
         <label for='clinician-firstName'>First Name</label>
         <input
           name='firstName'
           id='firstName'
           type='text'
-          placeholder='Type first name here...'
+          value='{{patient.first_name}}'
         />
       </div>
-    </div>
-    <div class='input-border'>
+
       <div class='input-box'>
         <label for='clinician-lastName'>Last Name</label>
         <input
           name='lastname'
           id='lastname'
           type='text'
-          placeholder='Type last name here...'
+          value='{{patient.last_name}}'
         />
       </div>
-    </div>
-  </div>
 
-  <div class='input-row'>
-    <div class='input-border'>
+    </div>
+
+    <div class='input-row'>
+
       <div class='input-box'>
         <label for='clinician-password'>Password</label>
         <input
           name='password'
           id='password'
           type='password'
-          placeholder='Type password here...'
+          value='{{patient.password}}'
         />
       </div>
+
     </div>
-    <div class='input-border'>
-      <div class='input-box'>
+
+    <div class='input-row'>
+      <div class='input-box bio'>
         <label for='clinician-bio'>Bio</label>
-        <input name='bio' id='bio' type='text' placeholder='Type bio here...' />
+        <textarea name='bio' id='bio' cols='4'>{{patient.bio}}</textarea>
       </div>
     </div>
+
   </div>
 
-  <div class='update-box'>
-    <input type='submit' value='Update' class='update-button btn yellow-btn' />
-  </div>
 </form>
