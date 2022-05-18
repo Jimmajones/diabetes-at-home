@@ -1,16 +1,23 @@
+function is_today(date) {
+  today = new Date()
+  if (
+    date.getDate() == today.getDate() &&
+    date.getMonth() == today.getMonth() &&
+    date.getFullYear() == today.getFullYear()
+  ) {
+    return true
+  }
+  return false
+}
+
 function finished_decimal(patient) {
   let numOverall = patient.thresholds.length
   let numDone = patient.thresholds.length
   let latest_record = patient.daily_data[patient.daily_data.length - 1]
-  let today = new Date()
   if (!latest_record) {
     // This patient has no daily data at all.
     numDone = 0
-  } else if (
-    latest_record.when.getDate() == today.getDate() &&
-    latest_record.when.getMonth() == today.getMonth() &&
-    latest_record.when.getFullYear() == today.getFullYear()
-  ) {
+  } else if (is_today(latest_record.when)) {
     // This patient has submitted some data for today.
     // Check each value for its status.
     for (let data of latest_record.values) {
@@ -38,6 +45,38 @@ module.exports = {
     return string1 == string2
   },
 
+  // Find out whether patient needs to fill in specific value.
+  needs_to_be_done: function (patient, value_type) {
+    let isNecessary = 0
+    let latest_record = patient.daily_data[patient.daily_data.length - 1]
+    for (let i = 0; i < patient.thresholds.length; i++) {
+      if (patient.thresholds[i].type == value_type) {
+        isNecessary = 1
+      }
+    }
+
+    if (!latest_record || !is_today(latest_record.when)) {
+      // No record and part, check patient threshold.
+      if (isNecessary) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      // There's a record for today, check if it's been filled in.
+      for (let i = 0; i < latest_record.values.length; i++) {
+        if (
+          latest_record.values[i].type == value_type &&
+          latest_record.values[i].status == 'incomplete'
+        ) {
+          return true
+        }
+      }
+      return false
+    }
+  },
+
+  // Find out whether patient has filled in all necessary data.
   is_done: function (patient) {
     return finished_decimal(patient) >= 1
   },

@@ -13,13 +13,7 @@ const getAllPatients = async (req, res, next) => {
 
 const viewDashboard = async (req, res, next) => {
   try {
-    // Hardcode the user (for now).
     const patient = req.user.toJSON()
-
-    await Patient.updateOne(
-      { _id: patient._id },
-      { $set: { completion_rate: 0.5 } }
-    )
 
     res.render('patient-dashboard', {
       layout: 'patient',
@@ -112,10 +106,7 @@ const addHealthRecord = async (req, res, next) => {
     }
 
     if (is_same_day) {
-      // Hard-coding like this is probably a bad practice. And also
-      // probably indicative of how terrible of an idea it was for
-      // me to make this an array of arrays. But whatever it works
-      // holy moly this took forever.
+      // Update relevant values of the "same day" record by index.
       if (blood_data.value && !record.values[0].value) {
         await Patient.updateOne(
           { 'daily_data._id': record._id },
