@@ -44,6 +44,10 @@ function stepper(btnType) {
 const toggleDropdown = (event) => {
   let dropdown = document.querySelector('.dropdown')
 
+  if (!dropdown) {
+    return
+  }
+
   if (event.target.classList.contains('toggle')) {
     dropdown.classList.toggle('show')
   } else {

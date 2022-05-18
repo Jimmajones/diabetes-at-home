@@ -94,12 +94,11 @@ module.exports = {
   },
 
   isDataRequired: function (threshold, typeData, isRequired) {
-    for (let  i = 0; i < threshold.length; i++) {
-      if ((threshold[i].type).localeCompare(typeData) == 0) {
+    for (let i = 0; i < threshold.length; i++) {
+      if (threshold[i].type.localeCompare(typeData) == 0) {
         if (isRequired) {
           return 'checked'
-        }
-        else {
+        } else {
           return ''
         }
       }
@@ -108,5 +107,5 @@ module.exports = {
       return ''
     }
     return 'checked'
-  }
+  },
 }
