@@ -24,7 +24,7 @@ const viewDashboard = async (req, res, next) => {
     res.render('patient-dashboard', {
       layout: 'patient',
       patient: patient,
-      loggedin: req.isAuthenticated()
+      loggedin: req.isAuthenticated(),
     })
   } catch (err) {
     return next(err)

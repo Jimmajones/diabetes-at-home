@@ -58,7 +58,7 @@ app.get('/about-diabetes', (req, res) => {
   res.render('about-diabetes', {
     layout: 'patient.hbs',
     title: 'About Diabetes',
-    loggedin: req.isAuthenticated()
+    loggedin: req.isAuthenticated(),
   })
 })
 
@@ -66,7 +66,7 @@ app.get('/about-website', (req, res) => {
   res.render('about-website', {
     layout: 'patient.hbs',
     title: 'About Website',
-    loggedin: req.isAuthenticated()
+    loggedin: req.isAuthenticated(),
   })
 })
 
@@ -74,7 +74,7 @@ app.get('/about-website', (req, res) => {
 app.get('*', (req, res) => {
   res.render('404', {
     layout: 'patient.hbs',
-    title: 'Error 404'
+    title: 'Error 404',
   })
 })
 

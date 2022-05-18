@@ -16,13 +16,14 @@
     <h2 class='sub-heading'>Record today's data</h2>
 
     <!-- make the progress bar respond to the completion rate -->
+    <div
+      class='progress-bar'
+      style='--completion-rate: {{completionRate patient}}%'
+    ></div>
 
-    {{#if (today_data patient.daily_data)}}
-      <!-- hard coded for now -->
-      <div
-        class='progress-bar'
-        style='--completion-rate: {{completionRate patient}}%'
-      ></div>
+    {{#if (is_done patient)}}
+      <h3 style='text-align: center'>All done for the day!</h3>
+    {{else}}
       <form class='input-container' method='post'>
         {{#each patient.thresholds}}
           <div class='input-box'>
@@ -68,11 +69,8 @@
         {{/each}}
         <input type='submit' value='Update' class='btn yellow-btn' />
       </form>
-    {{else}}
-      <!-- hard coded for now -->
-      <div class='progress-bar' style='--completion-rate: 100%'></div>
-      <h3 style='text-align: center'>All done for the day!</h3>
     {{/if}}
+
   </div>
 
   <div class='history-container'>

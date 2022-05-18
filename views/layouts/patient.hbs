@@ -28,8 +28,8 @@
           <div class='click-dropdown-content dropdown-right'>
             {{#if loggedin}}
               <!-- Don't know how to have <a> with submit -->
-              <form class="logout" action="/logout" method="post">
-                <button type="submit">Logout</button>
+              <form class='logout' action='/logout' method='post'>
+                <button type='submit'>Logout</button>
               </form>
               <a href=''>Dashboard</a>
               <a href=''>Leaderboard</a>
@@ -61,8 +61,8 @@
               </div>
             </div>
             {{#if loggedin}}
-              <form action="/logout" method="post">
-                <input class="btn" type="submit" value="Logout">
+              <form action='/logout' method='post'>
+                <input class='btn' type='submit' value='Logout' />
               </form>
             {{else}}
               <a class='btn' href='/login'>Login</a>
@@ -85,11 +85,11 @@
 
       <ul>
         {{#if loggedin}}
-          {{!-- <li>
+          {{! <li>
             <form action="/logout" method="post">
               <a href='/' type="submit">Logout</a>
             </form>
-          </li> --}}
+          </li> }}
         {{else}}
           <li><a href='/login'>Login</a></li>
         {{/if}}
