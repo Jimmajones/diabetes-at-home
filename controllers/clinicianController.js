@@ -14,8 +14,9 @@ const getAllClinicians = async (req, res, next) => {
 // Get all the patients of a clinician.
 const viewAllPatients = async (req, res, next) => {
   try {
+    const clinician = req.user.toJSON()
     // Hardcode the user (for now).
-    const clinician = await Clinician.findOne({ first_name: 'Chris' }).lean()
+    // const clinician = await Clinician.findOne({ first_name: 'Chris' }).lean()
     // Find all Patient document IDs listed for this Clinician.
     const patients = await Patient.find(
       {

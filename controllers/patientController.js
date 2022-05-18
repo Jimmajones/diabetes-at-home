@@ -15,14 +15,6 @@ const viewDashboard = async (req, res, next) => {
   try {
     // Hardcode the user (for now).
     const patient = req.user.toJSON()
-    /*
-    var notNull = 0
-    for (obj in patient.daily_data[0].values) {
-      if (obj.value != undefined) {
-        notNull++
-      }
-    }
-    */
 
     await Patient.updateOne(
       { _id: patient._id },
@@ -32,6 +24,7 @@ const viewDashboard = async (req, res, next) => {
     res.render('patient-dashboard', {
       layout: 'patient',
       patient: patient,
+      loggedin: req.isAuthenticated()
     })
   } catch (err) {
     return next(err)

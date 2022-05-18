@@ -2,7 +2,7 @@
 
   <head>
 
-    <title>Diabetes@Home</title>
+    <title>Diabetes@Home | Clinician</title>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial_scale=1.0' />
     <meta name='author' content='Gerald, Brian, Ivan, Steven, James' />
@@ -42,6 +42,10 @@
           </ul>
         </div>
 
+        <form action="/logout" method="post">
+          <input class="btn" type="submit" value="Logout">
+        </form>
+
       </nav>
 
     </header>
@@ -57,7 +61,7 @@
       <h3>Diabetes@Home</h3>
 
       <ul>
-        <li><a href='javascript:void(0)'>Login</a></li>
+        {{!-- <li><a href='javascript:void(0)'>Login</a></li> --}}
         <li><a href='/about-diabetes'>About diabetes</a></li>
         <li><a href='/about-website'>About website</a></li>
       </ul>
