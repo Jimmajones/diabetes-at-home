@@ -709,7 +709,6 @@ td {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
 }
 .input-row {
   display: flex;
@@ -757,6 +756,16 @@ td {
 }
 /* profile image upload section */
 /* make the profile image round */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  margin: 30px;
+}
 .profile-circle {
   position: relative;
   border-radius: 50%;
@@ -771,40 +780,21 @@ td {
   margin: 10px;
   text-align: center;
 }
-
-.profile-circle-icon { 
-  position: absolute;
-  left: -120;
-  border-radius: 50%;
-  width: 240;
-  height: 240;
-  
-  border: 2px solid;
-  margin: 0;
-  background-color: pink;
-}
-
-.choice-of-icons { 
-  position: relative;
-  top: 2px;
-  left: -150;
+.icon-choices {
   height: 50px;
   width: 50px;
   border: 1px solid var(--light-grey);
-  border-radius: 100px;
+  border-radius: 50%;
   margin: 5px;
 }
-
-.choosing-area { 
-  position: absolute; 
-  width: 320px;
-  height: 60px;
-  top: 250;
-  left: -10;
+.choosing-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*profile page for patients that clinicican can view */
-.profile-container {
+.patient-profile-container {
   display: flex;
   height: 130%;
 }
@@ -946,9 +936,9 @@ td {
   left: 100;
 }
 
-.patient-list  {
+.patient-list {
   display: block;
-  height: 420px; 
+  height: 420px;
   overflow-y: scroll;
 }
 
@@ -956,7 +946,7 @@ td {
   display: table;
   width: 100%;
   table-layout: fixed;
-} 
+}
 
 .select {
   background-color: black !important;
@@ -991,16 +981,16 @@ td {
 }
 
 .patient-comments {
-  display: block; 
-  height: 420px; 
-  overflow-y: scroll; 
- }
+  display: block;
+  height: 420px;
+  overflow-y: scroll;
+}
 
-.patient-comments .comment { 
-  display: table; 
-  width: 100%; 
+.patient-comments .comment {
+  display: table;
+  width: 100%;
   table-layout: fixed;
-} 
+}
 
 .all-comments {
   border: 1px;
