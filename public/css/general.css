@@ -583,7 +583,7 @@ td {
   background-color: var(--error-red);
   color: var(--error-red-light);
   border: solid 0.5px var(--error-red-dark);
-  content: 'overthreshold';
+  content: 'over-threshold';
 }
 .label.incomplete::after {
   background-color: var(--warning-purple);
@@ -596,7 +596,7 @@ td {
   background-color: var(--error-red);
   color: var(--error-red-light);
   border: solid 0.5px var(--error-red-dark);
-  content: 'overthreshold';
+  content: 'over-threshold';
   /* add some space before next label */
   margin-right: 5px;
 }
