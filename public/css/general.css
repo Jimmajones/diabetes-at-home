@@ -987,18 +987,17 @@ p.filter {
   left: 100;
 }
 
-/* .patient-list tbody { */
-/*   display: block; */
-/*   height: 420px;  */
-/*   overflow-y: scroll; */
-/* } */
+.patient-list  {
+  display: block;
+  height: 420px; 
+  overflow-y: scroll;
+}
 
-/* .patient-list thead, */
-/* tbody .patient-name { */
-/*   display: table; */
-/*   width: 100%; */
-/*   table-layout: fixed; */
-/* } */
+.patient-list .patient-name {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+} 
 
 .select {
   background-color: black !important;
@@ -1022,7 +1021,7 @@ p.filter {
 
 .right-comments-container {
   position: absolute;
-  width: 650px;
+  width: 640px;
   height: 550px;
   right: 120;
 }
@@ -1032,18 +1031,17 @@ p.filter {
   background-color: pink;
 }
 
-/* .patient-comments tbody { */
-/*   display: block; */
-/*   height: 420px; */
-/*   overflow-y: scroll; */
-/* } */
+.patient-comments {
+  display: block; 
+  height: 420px; 
+  overflow-y: scroll; 
+ }
 
-/* .patient-comments thead, */
-/* tbody { */
-/*   display: table; */
-/*   width: 100%; */
-/*   table-layout: fixed; */
-/* } */
+.patient-comments .comment { 
+  display: table; 
+  width: 100%; 
+  table-layout: fixed;
+} 
 
 .all-comments {
   border: 1px;
