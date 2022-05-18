@@ -37,8 +37,38 @@
     <div class='section'>
       <h3 id='health-data-title' class='title-profile'>Today's Health Data</h3>
       <div id='today-health-data'>
+        {{#each patient.thresholds}}
+          <div class='health-data-item'>
 
-        <div class='health-data-item'>
+            {{#if (strEqual this.type 'blood_glucose')}}
+              <div class='data-box'>
+                <h2>{{getCurrentData ../patient.daily_data 0}}</h2>
+              </div>
+              <p>Blood glucose level (nmo/L)</p>
+            
+            {{else if (strEqual this.type 'weight')}}
+              <div class='data-box'>
+                <h2>{{getCurrentData ../patient.daily_data 1}}</h2>
+              </div>
+              <p>Weight (kg)</p>
+
+            {{else if (strEqual this.type 'insulin')}}
+              <div class='data-box'>
+                <h2>{{getCurrentData ../patient.daily_data 2}}</h2>
+              </div>
+              <p>Insulin (doses)</p>
+
+            {{else}}
+              <div class='data-box'>
+                <h2>{{getCurrentData ../patient.daily_data 3}}</h2>
+              </div>
+              <p>Exercise (steps)</p>
+            {{/if}}
+
+          </div>
+        {{/each}}
+
+        {{!-- <div class='health-data-item'>
           <div class='data-box'>
             <h2>{{getCurrentData patient.daily_data 0}}</h2>
           </div>
@@ -64,7 +94,7 @@
             <h2>{{getCurrentData patient.daily_data 3}}</h2>
           </div>
           <p>Exercise (steps)</p>
-        </div>
+        </div> --}}
 
       </div>
     </div>
@@ -96,227 +126,152 @@
 
     <div class='form-container section'>
       <h3 id='time-series-title' class='title-profile'>Set Time-Series</h3>
-      <form id='set-time-series' method='post'>
-
+      <form id='set-time-series' method='post' action='./set-thresholds'>
+      <input type="hidden" name="patient_id" value="{{patient._id}}" />
         <div class='set-data'>
-          <p class='title-profile'>Blood Glucose Level</p>
-
+          <p class='title-profile'>Blood glucose level (nmo/L)</p>
           <div class='set-input'>
-            <label for='bloodGlucose-timeSeries'>Enable</label>
+            <label for='bloodRequired'>Enable</label>
             <input
-              type='radio'
-              name='bloodGlucose-timeSeries'
-              {{isDataRequired patient.thresholds 'blood_glucose' true}}
-              value='patient'
-            />
-
-            <label for='bloodGlucose-timeSeries'>Disable</label>
-            <input
-              type='radio'
-              name='bloodGlucose-timeSeries'
-              {{isDataRequired patient.thresholds 'blood_glucose' false}}
-              value='clinician'
+              type='checkbox'
+              name='bloodRequired'
+              {{isRequiredData patient.thresholds 'blood_glucose'}}
+              value='true'
             />
           </div>
-
-        </div>
-
-        <div class='set-data'>
-          <p class='title-profile'>Weight</p>
           <div class='set-input'>
-            <label for='weight-timeSeries'>Enable</label>
+            <span><p>Min:</p></span>
             <input
-              type='radio'
-              name='weight-timeSeries'
-              {{isDataRequired patient.thresholds 'weight' true}}
-              value='patient'
+              type='number'
+              min='1'
+              max='100'
+              step='0.1'
+              name="bloodMin"
+              value='{{showThreshold patient.thresholds 'blood_glucose' 'lower'}}'
             />
-
-            <label for='weight-timeSeries'>Disable</label>
+            <span><p>Max:</p></span>
             <input
-              type='radio'
-              name='weight-timeSeries'
-              {{isDataRequired patient.thresholds 'weight' false}}
-              value='clinician'
+              type='number'
+              min='1'
+              max='100'
+              step='0.1'
+              name="bloodMax"
+              value='{{showThreshold patient.thresholds 'blood_glucose' 'upper'}}'
             />
           </div>
         </div>
 
         <div class='set-data'>
-          <p class='title-profile'>Insulin</p>
+          <p class='title-profile'>Weight (kg)</p>
           <div class='set-input'>
-            <label for='insulin-timeSeries'>Enable</label>
+            <label for='weightRequired'>Enable</label>
             <input
-              type='radio'
-              name='insulin-timeSeries'
-              {{isDataRequired patient.thresholds 'insulin' true}}
-              value='patient'
+              type='checkbox'
+              name='weightRequired'
+              {{isRequiredData patient.thresholds 'weight'}}            
+              value='true'
             />
-
-            <label for='insulin-timeSeries'>Disable</label>
+          </div>
+          <div class='set-input'>
+            <span><p>Min:</p></span>
             <input
-              type='radio'
-              name='insulin-timeSeries'
-              {{isDataRequired patient.thresholds 'insulin' false}}
-              value='clinician'
+              type='number'
+              min='1'
+              max='100'
+              step='0.1'
+              name="weightMin"
+              value='{{showThreshold patient.thresholds 'weight' 'lower'}}'
+            />
+            <span><p>Max:</p></span>
+            <input
+              type='number'
+              min='1'
+              max='100'
+              step='0.1'
+              name="weightMax"
+              value='{{showThreshold patient.thresholds 'weight' 'upper'}}'
             />
           </div>
         </div>
 
         <div class='set-data'>
-          <p class='title-profile'>Exercise</p>
+          <p class='title-profile'>Insulin (doses)</p>
           <div class='set-input'>
-            <label for='exercise-timeSeries'>Enable</label>
+            <label for='insulinRequired'>Enable</label>
             <input
-              type='radio'
-              name='exercise-timeSeries'
-              {{isDataRequired patient.thresholds 'exercise' true}}
-              value='patient'
+              type='checkbox'
+              name='insulinRequired'
+              {{isRequiredData patient.thresholds 'insulin'}}
+              value='true'
             />
-
-            <label for='exercise-timeSeries'>Disable</label>
+          </div>
+          <div class='set-input'>
+            <span><p>Min:</p></span>
             <input
-              type='radio'
-              name='exercise-timeSeries'
-              {{isDataRequired patient.thresholds 'exercise' false}}
-              value='clinician'
+              type='number'
+              min='1'
+              max='100'
+              step='1'
+              name="insulinMin"
+              value='{{showThreshold patient.thresholds 'insulin' 'lower'}}'
+            />
+            <span><p>Max:</p></span>
+            <input
+              type='number'
+              min='1'
+              max='100'
+              step='1'
+              name="insulinMax"
+              value='{{showThreshold patient.thresholds 'insulin' 'upper'}}'
             />
           </div>
         </div>
 
+        <div class='set-data'>
+          <p class='title-profile'>Exercise (steps)</p>
+          <div class='set-input'>
+            <label for='stepsRequired'>Enable</label>
+            <input
+              type='checkbox'
+              name='stepsRequired'
+              {{isRequiredData patient.thresholds 'exercise'}}
+              value='true'
+            />
+          </div>
+          <div class='set-input'>
+            <span><p>Min:</p></span>
+            <input
+              type='number'
+              min='1'
+              max='100'
+              step='1'
+              name="stepsMin"
+              value='{{showThreshold patient.thresholds 'steps' 'lower'}}'
+            />
+            <span><p>Max:</p></span>
+            <input
+              type='number'
+              min='1'
+              max='100'
+              step='1'
+              name="stepsMax"
+              value='{{showThreshold patient.thresholds 'steps' 'upper'}}'
+            />
+          </div>
+        </div>
+
+        <input
+          type='submit'
+          form='set-time-series'
+          value='Update'
+          class='btn yellow-btn'
+        />
       </form>
-      <input
-        type='submit'
-        form='set-time-series'
-        value='Update'
-        class='btn yellow-btn'
-      />
-    </div>
-
-    <div class='form-container section'>
-      <h3 id='threshold-title' class='title-profile'>Set Threshold</h3>
-      <form id='set-threshold' method='post'>
-
-        {{#each patient.thresholds}}
-
-          {{#if (strEqual this.type 'blood_glucose')}}
-            <div class='set-data'>
-              <p class='title-profile'>Blood Glucose Level</p>
-              <div class='set-input'>
-                <!-- <span><p>Min:</p></span> -->
-                <!-- <label for='bloodGlucoseLevelMin'>Min:</label> -->
-                <span><p>Min:</p></span>
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.lower}}'
-                  id='bloodGlucoseLevelmin'
-                />
-                <!-- <label for='bloodGlucoseLevelMax'>Max:</label> -->
-                <span><p>Max:</p></span>
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.upper}}'
-                  id='bloodGlucoseLevelmax'
-                />
-              </div>
-            </div>
-
-          {{else if (strEqual this.type 'weight')}}
-            <div class='set-data'>
-              <p class='title-profile'>Weight</p>
-              <div class='set-input'>
-                <span><p>Min:</p></span>
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.lower}}'
-                  id='weightmin'
-                />
-                <span><p>Max:</p></span>
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.upper}}'
-                  id='weightmax'
-                />
-              </div>
-            </div>
-
-          {{else if (strEqual this.type 'insulin')}}
-            <div class='set-data'>
-              <p class='title-profile'>Insulin</p>
-              <div class='set-input'>
-                <span><p>Min:</p></span>
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.lower}}'
-                  id='insulinmin'
-                />
-                <span><p>Max:</p></span>
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.upper}}'
-                  id='insulinmax'
-                />
-              </div>
-            </div>
-
-          {{else if (strEqual this.type 'exercise')}}
-            <div class='set-data'>
-              <p class='title-profile'>Exercise</p>
-              <div class='set-input'>
-                <!-- <span><p>Min:</p></span> -->
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.lower}}'
-                  id='exercisemin'
-                />
-                <span><p>Max:</p></span>
-                <input
-                  type='number'
-                  min='1'
-                  max='100'
-                  step='1'
-                  value='{{this.upper}}'
-                  id='exercisemax'
-                />
-              </div>
-            </div>
-          {{/if}}
-
-        {{/each}}
-
-      </form>
-      <input
-        type='submit'
-        form='set-threshold'
-        value='Update'
-        class='btn yellow-btn'
-      />
     </div>
 
     <div class='section'>
       <h3 id='clinical-notes-title' class='title-profile'>Clinical Notes</h3>
-      <form id='clinical-notes' method='post'>
+      <form id='clinical-notes' method='post' action="/clinical-note'">
         <div class='text-border'>
           <textarea
             name='clinicalNotes'
@@ -335,7 +290,7 @@
 
     <div class='section'>
       <h3 id='support-messages-title' class='title-profile'>Support Messages</h3>
-      <form id='support-messages' method='post'>
+      <form id='support-messages' method='post' action="support-message">
         <div class='text-border'>
           <textarea
             name='supportMessage'

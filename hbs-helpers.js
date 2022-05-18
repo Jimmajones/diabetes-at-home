@@ -143,19 +143,43 @@ module.exports = {
     return daily_data[daily_data.length - 1].values[index].value
   },
 
-  isDataRequired: function (threshold, typeData, isRequired) {
-    for (let i = 0; i < threshold.length; i++) {
-      if (threshold[i].type.localeCompare(typeData) == 0) {
-        if (isRequired) {
-          return 'checked'
+  isRequiredData: function (thresholds, type) {
+    if (thresholds.find(threshold => threshold.type == type)) {
+      return 'checked'
+    }
+  },
+
+  showThreshold: function (thresholds, type, bound) {
+    // for (let i = 0; i < thresholds.length; i++) {
+    //   if (thresholds[i].type == type) {
+    //     return i
+    //   }
+    // })
+    for (let threshold of thresholds) {
+      if (threshold.type == type) {
+        if (bound == 'lower') {
+          return threshold.lower
         } else {
-          return ''
+          return threshold.upper
         }
       }
     }
-    if (isRequired) {
-      return ''
-    }
-    return 'checked'
+    return null
   },
+
+  // isDataRequired: function (threshold, typeData, isRequired) {
+  //   for (let i = 0; i < threshold.length; i++) {
+  //     if (threshold[i].type.localeCompare(typeData) == 0) {
+  //       if (isRequired) {
+  //         return 'checked'
+  //       } else {
+  //         return ''
+  //       }
+  //     }
+  //   }
+  //   if (isRequired) {
+  //     return ''
+  //   }
+  //   return 'checked'
+  // },
 }

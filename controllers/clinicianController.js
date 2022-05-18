@@ -24,9 +24,13 @@ const viewAllPatients = async (req, res, next) => {
       },
       { daily_data: { $slice: -1 } }
     ).lean()
+    
+    // Check for patients that have entered data for today
+    const filledInPatients = patients.filter( patient => patient.daily_data.length > 0)
+
     res.render('clinician-dashboard', {
       layout: 'clinician',
-      patients: patients,
+      patients: filledInPatients,
       clinician: clinician,
     })
   } catch (err) {
@@ -63,10 +67,17 @@ const addOnePatient = async (req, res, next) => {
 const viewProfile = async (req, res, next) => {
   try {
     // Hardcode the user (for now).
-    const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
+    // const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
+    const clinician = req.user.toJSON()
+    const patient = await Patient.findOne({ username: req.params.username }).lean()
 
-    if (!patient) {
-      res.send('error')
+    // Check if patient is in Clinician list of patients
+    if (!patient || !patientInList(patient._id, clinician.patient_list)) {
+      res.send('patient not found')
+      // res.render('404', {
+      //   layout: 'patient.hbs',
+      //   title: 'Error 404'
+      // })
     }
 
     res.render('patient-profile', {
@@ -77,6 +88,15 @@ const viewProfile = async (req, res, next) => {
   } catch (err) {
     return next(err)
   }
+}
+
+const patientInList = (patient_id, patient_list) => {
+  for (let id of patient_list) {
+    if (id.equals(patient_id)) {
+      return true
+    }
+  }
+  return false
 }
 
 const viewRegister = async (req, res) => {
@@ -117,6 +137,55 @@ const viewPatientComments = async (req, res) => {
   }
 }
 
+const setThresholds = async (req, res, next) => {
+  try {
+    const patient = await Patient.findById(req.body.patient_id).lean()
+    let thresholds = []
+
+    if (!patient) {
+      res.send('patient not found')
+    }
+    
+    if (req.body.bloodRequired) {
+      thresholds.push({
+        type: 'blood_glucose',
+        lower: req.body.bloodMin,
+        upper: req.body.bloodMax,
+      })
+    }
+    if (req.body.weightRequired) {
+      thresholds.push({
+        type: 'weight',
+        lower: req.body.weightMin,
+        upper: req.body.weightMax,
+      })
+    }
+
+    if (req.body.insulinRequired) {
+      thresholds.push({
+        type: 'insulin',
+        lower: req.body.insulinMin,
+        upper: req.body.insulinMax,
+      })
+    }
+
+    if (req.body.stepsRequired) {
+      thresholds.push({
+        type: 'steps',
+        lower: req.body.stepsMin,
+        upper: req.body.stepsMax,
+      })
+    }
+    await Patient.updateOne(
+      { _id: patient._id},
+      { $set: { thresholds: thresholds } }
+    )
+    res.redirect('back')
+  } catch (err) {
+    return next(err)
+  }
+}
+
 module.exports = {
   //getAllClinicians,
   viewAllPatients,
@@ -126,4 +195,5 @@ module.exports = {
   viewProfile,
   profileSetting,
   viewPatientComments,
+  setThresholds,
 }
