@@ -934,6 +934,31 @@ td {
 /*******************************************************************/
 
 /************** responsive design ******************/
+/* YouTube embed responsive design code
+ * adapted from StackOverflow user 'bron':
+ * https://stackoverflow.com/a/59595248 */
+.yt-embed {
+  border: 2px solid;
+  /* Keep the container centred. */
+  margin: 2em auto;
+  width: 50%;
+  /* This container will maintain a 16:9 ratio relative
+	 * to its contents. */
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.yt-embed iframe {
+  /* Scale the iframe to the page size. */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* Phone layout */
 @media screen and (max-width: 950px) {
   :root {
@@ -1002,30 +1027,6 @@ td {
   }
 }
 
-/* YouTube embed responsive design code
- * adapted from StackOverflow user 'bron':
- * https://stackoverflow.com/a/59595248 */
-.yt-embed {
-  border: 2px solid;
-  /* Keep the container centred. */
-  margin: 2em auto;
-  width: 50%;
-  /* This container will maintain a 16:9 ratio relative
-	 * to its contents. */
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-}
-
-.yt-embed iframe {
-  /* Scale the iframe to the page size. */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
 /**************************************** WIP *********************************************/
 /* patient comments page */
