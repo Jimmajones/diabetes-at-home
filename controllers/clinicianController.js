@@ -193,7 +193,7 @@ const addClinicalNote = async (req, res, next) => {
   try {
     const patient = await Patient.findById(req.params.patient_id).lean()
     const newNote = {
-      note: req.body.clinicalNote
+      note: req.body.clinicalNote,
     }
     await Patient.updateOne(
       { _id: patient._id },
@@ -213,5 +213,5 @@ module.exports = {
   viewPatientComments,
   setThresholds,
   supportMessage,
-  addClinicalNote
+  addClinicalNote,
 }

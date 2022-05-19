@@ -177,13 +177,12 @@ const viewSettings = async (req, res) => {
     layout: 'patient',
     title: 'Profile Setting',
     patient: patient,
-    loggedin: req.isAuthenticated()
+    loggedin: req.isAuthenticated(),
   })
 }
 
 const changeSettings = async (req, res) => {
   const patient = req.user.toJSON()
-
 }
 
 module.exports = {
@@ -193,5 +192,5 @@ module.exports = {
   updateRecord,
   viewLeaderboard,
   viewSettings,
-  changeSettings
+  changeSettings,
 }

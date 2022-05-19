@@ -391,7 +391,6 @@ td {
 }
 /************************************************************************************/
 
-
 /********************************* Home Page **************************************/
 .welcome-container {
   display: flex;
@@ -408,7 +407,6 @@ td {
   gap: 5px;
 }
 /******************************************************************************/
-
 
 /***************************** Patient UI **********************************/
 /* Patient Dashboard  */
@@ -523,9 +521,6 @@ td {
   resize: none;
 }
 /******************************************************************************************/
-
-
-
 
 /****************************** Clinician UI *******************************/
 /* Clinician Dashboard page */
@@ -652,7 +647,6 @@ td {
 .warning-explanation {
   color: var(--light-grey);
 }
-
 
 /* Patient Profile page for Clinicians to view */
 .patient-profile-container {
@@ -804,7 +798,6 @@ td {
   border: none;
 }
 
-
 /*Register Patient and Edit profile setting page*/
 .register-form-container {
   display: flex;
@@ -910,7 +903,6 @@ td {
 }
 /*******************************************************************/
 
-
 /************** responsive design ******************/
 /* Phone layout */
 @media screen and (max-width: 950px) {
@@ -1005,7 +997,6 @@ td {
   height: 100%;
 }
 
-
 /**************************************** WIP *********************************************/
 /* patient comments page */
 .comments-container {
@@ -1090,7 +1081,7 @@ td {
   border-bottom: 3px solid black;
   border-left: 3px solid black;
 }
-.podium-container .first { 
+.podium-container .first {
   font-size: 50px;
   min-height: 200px;
   background: rgb(255, 191, 0);

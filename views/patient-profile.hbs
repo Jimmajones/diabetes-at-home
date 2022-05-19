@@ -1,10 +1,12 @@
 <div class='patient-profile-container'>
 
   <div class='left-profile-box'>
-    <div class="image-cropper">
-      <img class="patient-profile-avatar" src='/assets/avatar_{{patient.avatar_index}}.svg' />
+    <div class='image-cropper'>
+      <img
+        class='patient-profile-avatar'
+        src='/assets/avatar_{{patient.avatar_index}}.svg'
+      />
     </div>
-    
 
     <div class='profile-name-container'>
       <div class='profile-name-row'>
@@ -96,7 +98,8 @@
     </div>
 
     <div class='section'>
-      <h3 id='clinical-note-history-title' class='title-profile'>Clinical Note History</h3>
+      <h3 id='clinical-note-history-title' class='title-profile'>Clinical Note
+        History</h3>
       <div id='clinical-note-history'>
 
         <table class='clinical-note-history-table' id='profile-table'>
@@ -117,7 +120,11 @@
 
     <div class='form-container section'>
       <h3 id='time-series-title' class='title-profile'>Set Time-Series</h3>
-      <form id='set-time-series' method='post' action='set-thresholds/{{patient._id}}'>
+      <form
+        id='set-time-series'
+        method='post'
+        action='set-thresholds/{{patient._id}}'
+      >
         {{!-- <input type='hidden' name='patient_id' value='{{patient._id}}' /> --}}
         <div class='set-data'>
           <p class='title-profile'>Blood glucose level (nmo/L)</p>
@@ -269,7 +276,11 @@
 
     <div class='section'>
       <h3 id='clinical-notes-title' class='title-profile'>Clinical Notes</h3>
-      <form id='clinical-notes' method='post' action="clinical-note/{{patient._id}}">
+      <form
+        id='clinical-notes'
+        method='post'
+        action='clinical-note/{{patient._id}}'
+      >
         <div class='text-border'>
           <textarea
             name='clinicalNote'
