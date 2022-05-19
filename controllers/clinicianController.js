@@ -94,6 +94,24 @@ const viewProfile = async (req, res, next) => {
   }
 }
 
+// Update the support message of a patient
+const supportMessage = async (req, res, next) => {
+  try {
+    const patient = await Patient.findById(req.params.patient_id).lean()
+    if (!patient) {
+      res.send('patient not found')
+    } else {
+      await Patient.updateOne(
+        { _id: patient._id },
+        { clinicians_message: req.body.supportMessage }
+      )
+      res.redirect('back')
+    }
+  } catch (err) {
+    return next(err)
+  }
+}
+
 const patientInList = (patient_id, patient_list) => {
   for (let id of patient_list) {
     if (id.equals(patient_id)) {
@@ -200,4 +218,5 @@ module.exports = {
   profileSetting,
   viewPatientComments,
   setThresholds,
+  supportMessage,
 }

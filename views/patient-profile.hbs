@@ -264,7 +264,11 @@
 
     <div class='section'>
       <h3 id='support-messages-title' class='title-profile'>Support Messages</h3>
-      <form id='support-messages' method='post' action='support-message'>
+      <form
+        id='support-messages'
+        method='post'
+        action='support-message/{{patient._id}}'
+      >
         <div class='text-border'>
           <textarea
             name='supportMessage'

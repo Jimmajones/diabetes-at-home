@@ -25,4 +25,8 @@ clinicianRouter.post(
   clinicianController.setThresholds
 )
 
+clinicianRouter.post(
+  '/patient-profile/support-message/:patient_id',
+  clinicianController.supportMessage
+)
 module.exports = clinicianRouter
