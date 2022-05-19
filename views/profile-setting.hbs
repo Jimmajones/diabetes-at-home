@@ -7,14 +7,23 @@
   <div class='left-setting-box'>
 
     <div class='profile-container'>
-      <div class="image-cropper">
-        <img id="profile-setting-avatar" class="patient-profile-avatar" src='/assets/avatar_{{patient.avatar_index}}.svg' />
+      <div class='image-cropper'>
+        <img
+          id='profile-setting-avatar'
+          class='patient-profile-avatar'
+          src='/assets/avatar_{{patient.avatar_index}}.svg'
+        />
       </div>
 
       <p>Select your avatar</p>
       <div class='choosing-area'>
         {{#each (range 5)}}
-          <input type="radio" name="profile-avatar" value="{{this}}" onclick="toggleAvatar('{{this}}', 'profile-setting-avatar')">
+          <input
+            type='radio'
+            name='profile-avatar'
+            value='{{this}}'
+            onclick="toggleAvatar('{{this}}', 'profile-setting-avatar')"
+          />
           <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
         {{/each}}
         {{! <img class='icon-choices' src='/assets/brian.svg' />

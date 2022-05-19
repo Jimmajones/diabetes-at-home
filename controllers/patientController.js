@@ -179,10 +179,10 @@ const viewLeaderboard = async (req, res, next) => {
     // Sort patients by engagement rate
     patients.sort(function cmp(a, b) {
       if (a.score < b.score) {
-        return -1 // If you want to reverse the order, just swap this...
+        return 1 // If you want to reverse the order, just swap this...
       }
       if (a.score > b.score) {
-        return 1 // ...with this.
+        return -1 // ...with this.
       }
       return 0
     })

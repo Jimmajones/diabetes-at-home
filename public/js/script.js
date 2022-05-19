@@ -23,7 +23,7 @@ const commentToggle = (id) => {
 
 let toggleAvatar = (numID, avatarID) => {
   let x = document.getElementById(avatarID)
-  x.src="/assets/avatar_" + numID + ".svg"
+  x.src = '/assets/avatar_' + numID + '.svg'
 }
 
 function stepper(btnType) {

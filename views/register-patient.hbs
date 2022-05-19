@@ -89,19 +89,34 @@
 
     <div class='right-register-box'>
 
-      <div class='profile-container'>
-      <div class="image-cropper">
-        <img id="profile-register-avatar" class="patient-profile-avatar" src='/assets/avatar_4.svg' />
+      <div class='profile-container'></div>
+      <div class='image-cropper'>
+        <img
+          id='profile-register-avatar'
+          class='patient-profile-avatar'
+          src='/assets/avatar_4.svg'
+        />
       </div>
 
       <p>Select your avatar</p>
       <div class='choosing-area'>
         {{#each (range 4)}}
-          <input type="radio" name="profile-avatar" value="{{this}}" onclick="toggleAvatar('{{this}}', 'profile-register-avatar')">
+          <input
+            type='radio'
+            name='profile-avatar'
+            value='{{this}}'
+            onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
+          />
           <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
         {{/each}}
         <!--DEFAULT IMAGE is avatar_4-->
-        <input type="radio" name="profile-avatar" value="4" checked="true" onclick="toggleAvatar('4', 'profile-register-avatar')">
+        <input
+          type='radio'
+          name='profile-avatar'
+          value='4'
+          checked='true'
+          onclick="toggleAvatar('4', 'profile-register-avatar')"
+        />
         <img class='icon-choices' src='/assets/avatar_4.svg' />
         {{! <img class='icon-choices' src='/assets/brian.svg' />
         <img class='icon-choices' src='/assets/steven.svg' />
