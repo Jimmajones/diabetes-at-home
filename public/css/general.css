@@ -101,6 +101,12 @@ textarea {
   width: 100%;
 }
 
+::placeholder {
+  color: var(--light-grey);
+  font-size: var(--t3);
+  font-family: monospace;
+}
+
 /* Main content should have a white background, take up the majority
  * of the screen and have a border that "meshes" with the footer. */
 main {
@@ -364,16 +370,27 @@ footer a:hover {
   margin: 2px;
 }
 
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.progress-bar-container p {
+  margin: 0;
+  font-size: var(--t2);
+  font-weight: 700;
+}
+/* progress bar outline */
 .progress-bar {
   position: relative;
-  margin: 15px auto; /* center align */
-  max-width: 50vw;
-  min-width: 300px;
+  margin: 5px auto 15px; /* center align */
+  width: 70%;
   height: 1em;
   border: solid 2px;
   border-radius: 1.5em;
 }
-
 .progress-bar::before {
   content: '';
   position: absolute;
@@ -382,28 +399,57 @@ footer a:hover {
   top: 0;
   bottom: 0;
   height: 0.8em;
+  background-color: var(--green);
+  border-radius: 1.5em;
 
   /* set this according to the completion rate */
   width: var(--completion-rate);
-
-  background-color: var(--green);
-  border-radius: 1.5em;
 }
 
 /* medical data input form */
-.input-container {
-  background: var(--cream);
-  border: solid 2px;
-
+/* .form-container { */
+/*   background: var(--cream); */
+/*   border: solid 2px; */
+/**/
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   gap: 20px; */
+/**/
+/*   /* center align and sizings */
+/*   margin: auto; */
+/*   padding: 20px; */
+/*   min-width: 300px; */
+/*   max-width: 50vw; */
+/* } */
+.medical-form-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+#medical-form {
+  background-color: var(--cream);
+  border: solid 2px;
 
-  /* center align and sizings */
-  margin: auto;
-  padding: 20px;
-  min-width: 300px;
-  max-width: 50vw;
+  margin: 10px auto;
+  width: 70%;
+}
+.med-input-container {
+  margin: 2%;
+}
+.med-input-container input {
+  border: solid 2px;
+  border-radius: 5px;
+  height: 35px;
+  width: 100%;
+}
+.med-input-container textarea {
+  width: 100%;
+  height: 70px;
+  border: solid 2px;
+  border-radius: 5px;
+  padding: 5px;
+  resize: none;
 }
 
 /* button component */
@@ -416,6 +462,7 @@ footer a:hover {
   border-radius: 10px;
   height: 40px;
   min-width: 100px;
+  max-width: 250px;
   margin: 0 auto;
   padding: 10px 20px;
 
@@ -479,10 +526,6 @@ footer a:hover {
   height: 100%;
   width: 100%;
   padding: 6px 10px;
-}
-::placeholder {
-  color: black;
-  opacity: 0.7;
 }
 .searchbar button {
   all: unset;

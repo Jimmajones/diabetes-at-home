@@ -83,7 +83,7 @@ module.exports = {
 
   // Get the percent of data values filled in for this patient.
   completionRate: function (patient) {
-    return finished_decimal(patient) * 100
+    return Math.ceil(finished_decimal(patient) * 100)
   },
 
   showStatus: function (daily_data) {
