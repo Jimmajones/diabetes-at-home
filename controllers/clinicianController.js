@@ -128,15 +128,15 @@ const viewRegister = async (req, res) => {
   })
 }
 
-const profileSetting = async (req, res) => {
-  // Hardcode the user (for now).
-  const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
-  res.render('profile-setting', {
-    layout: 'clinician',
-    title: 'Profile Setting',
-    patient: patient,
-  })
-}
+// const profileSetting = async (req, res) => {
+//   // Hardcode the user (for now).
+//   const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
+//   res.render('profile-setting', {
+//     layout: 'clinician',
+//     title: 'Profile Setting',
+//     patient: patient,
+//   })
+// }
 
 const viewPatientComments = async (req, res) => {
   try {
@@ -161,7 +161,7 @@ const viewPatientComments = async (req, res) => {
 
 const setThresholds = async (req, res, next) => {
   try {
-    const patient = await Patient.findById(req.body.patient_id).lean()
+    const patient = await Patient.findById(req.params.patient_id).lean()
     let thresholds = []
 
     if (!patient) {
@@ -215,7 +215,6 @@ module.exports = {
   addOnePatient,
   viewRegister,
   viewProfile,
-  profileSetting,
   viewPatientComments,
   setThresholds,
   supportMessage,

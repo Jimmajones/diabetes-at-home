@@ -176,19 +176,11 @@ module.exports = {
     return null
   },
 
-  // isDataRequired: function (threshold, typeData, isRequired) {
-  //   for (let i = 0; i < threshold.length; i++) {
-  //     if (threshold[i].type.localeCompare(typeData) == 0) {
-  //       if (isRequired) {
-  //         return 'checked'
-  //       } else {
-  //         return ''
-  //       }
-  //     }
-  //   }
-  //   if (isRequired) {
-  //     return ''
-  //   }
-  //   return 'checked'
-  // },
+  range: function (max) {
+    let arr = []
+    for (let i = 0; i < max; i++) {
+      arr.push(i)
+    }
+    return arr
+  }
 }

@@ -112,8 +112,8 @@
 
     <div class='form-container section'>
       <h3 id='time-series-title' class='title-profile'>Set Time-Series</h3>
-      <form id='set-time-series' method='post' action='./set-thresholds'>
-        <input type='hidden' name='patient_id' value='{{patient._id}}' />
+      <form id='set-time-series' method='post' action='set-thresholds/{{patient._id}}'>
+        {{!-- <input type='hidden' name='patient_id' value='{{patient._id}}' /> --}}
         <div class='set-data'>
           <p class='title-profile'>Blood glucose level (nmo/L)</p>
           <div class='set-input'>
