@@ -29,7 +29,7 @@
             {{#if loggedin}}
               <!-- Don't know how to have <a> with submit -->
               <form class='logout' action='/logout' method='post'>
-                <button type='submit'>Logout</button>
+                <input class='btn' type='submit' value='Logout' />
               </form>
               <a href=''>Dashboard</a>
               <a href=''>Leaderboard</a>
@@ -61,7 +61,7 @@
               </div>
             </div>
             {{#if loggedin}}
-              <form action='/logout' method='post'>
+              <form class='logout' action='/logout' method='post'>
                 <input class='btn' type='submit' value='Logout' />
               </form>
             {{else}}
