@@ -1000,6 +1000,58 @@ td {
   text-align: left;
 }
 
+/* leaderboard page */ 
+.leaderboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.podium-container { 
+  position: relative;
+  height: 130%;
+  width: 80%;
+  margin: 0 10%;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.podium-item { 
+  width: 200px;
+  
+}
+
+.podium-patient { 
+  text-align: center;
+  padding: 0 .5rem;
+  font-size: 25px;
+}
+
+.podium-item .podium-rank { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  color: black;
+}
+
+.podium-container .second { 
+  min-height: 150px;
+  background: red;
+}
+
+.podium-container .first { 
+  min-height: 200px;
+  background: yellow;
+}
+
+.podium-container .third { 
+  min-height: 100px;
+  background: pink;
+}
+
 /* .warning td {
   column-span: 3;
 } */
