@@ -102,7 +102,7 @@
           {{#each patient.clinical_notes}}
             <tr>
               <td>{{format_date this.when}}</td>
-              {{this.note}}
+              <td>{{this.note}}</td>
             </tr>
           {{/each}}
         </table>
@@ -264,10 +264,10 @@
 
     <div class='section'>
       <h3 id='clinical-notes-title' class='title-profile'>Clinical Notes</h3>
-      <form id='clinical-notes' method='post' action="/clinical-note'">
+      <form id='clinical-notes' method='post' action="clinical-note/{{patient._id}}">
         <div class='text-border'>
           <textarea
-            name='clinicalNotes'
+            name='clinicalNote'
             id='clinicalNotes'
             rows='4'
             placeholder='write clinical notes here...'

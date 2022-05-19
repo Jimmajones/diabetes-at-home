@@ -26,6 +26,11 @@ clinicianRouter.post(
 )
 
 clinicianRouter.post(
+  '/patient-profile/clinical-note/:patient_id',
+  clinicianController.addClinicalNote
+)
+
+clinicianRouter.post(
   '/patient-profile/support-message/:patient_id',
   clinicianController.supportMessage
 )

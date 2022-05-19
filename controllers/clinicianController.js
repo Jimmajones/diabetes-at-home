@@ -119,16 +119,6 @@ const viewRegister = async (req, res) => {
   })
 }
 
-// const profileSetting = async (req, res) => {
-//   // Hardcode the user (for now).
-//   const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
-//   res.render('profile-setting', {
-//     layout: 'clinician',
-//     title: 'Profile Setting',
-//     patient: patient,
-//   })
-// }
-
 const viewPatientComments = async (req, res) => {
   try {
     // Hardcode the user (for now).
@@ -199,6 +189,22 @@ const setThresholds = async (req, res, next) => {
   }
 }
 
+const addClinicalNote = async (req, res, next) => {
+  try {
+    const patient = await Patient.findById(req.params.patient_id).lean()
+    const newNote = {
+      note: req.body.clinicalNote
+    }
+    await Patient.updateOne(
+      { _id: patient._id },
+      { $push: { clinical_notes: newNote } }
+    )
+    res.redirect('back')
+  } catch (err) {
+    return next(err)
+  }
+}
+
 module.exports = {
   viewAllPatients,
   addOnePatient,
@@ -207,4 +213,5 @@ module.exports = {
   viewPatientComments,
   setThresholds,
   supportMessage,
+  addClinicalNote
 }
