@@ -42,17 +42,19 @@ function stepper(btnType) {
 // });
 
 const toggleDropdown = (event) => {
-  let dropdown = document.querySelector('.dropdown')
+  let dropdowns = document.querySelectorAll('.dropdown')
 
-  if (!dropdown) {
+  if (!dropdowns) {
     return
   }
 
-  if (event.target.classList.contains('toggle')) {
-    dropdown.classList.toggle('show')
-  } else {
-    dropdown.classList.remove('show')
-  }
+  dropdowns.forEach((dropdown) => {
+    if (event.target.classList.contains('toggle')) {
+      dropdown.classList.toggle('show')
+    } else {
+      dropdown.classList.remove('show')
+    }
+  })
 }
 
 // let dropBtn = document.querySelector(".navbar-toggle");
