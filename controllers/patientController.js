@@ -159,11 +159,16 @@ const updateRecord = async (req, res, next) => {
   }
 }
 
-const viewLeaderboard = async (req, res) => {
-  res.render('leaderboard', {
-    layout: 'patient.hbs',
-    title: 'Leaderboard',
-  })
+const viewLeaderboard = async (req, res, next) => {
+  try { 
+    res.render('leaderboard', {
+      layout: 'patient',
+      title: 'Leaderboard',
+      loggedin: req.isAuthenticated(),
+    })
+  } catch (err) { 
+    return next(err)
+  }
 }
 
 module.exports = {
