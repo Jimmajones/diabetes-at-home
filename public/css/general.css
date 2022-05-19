@@ -933,7 +933,7 @@ td {
   position: absolute;
   width: 450px;
   height: 550px;
-  left: 100;
+  left: 65;
 }
 
 .patient-list {
@@ -972,7 +972,7 @@ td {
   position: absolute;
   width: 640px;
   height: 550px;
-  right: 120;
+  right: 95;
 }
 
 .patient-comments {
