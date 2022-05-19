@@ -37,65 +37,31 @@
     <div class='section'>
       <h3 id='health-data-title' class='title-profile'>Today's Health Data</h3>
       <div id='today-health-data'>
-        {{#each patient.thresholds}}
-          <div class='health-data-item'>
 
-            {{#if (strEqual this.type 'blood_glucose')}}
-              <div class='data-box'>
-                <h2>{{getCurrentData ../patient.daily_data 0}}</h2>
-              </div>
-              <p>Blood glucose level (nmo/L)</p>
-            
-            {{else if (strEqual this.type 'weight')}}
-              <div class='data-box'>
-                <h2>{{getCurrentData ../patient.daily_data 1}}</h2>
-              </div>
-              <p>Weight (kg)</p>
-
-            {{else if (strEqual this.type 'insulin')}}
-              <div class='data-box'>
-                <h2>{{getCurrentData ../patient.daily_data 2}}</h2>
-              </div>
-              <p>Insulin (doses)</p>
-
-            {{else}}
-              <div class='data-box'>
-                <h2>{{getCurrentData ../patient.daily_data 3}}</h2>
-              </div>
-              <p>Exercise (steps)</p>
-            {{/if}}
-
-          </div>
-        {{/each}}
-
-        {{!-- <div class='health-data-item'>
+        <div class='health-data-item'>
           <div class='data-box'>
             <h2>{{getCurrentData patient.daily_data 0}}</h2>
           </div>
           <p>Blood glucose level (nmo/L)</p>
         </div>
-
         <div class='health-data-item'>
           <div class='data-box'>
             <h2>{{getCurrentData patient.daily_data 1}}</h2>
           </div>
           <p>Weight (kg)</p>
         </div>
-
         <div class='health-data-item'>
           <div class='data-box'>
             <h2>{{getCurrentData patient.daily_data 2}}</h2>
           </div>
           <p>Insulin (doses)</p>
         </div>
-
         <div class='health-data-item'>
           <div class='data-box'>
             <h2>{{getCurrentData patient.daily_data 3}}</h2>
           </div>
           <p>Exercise (steps)</p>
-        </div> --}}
-
+        </div>
       </div>
     </div>
 
@@ -127,7 +93,7 @@
     <div class='form-container section'>
       <h3 id='time-series-title' class='title-profile'>Set Time-Series</h3>
       <form id='set-time-series' method='post' action='./set-thresholds'>
-      <input type="hidden" name="patient_id" value="{{patient._id}}" />
+        <input type='hidden' name='patient_id' value='{{patient._id}}' />
         <div class='set-data'>
           <p class='title-profile'>Blood glucose level (nmo/L)</p>
           <div class='set-input'>
@@ -146,8 +112,12 @@
               min='1'
               max='100'
               step='0.1'
-              name="bloodMin"
-              value='{{showThreshold patient.thresholds 'blood_glucose' 'lower'}}'
+              name='bloodMin'
+              value='{{showThreshold
+                patient.thresholds
+                "blood_glucose"
+                "lower"
+              }}'
             />
             <span><p>Max:</p></span>
             <input
@@ -155,8 +125,12 @@
               min='1'
               max='100'
               step='0.1'
-              name="bloodMax"
-              value='{{showThreshold patient.thresholds 'blood_glucose' 'upper'}}'
+              name='bloodMax'
+              value='{{showThreshold
+                patient.thresholds
+                "blood_glucose"
+                "upper"
+              }}'
             />
           </div>
         </div>
@@ -168,7 +142,7 @@
             <input
               type='checkbox'
               name='weightRequired'
-              {{isRequiredData patient.thresholds 'weight'}}            
+              {{isRequiredData patient.thresholds 'weight'}}
               value='true'
             />
           </div>
@@ -179,8 +153,8 @@
               min='1'
               max='100'
               step='0.1'
-              name="weightMin"
-              value='{{showThreshold patient.thresholds 'weight' 'lower'}}'
+              name='weightMin'
+              value='{{showThreshold patient.thresholds "weight" "lower"}}'
             />
             <span><p>Max:</p></span>
             <input
@@ -188,8 +162,8 @@
               min='1'
               max='100'
               step='0.1'
-              name="weightMax"
-              value='{{showThreshold patient.thresholds 'weight' 'upper'}}'
+              name='weightMax'
+              value='{{showThreshold patient.thresholds "weight" "upper"}}'
             />
           </div>
         </div>
@@ -212,8 +186,8 @@
               min='1'
               max='100'
               step='1'
-              name="insulinMin"
-              value='{{showThreshold patient.thresholds 'insulin' 'lower'}}'
+              name='insulinMin'
+              value='{{showThreshold patient.thresholds "insulin" "lower"}}'
             />
             <span><p>Max:</p></span>
             <input
@@ -221,8 +195,8 @@
               min='1'
               max='100'
               step='1'
-              name="insulinMax"
-              value='{{showThreshold patient.thresholds 'insulin' 'upper'}}'
+              name='insulinMax'
+              value='{{showThreshold patient.thresholds "insulin" "upper"}}'
             />
           </div>
         </div>
@@ -245,8 +219,8 @@
               min='1'
               max='100'
               step='1'
-              name="stepsMin"
-              value='{{showThreshold patient.thresholds 'steps' 'lower'}}'
+              name='stepsMin'
+              value='{{showThreshold patient.thresholds "steps" "lower"}}'
             />
             <span><p>Max:</p></span>
             <input
@@ -254,8 +228,8 @@
               min='1'
               max='100'
               step='1'
-              name="stepsMax"
-              value='{{showThreshold patient.thresholds 'steps' 'upper'}}'
+              name='stepsMax'
+              value='{{showThreshold patient.thresholds "steps" "upper"}}'
             />
           </div>
         </div>
@@ -290,7 +264,7 @@
 
     <div class='section'>
       <h3 id='support-messages-title' class='title-profile'>Support Messages</h3>
-      <form id='support-messages' method='post' action="support-message">
+      <form id='support-messages' method='post' action='support-message'>
         <div class='text-border'>
           <textarea
             name='supportMessage'

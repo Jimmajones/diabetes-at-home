@@ -159,7 +159,7 @@ const updateRecord = async (req, res, next) => {
   }
 }
 
-const viewLeaderboard = async (req, res) => { 
+const viewLeaderboard = async (req, res) => {
   res.render('leaderboard', {
     layout: 'patient.hbs',
     title: 'Leaderboard',

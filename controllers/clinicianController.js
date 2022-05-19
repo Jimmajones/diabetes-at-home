@@ -24,9 +24,11 @@ const viewAllPatients = async (req, res, next) => {
       },
       { daily_data: { $slice: -1 } }
     ).lean()
-    
+
     // Check for patients that have entered data for today
-    const filledInPatients = patients.filter( patient => patient.daily_data.length > 0)
+    const filledInPatients = patients.filter(
+      (patient) => patient.daily_data.length > 0
+    )
 
     res.render('clinician-dashboard', {
       layout: 'clinician',
@@ -69,7 +71,9 @@ const viewProfile = async (req, res, next) => {
     // Hardcode the user (for now).
     // const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
     const clinician = req.user.toJSON()
-    const patient = await Patient.findOne({ username: req.params.username }).lean()
+    const patient = await Patient.findOne({
+      username: req.params.username,
+    }).lean()
 
     // Check if patient is in Clinician list of patients
     if (!patient || !patientInList(patient._id, clinician.patient_list)) {
@@ -145,7 +149,7 @@ const setThresholds = async (req, res, next) => {
     if (!patient) {
       res.send('patient not found')
     }
-    
+
     if (req.body.bloodRequired) {
       thresholds.push({
         type: 'blood_glucose',
@@ -177,7 +181,7 @@ const setThresholds = async (req, res, next) => {
       })
     }
     await Patient.updateOne(
-      { _id: patient._id},
+      { _id: patient._id },
       { $set: { thresholds: thresholds } }
     )
     res.redirect('back')

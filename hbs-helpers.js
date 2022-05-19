@@ -140,11 +140,20 @@ module.exports = {
   },
 
   getCurrentData: function (daily_data, index) {
-    return daily_data[daily_data.length - 1].values[index].value
+    latest_record = daily_data[daily_data.length - 1]
+    if (!latest_record) {
+      return '-'
+    } else if (!is_today(latest_record.when)) {
+      return '-'
+    } else if (latest_record.values[index].value != null) {
+      return latest_record.values[index].value
+    } else {
+      return '-'
+    }
   },
 
   isRequiredData: function (thresholds, type) {
-    if (thresholds.find(threshold => threshold.type == type)) {
+    if (thresholds.find((threshold) => threshold.type == type)) {
       return 'checked'
     }
   },
