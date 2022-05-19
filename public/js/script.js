@@ -21,6 +21,11 @@ const commentToggle = (id) => {
   prevComment = id
 }
 
+let toggleAvatar = (numID, avatarID) => {
+  let x = document.getElementById(avatarID)
+  x.src="/assets/avatar_" + numID + ".svg"
+}
+
 function stepper(btnType) {
   let myInput = document.getElementById('bloodGlucoseLeveltime')
   let btn = get.getElementById(btnType)
