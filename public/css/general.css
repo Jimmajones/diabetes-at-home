@@ -850,14 +850,13 @@ td {
 /*profile page for patients that clinicican can view */
 .patient-profile-container {
   display: flex;
-  height: 130%;
+  /* height: 130%; */
 }
 .left-profile-box {
   width: 30%;
 }
 .right-profile-box {
   width: 70%;
-  overflow-y: auto;
 }
 .profile-name-row {
   display: flex;

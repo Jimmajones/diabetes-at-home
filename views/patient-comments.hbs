@@ -10,6 +10,13 @@
     </div>
 
     <div class='content-container'>
+      {{#each patients}}
+        {{#each this.daily_data}}
+          {{#each this.values}}
+            {{this.comment}}
+          {{/each}}
+        {{/each}}
+      {{/each}}
     </div>
 
   </div>
