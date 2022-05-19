@@ -326,7 +326,10 @@ footer a:hover {
 }
 /* logout btn form remove paddings */
 .logout {
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 /* Table Component: General Style */

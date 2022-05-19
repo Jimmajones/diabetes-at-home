@@ -24,21 +24,20 @@
 
         <!-- a hambuger menu icon that shows up in mobile screen -->
         <div class='dropdown'>
-          <button><i class='fa fa-bars navbar-toggle'></i></button>
+          <button><i class='fa fa-bars toggle'></i></button>
           <div class='click-dropdown-content dropdown-right'>
+            <a class='nav-options' href='/'>Dashboard</a>
+            <a class='nav-options' href='/patient/leaderboard'>Leaderboard</a>
+            <a class='nav-options' href='/patient/settings'>Settings</a>
+            <a class='nav-options' href='#'>About Diabetes</a>
+            <a class='nav-options' href='#'>About Website</a>
             {{#if loggedin}}
-              <!-- Don't know how to have <a> with submit -->
-              <form class='logout' action='/logout' method='post'>
-                <input class='btn' type='submit' value='Logout' />
-              </form>
-              <a href='/'>Dashboard</a>
-              <a href='/patient/leaderboard'>Leaderboard</a>
-              <a href='/patient/settings'>Settings</a>
+            <form class='logout' action='/logout' method='post'>
+              <input class='btn' type='submit' value='Logout' />
+            </form>
             {{else}}
-              <a href='/login'>Login</a>
+              <a class='btn' href='/login'>Login</a>
             {{/if}}
-            <a href='#'>About Diabetes</a>
-            <a href='#'>About Website</a>
           </div>
         </div>
 
