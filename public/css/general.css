@@ -1009,7 +1009,7 @@ td {
 
 .podium-container { 
   position: relative;
-  height: 130%;
+  height: 120%;
   width: 80%;
   margin: 0 10%;
   display: flex;
@@ -1020,7 +1020,6 @@ td {
 
 .podium-item { 
   width: 200px;
-  
 }
 
 .podium-patient { 
@@ -1039,18 +1038,35 @@ td {
 
 .podium-container .second { 
   min-height: 150px;
-  background: red;
+  background: rgba(255, 0, 81, 0.69);
+  border-top: 3px solid black;
+  border-right: 1px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
 }
 
+
 .podium-container .first { 
+  font-size: 50px;
   min-height: 200px;
-  background: yellow;
+  background: rgb(255, 191, 0);
+  border: 3px solid black;
 }
 
 .podium-container .third { 
   min-height: 100px;
   background: pink;
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  border-left: 1px solid black;
 }
+
+.star-image { 
+  margin-left: 43%;
+  margin-bottom: 5%;
+}
+
 
 /* .warning td {
   column-span: 3;
