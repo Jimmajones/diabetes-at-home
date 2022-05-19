@@ -29,4 +29,7 @@ clinicianRouter.post(
   '/patient-profile/support-message/:patient_id',
   clinicianController.supportMessage
 )
+
+clinicianRouter.post('/register-patient', clinicianController.addOnePatient)
+
 module.exports = clinicianRouter

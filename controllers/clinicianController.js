@@ -31,7 +31,36 @@ const viewAllPatients = async (req, res, next) => {
 }
 
 // Add a new patient
-const addOnePatient = async (req, res, next) => {}
+const addOnePatient = async (req, res, next) => {
+  const clinician = req.user
+  if (req.body.password == req.body.repassword) {
+    const newPatient = new Patient({
+      role: 'patient',
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
+      username: req.body.screenName,
+      email: req.body.email,
+      password: req.body.password,
+      bio: req.body.bio,
+    })
+
+    await Clinician.updateOne(
+      { _id: clinician._id },
+      { $push: { patient_list: newPatient._id } },
+      function (err, small) {
+        if (err) {
+          return next(err)
+        }
+      }
+    )
+    await Patient.create(newPatient, function (err, small) {
+      if (err) {
+        return next(err)
+      }
+    })
+    res.redirect('back')
+  }
+}
 
 const viewProfile = async (req, res, next) => {
   try {

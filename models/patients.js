@@ -32,8 +32,6 @@ const patientSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  date_of_birth: { type: Date, required: true },
-  post_code: Number,
   bio: { type: String, required: true },
   engagement_score: Number,
   leaderboard_rank: Number,
