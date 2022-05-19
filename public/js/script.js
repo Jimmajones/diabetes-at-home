@@ -10,6 +10,17 @@ const toggle = (id) => {
   }
 }
 
+let prevComment = null
+const commentToggle = (id) => {
+  let x = document.getElementById(id)
+  if (prevComment != null) {
+    let y = document.getElementById(prevComment)
+    y.style.display = 'none'
+  }
+  x.style.display = 'block'
+  prevComment = id
+}
+
 function stepper(btnType) {
   let myInput = document.getElementById('bloodGlucoseLeveltime')
   let btn = get.getElementById(btnType)
@@ -56,6 +67,7 @@ const toggleDropdown = (event) => {
     }
   })
 }
+
 
 // let dropBtn = document.querySelector(".navbar-toggle");
 document.addEventListener('click', toggleDropdown)

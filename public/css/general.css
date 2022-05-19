@@ -1044,6 +1044,10 @@ td {
   border: solid 2px;
   overflow-y: auto;
 }
+
+.content-container div{
+  display: none;
+}
 /* .left-patient-container { */
 /*   position: absolute; */
 /*   width: 450px; */
