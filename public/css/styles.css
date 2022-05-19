@@ -403,6 +403,13 @@ td {
   align-items: center;
   gap: 5vw;
 }
+.welcome-text {
+  padding: 30px;
+  width: 60%;
+}
+.welcome-text:hover {
+  border: solid 3px;
+}
 .btn-container {
   display: flex;
   margin-bottom: 20px;
