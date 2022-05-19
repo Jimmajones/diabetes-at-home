@@ -26,9 +26,11 @@
         <div class='dropdown'>
           <button><i class='fa fa-bars toggle'></i></button>
           <div class='click-dropdown-content dropdown-right'>
-            <a class='nav-options' href='/'>Dashboard</a>
-            <a class='nav-options' href='/patient/leaderboard'>Leaderboard</a>
-            <a class='nav-options' href='/patient/settings'>Settings</a>
+            {{#if loggedin}}
+              <a class='nav-options' href='/'>Dashboard</a>
+              <a class='nav-options' href='/patient/leaderboard'>Leaderboard</a>
+              <a class='nav-options' href='/patient/settings'>Settings</a>
+            {{/if}}
             <a class='nav-options' href='#'>About Diabetes</a>
             <a class='nav-options' href='#'>About Website</a>
             {{#if loggedin}}
@@ -45,18 +47,11 @@
         <div class='nav-content-container'>
           <ul>
             {{#if loggedin}}
-
               <li><a class='nav-options' href='/'>Dashboard</a></li>
-              <li><a
-                  class='nav-options'
-                  href='/patient/leaderboard'
-                >Leaderboard</a></li>
-              <li><a
-                  class='nav-options'
-                  href='/patient/settings'
-                >Settings</a></li>
-
+              <li><a class='nav-options' href='/patient/leaderboard' >Leaderboard</a></li>
+              <li><a class='nav-options' href='/patient/settings' >Settings</a></li>
             {{/if}}
+
             <!-- add a dropdown option for learn more button -->
             <div class='dropdown'>
               <li><a class='nav-options dropdown-btn' href='#'>Learn More
@@ -67,6 +62,8 @@
                 <a href='/about-website'>About Website</a>
               </div>
             </div>
+
+            <!-- log in/ log out button based on current authentication state -->
             {{#if loggedin}}
               <form class='logout' action='/logout' method='post'>
                 <input class='btn' type='submit' value='Logout' />
@@ -74,6 +71,7 @@
             {{else}}
               <a class='btn' href='/login'>Login</a>
             {{/if}}
+
           </ul>
         </div>
       </nav>
