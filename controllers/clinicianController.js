@@ -85,7 +85,7 @@ const viewProfile = async (req, res, next) => {
     }
 
     res.render('patient-profile', {
-      layout: 'clinician.hbs',
+      layout: 'clinician',
       title: 'Patient Profile',
       patient: patient,
     })
@@ -123,7 +123,7 @@ const patientInList = (patient_id, patient_list) => {
 
 const viewRegister = async (req, res) => {
   res.render('register-patient', {
-    layout: 'clinician.hbs',
+    layout: 'clinician',
     title: 'Register Patient',
   })
 }
@@ -132,7 +132,7 @@ const profileSetting = async (req, res) => {
   // Hardcode the user (for now).
   const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
   res.render('profile-setting', {
-    layout: 'clinician.hbs',
+    layout: 'clinician',
     title: 'Profile Setting',
     patient: patient,
   })
@@ -150,7 +150,7 @@ const viewPatientComments = async (req, res) => {
       { daily_data: { $slice: -1 } }
     ).lean()
     res.render('patient-comments', {
-      layout: 'clinician.hbs',
+      layout: 'clinician',
       title: 'Patient Comments',
       patients: patients,
     })

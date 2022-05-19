@@ -972,85 +972,97 @@ td {
 }
 
 /* patient comments page */
-.left-patient-container {
-  position: absolute;
-  width: 450px;
-  height: 550px;
-  left: 65;
+.comments-container {
+  border: solid 2px;
 }
-
-.patient-list {
-  display: block;
-  height: 420px;
-  overflow-y: scroll;
+.chat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.patient-list .patient-name {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+.chat-content {
+  height: 100px;
+  width: 100px;
 }
+/* .left-patient-container { */
+/*   position: absolute; */
+/*   width: 450px; */
+/*   height: 550px; */
+/*   left: 65; */
+/* } */
+/**/
+/* .patient-list { */
+/*   display: block; */
+/*   height: 420px; */
+/*   overflow-y: scroll; */
+/* } */
+/**/
+/* .patient-list .patient-name { */
+/*   display: table; */
+/*   width: 100%; */
+/*   table-layout: fixed; */
+/* } */
 
-.select {
-  background-color: black !important;
-}
+/* .select { */
+/*   background-color: black !important; */
+/* } */
+/**/
+/* .patient-name:hover { */
+/*   background-color: pink; */
+/* } */
+/**/
+/* .td-button { */
+/*   border: 1px solid black; */
+/*   padding: 15px; */
+/* } */
+/**/
+/* .button-name { */
+/*   border: none; */
+/*   background-color: transparent; */
+/*   font-size: 20px; */
+/*   font-weight: bolder; */
+/* } */
+/**/
+/* .right-comments-container { */
+/*   position: absolute; */
+/*   width: 640px; */
+/*   height: 550px; */
+/*   right: 95; */
+/* } */
+/**/
+/* .patient-comments { */
+/*   width: 620px; */
+/*   background-color: pink; */
+/* } */
+/**/
+/* .patient-comments { */
+/*   display: block; */
+/*   height: 420px; */
+/*   overflow-y: scroll; */
+/* } */
+/**/
+/* .patient-comments .comment { */
+/*   display: table; */
+/*   width: 100%; */
+/*   table-layout: fixed; */
+/* } */
+/**/
+/* .all-comments { */
+/*   border: 1px; */
+/*   width: 600px; */
+/*   height: 550px; */
+/*   background-color: pink; */
+/*   text-align: left; */
+/* } */
 
-.patient-name:hover {
-  background-color: pink;
-}
-
-.td-button {
-  border: 1px solid black;
-  padding: 15px;
-}
-
-.button-name {
-  border: none;
-  background-color: transparent;
-  font-size: 20px;
-  font-weight: bolder;
-}
-
-.right-comments-container {
-  position: absolute;
-  width: 640px;
-  height: 550px;
-  right: 95;
-}
-
-.patient-comments {
-  width: 620px;
-  background-color: pink;
-}
-
-.patient-comments {
-  display: block;
-  height: 420px;
-  overflow-y: scroll;
-}
-
-.patient-comments .comment {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-
-.all-comments {
-  border: 1px;
-  width: 600px;
-  height: 550px;
-  background-color: pink;
-  text-align: left;
-}
-
-/* leaderboard page */ 
+/* leaderboard page */
 .leaderboard-content {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-.podium-container { 
+.podium-container {
   position: relative;
   height: 120%;
   width: 80%;
@@ -1061,17 +1073,17 @@ td {
   padding-right: 10%;
 }
 
-.podium-item { 
+.podium-item {
   width: 200px;
 }
 
-.podium-patient { 
+.podium-patient {
   text-align: center;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   font-size: 25px;
 }
 
-.podium-item .podium-rank { 
+.podium-item .podium-rank {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1079,7 +1091,7 @@ td {
   color: black;
 }
 
-.podium-container .second { 
+.podium-container .second {
   min-height: 150px;
   background: rgba(255, 0, 81, 0.69);
   border-top: 3px solid black;
@@ -1088,7 +1100,6 @@ td {
   border-left: 3px solid black;
 }
 
-
 .podium-container .first { 
   font-size: 50px;
   min-height: 200px;
@@ -1096,7 +1107,7 @@ td {
   border: 3px solid black;
 }
 
-.podium-container .third { 
+.podium-container .third {
   min-height: 100px;
   background: pink;
   border-top: 3px solid black;
