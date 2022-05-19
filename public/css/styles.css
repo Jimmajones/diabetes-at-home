@@ -110,6 +110,7 @@ textarea {
   font-family: monospace;
 }
 
+
 /* Main content should have a white background, take up the majority
  * of the screen and have a border that "meshes" with the footer. */
 main {
@@ -394,6 +395,7 @@ td {
 }
 /************************************************************************************/
 
+
 /********************************* Home Page **************************************/
 .welcome-container {
   display: flex;
@@ -409,6 +411,24 @@ td {
   display: inline-flex;
   gap: 5px;
 }
+
+/* Error 404 page */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.error-message-box {
+  background-color: white;
+  border: solid 3px;
+  padding: 20px;
+}
+.redirect-link {
+  text-decoration: underline 2px var(--light-grey);
+}
+
 /******************************************************************************/
 
 /***************************** Patient UI **********************************/
