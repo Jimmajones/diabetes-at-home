@@ -22,7 +22,7 @@ const viewAllPatients = async (req, res, next) => {
 
     res.render('clinician-dashboard', {
       layout: 'clinician',
-      patients: filledInPatients,
+      patients: patients,
       clinician: clinician,
     })
   } catch (err) {
@@ -44,21 +44,16 @@ const addOnePatient = async (req, res, next) => {
       bio: req.body.bio,
     })
 
-    await Clinician.updateOne(
-      { _id: clinician._id },
-      { $push: { patient_list: newPatient._id } },
-      function (err, small) {
-        if (err) {
-          return next(err)
-        }
-      }
-    )
-    await Patient.create(newPatient, function (err, small) {
-      if (err) {
-        return next(err)
-      }
-    })
-    res.redirect('back')
+    try {
+      await Clinician.updateOne(
+        { _id: clinician._id },
+        { $push: { patient_list: newPatient._id } }
+      )
+      await Patient.create(newPatient)
+      res.redirect('back')
+    } catch (err) {
+      return next(err)
+    }
   }
 }
 
