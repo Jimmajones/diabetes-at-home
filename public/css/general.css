@@ -1160,6 +1160,7 @@ td {
   border-left: 3px solid black;
 }
 
+
 .podium-container .first { 
   font-size: 50px;
   min-height: 200px;
@@ -1176,11 +1177,10 @@ td {
   border-left: 1px solid black;
 }
 
-.star-image { 
+.star-image {
   margin-left: 43%;
   margin-bottom: 5%;
 }
-
 
 /* .warning td {
   column-span: 3;

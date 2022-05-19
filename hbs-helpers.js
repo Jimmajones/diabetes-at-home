@@ -76,6 +76,9 @@ module.exports = {
     }
   },
 
+  is_today: function (date) {
+    return is_today(date)
+  },
   // Find out whether patient has filled in all necessary data.
   is_done: function (patient) {
     return finished_decimal(patient) >= 1
@@ -91,6 +94,9 @@ module.exports = {
     let isWithinThreshold = true
     const record = daily_data[daily_data.length - 1]
 
+	if (!record) {
+		return 'incomplete'
+	}
     for (let data of record.values) {
       if (data.status == 'incomplete') {
         isComplete = false
@@ -176,19 +182,11 @@ module.exports = {
     return null
   },
 
-  // isDataRequired: function (threshold, typeData, isRequired) {
-  //   for (let i = 0; i < threshold.length; i++) {
-  //     if (threshold[i].type.localeCompare(typeData) == 0) {
-  //       if (isRequired) {
-  //         return 'checked'
-  //       } else {
-  //         return ''
-  //       }
-  //     }
-  //   }
-  //   if (isRequired) {
-  //     return ''
-  //   }
-  //   return 'checked'
-  // },
+  range: function (max) {
+    let arr = []
+    for (let i = 0; i < max; i++) {
+      arr.push(i)
+    }
+    return arr
+  }
 }

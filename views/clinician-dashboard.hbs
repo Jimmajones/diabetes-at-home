@@ -1,7 +1,9 @@
 <div class='heading'>
   <h1 class='page-title'>G'day {{clinician.first_name}}!</h1>
 </div>
-<p class='sub-heading'>Here is your patient list.</p>
+<p class='sub-heading'>
+  Here is your patient list. <br>Click on a patient's name to view their profile and set their required data.
+</p>
 
 <div class='table-container'>
   <table class='patient-list'>
@@ -31,7 +33,11 @@
         </td>
         {{#each this.daily_data}}
           {{#each this.values}}
-            <td class='content {{this.status}}'>{{this.value}}</td>
+            {{#if (is_today this.when)}}
+              <td class='content {{this.status}}'>{{this.value}}</td>
+            {{else}}
+              <td class='content incomplete'></td>
+            {{/if}}
           {{/each}}
         {{/each}}
       </tr>

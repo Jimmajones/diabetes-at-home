@@ -1,16 +1,6 @@
 const Patient = require('../models/patients')
 const Clinician = require('../models/clinicians')
 
-// Get all clinicians.
-const getAllClinicians = async (req, res, next) => {
-  try {
-    const clinicians = await Clinician.find()
-    return res.send(clinicians)
-  } catch (err) {
-    return next(err)
-  }
-}
-
 // Get all the patients of a clinician.
 const viewAllPatients = async (req, res, next) => {
   try {
@@ -32,7 +22,7 @@ const viewAllPatients = async (req, res, next) => {
 
     res.render('clinician-dashboard', {
       layout: 'clinician',
-      patients: filledInPatients,
+      patients: patients,
       clinician: clinician,
     })
   } catch (err) {
@@ -40,29 +30,30 @@ const viewAllPatients = async (req, res, next) => {
   }
 }
 
-// Get one specific patient
-const getOnePatient = async (req, res, next) => {
-  try {
-    const patient = await Patient.findById(req.params.patient_id).lean()
-    if (patient) {
-      res.send(patient)
-    } else {
-      res.send('patient not found')
-    }
-  } catch (err) {
-    return next(err)
-  }
-}
-
 // Add a new patient
 const addOnePatient = async (req, res, next) => {
-  try {
-    const newPatient = req.body
-    if (!Patient.find((d) => d.patient_id == newPatient.id)) {
-      Patient.push(newPatient)
+  const clinician = req.user
+  if (req.body.password == req.body.repassword) {
+    const newPatient = new Patient({
+      role: 'patient',
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
+      username: req.body.screenName,
+      email: req.body.email,
+      password: req.body.password,
+      bio: req.body.bio,
+    })
+
+    try {
+      await Clinician.updateOne(
+        { _id: clinician._id },
+        { $push: { patient_list: newPatient._id } }
+      )
+      await Patient.create(newPatient)
+      res.redirect('back')
+    } catch (err) {
+      return next(err)
     }
-  } catch (err) {
-    return next(err)
   }
 }
 
@@ -128,16 +119,6 @@ const viewRegister = async (req, res) => {
   })
 }
 
-const profileSetting = async (req, res) => {
-  // Hardcode the user (for now).
-  const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
-  res.render('profile-setting', {
-    layout: 'clinician',
-    title: 'Profile Setting',
-    patient: patient,
-  })
-}
-
 const viewPatientComments = async (req, res) => {
   try {
     // Hardcode the user (for now).
@@ -161,7 +142,7 @@ const viewPatientComments = async (req, res) => {
 
 const setThresholds = async (req, res, next) => {
   try {
-    const patient = await Patient.findById(req.body.patient_id).lean()
+    const patient = await Patient.findById(req.params.patient_id).lean()
     let thresholds = []
 
     if (!patient) {
@@ -208,15 +189,29 @@ const setThresholds = async (req, res, next) => {
   }
 }
 
+const addClinicalNote = async (req, res, next) => {
+  try {
+    const patient = await Patient.findById(req.params.patient_id).lean()
+    const newNote = {
+      note: req.body.clinicalNote
+    }
+    await Patient.updateOne(
+      { _id: patient._id },
+      { $push: { clinical_notes: newNote } }
+    )
+    res.redirect('back')
+  } catch (err) {
+    return next(err)
+  }
+}
+
 module.exports = {
-  //getAllClinicians,
   viewAllPatients,
-  getOnePatient,
   addOnePatient,
   viewRegister,
   viewProfile,
-  profileSetting,
   viewPatientComments,
   setThresholds,
   supportMessage,
+  addClinicalNote
 }

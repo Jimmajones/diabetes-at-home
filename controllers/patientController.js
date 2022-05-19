@@ -160,15 +160,30 @@ const updateRecord = async (req, res, next) => {
 }
 
 const viewLeaderboard = async (req, res, next) => {
-  try { 
+  try {
     res.render('leaderboard', {
       layout: 'patient',
       title: 'Leaderboard',
       loggedin: req.isAuthenticated(),
     })
-  } catch (err) { 
+  } catch (err) {
     return next(err)
   }
+}
+
+const viewSettings = async (req, res) => {
+  const patient = req.user.toJSON()
+  res.render('profile-setting', {
+    layout: 'patient',
+    title: 'Profile Setting',
+    patient: patient,
+    loggedin: req.isAuthenticated()
+  })
+}
+
+const changeSettings = async (req, res) => {
+  const patient = req.user.toJSON()
+
 }
 
 module.exports = {
@@ -177,4 +192,6 @@ module.exports = {
   addHealthRecord,
   updateRecord,
   viewLeaderboard,
+  viewSettings,
+  changeSettings
 }
