@@ -1,112 +1,29 @@
-<div class='heading'>
+<div class='patient-comments-container'>
   <h1 class='page-title'>Patient Comments</h1>
+
+  <div class='comments-container'>
+
+    <div class='user-container'>
+      {{#each patients}}
+        <a class='user-box' href='#{{this.username}}'>{{this.username}}</a>
+      {{/each}}
+    </div>
+
+    <div class='content-container'>
+    </div>
+
+  </div>
 </div>
 
-<div class='left-patient-container'>
-  <table class='patient-list'>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-
-        <a href='#james-comments'>
-          <button class='button-name'>
-            James
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#steven-comments'>
-          <button class='button-name'>
-            Steven
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#gerald-comments'>
-          <button class='button-name'>
-            Gerald
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#brian-comments'>
-          <button class='button-name'>
-            Brian
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#ivan-comments'>
-          <button class='button-name'>
-            Ivan
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#pat-comments'>
-          <button class='button-name'>
-            Pat
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#tom-comments'>
-          <button class='button-name'>
-            Tom
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#harry-comments'>
-          <button class='button-name'>
-            Harry
-          </button>
-        </a>
-      </td>
-    </tr>
-
-    <tr class='patient-name'>
-      <td class='td-button'>
-        <a href='#kat-comments'>
-          <button class='button-name'>
-            Kat
-          </button>
-        </a>
-      </td>
-    </tr>
-
-  </table>
-</div>
-
-<div class='right-comments-container'>
-  <table id='james-comments' class='patient-comments'>
-    <tr class='comment'>
-      <td>
-        <textarea class='all-comments'>
-          Yesterday Feeling so good!
-        </textarea>
-      </td>
-    </tr>
-  </table>
-</div>
+<!--   <div class='right-comments-container'> -->
+<!--     <table id='james-comments' class='patient-comments'> -->
+<!--       <tr class='comment'> -->
+<!--         <td> -->
+<!--           <textarea class='all-comments'> -->
+<!--             Yesterday Feeling so good! -->
+<!--           </textarea> -->
+<!--         </td> -->
+<!--       </tr> -->
+<!--     </table> -->
+<!--   </div> -->
+<!-- </div> -->

@@ -4,6 +4,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
+
+  /* remove scrollbar style in all browser */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::webkit-scrollbar {
+  display: none;
 }
 
 :root {
@@ -283,6 +290,10 @@ footer a:hover {
   background-color: black;
   color: white;
   border: none;
+}
+
+.logout {
+  margin: 0;
 }
 
 /* style images */
@@ -973,16 +984,46 @@ td {
 
 /* patient comments page */
 .comments-container {
-  border: solid 2px;
-}
-.chat {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 80%;
+  width: 80%;
+  margin: auto;
 }
-.chat-content {
-  height: 100px;
-  width: 100px;
+.user-container {
+  border: solid 2px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  align-items: flex-start;
+
+  width: 35%;
+
+  /* background-color: lightgray; */
+  overflow-y: auto;
+}
+.user-box {
+  /* background-color: white; */
+  font-size: var(--t1);
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: solid 2px;
+}
+.user-box:hover,
+.user-box:focus {
+  background-color: var(--cream);
+}
+.content-container {
+  background-color: var(--cream);
+  width: 65%;
+  height: 100%;
+  border: solid 2px;
+  overflow-y: auto;
 }
 /* .left-patient-container { */
 /*   position: absolute; */
