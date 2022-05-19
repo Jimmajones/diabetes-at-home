@@ -116,7 +116,8 @@
   </div>
 
 </div>
-
-<div class='support-message'>
-  <h3>{{patient.clinicians_message}}</h3>
-</div>
+{{#if patient.clinicians_message}}
+  <div class='support-message'>
+    <h3>{{patient.clinicians_message}}</h3>
+  </div>
+{{/if}}
