@@ -857,6 +857,11 @@ td {
   justify-content: space-between;
   align-items: center;
 }
+
+.content-container div{
+  display: none;
+}
+
 .input-row {
   display: flex;
   flex-direction: row;
