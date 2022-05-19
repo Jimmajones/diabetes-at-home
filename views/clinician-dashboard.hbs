@@ -31,7 +31,11 @@
         </td>
         {{#each this.daily_data}}
           {{#each this.values}}
-            <td class='content {{this.status}}'>{{this.value}}</td>
+            {{#if (is_today this.when)}}
+              <td class='content {{this.status}}'>{{this.value}}</td>
+            {{else}}
+              <td class='content incomplete'></td>
+            {{/if}}
           {{/each}}
         {{/each}}
       </tr>

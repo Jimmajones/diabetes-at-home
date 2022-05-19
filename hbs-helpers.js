@@ -76,6 +76,9 @@ module.exports = {
     }
   },
 
+  is_today: function (date) {
+    return is_today(date)
+  },
   // Find out whether patient has filled in all necessary data.
   is_done: function (patient) {
     return finished_decimal(patient) >= 1

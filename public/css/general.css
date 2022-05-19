@@ -1043,14 +1043,14 @@ td {
   text-align: left;
 }
 
-/* leaderboard page */ 
+/* leaderboard page */
 .leaderboard-content {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-.podium-container { 
+.podium-container {
   position: relative;
   height: 120%;
   width: 80%;
@@ -1061,17 +1061,17 @@ td {
   padding-right: 10%;
 }
 
-.podium-item { 
+.podium-item {
   width: 200px;
 }
 
-.podium-patient { 
+.podium-patient {
   text-align: center;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   font-size: 25px;
 }
 
-.podium-item .podium-rank { 
+.podium-item .podium-rank {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1079,7 +1079,7 @@ td {
   color: black;
 }
 
-.podium-container .second { 
+.podium-container .second {
   min-height: 150px;
   background: rgba(255, 0, 81, 0.69);
   border-top: 3px solid black;
@@ -1088,15 +1088,14 @@ td {
   border-left: 3px solid black;
 }
 
-
-.podium-container .first { 
+.podium-container .first {
   font-size: 50px;
   min-height: 200px;
   background: rgb(255, 191, 0);
   border: 3px solid black;
 }
 
-.podium-container .third { 
+.podium-container .third {
   min-height: 100px;
   background: pink;
   border-top: 3px solid black;
@@ -1105,11 +1104,10 @@ td {
   border-left: 1px solid black;
 }
 
-.star-image { 
+.star-image {
   margin-left: 43%;
   margin-bottom: 5%;
 }
-
 
 /* .warning td {
   column-span: 3;

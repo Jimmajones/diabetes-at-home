@@ -160,13 +160,13 @@ const updateRecord = async (req, res, next) => {
 }
 
 const viewLeaderboard = async (req, res, next) => {
-  try { 
+  try {
     res.render('leaderboard', {
       layout: 'patient',
       title: 'Leaderboard',
       loggedin: req.isAuthenticated(),
     })
-  } catch (err) { 
+  } catch (err) {
     return next(err)
   }
 }
