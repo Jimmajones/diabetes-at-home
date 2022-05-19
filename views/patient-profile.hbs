@@ -19,6 +19,7 @@
     <div class='scroll-links'>
       <a href='#health-data-title'><p>Today's Health Data</p></a>
       <a href='#health-history-title'><p>Health History</p></a>
+      <a href='#clinical-note-history-title'><p>Clinical Note History</p></a>
       <a href='#time-series-title'><p>Set Time-Series</p></a>
       <a href='#clinical-notes-title'><p>Clinical Notes</p></a>
       <a href='#support-messages-title'><p>Support Messages</p></a>
@@ -82,6 +83,26 @@
               {{#each values}}
                 <td>{{this.value}}</td>
               {{/each}}
+            </tr>
+          {{/each}}
+        </table>
+
+      </div>
+    </div>
+
+    <div class='section'>
+      <h3 id='clinical-note-history-title' class='title-profile'>Clinical Note History</h3>
+      <div id='clinical-note-history'>
+
+        <table class='clinical-note-history-table' id='profile-table'>
+          <tr>
+            <th>Date</th>
+            <th>Clinical Notes</th>
+          </tr>
+          {{#each patient.clinical_notes}}
+            <tr>
+              <td>{{format_date this.when}}</td>
+              {{this.note}}
             </tr>
           {{/each}}
         </table>
