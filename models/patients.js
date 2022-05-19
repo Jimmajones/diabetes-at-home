@@ -34,6 +34,7 @@ const patientSchema = new mongoose.Schema({
   last_name: String,
   thresholds: [thresholdSchema],
   daily_data: [recordSchema],
+  registered: { type: Date, default: Date.now },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },

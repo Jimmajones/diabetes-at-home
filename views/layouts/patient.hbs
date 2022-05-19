@@ -34,9 +34,9 @@
             <a class='nav-options' href='#'>About Diabetes</a>
             <a class='nav-options' href='#'>About Website</a>
             {{#if loggedin}}
-            <form class='logout' action='/logout' method='post'>
-              <input class='btn' type='submit' value='Logout' />
-            </form>
+              <form class='logout' action='/logout' method='post'>
+                <input class='btn' type='submit' value='Logout' />
+              </form>
             {{else}}
               <a class='btn' href='/login'>Login</a>
             {{/if}}
@@ -48,8 +48,14 @@
           <ul>
             {{#if loggedin}}
               <li><a class='nav-options' href='/'>Dashboard</a></li>
-              <li><a class='nav-options' href='/patient/leaderboard' >Leaderboard</a></li>
-              <li><a class='nav-options' href='/patient/settings' >Settings</a></li>
+              <li><a
+                  class='nav-options'
+                  href='/patient/leaderboard'
+                >Leaderboard</a></li>
+              <li><a
+                  class='nav-options'
+                  href='/patient/settings'
+                >Settings</a></li>
             {{/if}}
 
             <!-- add a dropdown option for learn more button -->

@@ -110,7 +110,6 @@ textarea {
   font-family: monospace;
 }
 
-
 /* Main content should have a white background, take up the majority
  * of the screen and have a border that "meshes" with the footer. */
 main {
@@ -394,7 +393,6 @@ td {
   width: 20%;
 }
 /************************************************************************************/
-
 
 /********************************* Home Page **************************************/
 .welcome-container {
@@ -1026,7 +1024,6 @@ td {
     margin-bottom: 8px;
   }
 }
-
 
 /**************************************** WIP *********************************************/
 /* patient comments page */

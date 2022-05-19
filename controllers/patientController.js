@@ -159,11 +159,37 @@ const updateRecord = async (req, res, next) => {
   }
 }
 
+// Display patients sorted by their engagement rate
 const viewLeaderboard = async (req, res, next) => {
   try {
+    const patients = await Patient.find().lean()
+    for (let i = 0; i < patients.length; i++) {
+      let today = new Date()
+      let registered = patients[i].registered
+      let difference_in_days = Math.ceil(
+        (today.getTime() - registered.getTime()) / (1000 * 60 * 60 * 24)
+      )
+      if (difference_in_days != 0) {
+        patients[i].score = patients[i].daily_data.length / difference_in_days
+      } else {
+        patients[i].score = 1
+      }
+    }
+
+    // Sort patients by engagement rate
+    patients.sort(function cmp(a, b) {
+      if (a.score < b.score) {
+        return -1 // If you want to reverse the order, just swap this...
+      }
+      if (a.score > b.score) {
+        return 1 // ...with this.
+      }
+      return 0
+    })
     res.render('leaderboard', {
       layout: 'patient',
       title: 'Leaderboard',
+      patients: patients,
       loggedin: req.isAuthenticated(),
     })
   } catch (err) {

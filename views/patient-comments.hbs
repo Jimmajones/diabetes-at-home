@@ -5,13 +5,17 @@
 
     <div class='user-container'>
       {{#each patients}}
-        <a class='user-box' onclick="commentToggle('{{this.username}}-comments')" href='#{{this.username}}'>{{this.username}}</a>
+        <a
+          class='user-box'
+          onclick="commentToggle('{{this.username}}-comments')"
+          href='#{{this.username}}'
+        >{{this.username}}</a>
       {{/each}}
     </div>
 
     <div class='content-container'>
       {{#each patients}}
-        <div  id="{{this.username}}-comments">
+        <div id='{{this.username}}-comments'>
           {{#each this.daily_data}}
             {{#each this.values}}
               {{this.type}}

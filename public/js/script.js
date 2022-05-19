@@ -68,6 +68,5 @@ const toggleDropdown = (event) => {
   })
 }
 
-
 // let dropBtn = document.querySelector(".navbar-toggle");
 document.addEventListener('click', toggleDropdown)
