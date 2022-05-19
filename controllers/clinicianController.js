@@ -76,7 +76,7 @@ const viewProfile = async (req, res, next) => {
     }
 
     res.render('patient-profile', {
-      layout: 'clinician.hbs',
+      layout: 'clinician',
       title: 'Patient Profile',
       patient: patient,
     })
@@ -114,20 +114,20 @@ const patientInList = (patient_id, patient_list) => {
 
 const viewRegister = async (req, res) => {
   res.render('register-patient', {
-    layout: 'clinician.hbs',
+    layout: 'clinician',
     title: 'Register Patient',
   })
 }
 
-const profileSetting = async (req, res) => {
-  // Hardcode the user (for now).
-  const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
-  res.render('profile-setting', {
-    layout: 'clinician.hbs',
-    title: 'Profile Setting',
-    patient: patient,
-  })
-}
+// const profileSetting = async (req, res) => {
+//   // Hardcode the user (for now).
+//   const patient = await Patient.findOne({ first_name: 'Pat' }).lean()
+//   res.render('profile-setting', {
+//     layout: 'clinician',
+//     title: 'Profile Setting',
+//     patient: patient,
+//   })
+// }
 
 const viewPatientComments = async (req, res) => {
   try {
@@ -141,7 +141,7 @@ const viewPatientComments = async (req, res) => {
       { daily_data: { $slice: -1 } }
     ).lean()
     res.render('patient-comments', {
-      layout: 'clinician.hbs',
+      layout: 'clinician',
       title: 'Patient Comments',
       patients: patients,
     })
@@ -152,7 +152,7 @@ const viewPatientComments = async (req, res) => {
 
 const setThresholds = async (req, res, next) => {
   try {
-    const patient = await Patient.findById(req.body.patient_id).lean()
+    const patient = await Patient.findById(req.params.patient_id).lean()
     let thresholds = []
 
     if (!patient) {
@@ -204,7 +204,6 @@ module.exports = {
   addOnePatient,
   viewRegister,
   viewProfile,
-  profileSetting,
   viewPatientComments,
   setThresholds,
   supportMessage,

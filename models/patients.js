@@ -23,6 +23,11 @@ const recordSchema = new mongoose.Schema({
   when: { type: Date, default: Date.now },
 })
 
+const noteSchema = new mongoose.Schema({
+  note: String,
+  when: { type: Date, default: Date.now }
+})
+
 const patientSchema = new mongoose.Schema({
   role: { type: String, required: true },
   first_name: String,
@@ -36,8 +41,9 @@ const patientSchema = new mongoose.Schema({
   engagement_score: Number,
   leaderboard_rank: Number,
   completion_rate: Number,
-  // status: String,
   clinicians_message: String,
+  clinical_notes: [noteSchema],
+  avatar_index: Number
 })
 
 // Password comparison function

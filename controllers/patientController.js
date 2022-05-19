@@ -171,10 +171,27 @@ const viewLeaderboard = async (req, res, next) => {
   }
 }
 
+const viewSettings = async (req, res) => {
+  const patient = req.user.toJSON()
+  res.render('profile-setting', {
+    layout: 'patient',
+    title: 'Profile Setting',
+    patient: patient,
+    loggedin: req.isAuthenticated()
+  })
+}
+
+const changeSettings = async (req, res) => {
+  const patient = req.user.toJSON()
+
+}
+
 module.exports = {
   getAllPatients,
   viewDashboard,
   addHealthRecord,
   updateRecord,
   viewLeaderboard,
+  viewSettings,
+  changeSettings
 }

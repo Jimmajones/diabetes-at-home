@@ -4,6 +4,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
+
+  /* remove scrollbar style in all browser */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::webkit-scrollbar {
+  display: none;
 }
 
 :root {
@@ -283,6 +290,10 @@ footer a:hover {
   background-color: black;
   color: white;
   border: none;
+}
+
+.logout {
+  margin: 0;
 }
 
 /* style images */
@@ -839,14 +850,13 @@ td {
 /*profile page for patients that clinicican can view */
 .patient-profile-container {
   display: flex;
-  height: 130%;
+  /* height: 130%; */
 }
 .left-profile-box {
   width: 30%;
 }
 .right-profile-box {
   width: 70%;
-  overflow-y: auto;
 }
 .profile-name-row {
   display: flex;
@@ -972,76 +982,118 @@ td {
 }
 
 /* patient comments page */
-.left-patient-container {
-  position: absolute;
-  width: 450px;
-  height: 550px;
-  left: 65;
+.comments-container {
+  display: flex;
+  height: 80%;
+  width: 80%;
+  margin: auto;
 }
+.user-container {
+  border: solid 2px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  align-items: flex-start;
 
-.patient-list {
-  display: block;
-  height: 420px;
-  overflow-y: scroll;
+  width: 35%;
+
+  /* background-color: lightgray; */
+  overflow-y: auto;
 }
-
-.patient-list .patient-name {
-  display: table;
+.user-box {
+  /* background-color: white; */
+  font-size: var(--t1);
+  font-weight: 600;
   width: 100%;
-  table-layout: fixed;
-}
+  height: 50px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.select {
-  background-color: black !important;
+  border-bottom: solid 2px;
 }
+.user-box:hover,
+.user-box:focus {
+  background-color: var(--cream);
+}
+.content-container {
+  background-color: var(--cream);
+  width: 65%;
+  height: 100%;
+  border: solid 2px;
+  overflow-y: auto;
+}
+/* .left-patient-container { */
+/*   position: absolute; */
+/*   width: 450px; */
+/*   height: 550px; */
+/*   left: 65; */
+/* } */
+/**/
+/* .patient-list { */
+/*   display: block; */
+/*   height: 420px; */
+/*   overflow-y: scroll; */
+/* } */
+/**/
+/* .patient-list .patient-name { */
+/*   display: table; */
+/*   width: 100%; */
+/*   table-layout: fixed; */
+/* } */
 
-.patient-name:hover {
-  background-color: pink;
-}
-
-.td-button {
-  border: 1px solid black;
-  padding: 15px;
-}
-
-.button-name {
-  border: none;
-  background-color: transparent;
-  font-size: 20px;
-  font-weight: bolder;
-}
-
-.right-comments-container {
-  position: absolute;
-  width: 640px;
-  height: 550px;
-  right: 95;
-}
-
-.patient-comments {
-  width: 620px;
-  background-color: pink;
-}
-
-.patient-comments {
-  display: block;
-  height: 420px;
-  overflow-y: scroll;
-}
-
-.patient-comments .comment {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-
-.all-comments {
-  border: 1px;
-  width: 600px;
-  height: 550px;
-  background-color: pink;
-  text-align: left;
-}
+/* .select { */
+/*   background-color: black !important; */
+/* } */
+/**/
+/* .patient-name:hover { */
+/*   background-color: pink; */
+/* } */
+/**/
+/* .td-button { */
+/*   border: 1px solid black; */
+/*   padding: 15px; */
+/* } */
+/**/
+/* .button-name { */
+/*   border: none; */
+/*   background-color: transparent; */
+/*   font-size: 20px; */
+/*   font-weight: bolder; */
+/* } */
+/**/
+/* .right-comments-container { */
+/*   position: absolute; */
+/*   width: 640px; */
+/*   height: 550px; */
+/*   right: 95; */
+/* } */
+/**/
+/* .patient-comments { */
+/*   width: 620px; */
+/*   background-color: pink; */
+/* } */
+/**/
+/* .patient-comments { */
+/*   display: block; */
+/*   height: 420px; */
+/*   overflow-y: scroll; */
+/* } */
+/**/
+/* .patient-comments .comment { */
+/*   display: table; */
+/*   width: 100%; */
+/*   table-layout: fixed; */
+/* } */
+/**/
+/* .all-comments { */
+/*   border: 1px; */
+/*   width: 600px; */
+/*   height: 550px; */
+/*   background-color: pink; */
+/*   text-align: left; */
+/* } */
 
 /* leaderboard page */
 .leaderboard-content {
@@ -1088,7 +1140,8 @@ td {
   border-left: 3px solid black;
 }
 
-.podium-container .first {
+
+.podium-container .first { 
   font-size: 50px;
   min-height: 200px;
   background: rgb(255, 191, 0);

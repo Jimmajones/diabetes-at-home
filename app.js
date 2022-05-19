@@ -56,7 +56,7 @@ app.use(authRouter)
 // Serve up static pages.
 app.get('/about-diabetes', (req, res) => {
   res.render('about-diabetes', {
-    layout: 'patient.hbs',
+    layout: 'patient',
     title: 'About Diabetes',
     loggedin: req.isAuthenticated(),
   })
@@ -64,7 +64,7 @@ app.get('/about-diabetes', (req, res) => {
 
 app.get('/about-website', (req, res) => {
   res.render('about-website', {
-    layout: 'patient.hbs',
+    layout: 'patient',
     title: 'About Website',
     loggedin: req.isAuthenticated(),
   })
@@ -73,7 +73,7 @@ app.get('/about-website', (req, res) => {
 // Route not found
 app.get('*', (req, res) => {
   res.render('404', {
-    layout: 'patient.hbs',
+    layout: 'patient',
     title: 'Error 404',
   })
 })
