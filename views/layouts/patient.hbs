@@ -6,7 +6,7 @@
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial_scale=1.0' />
     <meta name='author' content='Gerald, Brian, Ivan, Steven, James' />
-    <link rel='stylesheet' href='/css/general.css' />
+    <link rel='stylesheet' href='/css/styles.css' />
     <link
       rel='stylesheet'
       href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
@@ -24,21 +24,22 @@
 
         <!-- a hambuger menu icon that shows up in mobile screen -->
         <div class='dropdown'>
-          <button><i class='fa fa-bars navbar-toggle'></i></button>
+          <button><i class='fa fa-bars toggle'></i></button>
           <div class='click-dropdown-content dropdown-right'>
             {{#if loggedin}}
-              <!-- Don't know how to have <a> with submit -->
-              <form class='logout' action='/logout' method='post'>
-                <input class='btn' type='submit' value='Logout' />
-              </form>
-              <a href='/'>Dashboard</a>
-              <a href='/patient/leaderboard'>Leaderboard</a>
-              <a href='/patient/settings'>Settings</a>
-            {{else}}
-              <a href='/login'>Login</a>
+              <a class='nav-options' href='/'>Dashboard</a>
+              <a class='nav-options' href='/patient/leaderboard'>Leaderboard</a>
+              <a class='nav-options' href='/patient/settings'>Settings</a>
             {{/if}}
-            <a href='#'>About Diabetes</a>
-            <a href='#'>About Website</a>
+            <a class='nav-options' href='#'>About Diabetes</a>
+            <a class='nav-options' href='#'>About Website</a>
+            {{#if loggedin}}
+            <form class='logout' action='/logout' method='post'>
+              <input class='btn' type='submit' value='Logout' />
+            </form>
+            {{else}}
+              <a class='btn' href='/login'>Login</a>
+            {{/if}}
           </div>
         </div>
 
@@ -46,22 +47,23 @@
         <div class='nav-content-container'>
           <ul>
             {{#if loggedin}}
-
               <li><a class='nav-options' href='/'>Dashboard</a></li>
-              <li><a class='nav-options' href='/patient/leaderboard'>Leaderboard</a></li>
-              <li><a class='nav-options' href='/patient/settings'>Settings</a></li>
-
+              <li><a class='nav-options' href='/patient/leaderboard' >Leaderboard</a></li>
+              <li><a class='nav-options' href='/patient/settings' >Settings</a></li>
             {{/if}}
+
             <!-- add a dropdown option for learn more button -->
             <div class='dropdown'>
               <li><a class='nav-options dropdown-btn' href='#'>Learn More
                   <i class='fa fa-caret-down'></i>
                 </a></li>
               <div class='dropdown-content'>
-                <a href='/about-diabetes'>About Diabetes</a>
-                <a href='/about-website'>About Website</a>
+                <a class='nav-options' href='/about-diabetes'>About Diabetes</a>
+                <a class='nav-options' href='/about-website'>About Website</a>
               </div>
             </div>
+
+            <!-- log in/ log out button based on current authentication state -->
             {{#if loggedin}}
               <form class='logout' action='/logout' method='post'>
                 <input class='btn' type='submit' value='Logout' />
@@ -69,6 +71,7 @@
             {{else}}
               <a class='btn' href='/login'>Login</a>
             {{/if}}
+
           </ul>
         </div>
       </nav>

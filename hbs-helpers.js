@@ -94,9 +94,9 @@ module.exports = {
     let isWithinThreshold = true
     const record = daily_data[daily_data.length - 1]
 
-	if (!record) {
-		return 'incomplete'
-	}
+    if (!record) {
+      return 'incomplete'
+    }
     for (let data of record.values) {
       if (data.status == 'incomplete') {
         isComplete = false
@@ -188,5 +188,5 @@ module.exports = {
       arr.push(i)
     }
     return arr
-  }
+  },
 }

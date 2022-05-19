@@ -2,7 +2,9 @@
   <h1 class='page-title'>G'day {{clinician.first_name}}!</h1>
 </div>
 <p class='sub-heading'>
-  Here is your patient list. <br>Click on a patient's name to view their profile and set their required data.
+  Here is your patient list.
+  <br />Click on a patient's name to view their profile and set their required
+  data.
 </p>
 
 <div class='table-container'>
@@ -22,7 +24,10 @@
             <i id='button-{{this._id}}' class='fa fa-chevron-right'></i>
           </button>
 
-          <img class='patient-overview-profile-image' src='/assets/avatar_{{this.avatar_index}}.svg' />
+          <img
+            class='patient-overview-profile-image'
+            src='/assets/avatar_{{this.avatar_index}}.svg'
+          />
           <a href='/clinician/patient-profile/{{this.username}}'>
             <p class='names'>{{this.first_name}} {{this.last_name}}</p>
           </a>
@@ -56,7 +61,7 @@
                       src='/assets/{{this.status}}.svg'
                     />
 
-                    <div class='text-container'>
+                    <div class='warning-text-container'>
                       <h3 class='warning-header'>{{showTypeName this.type}}</h3>
                       <span class='content warning-explanation'>
                         {{showWarningText this.status}}

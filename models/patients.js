@@ -25,7 +25,7 @@ const recordSchema = new mongoose.Schema({
 
 const noteSchema = new mongoose.Schema({
   note: String,
-  when: { type: Date, default: Date.now }
+  when: { type: Date, default: Date.now },
 })
 
 const patientSchema = new mongoose.Schema({
@@ -43,7 +43,7 @@ const patientSchema = new mongoose.Schema({
   completion_rate: Number,
   clinicians_message: String,
   clinical_notes: [noteSchema],
-  avatar_index: Number
+  avatar_index: Number,
 })
 
 // Password comparison function
