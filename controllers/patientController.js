@@ -159,9 +159,17 @@ const updateRecord = async (req, res, next) => {
   }
 }
 
+const viewLeaderboard = async (req, res) => { 
+  res.render('leaderboard', {
+    layout: 'patient.hbs',
+    title: 'Leaderboard',
+  })
+}
+
 module.exports = {
   getAllPatients,
   viewDashboard,
   addHealthRecord,
   updateRecord,
+  viewLeaderboard,
 }
