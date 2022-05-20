@@ -94,7 +94,7 @@ module.exports = {
     let isWithinThreshold = true
     const record = daily_data[daily_data.length - 1]
 
-    if (!record) {
+    if (!record || !is_today(record.when)) {
       return 'incomplete'
     }
     for (let data of record.values) {
