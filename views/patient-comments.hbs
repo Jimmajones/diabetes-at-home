@@ -17,9 +17,9 @@
       {{#each patients}}
         <div class='comment-content' id='{{this.username}}-comments'>
           {{#each this.daily_data}}
-            <p class='date'>{{format_date this.when}}</p>
             {{#each this.values}}
               {{#if this.comment}}
+                <p class='date'>{{format_date this.when}}</p>
                 <p style='margin: 0; font-weight: 600;'>{{this.type}}:
                   {{this.value}}</p>
                 <p class='content-values'>
