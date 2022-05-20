@@ -27,7 +27,7 @@ const getAllPatients = async (req, res, next) => {
 const viewDashboard = async (req, res, next) => {
   try {
     const patient = req.user.toJSON()
-    patient.score_percent = get_score(patient) * 100
+    patient.score_percent = Math.round((get_score(patient)*100) * 100) / 100;
     patient.is_over_80 = patient.score_percent >= 80
     res.render('patient-dashboard', {
       layout: 'patient',
@@ -178,7 +178,7 @@ const viewLeaderboard = async (req, res, next) => {
   try {
     const patients = await Patient.find().lean()
     for (let i = 0; i < patients.length; i++) {
-      patients[i].score = get_score(patients[i])
+      patients[i].score = Math.round(get_score(patients[i])*100*100) / 100;
     }
 
     // Sort patients by engagement rate

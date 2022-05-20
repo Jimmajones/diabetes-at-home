@@ -929,8 +929,8 @@ td {
 }
 
 /*Register Patient and Edit profile setting page*/
-.register-form,
-.setting-form {
+#register-form,
+#setting-form {
   width: 100%;
   /* split 2 columns */
   display: flex;
@@ -1005,8 +1005,8 @@ td {
   color: var(--dark-grey);
 }
 /* slightly different input box style in profile settings page */
-.setting-form input,
-.setting-form textarea {
+#setting-form input,
+#setting-form textarea {
   border: none;
 }
 /* profile image upload section */
@@ -1151,7 +1151,7 @@ td {
     justify-content: center;
     align-items: center;
   }
-  .setting-form {
+  #setting-form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
