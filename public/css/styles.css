@@ -743,6 +743,12 @@ td {
   color: var(--error-red);
   font-weight: 600;
 }
+
+.content.good {
+  color: var(--success-green-dark);
+  font-weight: 600;
+}
+
 /* missing data */
 .content.incomplete::after {
   display: inline-block;
@@ -1235,6 +1241,7 @@ td {
 }
 .date {
   width: 100px;
+  align-self: center
 }
 .content-values {
   font-size: var(--t2);

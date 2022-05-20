@@ -122,14 +122,27 @@ const viewRegister = async (req, res) => {
 const viewPatientComments = async (req, res) => {
   try {
     // Hardcode the user (for now).
-    const clinician = await Clinician.findOne({ first_name: 'Chris' })
+    const clinician = req.user
     // Find all Patient document IDs listed for this Clinician.
     const patients = await Patient.find(
       {
         _id: { $in: clinician.patient_list },
-      },
-      { daily_data: { $slice: -1 } }
+      }
     ).lean()
+
+    // Sort daily_data by latest date first
+    for (let patient of patients) {
+      patient.daily_data.sort(function cmp(a, b) {
+        if (a.when < b.when) {
+          return 1
+        }
+        if (a.when > b.when) {
+          return -1
+        }
+        return 0
+      })
+    }
+
     res.render('patient-comments', {
       layout: 'clinician',
       title: 'Patient Comments',
