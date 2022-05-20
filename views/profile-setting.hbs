@@ -7,11 +7,17 @@
   <div class='left-setting-box'>
 
     <div class='profile-container'>
-      <div class='profile-circle'>
+      <div class='image-cropper'>
+        <img
+          id='profile-setting-avatar'
+          class='patient-profile-avatar'
+          src='/assets/avatar_{{patient.avatar_index}}.svg'
+        />
       </div>
 
       <p>Select your avatar</p>
       <div class='choosing-area'>
+<<<<<<< HEAD
         <div>
           <input type='radio' id='choiceAvatar0' name='avatar' value='avatar0'>
           <label for='choiceAvatar0'> 
@@ -47,6 +53,22 @@
           </label>
         </div>
 
+=======
+        {{#each (range 5)}}
+          <input
+            type='radio'
+            name='profile-avatar'
+            value='{{this}}'
+            onclick="toggleAvatar('{{this}}', 'profile-setting-avatar')"
+          />
+          <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
+        {{/each}}
+        {{! <img class='icon-choices' src='/assets/brian.svg' />
+        <img class='icon-choices' src='/assets/steven.svg' />
+        <img class='icon-choices' src='/assets/ivan.svg' />
+        <img class='icon-choices' src='/assets/james.svg' />
+        <img class='icon-choices' src='/assets/gerald.svg' /> }}
+>>>>>>> refs/remotes/origin/main
       </div>
 
     </div>

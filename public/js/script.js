@@ -10,6 +10,22 @@ const toggle = (id) => {
   }
 }
 
+let prevComment = null
+const commentToggle = (id) => {
+  let x = document.getElementById(id)
+  if (prevComment != null) {
+    let y = document.getElementById(prevComment)
+    y.style.display = 'none'
+  }
+  x.style.display = 'block'
+  prevComment = id
+}
+
+let toggleAvatar = (numID, avatarID) => {
+  let x = document.getElementById(avatarID)
+  x.src = '/assets/avatar_' + numID + '.svg'
+}
+
 function stepper(btnType) {
   let myInput = document.getElementById('bloodGlucoseLeveltime')
   let btn = get.getElementById(btnType)

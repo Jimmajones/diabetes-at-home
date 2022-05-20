@@ -11,4 +11,8 @@ patientRouter.post('/', urlencodedParser, patientController.addHealthRecord)
 
 patientRouter.get('/leaderboard', patientController.viewLeaderboard)
 
+patientRouter.get('/settings', patientController.viewSettings)
+
+patientRouter.post('/settings', patientController.changeSettings)
+
 module.exports = patientRouter

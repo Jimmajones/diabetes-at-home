@@ -1,6 +1,19 @@
 const Patient = require('../models/patients')
 // const Clinician = require('../models/clinicians')
 
+function get_score(patient) {
+  let today = new Date()
+  let registered = patient.registered
+  let difference_in_days = Math.ceil(
+    (today.getTime() - registered.getTime()) / (1000 * 60 * 60 * 24)
+  )
+  if (patient.daily_data.length > 0) {
+    return patient.daily_data.length / difference_in_days
+  } else {
+    return 0
+  }
+}
+
 // Get all patients.
 const getAllPatients = async (req, res, next) => {
   try {
@@ -14,7 +27,8 @@ const getAllPatients = async (req, res, next) => {
 const viewDashboard = async (req, res, next) => {
   try {
     const patient = req.user.toJSON()
-
+    patient.score_percent = get_score(patient) * 100
+    patient.is_over_80 = patient.score_percent >= 80
     res.render('patient-dashboard', {
       layout: 'patient',
       patient: patient,
@@ -159,16 +173,47 @@ const updateRecord = async (req, res, next) => {
   }
 }
 
+// Display patients sorted by their engagement rate
 const viewLeaderboard = async (req, res, next) => {
-  try { 
+  try {
+    const patients = await Patient.find().lean()
+    for (let i = 0; i < patients.length; i++) {
+      patients[i].score = get_score(patients[i])
+    }
+
+    // Sort patients by engagement rate
+    patients.sort(function cmp(a, b) {
+      if (a.score < b.score) {
+        return 1 // If you want to reverse the order, just swap this...
+      }
+      if (a.score > b.score) {
+        return -1 // ...with this.
+      }
+      return 0
+    })
     res.render('leaderboard', {
       layout: 'patient',
       title: 'Leaderboard',
+      patients: patients,
       loggedin: req.isAuthenticated(),
     })
-  } catch (err) { 
+  } catch (err) {
     return next(err)
   }
+}
+
+const viewSettings = async (req, res) => {
+  const patient = req.user.toJSON()
+  res.render('profile-setting', {
+    layout: 'patient',
+    title: 'Profile Setting',
+    patient: patient,
+    loggedin: req.isAuthenticated(),
+  })
+}
+
+const changeSettings = async (req, res) => {
+  const patient = req.user.toJSON()
 }
 
 module.exports = {
@@ -177,4 +222,6 @@ module.exports = {
   addHealthRecord,
   updateRecord,
   viewLeaderboard,
+  viewSettings,
+  changeSettings,
 }

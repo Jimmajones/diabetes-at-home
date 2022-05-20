@@ -1,7 +1,11 @@
 <div class='heading'>
   <h1 class='page-title'>G'day {{clinician.first_name}}!</h1>
 </div>
-<p class='sub-heading'>Here is your patient list.</p>
+<p class='sub-heading'>
+  Here is your patient list.
+  <br />Click on a patient's name to view their profile and set their required
+  data.
+</p>
 
 <div class='table-container'>
   <table class='patient-list'>
@@ -20,7 +24,10 @@
             <i id='button-{{this._id}}' class='fa fa-chevron-right'></i>
           </button>
 
-          <img class='patient-overview-profile-image' src='/assets/brian.svg' />
+          <img
+            class='patient-overview-profile-image'
+            src='/assets/avatar_{{this.avatar_index}}.svg'
+          />
           <a href='/clinician/patient-profile/{{this.username}}'>
             <p class='names'>{{this.first_name}} {{this.last_name}}</p>
           </a>
@@ -31,7 +38,11 @@
         </td>
         {{#each this.daily_data}}
           {{#each this.values}}
-            <td class='content {{this.status}}'>{{this.value}}</td>
+            {{#if (is_today this.when)}}
+              <td class='content {{this.status}}'>{{this.value}}</td>
+            {{else}}
+              <td class='content incomplete'></td>
+            {{/if}}
           {{/each}}
         {{/each}}
       </tr>
@@ -50,7 +61,7 @@
                       src='/assets/{{this.status}}.svg'
                     />
 
-                    <div class='text-container'>
+                    <div class='warning-text-container'>
                       <h3 class='warning-header'>{{showTypeName this.type}}</h3>
                       <span class='content warning-explanation'>
                         {{showWarningText this.status}}

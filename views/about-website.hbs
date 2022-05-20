@@ -27,10 +27,8 @@
     mysterious Steven and tired James. It was made as part of the INFO30002
     group project.</p>
   <div class='avatar'>
-    <img src='assets/gerald.svg' />
-    <img src='assets/brian.svg' />
-    <img src='assets/steven.svg' />
-    <img src='assets/james.svg' />
-    <img src='assets/ivan.svg' />
+    {{#each (range 5)}}
+      <img src='/assets/avatar_{{this}}.svg' />
+    {{/each}}
   </div>
 </div>

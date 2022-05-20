@@ -73,7 +73,7 @@ app.get('/about-website', (req, res) => {
 // Route not found
 app.get('*', (req, res) => {
   res.render('404', {
-    layout: 'patient',
+    layout: false,
     title: 'Error 404',
   })
 })

@@ -13,7 +13,7 @@ clinicianRouter.get(
   clinicianController.viewProfile
 )
 
-clinicianRouter.get('/profile-setting', clinicianController.profileSetting)
+// clinicianRouter.get('/profile-setting', clinicianController.profileSetting)
 
 clinicianRouter.get(
   '/patient-comments',
@@ -21,12 +21,20 @@ clinicianRouter.get(
 )
 
 clinicianRouter.post(
-  '/patient-profile/set-thresholds',
+  '/patient-profile/set-thresholds/:patient_id',
   clinicianController.setThresholds
+)
+
+clinicianRouter.post(
+  '/patient-profile/clinical-note/:patient_id',
+  clinicianController.addClinicalNote
 )
 
 clinicianRouter.post(
   '/patient-profile/support-message/:patient_id',
   clinicianController.supportMessage
 )
+
+clinicianRouter.post('/register-patient', clinicianController.addOnePatient)
+
 module.exports = clinicianRouter

@@ -1,19 +1,26 @@
 <div class='patient-profile-container'>
 
   <div class='left-profile-box'>
-    <div class='profile-circle'></div>
+    <div class='image-cropper'>
+      <img
+        class='patient-profile-avatar'
+        src='/assets/avatar_{{patient.avatar_index}}.svg'
+      />
+    </div>
 
-    <div class='profile-name-row'>
-      <h4>Screen Name:</h4>
-      <h4 class='profile-screenName'>{{patient.username}}</h4>
-    </div>
-    <div class='profile-name-row'>
-      <h4>First Name:</h4>
-      <h4 class='profile-screenName'>{{patient.first_name}}</h4>
-    </div>
-    <div class='profile-name-row'>
-      <h4>Last Name:</h4>
-      <h4 class='profile-screenName'>{{patient.last_name}}</h4>
+    <div class='profile-name-container'>
+      <div class='profile-name-row'>
+        <h4>Screen Name:</h4>
+        <h4 class='profile-screenName'>{{patient.username}}</h4>
+      </div>
+      <div class='profile-name-row'>
+        <h4>First Name:</h4>
+        <h4 class='profile-screenName'>{{patient.first_name}}</h4>
+      </div>
+      <div class='profile-name-row'>
+        <h4>Last Name:</h4>
+        <h4 class='profile-screenName'>{{patient.last_name}}</h4>
+      </div>
     </div>
 
     <div class='scroll-links'>
@@ -25,7 +32,9 @@
       <a href='#support-messages-title'><p>Support Messages</p></a>
     </div>
 
-    <a href=''><p id='view-patient-comment'>View patient's comments</p></a>
+    <a href='/clinician/patient-comments#{{patient.username}}'><p
+        id='view-patient-comment'
+      >View patient's comments</p></a>
   </div>
 
   <div class='right-profile-box'>
@@ -91,7 +100,8 @@
     </div>
 
     <div class='section'>
-      <h3 id='clinical-note-history-title' class='title-profile'>Clinical Note History</h3>
+      <h3 id='clinical-note-history-title' class='title-profile'>Clinical Note
+        History</h3>
       <div id='clinical-note-history'>
 
         <table class='clinical-note-history-table' id='profile-table'>
@@ -102,7 +112,7 @@
           {{#each patient.clinical_notes}}
             <tr>
               <td>{{format_date this.when}}</td>
-              {{this.note}}
+              <td>{{this.note}}</td>
             </tr>
           {{/each}}
         </table>
@@ -112,8 +122,12 @@
 
     <div class='form-container section'>
       <h3 id='time-series-title' class='title-profile'>Set Time-Series</h3>
-      <form id='set-time-series' method='post' action='./set-thresholds'>
-        <input type='hidden' name='patient_id' value='{{patient._id}}' />
+      <form
+        id='set-time-series'
+        method='post'
+        action='set-thresholds/{{patient._id}}'
+      >
+        {{!-- <input type='hidden' name='patient_id' value='{{patient._id}}' /> --}}
         <div class='set-data'>
           <p class='title-profile'>Blood glucose level (nmo/L)</p>
           <div class='set-input'>
@@ -264,10 +278,14 @@
 
     <div class='section'>
       <h3 id='clinical-notes-title' class='title-profile'>Clinical Notes</h3>
-      <form id='clinical-notes' method='post' action="/clinical-note'">
+      <form
+        id='clinical-notes'
+        method='post'
+        action='clinical-note/{{patient._id}}'
+      >
         <div class='text-border'>
           <textarea
-            name='clinicalNotes'
+            name='clinicalNote'
             id='clinicalNotes'
             rows='4'
             placeholder='write clinical notes here...'
