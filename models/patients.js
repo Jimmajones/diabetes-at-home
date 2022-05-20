@@ -41,7 +41,6 @@ const patientSchema = new mongoose.Schema({
   bio: { type: String, required: true },
   engagement_score: Number,
   leaderboard_rank: Number,
-  completion_rate: Number,
   clinicians_message: String,
   clinical_notes: [noteSchema],
   avatar_index: Number,

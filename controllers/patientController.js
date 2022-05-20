@@ -147,7 +147,7 @@ const addHealthRecord = async (req, res, next) => {
       }
       res.redirect('back')
     } else {
-      Patient.updateOne(
+      await Patient.updateOne(
         { _id: patient._id },
         { $push: { daily_data: list } },
         done
@@ -203,17 +203,47 @@ const viewLeaderboard = async (req, res, next) => {
 }
 
 const viewSettings = async (req, res) => {
-  const patient = req.user.toJSON()
-  res.render('profile-setting', {
-    layout: 'patient',
-    title: 'Profile Setting',
-    patient: patient,
-    loggedin: req.isAuthenticated(),
-  })
+  try {
+    const patient = req.user.toJSON()
+    res.render('profile-setting', {
+      layout: 'patient',
+      title: 'Profile Setting',
+      patient: patient,
+      loggedin: req.isAuthenticated()
+    })
+  } catch (err) {
+    return next(err)
+  }
 }
 
-const changeSettings = async (req, res) => {
-  const patient = req.user.toJSON()
+const changeSettings = async (req, res, next) => {
+  try {
+    const patient = req.user
+    if (req.body.password) {
+      if (req.body.password == req.body.repassword) {
+        patient.password = req.body.password
+        await patient.save()
+      } else {
+        res.send('Ensure both passwords match')
+        // return done(undefined, false, {
+        //   message: 'Ensure both passwords match',
+        // })
+      }
+    }
+
+    await Patient.updateOne(
+      { _id: patient._id },
+      { $set: {
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        bio: req.body.bio
+      }},
+    )
+
+    res.redirect('back')
+  } catch (err) {
+    return next(err)
+  }
 }
 
 module.exports = {

@@ -44,17 +44,18 @@
     <div class='input-row'>
 
       <div class='input-box'>
-        <label for='clinician-id'>Email</label>
-        <input name='email' id='email' type='email' value='{{patient.email}}' />
+        <label for='email'>Email</label>
+        <input name='email' id='email' type='email' value='{{patient.email}}' disabled/>
       </div>
 
       <div class='input-box'>
-        <label for='clinician-screenName'>Username</label>
+        <label for='username'>Username</label>
         <input
-          name='screenName'
-          id='screenName'
+          name='username'
+          id='username'
           type='text'
           value='{{patient.username}}'
+          disabled
         />
       </div>
 
@@ -63,7 +64,7 @@
     <div class='input-row'>
 
       <div class='input-box'>
-        <label for='clinician-firstName'>First Name</label>
+        <label for='firstName'>First Name</label>
         <input
           name='firstName'
           id='firstName'
@@ -73,9 +74,9 @@
       </div>
 
       <div class='input-box'>
-        <label for='clinician-lastName'>Last Name</label>
+        <label for='lastName'>Last Name</label>
         <input
-          name='lastname'
+          name='lastName'
           id='lastname'
           type='text'
           value='{{patient.last_name}}'
@@ -87,7 +88,7 @@
     <div class='input-row'>
 
       <div class='input-box'>
-        <label for='clinician-password'>Password</label>
+        <label for='password'>Password</label>
         <input
           name='password'
           id='password'
@@ -96,11 +97,20 @@
         />
       </div>
 
+      <div class='input-box'>
+        <label for='repassword'>Confirm Password</label>
+        <input
+          name='repassword'
+          id='repassword'
+          type='password'
+          value='{{patient.password}}'
+        />
+      </div>
     </div>
 
     <div class='input-row'>
       <div class='input-box bio'>
-        <label for='clinician-bio'>Bio</label>
+        <label for='bio'>Bio</label>
         <textarea name='bio' id='bio' cols='4'>{{patient.bio}}</textarea>
       </div>
     </div>
