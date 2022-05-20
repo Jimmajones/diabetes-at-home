@@ -1008,6 +1008,11 @@ td {
 #setting-form input,
 #setting-form textarea {
   border: none;
+  transition: border 500ms ease 0;
+}
+#setting-form input:hover,
+#setting-form textarea:hover {
+  border: solid 2px var(--light-grey);
 }
 /* profile image upload section */
 .profile-container {
