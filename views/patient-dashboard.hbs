@@ -1,10 +1,15 @@
 <div class='heading'>
   <h1 class='page-title'>G'day {{patient.first_name}}!</h1>
+
   <!-- achievement/badge here -->
   <div class='achievement-badge'>
     {{#if patient.is_over_80}}
-      <img src='/assets/badge.svg' />
+      <h2 class='engagement-score'>Well done!</h2>
+      <a href='#'><img src='/assets/badge.svg' /></a>
+    {{else}}
+      <h2 class='engagement-score' style='color: #fdc500'>Badge Pending...</h2>
     {{/if}}
+    <h4>Engagement Score:</h4>
     <h2 class='engagement-score'>{{patient.score_percent}}%</h2>
   </div>
 
