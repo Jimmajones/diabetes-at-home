@@ -6,13 +6,13 @@ const bcrypt = require('bcryptjs')
 
 const thresholdSchema = new mongoose.Schema({
   type: String,
-  lower: Number,
-  upper: Number,
+  lower: { type: Number, min: 0, max: 9999999 },
+  upper: { type: Number, min: 0, max: 9999999 },
 })
 
 const valueSchema = new mongoose.Schema({
   type: String,
-  value: Number,
+  value: { type: Number, min: 0, max: 9999999 },
   comment: String,
   status: String,
   when: { type: Date, default: Date.now },
@@ -39,7 +39,6 @@ const patientSchema = new mongoose.Schema({
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   bio: { type: String, required: true },
-  engagement_score: Number,
   leaderboard_rank: Number,
   clinicians_message: String,
   clinical_notes: [noteSchema],
