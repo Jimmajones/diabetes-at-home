@@ -150,7 +150,7 @@ const addHealthRecord = async (req, res, next) => {
     } else {
       await Patient.updateOne(
         { _id: patient._id },
-        { $push: { daily_data: list } },
+        { $push: { daily_data: list } }
       )
       res.redirect('back')
     }

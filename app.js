@@ -70,7 +70,6 @@ app.get('/about-diabetes', (req, res) => {
 })
 
 app.get('/about-website', (req, res) => {
-  
   if (!req.user || req.user.role == 'patient') {
     res.render('about-website', {
       layout: 'patient',
