@@ -288,6 +288,41 @@ footer a:hover {
   border: none;
 }
 
+/* search bar */
+.searchbar {
+  background-color: white;
+  border: solid 2px;
+  width: 330px;
+  height: 35px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  /* align search bar to the left */
+  margin: 0 auto 0 20px;
+}
+.searchbar input {
+  all: unset;
+  color: black;
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+}
+.searchbar button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 100%;
+  border-left: solid 2px;
+  display: flex;
+  justify-content: center;
+}
+/* center the search icon */
+.fa-search {
+  margin: auto;
+}
+
 /* button component */
 .btn {
   display: inline-block;
@@ -633,6 +668,7 @@ td {
   outline: none;
   background: none;
   margin-right: 10px;
+  cursor: pointer;
 }
 /*profile image formatting*/
 .patient-overview-profile-image {

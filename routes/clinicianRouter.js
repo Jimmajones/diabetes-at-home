@@ -14,7 +14,7 @@ clinicianRouter.get(
 )
 
 // Search patient
-// clinicianRouter.post('/', clinicianController.viewProfile)
+clinicianRouter.post('/search-patient', clinicianController.searchPatient)
 
 clinicianRouter.get(
   '/patient-comments',

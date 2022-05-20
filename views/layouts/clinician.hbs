@@ -22,18 +22,18 @@
         <a href='/' class='logo'>
           <h3>Diabetes<br />@Home</h3>
         </a>
-
-        {{! <form class='searchbar'>
+        
+        <form class='searchbar' action="/clinician/search-patient" method="post">
           <input
             type='search'
             id='patient-query'
-            name='patient-search'
-            placeholder='Search Patient...'
+            name='username'
+            placeholder='Search patient username...'
           />
           <button type='submit'>
             <i class='fa fa-search'></i>
           </button>
-        </form> }}
+        </form>
 
         <div class='nav-content-container'>
           <ul>

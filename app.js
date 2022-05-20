@@ -55,19 +55,33 @@ app.use(authRouter)
 
 // Serve up static pages.
 app.get('/about-diabetes', (req, res) => {
-  res.render('about-diabetes', {
-    layout: 'patient',
-    title: 'About Diabetes',
-    loggedin: req.isAuthenticated(),
-  })
+  if (req.user.role == 'patient') {
+    res.render('about-diabetes', {
+      layout: 'patient',
+      title: 'About Diabetes',
+      loggedin: req.isAuthenticated(),
+    })
+  } else {
+    res.render('about-diabetes', {
+      layout: 'clinician',
+      title: 'About Diabetes',
+    })
+  }
 })
 
 app.get('/about-website', (req, res) => {
-  res.render('about-website', {
-    layout: 'patient',
-    title: 'About Website',
-    loggedin: req.isAuthenticated(),
-  })
+  if (req.user.role == 'patient') {
+    res.render('about-website', {
+      layout: 'patient',
+      title: 'About Website',
+      loggedin: req.isAuthenticated(),
+    })
+  } else {
+    res.render('about-website', {
+      layout: 'clinician',
+      title: 'About Website',
+    })
+  }
 })
 
 // Route not found

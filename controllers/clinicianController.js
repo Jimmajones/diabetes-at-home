@@ -206,6 +206,14 @@ const addClinicalNote = async (req, res, next) => {
   }
 }
 
+const searchPatient = async (req, res, next) => {
+  try {
+    res.redirect(`/clinician/patient-profile/${req.body.username}`)
+  } catch (err) {
+    next(err)
+  }
+}
+
 module.exports = {
   viewAllPatients,
   addOnePatient,
@@ -215,4 +223,5 @@ module.exports = {
   setThresholds,
   supportMessage,
   addClinicalNote,
+  searchPatient
 }
