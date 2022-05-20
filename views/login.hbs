@@ -1,19 +1,25 @@
-<h1>Login</h1>
+<div class='login-form-container'>
+  {{#each flash}}
+    <p class='alert'>{{this}}</p>
+  {{/each}}
+  <form class='login-form' action='login' method='POST'>
+    <h2>Choose your user type</h2>
+    <div class='role-select-container'>
+      <div>
+        <label for='role'>Patient</label>
+        <input id='patient-radio' class='slider' type='radio' name='role' checked='checked' value='patient' />
+      </div>
+      <div>
+        <label for='role'>Clinician</label>
+        <input id='clinician-radio' class='slider' type='radio' name='role' value='clinician' />
+      </div>
+    </div>
 
-{{#each flash}}
-  <p class='alert'>{{this}}</p>
-{{/each}}
+    <div class='pass-entry'>
+      <input type='text' name='email' placeholder='Email'/>
+      <input type='password' name='password' placeholder='Password'/>
+    </div>
 
-<form action='login' method='POST'>
-  <label for='role'>Patient</label>
-  <input type='radio' name='role' checked='checked' value='patient' />
-
-  <label for='role'>Clinician</label>
-  <input type='radio' name='role' value='clinician' />
-
-  <label for='email'>Email:</label>
-  <input type='text' name='email' />
-  <label for='password'>Password:</label>
-  <input type='password' name='password' />
-  <input type='submit' class='btn' value='Submit' />
-</form>
+    <input type='submit' class='btn yellow-btn' value='Login' />
+  </form>
+</div>
