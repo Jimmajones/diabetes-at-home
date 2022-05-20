@@ -94,6 +94,11 @@ a {
   color: black;
 }
 
+input {
+  font-size: var(--t2);
+  padding-left: 10px;
+}
+
 textarea {
   font-size: var(--t2);
 
@@ -1143,10 +1148,7 @@ td {
   flex-direction: column;
   /* justify-content: space-evenly; */
   align-items: flex-start;
-
   width: 35%;
-
-  /* background-color: lightgray; */
   overflow-y: auto;
 }
 .user-box {
@@ -1172,6 +1174,32 @@ td {
   height: 100%;
   border: solid 2px;
   overflow-y: auto;
+}
+.comment-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 3%;
+  height: 100%;
+}
+.date {
+  width: 100px;
+}
+.content-values {
+  font-size: var(--t2);
+  border: solid 2px;
+  border-radius: 30px;
+  padding: 2px 10px;
+  height: auto;
+  min-height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 5px 0 20px;
+  background-color: var(--primary-bg);
 }
 
 /* leaderboard page */

@@ -17,7 +17,7 @@ const commentToggle = (id) => {
     let y = document.getElementById(prevComment)
     y.style.display = 'none'
   }
-  x.style.display = 'block'
+  x.style.display = 'flex'
   prevComment = id
 }
 

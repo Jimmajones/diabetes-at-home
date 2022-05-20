@@ -15,16 +15,18 @@
 
     <div class='content-container'>
       {{#each patients}}
-        <div id='{{this.username}}-comments'>
+        <div class='comment-content' id='{{this.username}}-comments'>
           {{#each this.daily_data}}
+            <p class='date'>{{format_date this.when}}</p>
             {{#each this.values}}
-              {{this.type}}
-              {{this.value}}
-              <p>{{this.comment}}</p>
-              <pre>
-              </pre>
+              {{#if this.comment}}
+                <p style='margin: 0; font-weight: 600;'>{{this.type}}:
+                  {{this.value}}</p>
+                <p class='content-values'>
+                  {{this.comment}}
+                </p>
+              {{/if}}
             {{/each}}
-            {{format_date this.when}}
           {{/each}}
         </div>
       {{/each}}
@@ -32,16 +34,3 @@
 
   </div>
 </div>
-
-<!--   <div class='right-comments-container'> -->
-<!--     <table id='james-comments' class='patient-comments'> -->
-<!--       <tr class='comment'> -->
-<!--         <td> -->
-<!--           <textarea class='all-comments'> -->
-<!--             Yesterday Feeling so good! -->
-<!--           </textarea> -->
-<!--         </td> -->
-<!--       </tr> -->
-<!--     </table> -->
-<!--   </div> -->
-<!-- </div> -->
