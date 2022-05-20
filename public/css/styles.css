@@ -758,7 +758,7 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 2px;
+  border: solid 3px;
   border-radius: 50%;
 }
 .image-cropper img {
@@ -984,10 +984,11 @@ td {
   margin: 10px;
   text-align: center;
 }
+/* avatar selection area */
 .icon-choices {
   height: 50px;
   width: 50px;
-  /* border: 1px solid var(--light-grey); */
+  border: 1px solid var(--light-grey);
   border-radius: 50%;
 }
 .choosing-area {
@@ -997,25 +998,25 @@ td {
   width: 100%;
   height: 100%;
 }
+/* remove the usual radio circle btn */
 .choosing-area input[type='radio'] {
   opacity: 0;
   position: fixed;
   width: 0;
 }
+/* style the label to make it a selection */
 .choosing-area label {
   display: inline-block;
-  /* border: 2px solid; */
-  /* border-radius: 50%; */
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  /* margin: 5px; */
 }
 .choosing-area label:hover {
-  border: solid 1px var(--light-grey);
+  border: solid 1px;
 }
 .choosing-area input[type="radio"]:checked + label {
   border: solid 1px;
+  background-color: var(--primary-bg);
 }
 
 /*******************************************************************/
