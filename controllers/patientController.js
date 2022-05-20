@@ -8,7 +8,7 @@ function get_score(patient) {
     (today.getTime() - registered.getTime()) / (1000 * 60 * 60 * 24)
   )
   if (patient.daily_data.length > 0) {
-    return patient.daily_data.length / difference_in_days
+    return Math.round((patient.daily_data.length / difference_in_days)*100) / 100
   } else {
     return 0
   }
