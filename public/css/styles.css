@@ -493,12 +493,13 @@ td {
   gap: 40px;
 }
 .pass-entry {
-  width: 100%;
+  width: 70%;
 }
 .role-select-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
   width: 100%;
   height: 100px;
 }
