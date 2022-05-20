@@ -19,15 +19,19 @@
       <div class='choosing-area'>
         {{#each (range 5)}}
           <input
+            id='icon-{{this}}'
             type='radio'
             name='avatar'
             value='{{this}}'
-            onclick="toggleAvatar('{{this}}', 'profile-setting-avatar')"
+            onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
             {{#if (numCompare ../patient.avatar_index this)}}
               checked="checked"
             {{/if}}
           />
-          <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
+
+          <label for='icon-{{this}}'>
+            <img  class='icon-choices' src='/assets/avatar_{{this}}.svg' />
+          </label>
         {{/each}}
       </div>
 

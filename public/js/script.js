@@ -41,22 +41,6 @@ function stepper(btnType) {
   }
 }
 
-// const dropdown = document.querySelector('.dropdown');
-// const dropdownBtn = document.querySelector('.dropdown .dropdown-btn');
-// const dropdownMenu = document.querySelector('.dropdown .dropdown-content');
-//
-// ['mouseover', 'click'].forEach(e => {
-//   dropdown.addEventListener(e, function() {
-//     dropdownBtn.classList.add("show");
-//     dropdownMenu.classList.add("show");
-//   });
-// });
-//
-// dropdown.addEventListener('mouseout', function() {
-//   dropdownBtn.classList.remove("show");
-//   dropdownMenu.classList.remove("show");
-// });
-
 const toggleDropdown = (event) => {
   let dropdowns = document.querySelectorAll('.dropdown')
 
