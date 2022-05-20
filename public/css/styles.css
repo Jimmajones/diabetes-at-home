@@ -657,6 +657,9 @@ td {
 .patient-data-content-row {
   border-top: 2px solid;
 }
+.names:hover {
+  text-decoration: underline 2px; 
+}
 /* user name and image section */
 .profile-data {
   display: flex;
