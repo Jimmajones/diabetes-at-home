@@ -94,35 +94,24 @@
         <img
           id='profile-register-avatar'
           class='patient-profile-avatar'
-          src='/assets/avatar_4.svg'
+          src='/assets/avatar_0.svg'
         />
       </div>
 
       <p>Select your avatar</p>
       <div class='choosing-area'>
-        {{#each (range 4)}}
+        {{#each (range 5)}}
           <input
             type='radio'
-            name='profile-avatar'
+            name='avatar'
             value='{{this}}'
             onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
+            {{#if (numCompare this 0)}}
+              checked="checked"
+            {{/if}}
           />
           <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
         {{/each}}
-        <!--DEFAULT IMAGE is avatar_4-->
-        <input
-          type='radio'
-          name='profile-avatar'
-          value='4'
-          checked='true'
-          onclick="toggleAvatar('4', 'profile-register-avatar')"
-        />
-        <img class='icon-choices' src='/assets/avatar_4.svg' />
-        {{! <img class='icon-choices' src='/assets/brian.svg' />
-        <img class='icon-choices' src='/assets/steven.svg' />
-        <img class='icon-choices' src='/assets/ivan.svg' />
-        <img class='icon-choices' src='/assets/james.svg' />
-        <img class='icon-choices' src='/assets/gerald.svg' /> }}
       </div>
 
     </div>

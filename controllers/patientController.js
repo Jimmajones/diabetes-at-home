@@ -236,7 +236,8 @@ const changeSettings = async (req, res, next) => {
       { $set: {
         first_name: req.body.firstName,
         last_name: req.body.lastName,
-        bio: req.body.bio
+        bio: req.body.bio,
+        avatar_index: req.body.avatar
       }},
     )
 

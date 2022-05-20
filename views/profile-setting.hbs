@@ -20,17 +20,15 @@
         {{#each (range 5)}}
           <input
             type='radio'
-            name='profile-avatar'
+            name='avatar'
             value='{{this}}'
             onclick="toggleAvatar('{{this}}', 'profile-setting-avatar')"
+            {{#if (numCompare ../patient.avatar_index this)}}
+              checked="checked"
+            {{/if}}
           />
           <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
         {{/each}}
-        {{! <img class='icon-choices' src='/assets/brian.svg' />
-        <img class='icon-choices' src='/assets/steven.svg' />
-        <img class='icon-choices' src='/assets/ivan.svg' />
-        <img class='icon-choices' src='/assets/james.svg' />
-        <img class='icon-choices' src='/assets/gerald.svg' /> }}
       </div>
 
     </div>

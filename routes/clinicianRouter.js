@@ -13,7 +13,8 @@ clinicianRouter.get(
   clinicianController.viewProfile
 )
 
-// clinicianRouter.get('/profile-setting', clinicianController.profileSetting)
+// Search patient
+// clinicianRouter.post('/', clinicianController.viewProfile)
 
 clinicianRouter.get(
   '/patient-comments',

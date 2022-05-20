@@ -189,4 +189,8 @@ module.exports = {
     }
     return arr
   },
+
+  numCompare: function (num1, num2) {
+    return num1 == num2
+  }
 }

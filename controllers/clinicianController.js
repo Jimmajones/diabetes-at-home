@@ -42,6 +42,7 @@ const addOnePatient = async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
       bio: req.body.bio,
+      avatar_index: req.body.avatar
     })
 
     try {
