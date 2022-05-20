@@ -5,14 +5,11 @@
   <form class='login-form' action='login' method='POST'>
     <h2>Choose your user type</h2>
     <div class='role-select-container'>
-      <div>
-        <label for='role'>Patient</label>
-        <input id='patient-radio' class='slider' type='radio' name='role' checked='checked' value='patient' />
-      </div>
-      <div>
-        <label for='role'>Clinician</label>
-        <input id='clinician-radio' class='slider' type='radio' name='role' value='clinician' />
-      </div>
+        <input id='patient-radio' type='radio' name='role' checked='checked' value='patient' />
+        <label class='slider' for='patient-radio'>Patient</label>
+
+        <input id='clinician-radio' type='radio' name='role' value='clinician' />
+        <label class='slider' for='clinician-radio'>Clinician</label>
     </div>
 
     <div class='pass-entry'>

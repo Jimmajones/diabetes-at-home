@@ -447,23 +447,16 @@ td {
   width: 100%;
 }
 .login-form {
-  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;;
-  padding: 20px;
   gap: 40px;
 }
 .pass-entry {
   width: 100%;
 }
 .role-select-container {
-  font-size: var(--t1);
-  font-weight: 600;
-  border: solid 2px;
-  background-color: var(--secondary-bg);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -479,6 +472,28 @@ td {
 .login-form input::placeholder {
   font-family: 'Montserrat';
   color: var(--dark-grey);
+}
+.role-select-container input[type='radio'] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+.slider {
+  display: inline-block;
+  background-color: white;
+  padding: 20px 30px;
+  font-size: var(--t1);
+  font-weight: 600;
+  border: 3px solid;
+  border-radius: 5px;
+
+  transition: filter 500ms ease 0;
+}
+.slider:hover {
+  filter: drop-shadow(5px 5px 0px #000000);
+}
+.role-select-container input[type="radio"]:checked + label {
+    background-color:var(--secondary-bg);
 }
 
 /******************************************************************************/
