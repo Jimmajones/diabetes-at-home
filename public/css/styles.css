@@ -1189,7 +1189,7 @@ td {
 .comments-container {
   display: flex;
   height: 80%;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 .user-container {
