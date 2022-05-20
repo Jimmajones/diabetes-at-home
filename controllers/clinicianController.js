@@ -21,6 +21,7 @@ const viewAllPatients = async (req, res, next) => {
     res.render('clinician-dashboard', {
       layout: 'clinician',
       patients: patients,
+      title: 'Dashboard',
       clinician: clinician,
     })
   } catch (err) {
