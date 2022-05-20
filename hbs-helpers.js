@@ -193,4 +193,13 @@ module.exports = {
   numCompare: function (num1, num2) {
     return num1 == num2
   },
+
+  hasComment: function (values) {
+    for (let value of values) {
+      if (value.comment) {
+        return true
+      }
+    }
+    return false
+  }
 }

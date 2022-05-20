@@ -17,21 +17,25 @@
       {{#each patients}}
         <div class='comment-content' id='{{this.username}}-comments'>
           {{#each this.daily_data}}
-            {{#each this.values}}
-              {{#if this.comment}}
-                <p style='margin: 0; font-weight: 600;'>{{showTypeName
-                    this.type
-                  }}:
-                  <span
-                    class='content {{this.status}}'
-                  >{{this.value}}</span></p>
-                <a href='/clinician/patient-profile/{{../../this.username}}'>
-                  <p class='content-values'>
-                    {{this.comment}}
-                  </p>
-                </a>
-              {{/if}}
-            {{/each}}
+            {{#if (hasComment this.values)}}
+              <p class='date'>{{format_date this.when}}</p>
+              {{#each this.values}}
+                {{#if this.comment}}
+                  {{!-- <p class='date'>{{format_date this.when}}</p> --}}
+                  <p style='margin: 0; font-weight: 600;'>{{showTypeName
+                      this.type
+                    }}:
+                    <span
+                      class='content {{this.status}}'
+                    >{{this.value}}</span></p>
+                  <a href='/clinician/patient-profile/{{../../this.username}}'>
+                    <p class='content-values'>
+                      {{this.comment}}
+                    </p>
+                  </a>
+                {{/if}}
+              {{/each}}
+            {{/if}}
           {{/each}}
         </div>
       {{/each}}
