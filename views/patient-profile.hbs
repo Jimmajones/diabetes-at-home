@@ -143,7 +143,7 @@
             <span><p>Min:</p></span>
             <input
               type='number'
-              min='1'
+              min='0'
               max='100'
               step='0.1'
               name='bloodMin'
@@ -156,7 +156,7 @@
             <span><p>Max:</p></span>
             <input
               type='number'
-              min='1'
+              min='0'
               max='100'
               step='0.1'
               name='bloodMax'
@@ -184,8 +184,8 @@
             <span><p>Min:</p></span>
             <input
               type='number'
-              min='1'
-              max='100'
+              min='10'
+              max='500'
               step='0.1'
               name='weightMin'
               value='{{showThreshold patient.thresholds "weight" "lower"}}'
@@ -193,8 +193,8 @@
             <span><p>Max:</p></span>
             <input
               type='number'
-              min='1'
-              max='100'
+              min='10'
+              max='500'
               step='0.1'
               name='weightMax'
               value='{{showThreshold patient.thresholds "weight" "upper"}}'
@@ -217,7 +217,7 @@
             <span><p>Min:</p></span>
             <input
               type='number'
-              min='1'
+              min='0'
               max='100'
               step='1'
               name='insulinMin'
@@ -250,8 +250,8 @@
             <span><p>Min:</p></span>
             <input
               type='number'
-              min='1'
-              max='100'
+              min='0'
+              max='10000000'
               step='1'
               name='stepsMin'
               value='{{showThreshold patient.thresholds "steps" "lower"}}'
@@ -259,8 +259,8 @@
             <span><p>Max:</p></span>
             <input
               type='number'
-              min='1'
-              max='100'
+              min='0'
+              max='10000000'
               step='1'
               name='stepsMax'
               value='{{showThreshold patient.thresholds "steps" "upper"}}'

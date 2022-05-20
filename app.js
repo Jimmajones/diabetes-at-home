@@ -55,7 +55,7 @@ app.use(authRouter)
 
 // Serve up static pages.
 app.get('/about-diabetes', (req, res) => {
-  if (req.user.role == 'patient') {
+  if (!req.user || req.user.role == 'patient') {
     res.render('about-diabetes', {
       layout: 'patient',
       title: 'About Diabetes',
@@ -70,7 +70,8 @@ app.get('/about-diabetes', (req, res) => {
 })
 
 app.get('/about-website', (req, res) => {
-  if (req.user.role == 'patient') {
+  
+  if (!req.user || req.user.role == 'patient') {
     res.render('about-website', {
       layout: 'patient',
       title: 'About Website',

@@ -151,8 +151,8 @@ const addHealthRecord = async (req, res, next) => {
       await Patient.updateOne(
         { _id: patient._id },
         { $push: { daily_data: list } },
-        done
       )
+      res.redirect('back')
     }
   } catch (err) {
     return next(err)
@@ -195,7 +195,7 @@ const viewLeaderboard = async (req, res, next) => {
     res.render('leaderboard', {
       layout: 'patient',
       title: 'Leaderboard',
-      patients: patients,
+      patients: patients.slice(0, 5),
       loggedin: req.isAuthenticated(),
     })
   } catch (err) {
