@@ -123,7 +123,6 @@ main {
   border-left: 2px solid;
 }
 
-
 /* Footer should take up the entire bottom of the screen. */
 footer {
   background-color: var(--secondary-bg);
@@ -492,8 +491,8 @@ td {
 .slider:hover {
   filter: drop-shadow(5px 5px 0px #000000);
 }
-.role-select-container input[type="radio"]:checked + label {
-    background-color:var(--secondary-bg);
+.role-select-container input[type='radio']:checked + label {
+  background-color: var(--secondary-bg);
 }
 
 /******************************************************************************/
@@ -1018,7 +1017,7 @@ td {
 .choosing-area label:hover {
   border: solid 1px;
 }
-.choosing-area input[type="radio"]:checked + label {
+.choosing-area input[type='radio']:checked + label {
   border: solid 1px;
   background-color: var(--primary-bg);
 }
@@ -1107,7 +1106,7 @@ td {
   }
 
   .setting-form-container {
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }

@@ -5,16 +5,22 @@
   <form class='login-form' action='login' method='POST'>
     <h2>Choose your user type</h2>
     <div class='role-select-container'>
-        <input id='patient-radio' type='radio' name='role' checked='checked' value='patient' />
-        <label class='slider' for='patient-radio'>Patient</label>
+      <input
+        id='patient-radio'
+        type='radio'
+        name='role'
+        checked='checked'
+        value='patient'
+      />
+      <label class='slider' for='patient-radio'>Patient</label>
 
-        <input id='clinician-radio' type='radio' name='role' value='clinician' />
-        <label class='slider' for='clinician-radio'>Clinician</label>
+      <input id='clinician-radio' type='radio' name='role' value='clinician' />
+      <label class='slider' for='clinician-radio'>Clinician</label>
     </div>
 
     <div class='pass-entry'>
-      <input type='text' name='email' placeholder='Email'/>
-      <input type='password' name='password' placeholder='Password'/>
+      <input type='text' name='email' placeholder='Email' />
+      <input type='password' name='password' placeholder='Password' />
     </div>
 
     <input type='submit' class='btn yellow-btn' value='Login' />

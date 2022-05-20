@@ -209,7 +209,7 @@ const viewSettings = async (req, res) => {
       layout: 'patient',
       title: 'Profile Setting',
       patient: patient,
-      loggedin: req.isAuthenticated()
+      loggedin: req.isAuthenticated(),
     })
   } catch (err) {
     return next(err)
@@ -233,12 +233,14 @@ const changeSettings = async (req, res, next) => {
 
     await Patient.updateOne(
       { _id: patient._id },
-      { $set: {
-        first_name: req.body.firstName,
-        last_name: req.body.lastName,
-        bio: req.body.bio,
-        avatar_index: req.body.avatar
-      }},
+      {
+        $set: {
+          first_name: req.body.firstName,
+          last_name: req.body.lastName,
+          bio: req.body.bio,
+          avatar_index: req.body.avatar,
+        },
+      }
     )
 
     res.redirect('back')
