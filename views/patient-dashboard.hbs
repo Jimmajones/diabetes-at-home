@@ -2,10 +2,10 @@
   <h1 class='page-title'>G'day {{patient.first_name}}!</h1>
   <!-- achievement/badge here -->
   <div class='achievement-badge'>
-    <!-- TODO: only render this badge if engagament score is over 80 -->
-    <img src='/assets/badge.svg' />
-    <!-- TODO: don't hard code score -->
-    <h2 class='engagement-score'>82%</h2>
+    {{#if patient.is_over_80}}
+      <img src='/assets/badge.svg' />
+    {{/if}}
+    <h2 class='engagement-score'>{{patient.score_percent}}%</h2>
   </div>
 
 </div>

@@ -1,6 +1,19 @@
 const Patient = require('../models/patients')
 // const Clinician = require('../models/clinicians')
 
+function get_score(patient) {
+  let today = new Date()
+  let registered = patient.registered
+  let difference_in_days = Math.ceil(
+    (today.getTime() - registered.getTime()) / (1000 * 60 * 60 * 24)
+  )
+  if (patient.daily_data.length > 0) {
+    return patient.daily_data.length / difference_in_days
+  } else {
+    return 0
+  }
+}
+
 // Get all patients.
 const getAllPatients = async (req, res, next) => {
   try {
@@ -14,7 +27,8 @@ const getAllPatients = async (req, res, next) => {
 const viewDashboard = async (req, res, next) => {
   try {
     const patient = req.user.toJSON()
-
+    patient.score_percent = get_score(patient) * 100
+    patient.is_over_80 = patient.score_percent >= 80
     res.render('patient-dashboard', {
       layout: 'patient',
       patient: patient,
@@ -164,16 +178,7 @@ const viewLeaderboard = async (req, res, next) => {
   try {
     const patients = await Patient.find().lean()
     for (let i = 0; i < patients.length; i++) {
-      let today = new Date()
-      let registered = patients[i].registered
-      let difference_in_days = Math.ceil(
-        (today.getTime() - registered.getTime()) / (1000 * 60 * 60 * 24)
-      )
-      if (difference_in_days != 0) {
-        patients[i].score = patients[i].daily_data.length / difference_in_days
-      } else {
-        patients[i].score = 1
-      }
+      patients[i].score = get_score(patients[i])
     }
 
     // Sort patients by engagement rate
