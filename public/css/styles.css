@@ -889,17 +889,18 @@ td {
 }
 
 /*Register Patient and Edit profile setting page*/
-.register-form-container {
+.register-form,
+.setting-form {
+  width: 100%;
+  /* split 2 columns */
+  display: flex;
+}
+.register-form-container,
+.setting-form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.register-form,
-.setting-container {
-  width: 100%;
-  /* split 2 columns */
-  display: flex;
 }
 .left-register-box,
 .right-setting-box {
@@ -908,6 +909,7 @@ td {
 }
 .right-setting-box {
   border: solid 2px;
+  width: 80%;
 }
 .right-register-box,
 .left-setting-box {
@@ -919,17 +921,16 @@ td {
   justify-content: space-between;
   align-items: center;
 }
-
 .content-container div {
   display: none;
 }
-
 .input-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  margin: 10px 20px;
 }
 /* register patient input box */
 .input-box {
@@ -964,8 +965,8 @@ td {
   color: var(--dark-grey);
 }
 /* slightly different input box style in profile settings page */
-.setting-container input,
-.setting-container textarea {
+.setting-form input,
+.setting-form textarea {
   border: none;
 }
 /* profile image upload section */
@@ -976,8 +977,11 @@ td {
   align-items: center;
 
   width: 100%;
-  /* height: 100%; */
   margin: 30px;
+}
+.profile-container p {
+  width: 100%;
+  text-align: center;
 }
 .input-file {
   font-family: monospace;
@@ -1100,6 +1104,17 @@ td {
 
   .navbar {
     padding: 4% 4% 0; /* top | right & left | bottom */
+  }
+
+  .setting-form-container {
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+  }
+  .setting-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 

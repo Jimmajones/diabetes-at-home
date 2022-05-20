@@ -2,121 +2,127 @@
   <h1 class='page-title'>Edit Profile Setting</h1>
 </div>
 
-<form class='setting-container' method='post'>
+<div class='setting-form-container'>
+  <form class='setting-form' method='post'>
 
-  <div class='left-setting-box'>
+    <div class='left-setting-box'>
 
-    <div class='profile-container'>
-      <div class='image-cropper'>
-        <img
-          id='profile-setting-avatar'
-          class='patient-profile-avatar'
-          src='/assets/avatar_{{patient.avatar_index}}.svg'
-        />
-      </div>
-
-      <p>Select your avatar</p>
-      <div class='choosing-area'>
-        {{#each (range 5)}}
-          <input
-            id='icon-{{this}}'
-            type='radio'
-            name='avatar'
-            value='{{this}}'
-            onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
-            {{#if (numCompare ../patient.avatar_index this)}}
-              checked="checked"
-            {{/if}}
+      <div class='profile-container'>
+        <div class='image-cropper'>
+          <img
+            id='profile-setting-avatar'
+            class='patient-profile-avatar'
+            src='/assets/avatar_{{patient.avatar_index}}.svg'
           />
+        </div>
 
-          <label for='icon-{{this}}'>
-            <img  class='icon-choices' src='/assets/avatar_{{this}}.svg' />
-          </label>
-        {{/each}}
+        <p>Select your avatar</p>
+        <div class='choosing-area'>
+          {{#each (range 5)}}
+            <input
+              id='icon-{{this}}'
+              type='radio'
+              name='avatar'
+              value='{{this}}'
+              onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
+              {{#if (numCompare ../patient.avatar_index this)}}
+                checked="checked"
+              {{/if}}
+            />
+
+            <label for='icon-{{this}}'>
+              <img  class='icon-choices' src='/assets/avatar_{{this}}.svg' />
+            </label>
+          {{/each}}
+        </div>
+
+      </div>
+    </div>
+
+    <div class='right-setting-box'>
+
+      <div class='input-row'>
+
+        <div class='input-box'>
+          <label for='email'>Email</label>
+          <input name='email' id='email' type='email' value='{{patient.email}}' disabled/>
+        </div>
+
+        <div class='input-box'>
+          <label for='username'>Username</label>
+          <input
+            name='username'
+            id='username'
+            type='text'
+            value='{{patient.username}}'
+            disabled
+          />
+        </div>
+
+      </div>
+
+      <div class='input-row'>
+
+        <div class='input-box'>
+          <label for='firstName'>First Name</label>
+          <input
+            name='firstName'
+            id='firstName'
+            type='text'
+            value='{{patient.first_name}}'
+          />
+        </div>
+
+        <div class='input-box'>
+          <label for='lastName'>Last Name</label>
+          <input
+            name='lastName'
+            id='lastname'
+            type='text'
+            value='{{patient.last_name}}'
+          />
+        </div>
+
+      </div>
+
+      <div class='input-row'>
+
+        <div class='input-box'>
+          <label for='password'>Password</label>
+          <input
+            name='password'
+            id='password'
+            type='password'
+            value='{{patient.password}}'
+          />
+        </div>
+
+        <div class='input-box'>
+          <label for='repassword'>Confirm Password</label>
+          <input
+            name='repassword'
+            id='repassword'
+            type='password'
+            value='{{patient.password}}'
+          />
+        </div>
+      </div>
+
+      <div class='input-row'>
+        <div class='input-box bio'>
+          <label for='bio'>Bio</label>
+          <textarea name='bio' id='bio' cols='4'>{{patient.bio}}</textarea>
+        </div>
       </div>
 
     </div>
 
-    <button type='submit' class='update-btn btn yellow-btn'>Update</button>
-
-  </div>
-
-  <div class='right-setting-box'>
-
-    <div class='input-row'>
-
-      <div class='input-box'>
-        <label for='email'>Email</label>
-        <input name='email' id='email' type='email' value='{{patient.email}}' disabled/>
-      </div>
-
-      <div class='input-box'>
-        <label for='username'>Username</label>
-        <input
-          name='username'
-          id='username'
-          type='text'
-          value='{{patient.username}}'
-          disabled
-        />
-      </div>
-
-    </div>
-
-    <div class='input-row'>
-
-      <div class='input-box'>
-        <label for='firstName'>First Name</label>
-        <input
-          name='firstName'
-          id='firstName'
-          type='text'
-          value='{{patient.first_name}}'
-        />
-      </div>
-
-      <div class='input-box'>
-        <label for='lastName'>Last Name</label>
-        <input
-          name='lastName'
-          id='lastname'
-          type='text'
-          value='{{patient.last_name}}'
-        />
-      </div>
-
-    </div>
-
-    <div class='input-row'>
-
-      <div class='input-box'>
-        <label for='password'>Password</label>
-        <input
-          name='password'
-          id='password'
-          type='password'
-          value='{{patient.password}}'
-        />
-      </div>
-
-      <div class='input-box'>
-        <label for='repassword'>Confirm Password</label>
-        <input
-          name='repassword'
-          id='repassword'
-          type='password'
-          value='{{patient.password}}'
-        />
-      </div>
-    </div>
-
-    <div class='input-row'>
-      <div class='input-box bio'>
-        <label for='bio'>Bio</label>
-        <textarea name='bio' id='bio' cols='4'>{{patient.bio}}</textarea>
-      </div>
-    </div>
-
-  </div>
-
-</form>
+  </form>
+  <input
+    type='submit'
+    form='setting-form'
+    class='btn yellow-btn'
+    value='Update'
+  />
+</div>
+<!-- <button form='setting-container' type='submit' class='update-btn btn yellow-btn'>Update</button> -->
