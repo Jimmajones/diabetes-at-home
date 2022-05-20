@@ -201,5 +201,5 @@ module.exports = {
       }
     }
     return false
-  }
+  },
 }
