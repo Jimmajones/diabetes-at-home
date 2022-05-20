@@ -101,19 +101,26 @@
       <p>Select your avatar</p>
       <div class='choosing-area'>
         {{#each (range 5)}}
-          <input
-            id='icon-{{this}}'
-            type='radio'
-            name='avatar'
-            value='{{this}}'
-            onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
-            {{#if (numCompare this 0)}}
-              checked="checked"
-            {{/if}}
-          />
-
+          {{#if (numCompare this 0)}}
+            <input
+              id='icon-{{this}}'
+              type='radio'
+              name='avatar'
+              value='{{this}}'
+              onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
+              checked='checked'
+            />
+          {{else}}
+            <input
+              id='icon-{{this}}'
+              type='radio'
+              name='avatar'
+              value='{{this}}'
+              onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
+            />
+          {{/if}}
           <label for='icon-{{this}}'>
-            <img  class='icon-choices' src='/assets/avatar_{{this}}.svg' />
+            <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
           </label>
         {{/each}}
       </div>

@@ -221,5 +221,5 @@ module.exports = {
   setThresholds,
   supportMessage,
   addClinicalNote,
-  searchPatient
+  searchPatient,
 }

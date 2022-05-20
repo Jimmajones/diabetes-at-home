@@ -19,19 +19,27 @@
         <p>Select your avatar</p>
         <div class='choosing-area'>
           {{#each (range 5)}}
-            <input
-              id='icon-{{this}}'
-              type='radio'
-              name='avatar'
-              value='{{this}}'
-              onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
-              {{#if (numCompare ../patient.avatar_index this)}}
-                checked="checked"
-              {{/if}}
-            />
+            {{#if (numCompare patient.avatar_index this)}}
+              <input
+                id='icon-{{this}}'
+                type='radio'
+                name='avatar'
+                value='{{this}}'
+                onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
+                checked='checked'
+              />
+            {{else}}
+              <input
+                id='icon-{{this}}'
+                type='radio'
+                name='avatar'
+                value='{{this}}'
+                onclick="toggleAvatar('{{this}}', 'profile-register-avatar')"
+              />
+            {{/if}}
 
             <label for='icon-{{this}}'>
-              <img  class='icon-choices' src='/assets/avatar_{{this}}.svg' />
+              <img class='icon-choices' src='/assets/avatar_{{this}}.svg' />
             </label>
           {{/each}}
         </div>
@@ -45,7 +53,13 @@
 
         <div class='input-box'>
           <label for='email'>Email</label>
-          <input name='email' id='email' type='email' value='{{patient.email}}' disabled/>
+          <input
+            name='email'
+            id='email'
+            type='email'
+            value='{{patient.email}}'
+            disabled
+          />
         </div>
 
         <div class='input-box'>
@@ -93,7 +107,7 @@
             name='password'
             id='password'
             type='password'
-            placeholder="Change your password here..."
+            placeholder='Change your password here...'
             value='{{patient.password}}'
           />
         </div>
@@ -104,7 +118,7 @@
             name='repassword'
             id='repassword'
             type='password'
-            placeholder="Retype your new password here..."
+            placeholder='Retype your new password here...'
             value='{{patient.password}}'
           />
         </div>
