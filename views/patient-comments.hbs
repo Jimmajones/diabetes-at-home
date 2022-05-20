@@ -19,9 +19,13 @@
           {{#each this.daily_data}}
             {{#each this.values}}
               {{#if this.comment}}
-                <p style='margin: 0; font-weight: 600;'>{{showTypeName this.type}}:
-                  <span class="content {{this.status}}">{{this.value}}</span></p>
-                <a href="/clinician/patient-profile/{{../../this.username}}">
+                <p style='margin: 0; font-weight: 600;'>{{showTypeName
+                    this.type
+                  }}:
+                  <span
+                    class='content {{this.status}}'
+                  >{{this.value}}</span></p>
+                <a href='/clinician/patient-profile/{{../../this.username}}'>
                   <p class='content-values'>
                     {{this.comment}}
                   </p>

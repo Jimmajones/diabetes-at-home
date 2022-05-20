@@ -1241,7 +1241,7 @@ td {
 }
 .date {
   width: 100px;
-  align-self: center
+  align-self: center;
 }
 .content-values {
   font-size: var(--t2);

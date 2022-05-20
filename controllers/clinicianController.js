@@ -124,11 +124,9 @@ const viewPatientComments = async (req, res) => {
     // Hardcode the user (for now).
     const clinician = req.user
     // Find all Patient document IDs listed for this Clinician.
-    const patients = await Patient.find(
-      {
-        _id: { $in: clinician.patient_list },
-      }
-    ).lean()
+    const patients = await Patient.find({
+      _id: { $in: clinician.patient_list },
+    }).lean()
 
     // Sort daily_data by latest date first
     for (let patient of patients) {
